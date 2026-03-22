@@ -796,11 +796,11 @@ body{background:var(--bg);color:var(--text);font-family:'Pretendard',-apple-syst
 </header>
 
 <nav class="top-nav">
-  <button class="top-nav-btn active" onclick="switchSection('home',this)">개요</button>
-  <button class="top-nav-btn" onclick="switchSection('nursery',this)">육묘</button>
-  <button class="top-nav-btn" onclick="switchSection('ai',this)">AI</button>
-  <button class="top-nav-btn" onclick="switchSection('robot',this)">로봇</button>
-  <button class="top-nav-btn" onclick="switchSection('education',this)">교육</button>
+  <button class="top-nav-btn active" onclick="switchSection('home',this)"><span class="nav-label">개요</span></button>
+  <button class="top-nav-btn" onclick="switchSection('nursery',this)"><span class="nav-label">육묘</span></button>
+  <button class="top-nav-btn" onclick="switchSection('ai',this)"><span class="nav-label">AI</span></button>
+  <button class="top-nav-btn" onclick="switchSection('robot',this)"><span class="nav-label">로봇</span></button>
+  <button class="top-nav-btn" onclick="switchSection('education',this)"><span class="nav-label">교육</span></button>
   <div style="flex:1"></div>
   <button class="edit-mode-btn" id="pptModeBtn" onclick="togglePptMode()">
     <span class="edit-mode-label" id="pptModeLabel">PPT 모드</span>
@@ -1417,44 +1417,76 @@ function pptPrev() {
 
 let editMode = false;
 
-// ── 1. Selectors ──
-// These are ONLY set editable in edit mode (not in normal mode)
-const TEXT_SELECTORS = [
-  '.header-label','.header-title','.header-sub',
-  '.xl-section-title','.xl-sub-title','.xl-vision-banner','.xl-crop-name',
-  '.card-title','.card-sub','.desc','.kpi-label','.kpi-note',
-  '.xl-crop-reasons li',
-  '.model-name','.model-team',
-  '.gloss-term','.gloss-en','.gloss-desc','.gloss-analogy','.gloss-use',
-  '.dp-step-name','.dp-step-meta','.dp-step-duration',
-  '.dp-arch-block-title','.dp-arch-block-sub',
-  '.dp-col-title','.dp-output-title','.dp-output-desc',
-  '.dp-list li','.dp-flow-item',
-  '.io-item-label','.io-out-label','.io-group-title',
-  '.cmp-sum-name','.cmp-sum-meta','.cmp-sum-crop','.cmp-sum-profit',
-  '.cmp-avail-desc','.cmp-meta',
-  '.tag','.access-badge','.proc-name','.proc-sub',
-  '.hvac-diagram-title','.hvac-diagram-subtitle','.fc-title',
-  '.page-footer span',
-].join(',');
-
-// These cells already have data-var and should ALWAYS be editable (normal mode too)
-// Also include plain xl-table td (text cells) for edit mode
-const TABLE_TEXT_SELECTOR = '.xl-table td:not([id^="cv_"]):not([data-var])';
-
+// ── 1. Forbidden check ──
+// 계산식 셀(cv_, data-formula, data-var)과 구조 요소는 편집 불가
 function isForbidden(el) {
   if (!el) return true;
   const tag = el.tagName;
-  if (['SCRIPT','STYLE','BUTTON','INPUT','SELECT','TEXTAREA'].includes(tag)) return true;
-  if (el.closest('nav, button, svg')) return true;
+  // 스크립트/스타일/폼요소/이미지 제외
+  if (['SCRIPT','STYLE','BUTTON','INPUT','SELECT','TEXTAREA','IMG','BR','HR','IFRAME','CANVAS','VIDEO','AUDIO'].includes(tag)) return true;
+  // 네비게이션/버튼/SVG 내부 제외 (단, nav-label은 편집 허용)
+  if (el.classList.contains('nav-label')) return false;
+  if (el.closest('nav, button, svg, .top-nav, .tabs, .ppt-nav')) return true;
+  // 계산식 셀 제외 (cv_ id = computed value)
   if (el.id && el.id.startsWith('cv_')) return true;
-  // Skip merged cells - they break layout
+  // data-formula 속성이 있는 셀 제외
+  if (el.hasAttribute && el.hasAttribute('data-formula')) return true;
+  // 병합 셀 - 레이아웃 깨짐 방지
   if (tag==='TD'||tag==='TH') {
     if ((el.getAttribute('rowspan')||'1')!=='1') return true;
     if ((el.getAttribute('colspan')||'1')!=='1') return true;
     if (el.querySelector('table,ul,ol,div.formula')) return true;
   }
   return false;
+}
+
+// ── 1b. 텍스트를 직접 포함한 "잎(leaf)" 요소인지 판별 ──
+function isTextLeaf(el) {
+  // 자식 중 텍스트 노드가 있고, 그 텍스트가 공백이 아닌 경우
+  for (const child of el.childNodes) {
+    if (child.nodeType === 3 && child.textContent.trim().length > 0) return true;
+  }
+  return false;
+}
+
+// ── 1c. 편집 가능 요소 수집 ──
+function collectEditableElements() {
+  const result = [];
+  // 모든 섹션 내 요소를 순회
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    // 페이지 헤더도 포함
+    const allEls = section.querySelectorAll('*');
+    allEls.forEach(el => {
+      if (isForbidden(el)) return;
+      // 이미 var-cell인 것은 별도 관리
+      if (el.classList.contains('var-cell')) return;
+      // contenteditable 속성이 이미 있는 교육 섹션 요소도 포함
+      const tag = el.tagName;
+      // 텍스트를 직접 담는 요소만 (leaf node)
+      if (!isTextLeaf(el)) return;
+      // 블록 컨테이너급 요소는 자식이 편집되므로 건너뜀
+      // 단, 자식이 전부 인라인(텍스트+inline)이면 OK
+      const hasBlockChild = Array.from(el.children).some(c => {
+        const d = getComputedStyle(c).display;
+        return d === 'block' || d === 'flex' || d === 'grid' || d === 'table';
+      });
+      if (hasBlockChild) return;
+      result.push(el);
+    });
+  });
+  // 페이지 헤더 (섹션 외부)
+  document.querySelectorAll('.page-header *').forEach(el => {
+    if (isForbidden(el)) return;
+    if (el.classList.contains('var-cell')) return;
+    if (!isTextLeaf(el)) return;
+    result.push(el);
+  });
+  // 상단 네비게이션 라벨 (개요, 육묘, AI, 로봇, 교육)
+  document.querySelectorAll('.top-nav .nav-label').forEach(el => {
+    result.push(el);
+  });
+  return result;
 }
 
 // ── 2. Init: set data-var cells always editable ──
@@ -1525,13 +1557,26 @@ function activateEditMode() {
     btn.classList.add('active');
     label.textContent = '편집모드 ON';
     bar.classList.add('visible');
-    // Enable all text elements (투자계획서)
-    document.querySelectorAll(TEXT_SELECTORS + ',' + TABLE_TEXT_SELECTOR).forEach(el => {
-      if (isForbidden(el)) return;
+    // 계산식 셀(cv_, data-var)을 제외한 모든 텍스트 요소를 편집 가능하게
+    const editables = collectEditableElements();
+    editables.forEach(el => {
       el.contentEditable = 'true';
       el.spellcheck = false;
+      el.classList.add('edit-target');
     });
-    // Enable education section contenteditable elements
+    // 테이블 셀 중 계산식이 아닌 것도 편집 가능
+    document.querySelectorAll('.section td, .section th').forEach(el => {
+      if (isForbidden(el)) return;
+      if (el.classList.contains('var-cell')) return;
+      if (el.classList.contains('edit-target')) return;
+      // 자식에 다른 편집 가능 요소가 없는 경우만
+      if (el.querySelector('[contenteditable="true"]')) return;
+      if (!isTextLeaf(el)) return;
+      el.contentEditable = 'true';
+      el.spellcheck = false;
+      el.classList.add('edit-target');
+    });
+    // 교육 섹션의 기존 contenteditable 요소도 활성화
     document.querySelectorAll('#section-education [contenteditable]').forEach(el => {
       el.setAttribute('contenteditable', 'true');
     });
@@ -1540,18 +1585,29 @@ function activateEditMode() {
     btn.classList.remove('active');
     label.textContent = '편집모드 OFF';
     bar.classList.remove('visible');
-    // Remove editability from text-only elements (keep data-var cells editable)
-    document.querySelectorAll(TEXT_SELECTORS + ',' + TABLE_TEXT_SELECTOR).forEach(el => {
-      if (el.classList.contains('var-cell')) return;
+    // edit-target 클래스로 표시된 요소에서 편집 해제 (var-cell은 유지)
+    document.querySelectorAll('.edit-target').forEach(el => {
       el.removeAttribute('contenteditable');
+      el.classList.remove('edit-target');
     });
-    // Disable education section contenteditable
+    // 교육 섹션 contenteditable 비활성화
     document.querySelectorAll('#section-education [contenteditable]').forEach(el => {
+      if (el.classList.contains('var-cell')) return;
       el.setAttribute('contenteditable', 'false');
     });
     if (document.activeElement) document.activeElement.blur();
   }
 }
+
+// ── 3b. 편집 모드에서 nav-label 클릭 시 페이지 전환 방지 ──
+document.addEventListener('click', e => {
+  if (!editMode) return;
+  const label = e.target.closest('.nav-label');
+  if (label && label.contentEditable === 'true') {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+}, true);
 
 // ── 4. Event handlers (work in BOTH modes) ──
 
