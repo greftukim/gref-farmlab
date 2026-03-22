@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python -c \":*)",
+      "WebSearch",
+      "Bash(python -c \"text = open\\(''C:/Users/hite2/OneDrive/바탕 화면/260321/sections/ai.html'',''r'',encoding=''utf-8''\\).read\\(\\); opens = text.count\\(''<div''\\); closes = text.count\\(''</div>''\\); print\\(f''div opens: {opens}, closes: {closes}, balance: {opens - closes}''\\); print\\(f''script opens: {text.count\\(chr\\(60\\)+\"\"script\"\"\\)}, closes: {text.count\\(chr\\(60\\)+\"\"/script\"\"\\)}''\\)\")",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/hite2/AppData/Local/Temp/claude/C--Users-hite2-OneDrive-------260321/dfe493b8-dc93-4dd3-8235-a56e6e7adfe6/tasks/**)",
+      "Bash(done)",
+      "Read(//c/Users/hite2/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/7b7e67d0-bb9e-4f51-9b02-b6641efe5dd3/1d6bb9ab-6480-4d8c-8ff3-1671749ec68b/skills/xlsx/**)",
+      "Bash(pip install:*)",
+      "Bash(grep -oP '[가-힣]{1,5}다\\\\.[^<]' ai.html)",
+      "Bash(python scripts/office/soffice.py --headless --convert-to pdf \"C:/Users/hite2/OneDrive/문서/카카오톡 받은 파일/로봇_프로젝트 계획_251215 v2.pptx\")",
+      "Bash(where soffice:*)",
+      "Read(//c/Program Files/LibreOffice/program/**)",
+      "Bash(where tesseract:*)",
+      "Bash(where pdftoppm:*)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(where gh:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"/c/Program Files/GitHub CLI:$PATH\")",
+      "Bash(gh --version)"
+    ]
+  }
+}

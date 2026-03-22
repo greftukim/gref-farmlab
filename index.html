@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm LAB 운영전략 — GREF</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F7F6F2;--surface:#FFFFFF;--surface2:#F1F0EB;
+  --border:rgba(0,0,0,0.1);--border-mid:rgba(0,0,0,0.18);
+  --text:#1A1A18;--text2:#5A5A55;--text3:#9A9A94;
+  --accent:#1A3A2A;--accent2:#2E6644;
+  --e1-bg:#E6F1FB;--e1-text:#0C447C;
+  --e2-bg:#EAF3DE;--e2-text:#27500A;
+  --e3-bg:#FAEEDA;--e3-text:#633806;
+  --e4-bg:#EEEDFE;--e4-text:#3C3489;
+  --tag-rl-bg:#FCEBEB;--tag-rl:#791F1F;
+  --tag-cv-bg:#E1F5EE;--tag-cv:#085041;
+  --tag-ml-bg:#E6F1FB;--tag-ml:#0C447C;
+  --tag-dp-bg:#FAEEDA;--tag-dp:#633806;
+  --tag-dl-bg:#EEEDFE;--tag-dl:#3C3489;
+  --tag-rb-bg:#F1EFE8;--tag-rb:#444441;
+  --tag-bayes-bg:#FBEAF0;--tag-bayes:#72243E;
+  --unique-bg:#EEEDFE;--unique-text:#3C3489;--unique-border:#AFA9EC;
+  --tag-ai-bg:#E6F1FB;--tag-ai:#0C447C;
+  --tag-robot-bg:#F1EFE8;--tag-robot:#444441;
+  --tag-energy-bg:#FAEEDA;--tag-energy:#633806;
+  --tag-prod-bg:#EAF3DE;--tag-prod:#27500A;
+  --radius:10px;--shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.04);
+}
+body{background:var(--bg);color:var(--text);font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.7;min-height:100vh;}
+
+/* ── Page header ── */
+.page-header{background:var(--accent);color:#fff;padding:32px 48px 28px;}
+.header-label{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+.header-title{font-size:26px;font-weight:700;line-height:1.25;margin-bottom:6px;letter-spacing:-0.02em;}
+.header-sub{font-size:13px;color:rgba(255,255,255,0.55);}
+
+/* ── Top-level nav (육묘 / AI) ── */
+.top-nav{background:var(--accent);border-top:1px solid rgba(255,255,255,0.1);padding:0 20px 0 48px;display:flex;gap:0;align-items:stretch;}
+.top-nav-btn{
+  padding:12px 28px;border:none;background:transparent;
+  color:rgba(255,255,255,0.55);font-family:'Pretendard',sans-serif;
+  font-size:14px;font-weight:500;cursor:pointer;
+  border-bottom:3px solid transparent;margin-bottom:-1px;
+  transition:color 0.15s,border-color 0.15s;
+}
+.top-nav-btn:hover{color:rgba(255,255,255,0.85);}
+.top-nav-btn.active{color:#fff;border-bottom-color:#fff;}
+
+/* ── Section containers ── */
+.section{display:none;}
+.section.active{display:block;}
+
+/* ── Sub-tabs ── */
+.container{max-width:980px;margin:0 auto;padding:14px 18px 32px;}
+.tabs{display:flex;gap:0;margin-bottom:12px;border-bottom:1.5px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.tab-btn{padding:9px 16px;border:none;background:transparent;color:var(--text3);font-family:'Pretendard',sans-serif;font-size:13px;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1.5px;white-space:nowrap;transition:color 0.15s,border-color 0.15s;}
+.tab-btn:hover{color:var(--text2);}
+.tab-btn.active{color:var(--accent);font-weight:500;border-bottom-color:var(--accent);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ── Cards & common ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:8px;width:fit-content;max-width:100%;}
+.card-header{padding:8px 14px;background:var(--surface2);border-bottom:1px solid var(--border);}
+.card-title{font-weight:500;font-size:15px;color:var(--text);}
+.card-sub{font-size:12px;color:var(--text3);margin-top:2px;}
+.card-body{padding:10px 14px;overflow-x:auto;}
+.sl{font-size:10.5px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin:12px 0 6px;font-family:'Pretendard',sans-serif;}
+.sl:first-child{margin-top:0;}
+.desc{font-size:13px;color:var(--text2);line-height:1.7;}
+
+/* ── KPI row ── */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px;}
+@media(max-width:640px){.kpi-row{grid-template-columns:repeat(2,1fr);}}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px;box-shadow:var(--shadow);}
+.kpi-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;}
+.kpi-val{font-size:22px;font-weight:700;color:var(--text);line-height:1.2;}
+.kpi-unit{font-size:12px;color:var(--text3);font-weight:400;margin-left:3px;}
+.kpi-note{font-size:11px;color:var(--text3);margin-top:4px;}
+
+/* ── Tables ── */
+.data-table{width:auto;border-collapse:collapse;font-size:13px;}
+.data-table th{background:var(--surface2);color:var(--text3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);}
+.data-table td{padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.4;text-align:left;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:var(--bg);}
+.num{text-align: left;font-family:'Pretendard',sans-serif;}
+
+/* ── P&L table ── */
+.pl-table{width:auto;border-collapse:collapse;font-size:13px;}
+.pl-table td{padding:3px 6px;border-bottom:1px solid var(--border);color:var(--text);text-align:left;vertical-align:middle;}
+.pl-table tr:last-child td{border-bottom:none;}
+.pl-section{background:var(--surface2);font-weight:500;}
+.pl-total{font-weight:700;color:var(--accent);}
+.pl-sub{padding-left:20px !important;color:var(--text2);text-align:left;}
+.pl-num{text-align: left;}
+.pl-pct{text-align: left;color:var(--text3);}
+
+/* ── Grid layouts ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+@media(max-width:640px){.three-col{grid-template-columns:1fr;}}
+
+/* ── Monthly chart bars ── */
+.month-chart{display:flex;align-items:flex-end;gap:4px;height:100px;margin:8px 0;}
+.month-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;}
+.month-bar{width:100%;border-radius:3px 3px 0 0;background:var(--accent2);min-height:2px;transition:height 0.3s;}
+.month-label{font-size:10px;color:var(--text3);}
+.month-val{font-size:9px;color:var(--text2);}
+
+/* ── Greenhouse SVG wrapper ── */
+.gh-illustration{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px;margin-bottom:16px;box-shadow:var(--shadow);}
+.gh-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;padding:8px 12px 4px;}
+
+/* ── Notes ── */
+.note-block{padding:6px 10px;border-radius:6px;border-left:3px solid;font-size:12.5px;line-height:1.55;margin-bottom:6px;}
+.note-tip{border-color:#3B6D11;background:var(--e2-bg);color:var(--e2-text);}
+.note-info{border-color:#185FA5;background:var(--e1-bg);color:var(--e1-text);}
+.divider{height:1px;background:var(--border);margin:8px 0;}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+.badge-green{background:var(--e2-bg);color:var(--e2-text);}
+.badge-blue{background:var(--e1-bg);color:var(--e1-text);}
+.badge-amber{background:var(--e3-bg);color:var(--e3-text);}
+.badge-purple{background:var(--e4-bg);color:var(--e4-text);}
+
+/* ── Vision diff table ── */
+.diff-table{width:100%;border-collapse:collapse;font-size:13px;}
+.diff-table th{background:var(--accent);color:#fff;padding:9px 14px;text-align:left;font-weight:500;font-size:12px;}
+.diff-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);}
+.diff-table .row-label{background:var(--surface2);font-weight:500;color:var(--text2);}
+.diff-bad{color:#791F1F;}
+.diff-good{color:#27500A;font-weight:500;}
+
+/* ── Process steps ── */
+.process-row{display:flex;align-items:flex-start;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+.proc-step{flex:1;min-width:90px;text-align:center;position:relative;}
+.proc-step::after{content:'→';position:absolute;right:-8px;top:14px;color:var(--text3);font-size:14px;}
+.proc-step:last-child::after{display:none;}
+.proc-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;}
+.proc-name{font-size:11px;font-weight:500;color:var(--text);line-height:1.4;}
+.proc-sub{font-size:10px;color:var(--text3);margin-top:2px;line-height:1.4;}
+
+/* ── Tag styles for AI tabs ── */
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;margin:2px 2px 2px 0;line-height:1.6;}
+.tag-rl{background:var(--tag-rl-bg);color:var(--tag-rl);}
+.tag-cv{background:var(--tag-cv-bg);color:var(--tag-cv);}
+.tag-ml{background:var(--tag-ml-bg);color:var(--tag-ml);}
+.tag-dp{background:var(--tag-dp-bg);color:var(--tag-dp);}
+.tag-dl{background:var(--tag-dl-bg);color:var(--tag-dl);}
+.tag-rb{background:var(--tag-rb-bg);color:var(--tag-rb);}
+.tag-bayes{background:var(--tag-bayes-bg);color:var(--tag-bayes);}
+
+/* ── Model cards (AI) ── */
+.model-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden;}
+.model-header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface2);border-bottom:1px solid var(--border);}
+.edition-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;}
+.e1{background:var(--e1-bg);color:var(--e1-text);}
+.e2{background:var(--e2-bg);color:var(--e2-text);}
+.e3{background:var(--e3-bg);color:var(--e3-text);}
+.e4{background:var(--e4-bg);color:var(--e4-text);}
+.e-ref{background:var(--surface2);color:var(--text3);font-size:10px;border:1px solid var(--border);}
+.model-name{font-weight:500;font-size:15px;color:var(--text);}
+.model-team{font-size:12px;color:var(--text3);margin-top:2px;}
+.model-body{padding:14px 16px;}
+.access-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.access-badge{padding:4px 10px;border-radius:6px;font-size:12px;font-weight:500;border:1px solid transparent;}
+.badge-open{background:var(--e2-bg);color:var(--e2-text);border-color:#C0DD97;}
+.badge-comm{background:var(--e1-bg);color:var(--e1-text);border-color:#85B7EB;}
+.badge-partial{background:var(--e3-bg);color:var(--e3-text);border-color:#EF9F27;}
+
+/* ── CMP table ── */
+.cmp-summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+@media(max-width:700px){.cmp-summary-row{grid-template-columns:repeat(2,1fr);}}
+.cmp-sum-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);}
+.cmp-sum-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:7px;}
+.cmp-sum-name{font-weight:500;font-size:13px;color:var(--text);margin-bottom:2px;}
+.cmp-sum-meta{font-size:11px;color:var(--text3);margin-bottom:7px;}
+.cmp-sum-crop{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;background:var(--surface2);border:1px solid var(--border);color:var(--text2);margin-bottom:8px;}
+.cmp-kpi-val{font-size:20px;font-weight:700;color:var(--text);}
+.cmp-kpi-unit{font-size:11px;color:var(--text3);margin-left:2px;}
+.cmp-sum-profit{font-size:12px;font-weight:500;color:var(--e2-text);}
+.cmp-table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow-x:auto;}
+.cmp-table{width:100%;border-collapse:collapse;min-width:700px;}
+.cmp-th-label{background:var(--surface2);color:var(--text3);font-size:11px;font-weight:500;padding:10px 12px;text-align:left;width:120px;border-right:1px solid var(--border);text-transform:uppercase;letter-spacing:0.05em;}
+.cmp-th{padding:10px 12px;text-align:left;font-size:12px;font-weight:500;border-right:1px solid var(--border);}
+.cmp-th:last-child{border-right:none;}
+.cmp-th.e1{background:var(--e1-bg);color:var(--e1-text);}
+.cmp-th.e2{background:var(--e2-bg);color:var(--e2-text);}
+.cmp-th.e3{background:var(--e3-bg);color:var(--e3-text);}
+.cmp-th.e4{background:var(--e4-bg);color:var(--e4-text);}
+.cmp-th-sub{display:block;font-weight:400;font-size:11px;opacity:0.75;margin-top:2px;}
+.cmp-table td{padding:4px 6px;vertical-align:top;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:12.5px;color:var(--text);line-height:1.45;text-align:left;}
+.cmp-table td:last-child{border-right:none;}
+.cmp-table tr:last-child td{border-bottom:none;}
+.cmp-row-label{background:var(--surface2);color:var(--text2);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.04em;}
+.cmp-row-highlight td{background:#FAFAF7;}
+.cmp-meta{font-size:11px;color:var(--text3);display:block;margin-top:2px;line-height:1.5;}
+.cmp-plus{color:var(--e2-text);}
+.cmp-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;}
+.cmp-list li{font-size:12px;color:var(--text2);padding-left:12px;position:relative;line-height:1.55;}
+.cmp-list li::before{content:'+';position:absolute;left:0;color:var(--e2-text);font-weight:700;}
+.cmp-list.minus li::before{content:'−';color:var(--tag-rl);}
+.cmp-avail{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;margin-bottom:4px;}
+.cmp-avail.yes{background:var(--e2-bg);color:var(--e2-text);}
+.cmp-avail.partial{background:var(--e3-bg);color:var(--e3-text);}
+.cmp-avail-desc{font-size:12px;color:var(--text3);line-height:1.5;}
+.cmp-cost{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+.cmp-cost.low{background:var(--e2-bg);color:var(--e2-text);}
+.cmp-cost.mid{background:var(--e3-bg);color:var(--e3-text);}
+.cmp-cost.high{background:var(--tag-rl-bg);color:var(--tag-rl);}
+.cmp-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:500;margin:2px 2px 2px 0;border:1px solid transparent;}
+.cmp-badge.yes{background:var(--e2-bg);color:var(--e2-text);border-color:#C0DD97;}
+.cmp-badge.partial{background:var(--e3-bg);color:var(--e3-text);border-color:#EF9F27;}
+.cmp-badge.no{background:var(--surface2);color:var(--text3);border-color:var(--border-mid);}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11px;font-weight:500;}
+.pill-go{background:var(--e2-bg);color:var(--e2-text);}
+.pill-mid{background:var(--e3-bg);color:var(--e3-text);}
+.pill-hard{background:var(--tag-rl-bg);color:var(--tag-rl);}
+.app-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px;}
+.app-table{width:100%;border-collapse:collapse;}
+.app-table th{background:var(--surface2);color:var(--text3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;padding:3px 6px;text-align:left;border-bottom:1px solid var(--border);}
+.app-table td{padding:3px 6px;vertical-align:top;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--text);line-height:1.4;text-align:left;}
+.app-table tr:last-child td{border-bottom:none;}
+
+/* ── Data items ── */
+.data-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text2);}
+.legend-item{display:flex;align-items:center;gap:6px;}
+.legend-dot{width:10px;height:10px;border-radius:2px;}
+.ld-req{background:var(--surface);border:1.5px solid var(--border-mid);}
+.ld-opt{background:var(--surface2);border:1px solid var(--border);opacity:0.7;}
+.ld-uni{background:var(--unique-bg);border:1px solid var(--unique-border);}
+.data-group{margin-bottom:10px;}
+.data-group-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:5px;}
+.data-list{display:flex;flex-wrap:wrap;gap:4px;}
+.data-item{display:inline-block;padding:3px 9px;border-radius:5px;font-size:12px;border:1px solid var(--border);color:var(--text2);background:var(--surface2);white-space:nowrap;}
+.data-item.required{border-color:var(--border-mid);color:var(--text);background:var(--surface);font-weight:500;}
+.data-item.optional{opacity:0.6;}
+.data-item.unique{background:var(--unique-bg);color:var(--unique-text);border-color:var(--unique-border);font-weight:500;}
+
+/* ── IO tab ── */
+.io-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden;}
+.io-header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface2);border-bottom:1px solid var(--border);}
+.io-body{padding:16px;}
+.io-flow{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;align-items:start;margin-bottom:16px;}
+@media(max-width:600px){.io-flow{grid-template-columns:1fr;}}
+.io-col{background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.io-col-header{padding:7px 12px;font-size:10.5px;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;border-bottom:1px solid var(--border);}
+.io-col-in .io-col-header{color:var(--e1-text);background:var(--e1-bg);}
+.io-col-out .io-col-header{color:var(--e2-text);background:var(--e2-bg);}
+.io-col-body{padding:10px 12px;}
+.io-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--text3);padding-top:26px;}
+.io-item{display:flex;align-items:baseline;gap:6px;padding:4px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.io-item:last-child{border-bottom:none;}
+.io-item-label{font-weight:500;color:var(--text);flex:1;line-height:1.5;}
+.io-item-unit{font-size:10px;color:var(--text3);white-space:nowrap;}
+.io-group-title{font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin:8px 0 4px;}
+.io-group-title:first-child{margin-top:0;}
+.io-decision-block{margin-top:12px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;}
+.io-decision-title{font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:7px;}
+.io-decision-items{display:flex;flex-wrap:wrap;gap:4px;}
+.io-decision-item{padding:2px 8px;border-radius:12px;font-size:11px;font-weight:500;border:1px solid transparent;}
+.io-d-climate{background:var(--e1-bg);color:var(--e1-text);border-color:#85B7EB;}
+.io-d-irrig{background:#E1F5EE;color:#085041;border-color:#5DCAA5;}
+.io-d-crop{background:var(--e3-bg);color:var(--e3-text);border-color:#EF9F27;}
+.io-d-ipm{background:var(--tag-rl-bg);color:var(--tag-rl);border-color:#F09595;}
+.io-d-econ{background:var(--e4-bg);color:var(--e4-text);border-color:#AFA9EC;}
+.io-out-item{padding:4px 0;font-size:12px;color:var(--text);border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:6px;}
+.io-out-item:last-child{border-bottom:none;}
+.io-out-label{flex:1;font-weight:500;line-height:1.5;}
+.io-out-detail{font-size:10px;color:var(--text3);}
+.out-freq-badge{display:inline-block;padding:1px 6px;border-radius:9px;font-size:9px;font-weight:500;margin-left:4px;background:var(--surface2);color:var(--text3);border:1px solid var(--border);}
+
+/* ── Dev plan ── */
+.dp-hero{display:flex;gap:20px;flex-wrap:wrap;background:var(--accent);color:#fff;border-radius:var(--radius);padding:22px 26px;margin-bottom:18px;}
+.dp-hero-left{flex:1;min-width:200px;}
+.dp-hero-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:5px;}
+.dp-hero-title{font-size:18px;font-weight:700;line-height:1.3;margin-bottom:6px;}
+.dp-hero-desc{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.dp-hero-right{display:flex;flex-direction:column;gap:7px;min-width:210px;}
+.dp-meta-item{display:flex;justify-content:space-between;gap:10px;font-size:12px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;}
+.dp-meta-label{color:rgba(255,255,255,0.5);}
+.dp-meta-val{color:#fff;font-weight:500;}
+.dp-arch{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:18px;box-shadow:var(--shadow);}
+.dp-arch-label{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;}
+.dp-arch-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.dp-arch-block{flex:1;min-width:110px;border-radius:7px;padding:10px 12px;text-align:center;border:1px solid var(--border);}
+.dp-layer1{background:var(--e2-bg);border-color:#C0DD97;}
+.dp-layer2{background:var(--e3-bg);border-color:#EF9F27;}
+.dp-layer3{background:var(--e4-bg);border-color:#AFA9EC;}
+.dp-arch-block-title{font-size:13px;font-weight:500;color:var(--text);}
+.dp-arch-block-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+.dp-arch-arrow{font-size:16px;color:var(--text3);flex-shrink:0;}
+.dp-step-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden;}
+.dp-step-header{display:flex;align-items:center;gap:12px;padding:12px 18px;background:var(--surface2);border-bottom:1px solid var(--border);}
+.dp-step-badge{width:52px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:12px;flex-shrink:0;white-space:nowrap;}
+.dp-step-info{flex:1;}
+.dp-step-name{font-weight:500;font-size:14px;color:var(--text);}
+.dp-step-meta{font-size:11px;color:var(--text3);margin-top:2px;}
+.dp-step-duration{font-size:12px;font-weight:500;color:var(--text2);white-space:nowrap;}
+.dp-step-body{padding:14px 18px;}
+.dp-col-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:600px){.dp-col-wrap{grid-template-columns:1fr;}}
+.dp-col-title{font-size:10.5px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:7px;}
+.dp-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;}
+.dp-list li{font-size:12px;color:var(--text2);padding-left:13px;position:relative;line-height:1.55;}
+.dp-list li::before{content:'+';position:absolute;left:0;color:var(--e2-text);font-weight:700;font-size:12px;}
+.dp-list.minus li::before{content:'−';color:var(--tag-rl);}
+.dp-inner-table{width:100%;border-collapse:collapse;font-size:12px;}
+.dp-inner-table th{background:var(--surface2);color:var(--text3);padding:3px 6px;text-align:left;border-bottom:1px solid var(--border);font-weight:500;}
+.dp-inner-table td{padding:3px 6px;border-bottom:1px solid var(--border);color:var(--text);line-height:1.4;text-align:left;}
+.dp-inner-table tr:last-child td{border-bottom:none;}
+.dp-flow{display:grid;grid-template-columns:1fr 18px 1fr 18px 1fr 18px 1fr;align-items:center;gap:3px;margin-top:4px;}
+.dp-flow-item{background:var(--surface2);border:1px solid var(--border);border-radius:5px;padding:7px 5px;text-align:center;font-size:11px;font-weight:500;color:var(--text);line-height:1.4;}
+.dp-flow-item span{display:block;font-size:9px;font-weight:400;color:var(--text3);margin-top:2px;}
+.dp-flow-arr{text-align:center;font-size:13px;color:var(--text3);}
+.dp-output-card{border:1px solid var(--border);border-radius:6px;padding:9px 11px;margin-bottom:7px;}
+.dp-output-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
+.dp-output-desc{font-size:11px;color:var(--text3);line-height:1.55;}
+.dp-timeline-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-top:18px;}
+.dp-timeline-title{padding:10px 14px;font-size:11px;font-weight:500;color:var(--text2);background:var(--surface2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:0.06em;}
+.dp-tl-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700;}
+
+/* ── Glossary ── */
+.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:540px){.gloss-grid{grid-template-columns:1fr;}}
+.gloss-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+.gloss-head{padding:10px 14px 8px;background:var(--surface2);border-bottom:1px solid var(--border);}
+.gloss-term{font-weight:500;font-size:14px;color:var(--text);}
+.gloss-en{font-size:11px;color:var(--text3);margin-top:2px;}
+.gloss-body{padding:10px 14px 12px;}
+.gloss-analogy{display:inline-block;margin-bottom:7px;background:var(--surface2);border-radius:5px;padding:3px 8px;font-size:12px;color:var(--text2);border:1px solid var(--border);}
+.gloss-desc{font-size:13px;color:var(--text2);line-height:1.65;}
+.gloss-use{font-size:12px;color:var(--text3);margin-top:7px;font-style:italic;}
+.cat-badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:500;margin-left:5px;vertical-align:middle;}
+.cat-ai{background:var(--e1-bg);color:var(--e1-text);}
+.cat-math{background:var(--e3-bg);color:var(--e3-text);}
+.cat-hard{background:var(--e2-bg);color:var(--e2-text);}
+
+/* ── Footer ── */
+.page-footer{background:var(--surface2);border-top:1px solid var(--border);padding:18px 48px;font-size:12px;color:var(--text3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+@media(max-width:700px){.page-header,.top-nav{padding-left:20px;padding-right:20px;}.container{padding:18px 16px 40px;}.page-footer{padding:14px 20px;}}
+
+  /* ── Tooltip system ── */
+  .tip {
+    border-bottom: 1px dashed var(--text3);
+    cursor: help;
+    position: relative;
+    display: inline;
+  }
+  .tip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1A1A18;
+    color: #fff;
+    padding: 7px 11px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    white-space: nowrap;
+    max-width: 280px;
+    white-space: normal;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 1000;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
+  .tip::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1A1A18;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 1000;
+  }
+  .tip:hover::after, .tip:hover::before { opacity: 1; }
+
+  /* ── Formula display (Excel-like) ── */
+  .formula {
+    font-size: 10.5px;
+    color: #7a6c55;
+    font-family: 'Consolas','Monaco',monospace;
+    margin-top: 3px;
+    background: #f5f3ed;
+    border-radius: 3px;
+    padding: 1px 5px;
+    border-left: 2px solid #c8b99a;
+    display: inline-block;
+  }
+  .val-input {
+    color: #0000CC !important;
+    font-weight: 500;
+  }
+  .val-computed { color: var(--text); }
+  .val-key { color: var(--accent); font-weight: 700; }
+  .input-badge {
+    display: inline-block;
+    font-size: 9px;
+    background: #E6F1FB;
+    color: #0C447C;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin-left: 4px;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+  td .formula { display: block; }
+
+  /* ── Flowchart (water flow) ── */
+  .fc-wrap { background: #fafaf8; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); margin-bottom: 16px; overflow-x: auto; }
+  .fc-title { font-size: 11px; font-weight: 500; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 14px; font-family: 'Pretendard', sans-serif; }
+
+  /* ── Excel-style table system ── */
+  .xl-table {
+    width: auto;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    line-height: 1.4;
+    table-layout: auto;
+  }
+  .xl-table th {
+    background: #E8E6DF;
+    color: var(--text2);
+    font-weight: 500;
+    font-size: 11px;
+    padding: 3px 6px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #CCC9BF;
+    white-space: nowrap;
+  }
+  .xl-table td {
+    padding: 3px 6px;
+    border: 1px solid #D9D7CF;
+    color: var(--text);
+    vertical-align: middle;
+    text-align: left;
+  }
+  .xl-table tr:hover td { background: #FAFAF7; }
+  .xl-table .num { text-align: left; font-family: 'Pretendard', monospace; }
+  .xl-input { color: #0000CC !important; font-weight: 500; }
+  .xl-total td { background: #F0EDE4 !important; font-weight: 600; border-top: 2px solid #9B9688 !important; }
+  .xl-subtotal td { background: #F5F3ED; font-weight: 600; }
+  .xl-highlight td { background: var(--e3-bg); }
+  .xl-highlight-green td { background: var(--e2-bg); }
+  .xl-group-cell { background: var(--surface2); font-weight: 500; vertical-align: middle; text-align: left; }
+  .xl-bad { color: #791F1F; }
+  .xl-good { color: #1A3A2A; font-weight: 500; }
+  .xl-wide { min-width: 900px; }
+  .pl-sub { padding-left: 20px !important; color: var(--text2); text-align: left; }
+  .pl-sub2 { padding-left: 32px !important; color: var(--text3); font-size: 12px; text-align: left; }
+  .xl-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    padding: 3px 10px;
+    margin: 12px 0 6px;
+    background: var(--surface2);
+    border-radius: 0 4px 4px 0;
+  }
+  .xl-sub-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    margin: 8px 0 4px;
+  }
+  .xl-vision-banner {
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .xl-crop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 640px) { .xl-crop-grid { grid-template-columns: 1fr; } }
+  .xl-crop-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    box-shadow: var(--shadow);
+  }
+  .xl-crop-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .xl-crop-reasons {
+    margin: 0;
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .xl-crop-reasons li {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+
+
+
+  /* HVAC diagram cards */
+  .hvac-diagram-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .hvac-diagram-header { padding: 12px 16px; }
+  .hvac-diagram-header.hvac-heat { background: #1A3A6A; }
+  .hvac-diagram-header.hvac-cool { background: #7A2000; }
+  .hvac-diagram-title { font-size: 14px; font-weight: 700; color: #fff; }
+  .hvac-diagram-subtitle { font-size: 11px; color: rgba(255,255,255,0.6); margin-top:2px; }
+
+
+  /* ═══ TABLE GLOBAL RULES — DO NOT OVERRIDE ═══
+     All cells: left-aligned, equal 6px horizontal padding
+     .num class: right-aligned (numbers only)
+     Cell width fits content (no forced widths on td/th)
+  ══════════════════════════════════════════════ */
+  table td, table th {
+    text-align: left;
+    padding: 3px 6px;
+  }
+  table td.num, table th.num {
+    text-align: left;
+    font-family: 'Pretendard', monospace;
+  }
+  .num {
+    font-family: 'Pretendard', monospace;
+  }
+
+  /* ── FarmLAB Direction styles ── */
+
+  /* ── Missing base classes ── */
+  .vision-block {
+    position: relative;
+    padding: 20px 24px 20px 28px;
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    padding: 3px 10px;
+    margin: 18px 0 10px;
+    background: var(--surface2);
+    border-radius: 0 4px 4px 0;
+  }
+  .need-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .dir-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .vision-block::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--accent);
+  }
+  .vision-title { font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+  .vision-desc { font-size: 14px; color: var(--text2); line-height: 1.8; }
+
+  /* ── Section Label ── */
+
+  /* ── 3-Column Cards ── */
+  .need-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 14px; margin-bottom: 24px;
+  }
+  .need-card-header {
+    padding: 12px 16px 10px; border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .need-card-num { font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.06em; margin-bottom: 2px; }
+  .need-card-title { font-weight: 600; font-size: 14px; color: var(--text); }
+  .need-card-body { padding: 12px 16px 14px; }
+  .need-card-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* ── Direction Cards ── */
+  .dir-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 14px; margin-bottom: 28px;
+  }
+  .dir-card-header {
+    padding: 14px 18px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dir-icon {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+  }
+  .dir-icon.dev   { background: #1A1A18; color: #fff; }
+  .dir-icon.field  { background: #1A1A18; color: #fff; }
+  .dir-icon.open   { background: #1A1A18; color: #fff; }
+  .dir-card-title { font-weight: 600; font-size: 14px; color: var(--text); }
+  .dir-card-body { padding: 14px 18px; }
+  .dir-card-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* ── Tech Cards ── */
+  .tech-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 16px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .tech-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 20px; border-bottom: 1px solid var(--border);
+  }
+  .tech-dot {
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px; flex-shrink: 0;
+  }
+  .t-unmanned { background: #1A1A18; color: #fff; }
+  .t-energy   { background: #1A1A18; color: #fff; }
+  .t-prod     { background: #1A1A18; color: #fff; }
+  .tech-name { font-weight: 600; font-size: 15px; color: var(--text); }
+  .tech-sub  { font-size: 12px; color: var(--text3); margin-top: 2px; }
+  .tech-body { padding: 16px 20px; }
+
+  .tag-ai     { background: var(--tag-ai-bg);     color: var(--tag-ai); }
+  .tag-robot  { background: var(--tag-robot-bg);   color: var(--tag-robot); }
+  .tag-energy { background: var(--tag-energy-bg);  color: var(--tag-energy); }
+  .tag-prod   { background: var(--tag-prod-bg);    color: var(--tag-prod); }
+
+  .detail-list {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .detail-list li {
+    font-size: 13px; color: var(--text2);
+    padding-left: 14px; position: relative; line-height: 1.65;
+  }
+  .detail-list li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700; font-size: 11px;
+  }
+
+  /* ── Sub-section grid inside tech card ── */
+  .sub-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-top: 10px;
+  }
+  .sub-box-title {
+    font-size: 11px; font-weight: 600; color: var(--text3);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
+  }
+  .sub-box-desc { font-size: 12.5px; color: var(--text2); line-height: 1.65; }
+
+  /* ── Notes ── */
+
+  /* ── Education section (허브장 육성 프로그램) ── */
+  #section-education .header { background:var(--accent); color:white; padding:28px 48px 24px; position:relative; overflow:hidden; }
+  #section-education .header::before { content:''; position:absolute; top:-50px; right:-50px; width:240px; height:240px; border-radius:50%; background:rgba(255,255,255,.05); }
+  #section-education .h-label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:8px; }
+  #section-education .h-title { font-size:24px; font-weight:700; margin-bottom:5px; color:white; }
+  #section-education .h-title span { color:#a8c8e8; }
+  #section-education .h-sub { font-size:11px; color:rgba(255,255,255,.5); margin-bottom:18px; }
+  #section-education .h-stats { display:flex; gap:28px; flex-wrap:wrap; }
+  #section-education .h-stat { display:flex; flex-direction:column; gap:2px; }
+  #section-education .h-stat-v { font-size:17px; font-weight:700; color:#a8c8e8; }
+  #section-education .h-stat-l { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+  #section-education .nav-bar { display:flex; align-items:stretch; overflow:hidden; }
+  #section-education .nav-seg { flex:1; padding:12px 20px 12px 32px; display:flex; align-items:center; gap:12px; color:white; clip-path:polygon(0 0,calc(100% - 20px) 0,100% 50%,calc(100% - 20px) 100%,0 100%,20px 50%); }
+  #section-education .nav-seg:first-child { clip-path:polygon(0 0,calc(100% - 20px) 0,100% 50%,calc(100% - 20px) 100%,0 100%); padding-left:24px; }
+  #section-education .nav-seg:last-child { clip-path:polygon(0 0,100% 0,100% 100%,0 100%,20px 50%); }
+  #section-education .nav-seg.s-left { background:#1a2a40; }
+  #section-education .nav-seg.s-mid { background:#222222; }
+  #section-education .nav-seg.s-right { background:#2a1a3a; }
+  #section-education .nav-icon { font-size:18px; flex-shrink:0; }
+  #section-education .nav-phase { font-size:8px; letter-spacing:2px; text-transform:uppercase; opacity:.5; margin-bottom:2px; }
+  #section-education .nav-title { font-size:13px; font-weight:700; line-height:1.2; color:white; }
+  #section-education .nav-sub { font-size:10px; opacity:.55; margin-top:1px; }
+  #section-education .nav-depth { display:flex; gap:3px; margin-top:5px; }
+  #section-education .nav-dot { width:18px; height:2px; border-radius:2px; background:rgba(255,255,255,.2); }
+  #section-education .nav-dot.on { background:rgba(255,255,255,.75); }
+  #section-education .body-wrap { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; }
+  #section-education .col { border-right:1px solid var(--border); display:flex; flex-direction:column; }
+  #section-education .col:last-child { border-right:none; }
+  #section-education .col-content { padding:14px; flex:1; background:var(--surface); }
+  #section-education .phase-block { margin-bottom:14px; }
+  #section-education .phase-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 10px; border-radius:4px 4px 0 0; display:flex; align-items:center; gap:6px; }
+  #section-education .phase-label.s1 { background:#2a2a2a; color:white; }
+  #section-education .phase-label.s2 { background:#3a3a3a; color:white; }
+  #section-education .phase-label.s3 { background:#444444; color:white; }
+  #section-education .phase-label.s4 { background:#333333; color:white; }
+  #section-education .phase-label.s5 { background:#1e4530; color:white; }
+  #section-education .phase-body { border:1px solid var(--border); border-top:none; border-radius:0 0 6px 6px; background:var(--surface); padding:12px 14px; }
+  #section-education .mini-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:8px; }
+  #section-education .mini-table thead tr { background:var(--text); color:white; }
+  #section-education .mini-table th { padding:6px 8px; text-align:left; font-size:10px; font-weight:500; }
+  #section-education .mini-table tbody tr:nth-child(even) { background:var(--surface2); }
+  #section-education .mini-table td { padding:5px 8px; border-bottom:1px solid var(--border); vertical-align:top; font-size:11px; }
+  #section-education .mini-table td:first-child { font-weight:600; white-space:nowrap; }
+  #section-education .sch-row { display:flex; gap:8px; padding:5px 0; border-bottom:1px solid var(--border); }
+  #section-education .sch-row:last-child { border-bottom:none; }
+  #section-education .sch-time { width:100px; font-size:10px; font-weight:600; color:var(--text2); flex-shrink:0; }
+  #section-education .sch-body { font-size:11px; flex:1; }
+  #section-education .sch-pm { background:var(--surface2); }
+  #section-education .chk { display:flex; gap:8px; align-items:flex-start; padding:5px 0; border-bottom:1px solid var(--border); font-size:11px; }
+  #section-education .chk:last-child { border-bottom:none; }
+  #section-education .chk-icon { flex-shrink:0; font-size:12px; }
+  #section-education .cohort-row { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:10px; }
+  #section-education .cohort-card { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:10px 7px; text-align:center; flex:1; min-width:68px; }
+  #section-education .cc-num { font-size:9px; font-weight:700; letter-spacing:1px; color:var(--text3); margin-bottom:4px; }
+  #section-education .cc-name { font-size:11px; font-weight:700; }
+  #section-education .cc-role { font-size:10px; color:var(--text2); font-weight:600; margin-top:2px; }
+  #section-education .cc-school { font-size:9px; color:var(--text3); margin-top:1px; }
+  #section-education .cc-etc { font-size:10px; color:var(--text2); padding:3px 0 0; border-top:1px solid var(--border); margin-top:5px; }
+  #section-education .retired { color:var(--text3); font-size:9px; }
+  #section-education .badge-m { display:inline-block; background:var(--surface2); color:var(--text2); font-size:8px; font-weight:700; padding:1px 5px; border-radius:6px; margin-left:2px; vertical-align:middle; border:1px solid var(--border); }
+  #section-education .stat-summary { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:10px 12px; margin-top:10px; }
+  #section-education .stat-summary .ss-title { font-size:10px; font-weight:700; color:var(--text2); margin-bottom:6px; }
+  #section-education .stat-summary .ss-row { font-size:11px; padding:3px 0; border-bottom:1px solid var(--border); display:flex; gap:8px; }
+  #section-education .stat-summary .ss-row:last-child { border-bottom:none; }
+  #section-education .stat-summary .ss-row strong { min-width:90px; flex-shrink:0; }
+  #section-education .sec-divider { height:1px; background:var(--border); margin:10px 0; }
+  #section-education .note { font-size:10px; color:var(--text3); background:var(--surface2); border-left:2px solid var(--text3); padding:5px 8px; border-radius:0 3px 3px 0; margin-top:6px; }
+  #section-education .tag-example { display:inline-block; background:var(--surface2); color:var(--text2); font-size:9px; font-weight:700; padding:2px 7px; border-radius:3px; border:1px solid var(--border); margin-bottom:6px; }
+  #section-education .sub-box { background:var(--surface2); border-radius:5px; padding:9px 12px; margin-bottom:10px; border:1px solid var(--border); }
+  #section-education .sub-box-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text3); margin-bottom:4px; }
+  #section-education .sub-box-body { font-size:11px; line-height:1.7; }
+  #section-education .meta-row { display:flex; gap:7px; margin-bottom:10px; }
+  #section-education .meta-card { flex:1; background:var(--surface2); border:1px solid var(--border); border-radius:5px; padding:8px 10px; text-align:center; }
+  #section-education .meta-card .mc-l { font-size:9px; color:var(--text3); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px; }
+  #section-education .meta-card .mc-v { font-size:14px; font-weight:700; }
+  #section-education .meta-card .mc-s { font-size:10px; color:var(--text3); margin-top:1px; }
+  #section-education .tag-chips { display:flex; flex-wrap:wrap; gap:4px; }
+  #section-education .chip { background:var(--surface2); font-size:10px; padding:3px 8px; border-radius:10px; border:1px solid var(--border); }
+  #section-education .edu-footer { background:var(--text); color:var(--text3); text-align:center; padding:13px; font-size:10px; letter-spacing:1px; }
+  @media(max-width:900px){ #section-education .body-wrap { grid-template-columns:1fr; } }
+
+  /* ── Password modal ── */
+  .pw-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center; }
+  .pw-overlay.visible { display:flex; }
+  .pw-box { background:var(--surface); border-radius:12px; padding:28px 32px; box-shadow:0 8px 32px rgba(0,0,0,0.3); text-align:center; min-width:300px; }
+  .pw-box h3 { font-size:15px; margin-bottom:14px; color:var(--text); }
+  .pw-box input { width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:14px; font-family:'Pretendard',sans-serif; text-align:center; outline:none; }
+  .pw-box input:focus { border-color:var(--accent); }
+  .pw-box .pw-error { color:#d32f2f; font-size:12px; margin-top:8px; display:none; }
+  .pw-box .pw-btns { display:flex; gap:8px; margin-top:16px; }
+  .pw-box .pw-btns button { flex:1; padding:9px; border:none; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Pretendard',sans-serif; }
+  .pw-box .pw-btn-ok { background:var(--accent); color:white; }
+  .pw-box .pw-btn-cancel { background:var(--surface2); color:var(--text2); }
+
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-label">GREF — Farm LAB 전략 방향</div>
+  <div class="header-title">Farm LAB 운영전략</div>
+  <div class="header-sub">미래 온실(대규모 GRID) 효율적 운영을 위한 기술 개발 · 검증 · 확산</div>
+</header>
+
+<nav class="top-nav">
+  <button class="top-nav-btn active" onclick="switchSection('home',this)">개요</button>
+  <button class="top-nav-btn" onclick="switchSection('nursery',this)">육묘</button>
+  <button class="top-nav-btn" onclick="switchSection('ai',this)">AI</button>
+  <button class="top-nav-btn" onclick="switchSection('robot',this)">로봇</button>
+  <button class="top-nav-btn" onclick="switchSection('education',this)">교육</button>
+  <div style="flex:1"></div>
+  <button class="edit-mode-btn" id="pptModeBtn" onclick="togglePptMode()">
+    <span class="edit-mode-label" id="pptModeLabel">PPT 모드</span>
+  </button>
+  <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
+    <span class="edit-mode-label" id="editModeLabel">편집모드 OFF</span>
+  </button>
+</nav>
+
+<!-- Password Modal -->
+<div class="pw-overlay" id="pwOverlay">
+  <div class="pw-box">
+    <h3>편집 모드 비밀번호</h3>
+    <input type="password" id="pwInput" placeholder="비밀번호를 입력하세요" autocomplete="off">
+    <div class="pw-error" id="pwError">비밀번호가 일치하지 않습니다</div>
+    <div class="pw-btns">
+      <button class="pw-btn-cancel" onclick="closePwModal()">취소</button>
+      <button class="pw-btn-ok" onclick="checkPassword()">확인</button>
+    </div>
+  </div>
+</div>
+
+<div class="edit-mode-bar" id="editModeBar">
+  <div class="edit-mode-bar-left">
+    <span>편집 모드 활성화</span>
+    <span>클릭하여 텍스트 수정 ·</span>
+    <span class="edit-mode-bar-kbd">Enter</span> 확정 ·
+    <span class="edit-mode-bar-kbd">Esc</span> 취소
+  </div>
+  <div>
+    <button class="edit-mode-bar-btn" onclick="toggleEditMode()">편집 모드 종료</button>
+  </div>
+</div>
+
+
+
+<!-- ══════════════════ 개요 (홈) ══════════════════ -->
+
+<!-- sections loaded via fetch -->
+<div id="section-home" class="section active"></div>
+<div id="section-nursery" class="section"></div>
+<div id="section-ai" class="section"></div>
+<div id="section-robot" class="section"></div>
+<div id="section-education" class="section"></div>
+<div id="section-ppt" class="section"></div>
+
+<footer class="page-footer">
+  <span>GREF (Green Recycling Energy Foundry) · 대한제강 자회사 · 진주 벤로형 온실 육묘사업</span>
+  <span>출처: GREF 투자계획서 V1.4 · Wageningen University &amp; Research · AGC 공식 논문</span>
+<script>
+function switchSection(name, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('section-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+function filterModels(cat, btn) {
+  const cards = document.querySelectorAll('#modelCardGrid .model-card');
+  cards.forEach(c => {
+    if (cat === 'all') {
+      c.style.display = '';
+    } else if (cat === 'opensource') {
+      c.style.display = c.dataset.opensource === 'true' ? '' : 'none';
+    } else {
+      c.style.display = c.dataset.cat === cat ? '' : 'none';
+    }
+  });
+  document.querySelectorAll('#modelFilterBar button').forEach(b => {
+    b.style.background = '';
+    b.style.color = '';
+    b.style.borderColor = 'transparent';
+    b.style.fontWeight = '';
+  });
+  if (cat === 'all') {
+    btn.style.background = 'var(--accent)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--accent)';
+  } else {
+    btn.style.borderColor = 'currentColor';
+    btn.style.fontWeight = '700';
+  }
+}
+
+function switchTab(id, btn, section) {
+  document.querySelectorAll('#section-'+section+' .tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#section-'+section+' .tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+<script>
+// ═══════════════════════════════════════════════════════
+// GREF ENGINE v4
+// ═══════════════════════════════════════════════════════
+
+// ── STATE ──
+const S = {
+  H_ridge:6, H_eave:5, W_span:7.17,
+  W_left:42, W_right:45, W_corr:3, L_prod:110.2,
+  ht_roof:7.5, fr_roof:0.65, ht_wall:2.3, fr_wall:0,
+  Ts:12, Td:-11.8, Tg:4.43, hv:0.5, hs:0.244, fw:1.0,
+  hp_heat_rated:200, derate_heat:0.85, safety_heat:1.15,
+  Ts_c:28, Td_s:34.4, Tw:27, Tg_s:18,
+  I_sol:700, tau:0.85, f_shade:0.5,
+  hp_cool_rated:400, derate_cool:0.9, safety_cool:1.15, COP_cool:3.5,
+  Lb:3.2, Wb:1.7, Nb:1382,
+  Nt:20, Wts:2.3, Nbl:65, Wbs:0.56,
+  f_trigger:0.5, H_water:0.04,
+  F_daily:5, f_evap:0.05, N_zone:4, R_reuse:0.1, R_RO:0.7,
+  // ── 생산계획 ──
+  total_area_m2: 8600,          // 총 온실면적 m²
+  corridor_m2: 1081.6,          // 복도+통로
+  prod_area_m2: 7518.4,         // 생산면적 = total - corridor
+  shrink: 0.15,                 // 축소율 15%
+  bench_area: 5.44,             // 벤치 면적 3.2*1.7
+  plug_density: 720,            // 프러그 주/m²
+  cube_density: 12,             // 큐브 주/m²
+  utilization: 0.75,            // 가동률 75%
+  // 작물별 생산비율 (프러그:큐브)
+  tomato_plug_pct: 0.5,
+  tomato_cube_pct: 1.0,
+  cucumber_plug_pct: 0,
+  cucumber_cube_pct: 1.0,
+  paprika_plug_pct: 0.5,
+  paprika_cube_pct: 1.0,
+  // 육묘일수
+  tomato_plug_days: 40,
+  tomato_cube_days: 60,
+  cucumber_cube_days: 28,
+  paprika_plug_days: 18,
+  paprika_cube_days: 30,
+  // 점유율
+  national_demand: 91506613,
+  national_share: 0.06,
+  regional_demand: 25347332,
+  regional_share: 0.20,
+  // ── 가격정책 ──
+  price_tomato_plug: 550,
+  price_tomato_cube: 3000,
+  price_paprika_plug: 200,
+  price_paprika_cube: 2000,
+  price_cucumber_cube: 2500,
+  // ── 손익 ──
+  waste_rate: 0.01,             // 폐기율 1%
+  cost_labor_pct: 0.20,         // 인건비 매출비 20%
+  cost_material_pct: 0.10,      // 자재비 매출비 10%
+  cost_energy_annual: 0,        // 에너지비 (별도 입력)
+  cost_depreciation: 0,         // 감가상각 (투자상세에서)
+  cost_maintenance: 450,        // 유지보수 (백만)
+  cost_admin_pct: 0.10,         // 관리비 매출비 10%
+  cost_sales_pct: 0.02,         // 판매비 매출비 2%
+  // ── 투자 ──
+  invest_land: 35000000,
+  invest_greenhouse: 4500000000,
+  invest_material: 201000000,
+  invest_automation: 1358000000,
+  tta_exchange_rate: 1722,
+};
+
+// ── COMPUTE ──
+function calc() {
+  const s=S, v={};
+  v.W_total = s.W_left+s.W_right+s.W_corr;
+  v.As = v.W_total*s.L_prod;
+  const dH=s.H_ridge-s.H_eave, hs2=s.W_span/2;
+  const k=Math.sqrt(1+(dH/hs2)**2);
+  v.Ar    = (s.W_left+s.W_right)*s.L_prod*k;
+  v.Ag1   = (s.W_left+s.W_right)*s.H_eave*2+(s.W_left+s.W_right)*dH/2*2;
+  v.Ag2   = s.L_prod*s.H_eave*2;
+  v.A_total= v.Ar+v.Ag1+v.Ag2;
+  const dT_h=s.Ts-s.Td;
+  v.Qh_roof  = v.Ar    *s.ht_roof*dT_h*(1-s.fr_roof);
+  v.Qh_wall1 = v.Ag1   *s.ht_wall*dT_h*(1-s.fr_wall);
+  v.Qh_wall2 = v.Ag2   *s.ht_wall*dT_h*(1-s.fr_wall);
+  v.Qh_vent  = v.A_total*s.hv*dT_h;
+  v.Qh_floor = v.As*s.hs*(s.Ts-s.Tg);
+  v.Qh_total = (v.Qh_roof+v.Qh_wall1+v.Qh_wall2+v.Qh_vent+v.Qh_floor)*s.fw;
+  v.Qh_RT    = v.Qh_total/3024;
+  v.hp_heat_act=s.hp_heat_rated*s.derate_heat;
+  v.Qh_req   = v.Qh_RT*s.safety_heat;
+  v.Nh_heat  = Math.ceil(v.Qh_req/v.hp_heat_act);
+  const dT_c=s.Td_s-s.Ts_c;
+  v.Qc_sol   = s.I_sol*s.tau*(1-s.f_shade)*v.Ar*0.86;
+  v.Qc_roof  = s.ht_roof*dT_c*v.Ar;
+  v.Qc_wall  = s.ht_wall*dT_c*(v.Ag1+v.Ag2);
+  v.Qc_vent  = s.hv*dT_c*v.A_total;
+  v.Qc_gnd   = -s.hs*(s.Ts_c-s.Tg_s)*v.As;
+  v.Qi       = v.As*20*0.86;
+  v.Qc_total = v.Qc_sol+v.Qc_roof+v.Qc_wall+v.Qc_vent+v.Qc_gnd+v.Qi;
+  v.Qc_RT    = v.Qc_total/3024;
+  v.Qc_kW    = v.Qc_total/1.163;
+  v.Qc_m2    = v.Qc_total/v.As;
+  v.hp_cool_act=s.hp_cool_rated*s.derate_cool;
+  v.Qc_req   = v.Qc_RT*s.safety_cool;
+  v.Nh_cool  = Math.ceil(v.Qc_req/v.hp_cool_act);
+  v.Nh_max   = Math.max(v.Nh_heat,v.Nh_cool);
+  const Ab_t=s.Wts*s.f_trigger, Ab_b=s.Wbs*s.f_trigger;
+  v.Q_abs    = Math.max(s.Nt*Ab_t, s.Nbl*Ab_b);
+  v.A_bench  = s.Lb*s.Wb;
+  v.Q_fill   = v.A_bench*s.H_water*1000;
+  v.Q_drain  = v.Q_fill-v.Q_abs;
+  const Na=Math.floor(s.Nb);
+  v.bench_d  = v.Q_abs*s.F_daily*(1+s.f_evap);
+  v.gh_L     = v.bench_d*Na;
+  v.zone_L   = v.Q_fill*Na/s.N_zone;
+  v.raw_L    = v.gh_L*(1-s.R_reuse);
+  v.intake_L = v.raw_L/s.R_RO;
+
+  // ═══ 생산계획 계산 ═══
+  v.prod_area = s.total_area_m2 - s.corridor_m2;
+  v.shrink_area = v.prod_area * s.shrink;
+  v.net_area = s.total_area_m2 - s.shrink_area; // 사용하지 않음, prod_area 기준
+  v.bench_count = Math.round(v.prod_area / s.bench_area);
+  v.bench_per_m2 = v.prod_area / s.bench_area;
+
+  // 생산량 (연간)
+  v.tomato_plug_annual = v.prod_area * s.plug_density * s.tomato_plug_pct * (365 / s.tomato_plug_days) * s.utilization;
+  v.tomato_cube_annual = v.prod_area * s.cube_density * s.tomato_cube_pct * (365 / s.tomato_cube_days) * s.utilization;
+  v.cucumber_cube_annual = v.prod_area * s.cube_density * s.cucumber_cube_pct * (365 / s.cucumber_cube_days) * s.utilization;
+  v.paprika_plug_annual = v.prod_area * s.plug_density * s.paprika_plug_pct * (365 / s.paprika_plug_days) * s.utilization;
+  v.paprika_cube_annual = v.prod_area * s.cube_density * s.paprika_cube_pct * (365 / s.paprika_cube_days) * s.utilization;
+  v.total_annual = v.tomato_plug_annual + v.tomato_cube_annual + v.cucumber_cube_annual + v.paprika_plug_annual + v.paprika_cube_annual;
+
+  // 점유율
+  v.national_target = s.national_demand * s.national_share;
+  v.regional_target = s.regional_demand * s.regional_share;
+  v.target_production = Math.max(v.national_target, v.regional_target);
+
+  // ═══ 매출 계산 ═══
+  v.rev_tomato_plug = v.tomato_plug_annual * s.price_tomato_plug;
+  v.rev_tomato_cube = v.tomato_cube_annual * s.price_tomato_cube;
+  v.rev_cucumber_cube = v.cucumber_cube_annual * s.price_cucumber_cube;
+  v.rev_paprika_plug = v.paprika_plug_annual * s.price_paprika_plug;
+  v.rev_paprika_cube = v.paprika_cube_annual * s.price_paprika_cube;
+  v.rev_total = v.rev_tomato_plug + v.rev_tomato_cube + v.rev_cucumber_cube + v.rev_paprika_plug + v.rev_paprika_cube;
+  v.rev_after_waste = v.rev_total * (1 - s.waste_rate);
+
+  // ═══ 손익 계산 ═══
+  v.cost_labor = v.rev_after_waste * s.cost_labor_pct;
+  v.cost_material = v.rev_after_waste * s.cost_material_pct;
+  v.cost_depreciation = s.invest_greenhouse / 10 / 1000000; // 10년 감가 (백만원)
+  v.cost_admin = v.rev_after_waste * s.cost_admin_pct;
+  v.cost_sales = v.rev_after_waste * s.cost_sales_pct;
+  v.cost_total_var = v.cost_labor + v.cost_material + s.cost_energy_annual;
+  v.gross_profit = v.rev_after_waste - v.cost_total_var;
+  v.cost_total_fixed = v.cost_admin + v.cost_sales + s.cost_maintenance;
+  v.operating_profit = v.gross_profit - v.cost_total_fixed;
+  v.ebitda = v.operating_profit + v.cost_depreciation;
+  v.ebitda_margin = v.rev_after_waste > 0 ? v.ebitda / (v.rev_after_waste / 1000000) : 0;
+
+  // ═══ 투자 계산 ═══
+  v.invest_total = s.invest_land + s.invest_greenhouse + s.invest_material + s.invest_automation;
+  v.invest_total_m = v.invest_total / 100000000; // 억원
+  v.payback_years = v.ebitda > 0 ? (v.invest_total / 1000000) / v.ebitda : 0;
+
+  return v;
+}
+
+// ── DISPLAY ──
+function N(v,d){ if(isNaN(v))return'—'; return d===undefined?Math.round(v).toLocaleString('ko-KR'):v.toFixed(d); }
+function KW(v){ return (v/1.163).toFixed(0); }
+function setCV(id,html){
+  const el=document.getElementById(id); if(!el)return;
+  if(el.innerHTML!==html){ el.innerHTML=html; el.animate([{background:'#FFF176'},{background:'transparent'}],{duration:600,fill:'forwards'}); }
+}
+function updateDisplay(){
+  const v=calc(), t=v.Qh_total;
+  setCV('cv_W_total',N(v.W_total));
+  setCV('cv_As',N(v.As)); setCV('cv_As2',N(v.As));
+  setCV('cv_Ar',N(v.Ar)); setCV('cv_Ar_c',N(v.Ar));
+  setCV('cv_Ag1',N(v.Ag1)); setCV('cv_Ag2',N(v.Ag2));
+  setCV('cv_A_total',N(v.A_total));
+  setCV('cv_Qh_roof', N(v.Qh_roof)); setCV('cv_Qh_wall1',N(v.Qh_wall1));
+  setCV('cv_Qh_wall2',N(v.Qh_wall2)); setCV('cv_Qh_vent', N(v.Qh_vent)); setCV('cv_Qh_floor',N(v.Qh_floor));
+  ['roof','wall1','wall2','vent','floor'].forEach(k=>{const el=document.getElementById('cv_Qh_'+k+'_pct');if(el)el.textContent=(v['Qh_'+k]/t*100).toFixed(1)+'%';});
+  setCV('cv_Qh_total','<strong>'+N(v.Qh_total)+'</strong>');
+  setCV('cv_Qh_RT', N(v.Qh_RT,1)+' RT'); setCV('cv_hp_heat_act',N(v.hp_heat_act,0)); setCV('cv_Qh_req',N(v.Qh_req,1));
+  setCV('cv_Nh_heat','<strong>'+v.Nh_heat+'대</strong>');
+  setCV('cv_As_c',N(v.As));
+  setCV('cv_Qc_sol', N(v.Qc_sol));  setCV('cv_Qc_sol_kw', KW(v.Qc_sol));
+  setCV('cv_Qc_roof',N(v.Qc_roof)); setCV('cv_Qc_roof_kw',KW(v.Qc_roof));
+  setCV('cv_Qc_wall',N(v.Qc_wall)); setCV('cv_Qc_wall_kw',KW(v.Qc_wall));
+  setCV('cv_Qc_vent',N(v.Qc_vent)); setCV('cv_Qc_vent_kw',KW(v.Qc_vent));
+  setCV('cv_Qc_gnd', N(v.Qc_gnd));  setCV('cv_Qc_gnd_kw', KW(v.Qc_gnd));
+  setCV('cv_Qi',     N(v.Qi));       setCV('cv_Qi_kw',     KW(v.Qi));
+  setCV('cv_Qc_total','<strong>'+N(v.Qc_total)+'</strong>');
+  setCV('cv_Qc_total_kw','<strong>'+KW(v.Qc_total)+'</strong>');
+  setCV('cv_Qc_RT','<strong>'+N(v.Qc_RT,1)+' RT</strong>');
+  setCV('cv_Qc_kW',N(v.Qc_kW,1)); setCV('cv_Qc_m2',N(v.Qc_m2,1));
+  setCV('cv_hp_cool_act',N(v.hp_cool_act,0)); setCV('cv_Qc_req',N(v.Qc_req,1));
+  setCV('cv_Nh_cool','<strong>'+v.Nh_cool+'대</strong>');
+  setCV('cv_comp_heat_rt', N(v.Qh_RT,1)); setCV('cv_comp_cool_rt', N(v.Qc_RT,1));
+  setCV('cv_comp_heat_req',N(v.Qh_req,1)); setCV('cv_comp_cool_req',N(v.Qc_req,1));
+  setCV('cv_comp_heat_n',v.Nh_heat+'대'); setCV('cv_comp_cool_n',v.Nh_cool+'대');
+  setCV('cv_comp_max','<strong>'+v.Nh_max+'대 (겸용 운전)</strong>');
+  setCV('cv_Ab_t',N(S.Wts*S.f_trigger,2)); setCV('cv_Ab_b',N(S.Wbs*S.f_trigger,2));
+  setCV('cv_Q_abs',N(v.Q_abs,1)); setCV('cv_A_bench',N(v.A_bench,2));
+  setCV('cv_Q_fill',N(v.Q_fill,1)); setCV('cv_Q_drain',N(v.Q_drain,1));
+  setCV('cv_Q_drain_rate',N(v.Q_drain/v.Q_fill*100,1)+'%');
+  setCV('cv_bench_daily',N(v.bench_d,2)); setCV('cv_gh_daily_L',N(v.gh_L));
+  setCV('cv_total_fill_L',N(v.Q_fill*Math.floor(S.Nb))); setCV('cv_zone_fill_L',N(v.zone_L));
+  setCV('cv_zone_fill_T',N(v.zone_L/1000,4));
+  setCV('cv_daily_reuse',N(v.gh_L*S.R_reuse)); setCV('cv_daily_raw_L',N(v.raw_L));
+  setCV('cv_daily_raw_T',N(v.raw_L/1000,5)); setCV('cv_daily_intake_L',N(v.intake_L));
+  setCV('cv_daily_intake_T',N(v.intake_L/1000,5)); setCV('cv_hourly_intake',N(v.intake_L/1000/12,3));
+  setCV('cv_Tray_abs',N(S.Nt*S.Wts*S.f_trigger,1)); setCV('cv_Block_abs',N(S.Nbl*S.Wbs*S.f_trigger,1));
+
+  // ═══ 생산계획 표시 ═══
+  setCV('cv_prod_area', N(v.prod_area));
+  setCV('cv_bench_count', N(v.bench_count));
+  setCV('cv_tomato_plug_annual', N(v.tomato_plug_annual));
+  setCV('cv_tomato_cube_annual', N(v.tomato_cube_annual));
+  setCV('cv_cucumber_cube_annual', N(v.cucumber_cube_annual));
+  setCV('cv_paprika_plug_annual', N(v.paprika_plug_annual));
+  setCV('cv_paprika_cube_annual', N(v.paprika_cube_annual));
+  setCV('cv_total_annual', '<strong>' + N(v.total_annual) + '</strong>');
+
+  // 점유율
+  setCV('cv_national_target', N(v.national_target));
+  setCV('cv_regional_target', N(v.regional_target));
+  setCV('cv_target_production', '<strong>' + N(v.target_production) + '</strong>');
+
+  // 매출
+  setCV('cv_rev_tomato_plug', N(v.rev_tomato_plug));
+  setCV('cv_rev_tomato_cube', N(v.rev_tomato_cube));
+  setCV('cv_rev_cucumber_cube', N(v.rev_cucumber_cube));
+  setCV('cv_rev_paprika_plug', N(v.rev_paprika_plug));
+  setCV('cv_rev_paprika_cube', N(v.rev_paprika_cube));
+  setCV('cv_rev_total', '<strong>' + N(v.rev_total) + '</strong>');
+  setCV('cv_rev_after_waste', '<strong>' + N(v.rev_after_waste) + '</strong>');
+
+  // 손익
+  setCV('cv_cost_labor', N(v.cost_labor));
+  setCV('cv_cost_material', N(v.cost_material));
+  setCV('cv_gross_profit', '<strong>' + N(v.gross_profit) + '</strong>');
+  setCV('cv_operating_profit', '<strong>' + N(v.operating_profit) + '</strong>');
+  setCV('cv_ebitda', '<strong>' + N(v.ebitda) + '</strong>');
+  setCV('cv_ebitda_margin', N(v.ebitda_margin, 2) + '%');
+
+  // 투자
+  setCV('cv_invest_total', '<strong>' + N(v.invest_total) + '</strong>');
+  setCV('cv_invest_total_m', N(v.invest_total_m, 1) + '억');
+  setCV('cv_payback_years', N(v.payback_years, 1) + '년');
+}
+
+// ═══════════════════════════════════════════════════════
+// PPT MODE
+// ═══════════════════════════════════════════════════════
+
+let pptMode = false;
+let currentSlide = 0;
+
+function togglePptMode() {
+  pptMode = !pptMode;
+  const btn = document.getElementById('pptModeBtn');
+  const label = document.getElementById('pptModeLabel');
+
+  if (pptMode) {
+    document.body.classList.add('ppt-mode');
+    btn.classList.add('ppt-active');
+    label.textContent = 'PPT 종료';
+    currentSlide = 0;
+    showSlide(0);
+    // Add exit button
+    if (!document.getElementById('pptExitBtn')) {
+      const exitBtn = document.createElement('button');
+      exitBtn.id = 'pptExitBtn';
+      exitBtn.className = 'ppt-exit-btn';
+      exitBtn.textContent = 'ESC 나가기';
+      exitBtn.onclick = togglePptMode;
+      document.body.appendChild(exitBtn);
+    }
+    document.getElementById('pptExitBtn').style.display = 'block';
+    // Add PPT edit button
+    if (!document.getElementById('pptEditBtn')) {
+      const editBtn = document.createElement('button');
+      editBtn.id = 'pptEditBtn';
+      editBtn.textContent = '편집';
+      editBtn.style.cssText = 'position:fixed;top:8px;right:120px;z-index:10001;padding:6px 16px;border:none;border-radius:6px;background:var(--accent);color:#fff;font-size:13px;cursor:pointer;font-weight:600';
+      editBtn.onclick = togglePptEdit;
+      document.body.appendChild(editBtn);
+    }
+    document.getElementById('pptEditBtn').style.display = 'block';
+  } else {
+    // Exit PPT edit mode if active
+    if (pptEditMode) togglePptEdit();
+    document.body.classList.remove('ppt-mode');
+    btn.classList.remove('ppt-active');
+    label.textContent = 'PPT 모드';
+    const exitBtn = document.getElementById('pptExitBtn');
+    if (exitBtn) exitBtn.style.display = 'none';
+    const editBtn = document.getElementById('pptEditBtn');
+    if (editBtn) editBtn.style.display = 'none';
+  }
+}
+
+function showSlide(idx) {
+  const slides = document.querySelectorAll('.ppt-slide');
+  if (slides.length === 0) return;
+  slides.forEach(s => s.classList.remove('active'));
+  currentSlide = Math.max(0, Math.min(idx, slides.length - 1));
+  slides[currentSlide].classList.add('active');
+  const info = document.getElementById('pptInfo');
+  if (info) info.textContent = (currentSlide + 1) + ' / ' + slides.length;
+}
+
+// ── PPT Edit Mode ──
+let pptEditMode = false;
+const pptUndoStack = [];
+const pptRedoStack = [];
+const PPT_MAX_UNDO = 50;
+
+function pptSaveState() {
+  const vp = document.getElementById('pptViewport');
+  if (!vp) return;
+  pptUndoStack.push(vp.innerHTML);
+  if (pptUndoStack.length > PPT_MAX_UNDO) pptUndoStack.shift();
+  pptRedoStack.length = 0; // clear redo on new action
+}
+
+function pptUndo() {
+  if (pptUndoStack.length === 0) return;
+  const vp = document.getElementById('pptViewport');
+  if (!vp) return;
+  pptRedoStack.push(vp.innerHTML);
+  vp.innerHTML = pptUndoStack.pop();
+  // Re-show current slide
+  showSlide(currentSlide);
+  // Re-enable editability
+  if (pptEditMode) pptEnableEditing();
+}
+
+function pptRedo() {
+  if (pptRedoStack.length === 0) return;
+  const vp = document.getElementById('pptViewport');
+  if (!vp) return;
+  pptUndoStack.push(vp.innerHTML);
+  vp.innerHTML = pptRedoStack.pop();
+  showSlide(currentSlide);
+  if (pptEditMode) pptEnableEditing();
+}
+
+function pptEnableEditing() {
+  document.querySelectorAll('.ppt-slide .ppt-title, .ppt-slide .ppt-banner, .ppt-slide .ppt-sub-title, .ppt-slide .ppt-cover-label, .ppt-slide .ppt-cover-title, .ppt-slide .ppt-cover-sub, .ppt-slide td, .ppt-slide th, .ppt-slide .ppt-page-num').forEach(el => {
+    el.contentEditable = 'true';
+    el.spellcheck = false;
+  });
+}
+
+// Ctrl+Z / Ctrl+Y handler
+document.addEventListener('keydown', e => {
+  if (!pptEditMode) return;
+  if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
+    e.preventDefault();
+    pptUndo();
+  }
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'y' || (e.key === 'z' && e.shiftKey))) {
+    e.preventDefault();
+    pptRedo();
+  }
+  // Delete selected element with Delete key (not when editing text)
+  if (e.key === 'Delete' && pptSelectedEl) {
+    e.preventDefault();
+    pptSaveState();
+    pptSelectedEl.remove();
+    pptSelectedEl = null;
+  }
+});
+
+// Track selected element for deletion
+let pptSelectedEl = null;
+document.addEventListener('click', e => {
+  if (!pptEditMode) return;
+  // Clicking on a user-added element (dashed border) selects it for deletion
+  const el = e.target.closest('[data-ppt-added]');
+  if (el) {
+    if (pptSelectedEl) pptSelectedEl.style.outline = '';
+    pptSelectedEl = el;
+    pptSelectedEl.style.outline = '2px solid #e53935';
+  } else {
+    if (pptSelectedEl) pptSelectedEl.style.outline = '';
+    pptSelectedEl = null;
+  }
+});
+
+// Save state before text edits (debounced)
+let pptSaveTimer = null;
+document.addEventListener('input', e => {
+  if (!pptEditMode) return;
+  if (!e.target.closest('.ppt-slide')) return;
+  clearTimeout(pptSaveTimer);
+  pptSaveTimer = setTimeout(() => pptSaveState(), 800);
+});
+
+function togglePptEdit() {
+  pptEditMode = !pptEditMode;
+  const btn = document.getElementById('pptEditBtn');
+  if (!btn) return;
+
+  if (pptEditMode) {
+    btn.textContent = '편집 종료';
+    btn.style.background = '#e53935';
+    document.body.classList.add('ppt-edit-mode');
+    // Save initial state for undo
+    pptSaveState();
+    pptEnableEditing();
+    // Make grid containers resizable
+    document.querySelectorAll('.ppt-slide [style*="display:grid"]').forEach(g => {
+      g.style.resize = 'both';
+      g.style.overflow = 'auto';
+    });
+    showPptToolbar();
+  } else {
+    btn.textContent = '편집';
+    btn.style.background = '';
+    document.body.classList.remove('ppt-edit-mode');
+    document.querySelectorAll('.ppt-slide [contenteditable="true"]').forEach(el => {
+      el.removeAttribute('contenteditable');
+    });
+    document.querySelectorAll('.ppt-slide [style*="display:grid"]').forEach(g => {
+      g.style.resize = '';
+      g.style.overflow = '';
+    });
+    hidePptToolbar();
+    pptSelectedEl = null;
+    // Clear stacks
+    pptUndoStack.length = 0;
+    pptRedoStack.length = 0;
+  }
+}
+
+function showPptToolbar() {
+  if (document.getElementById('pptToolbar')) return;
+  const tb = document.createElement('div');
+  tb.id = 'pptToolbar';
+  tb.innerHTML = `
+    <button onclick="pptUndo()" title="실행 취소 (Ctrl+Z)" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:12px">↩ 되돌리기</button>
+    <button onclick="pptRedo()" title="다시 실행 (Ctrl+Y)" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:12px">↪ 다시</button>
+    <span style="color:#ddd">|</span>
+    <button onclick="pptAddText()" title="텍스트 추가" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:12px">+ 텍스트</button>
+    <button onclick="pptAddTable()" title="표 추가" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:12px">+ 표</button>
+    <button onclick="pptAddDivider()" title="구분선 추가" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:12px">+ 구분선</button>
+    <span style="margin-left:8px;font-size:11px;color:#999">| Ctrl+Z 되돌리기 · 추가 요소 클릭 후 Delete 삭제</span>
+  `;
+  tb.style.cssText = 'position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10002;display:flex;gap:6px;align-items:center;background:rgba(255,255,255,0.95);padding:6px 14px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);backdrop-filter:blur(8px)';
+  document.body.appendChild(tb);
+}
+
+function hidePptToolbar() {
+  const tb = document.getElementById('pptToolbar');
+  if (tb) tb.remove();
+}
+
+function pptAddText() {
+  const slide = document.querySelector('.ppt-slide.active .ppt-body');
+  if (!slide) return;
+  pptSaveState();
+  const div = document.createElement('div');
+  div.contentEditable = 'true';
+  div.spellcheck = false;
+  div.setAttribute('data-ppt-added', '1');
+  div.textContent = '텍스트를 입력하세요';
+  div.style.cssText = 'font-size:11px;padding:6px 10px;margin-top:8px;border:1px dashed #aaa;border-radius:4px;min-height:20px;cursor:text';
+  slide.appendChild(div);
+  div.focus();
+  const r = document.createRange();
+  r.selectNodeContents(div);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(r);
+}
+
+function pptAddTable() {
+  const slide = document.querySelector('.ppt-slide.active .ppt-body');
+  if (!slide) return;
+  pptSaveState();
+  const wrap = document.createElement('div');
+  wrap.setAttribute('data-ppt-added', '1');
+  wrap.style.cssText = 'margin-top:8px';
+  const tbl = document.createElement('table');
+  tbl.className = 'ppt-mini-table';
+  tbl.style.cssText = 'font-size:10px;resize:both;overflow:auto;border:1px dashed #aaa';
+  tbl.innerHTML = '<tbody><tr><td contenteditable="true">항목</td><td contenteditable="true">내용</td></tr><tr><td contenteditable="true">항목</td><td contenteditable="true">내용</td></tr></tbody>';
+  wrap.appendChild(tbl);
+  slide.appendChild(wrap);
+}
+
+function pptAddDivider() {
+  const slide = document.querySelector('.ppt-slide.active .ppt-body');
+  if (!slide) return;
+  pptSaveState();
+  const hr = document.createElement('hr');
+  hr.setAttribute('data-ppt-added', '1');
+  hr.style.cssText = 'margin:10px 0;border:none;border-top:1px solid #ddd';
+  slide.appendChild(hr);
+}
+
+function pptNext() {
+  const slides = document.querySelectorAll('.ppt-slide');
+  if (currentSlide < slides.length - 1) showSlide(currentSlide + 1);
+}
+
+function pptPrev() {
+  if (currentSlide > 0) showSlide(currentSlide - 1);
+}
+
+// ═══════════════════════════════════════════════════════
+// EDIT MODE
+// ─────────────────────────────────────────
+// 기본 모드: data-var 셀(파란 숫자)만 수정 가능
+// 편집모드 ON: 모든 텍스트 수정 가능
+// ═══════════════════════════════════════════════════════
+
+let editMode = false;
+
+// ── 1. Selectors ──
+// These are ONLY set editable in edit mode (not in normal mode)
+const TEXT_SELECTORS = [
+  '.header-label','.header-title','.header-sub',
+  '.xl-section-title','.xl-sub-title','.xl-vision-banner','.xl-crop-name',
+  '.card-title','.card-sub','.desc','.kpi-label','.kpi-note',
+  '.xl-crop-reasons li',
+  '.model-name','.model-team',
+  '.gloss-term','.gloss-en','.gloss-desc','.gloss-analogy','.gloss-use',
+  '.dp-step-name','.dp-step-meta','.dp-step-duration',
+  '.dp-arch-block-title','.dp-arch-block-sub',
+  '.dp-col-title','.dp-output-title','.dp-output-desc',
+  '.dp-list li','.dp-flow-item',
+  '.io-item-label','.io-out-label','.io-group-title',
+  '.cmp-sum-name','.cmp-sum-meta','.cmp-sum-crop','.cmp-sum-profit',
+  '.cmp-avail-desc','.cmp-meta',
+  '.tag','.access-badge','.proc-name','.proc-sub',
+  '.hvac-diagram-title','.hvac-diagram-subtitle','.fc-title',
+  '.page-footer span',
+].join(',');
+
+// These cells already have data-var and should ALWAYS be editable (normal mode too)
+// Also include plain xl-table td (text cells) for edit mode
+const TABLE_TEXT_SELECTOR = '.xl-table td:not([id^="cv_"]):not([data-var])';
+
+function isForbidden(el) {
+  if (!el) return true;
+  const tag = el.tagName;
+  if (['SCRIPT','STYLE','BUTTON','INPUT','SELECT','TEXTAREA'].includes(tag)) return true;
+  if (el.closest('nav, button, svg')) return true;
+  if (el.id && el.id.startsWith('cv_')) return true;
+  // Skip merged cells - they break layout
+  if (tag==='TD'||tag==='TH') {
+    if ((el.getAttribute('rowspan')||'1')!=='1') return true;
+    if ((el.getAttribute('colspan')||'1')!=='1') return true;
+    if (el.querySelector('table,ul,ol,div.formula')) return true;
+  }
+  return false;
+}
+
+// ── 2. Init: set data-var cells always editable ──
+function initVarCells() {
+  document.querySelectorAll('[data-var]').forEach(el => {
+    if (isForbidden(el)) return;
+    el.contentEditable = 'true';
+    el.spellcheck = false;
+    el.classList.add('var-cell');
+  });
+}
+
+// ── 3. Toggle edit mode (with password) ──
+let editAuthenticated = false;
+
+function toggleEditMode() {
+  if (!editMode && !editAuthenticated) {
+    // Show password modal
+    const overlay = document.getElementById('pwOverlay');
+    const input = document.getElementById('pwInput');
+    const error = document.getElementById('pwError');
+    overlay.classList.add('visible');
+    input.value = '';
+    error.style.display = 'none';
+    input.focus();
+    return;
+  }
+  activateEditMode();
+}
+
+function closePwModal() {
+  document.getElementById('pwOverlay').classList.remove('visible');
+}
+
+function checkPassword() {
+  const input = document.getElementById('pwInput');
+  const error = document.getElementById('pwError');
+  if (input.value === '1234') {
+    editAuthenticated = true;
+    closePwModal();
+    activateEditMode();
+  } else {
+    error.style.display = 'block';
+    input.value = '';
+    input.focus();
+  }
+}
+
+// Enter key in password input
+document.addEventListener('DOMContentLoaded', () => {
+  const pwInput = document.getElementById('pwInput');
+  if (pwInput) {
+    pwInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); checkPassword(); }
+      if (e.key === 'Escape') { e.preventDefault(); closePwModal(); }
+    });
+  }
+});
+
+function activateEditMode() {
+  editMode = !editMode;
+  const btn   = document.getElementById('editModeBtn');
+  const bar   = document.getElementById('editModeBar');
+  const label = document.getElementById('editModeLabel');
+
+  if (editMode) {
+    document.body.classList.add('edit-mode');
+    btn.classList.add('active');
+    label.textContent = '편집모드 ON';
+    bar.classList.add('visible');
+    // Enable all text elements (투자계획서)
+    document.querySelectorAll(TEXT_SELECTORS + ',' + TABLE_TEXT_SELECTOR).forEach(el => {
+      if (isForbidden(el)) return;
+      el.contentEditable = 'true';
+      el.spellcheck = false;
+    });
+    // Enable education section contenteditable elements
+    document.querySelectorAll('#section-education [contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+    });
+  } else {
+    document.body.classList.remove('edit-mode');
+    btn.classList.remove('active');
+    label.textContent = '편집모드 OFF';
+    bar.classList.remove('visible');
+    // Remove editability from text-only elements (keep data-var cells editable)
+    document.querySelectorAll(TEXT_SELECTORS + ',' + TABLE_TEXT_SELECTOR).forEach(el => {
+      if (el.classList.contains('var-cell')) return;
+      el.removeAttribute('contenteditable');
+    });
+    // Disable education section contenteditable
+    document.querySelectorAll('#section-education [contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', 'false');
+    });
+    if (document.activeElement) document.activeElement.blur();
+  }
+}
+
+// ── 4. Event handlers (work in BOTH modes) ──
+
+// 퍼센트 변수 목록 (내부 0.06 저장, 표시 6%)
+const PCT_VARS = new Set([
+  'national_share','regional_share','shrink','utilization',
+  'tomato_plug_pct','tomato_cube_pct','cucumber_plug_pct','cucumber_cube_pct',
+  'paprika_plug_pct','paprika_cube_pct','waste_rate',
+  'cost_labor_pct','cost_material_pct','cost_admin_pct','cost_sales_pct',
+  'fr_roof','fr_wall','f_trigger','f_evap','R_reuse','R_RO',
+  'derate_heat','derate_cool','f_shade'
+]);
+
+function formatVarDisplay(varName, val) {
+  if (PCT_VARS.has(varName)) return (val * 100) + '%';
+  return String(val);
+}
+
+// focusin: for data-var cells, show editable value and select all
+document.addEventListener('focusin', e => {
+  const el = e.target;
+  if (!el.classList.contains('var-cell')) return;
+  const varName = el.dataset.var;
+  if (varName && S[varName] !== undefined) {
+    el.dataset.prevText = el.textContent;
+    // 퍼센트 변수는 % 단위로 표시 (6 = 0.06)
+    const display = PCT_VARS.has(varName) ? String(S[varName] * 100) : String(S[varName]);
+    if (el.textContent.trim() !== display) el.textContent = display;
+    requestAnimationFrame(() => {
+      const r = document.createRange();
+      r.selectNodeContents(el);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+    });
+  }
+});
+
+// focusout: save data-var value and update calculations
+document.addEventListener('focusout', e => {
+  const el = e.target;
+  if (!el.classList.contains('var-cell')) return;
+  const varName = el.dataset.var;
+  if (!varName || S[varName] === undefined) return;
+  const raw = el.textContent.trim()
+    .replace(/,/g,'').replace(/%/,'')
+    .replace(/[^\d.\-]/g,'');
+  let num = parseFloat(raw);
+  if (!isNaN(num) && isFinite(num)) {
+    // 퍼센트 변수: 사용자가 6 입력 → 0.06 저장
+    if (PCT_VARS.has(varName)) num = num / 100;
+    S[varName] = num;
+    updateDisplay();
+    // 표시: 퍼센트는 6%, 일반은 숫자
+    el.textContent = formatVarDisplay(varName, num);
+  } else {
+    el.textContent = el.dataset.prevText || formatVarDisplay(varName, S[varName]);
+  }
+});
+
+// Enter = blur (confirm), Escape = restore and blur
+document.addEventListener('keydown', e => {
+  const el = document.activeElement;
+  if (!el || el.contentEditable !== 'true') return;
+  if (e.key === 'Enter') {
+    // Allow Shift+Enter for newline in multi-line elements
+    const multiline = ['P','DIV'].includes(el.tagName);
+    if (!multiline || !e.shiftKey) {
+      e.preventDefault();
+      el.blur();
+    }
+  }
+  if (e.key === 'Escape') {
+    if (el.dataset.prevText !== undefined) {
+      el.textContent = el.dataset.prevText;
+      delete el.dataset.prevText;
+    }
+    el.blur();
+  }
+});
+
+// Paste as plain text only
+document.addEventListener('paste', e => {
+  const el = document.activeElement;
+  if (!el || el.contentEditable !== 'true') return;
+  e.preventDefault();
+  const txt = (e.clipboardData||window.clipboardData).getData('text/plain');
+  document.execCommand('insertText', false, txt.replace(/\n+/g,' ').trim());
+});
+
+// ── 5. Init ──
+document.addEventListener('DOMContentLoaded', async () => {
+  const sectionNames = ['home','nursery','ai','robot','education','ppt'];
+  await Promise.all(sectionNames.map(async name => {
+    const res = await fetch('sections/' + name + '.html?v=' + Date.now());
+    const html = await res.text();
+    document.getElementById('section-' + name).innerHTML = html;
+  }));
+  updateDisplay();
+  initVarCells();
+  document.getElementById('editModeLabel').textContent = '편집모드 OFF';
+
+  // ── PPT: Init first slide ──
+  const slides = document.querySelectorAll('.ppt-slide');
+  if (slides.length > 0) slides[0].classList.add('active');
+
+  // ── PPT: Keyboard navigation ──
+  document.addEventListener('keydown', e => {
+    if (!document.body.classList.contains('ppt-mode')) return;
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); pptNext(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); pptPrev(); }
+    if (e.key === 'Escape') { e.preventDefault(); togglePptMode(); }
+  });
+  // Revenue chart init
+  const revData = [6.8,41.7,20.2,5.9,5.9,48.6,36.6,41.7,19.0,18.1,18.1,0];
+  const months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+  const maxRev = Math.max(...revData);
+  const chart = document.getElementById('revenueChart');
+  const table = document.getElementById('revTable');
+  if(chart && table){
+    chart.innerHTML = months.map((m,i) => {
+      const h = revData[i] > 0 ? Math.max((revData[i]/maxRev)*90,4) : 2;
+      return '<div class="month-bar-wrap"><div class="month-bar" style="height:'+h+'px;background:'+(revData[i]>30?'var(--accent)':'var(--accent2)')+'">' + '</div><div class="month-label">'+m+'월</div></div>';
+    }).join('');
+    table.innerHTML = months.map((m,i) => '<tr><td>'+m+'월</td><td class="num">'+revData[i].toFixed(1)+'백만</td></tr>').join('');
+  }
+});
+</script>
+<style>
+/* ── Edit mode button (in top nav) ── */
+.edit-mode-btn {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75); padding: 5px 14px; border-radius: 6px;
+  font-family: 'Pretendard',sans-serif; font-size: 12px; font-weight: 500;
+  cursor: pointer; transition: all 0.15s; margin: auto 0; white-space: nowrap;
+  letter-spacing: 0;
+}
+.edit-mode-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+.edit-mode-btn.active {
+  background: #F59E0B; border-color: #F59E0B;
+  color: #1A1A00; font-weight: 700;
+}
+
+/* ── Edit mode info bar ── */
+.edit-mode-bar {
+  display: none; position: sticky; top: 0; z-index: 200;
+  background: #F59E0B; color: #1A1A00;
+  padding: 7px 48px; font-size: 12px; font-weight: 500;
+  align-items: center; justify-content: space-between;
+}
+.edit-mode-bar.visible { display: flex; }
+.edit-mode-bar-left { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.edit-mode-bar-kbd {
+  background: rgba(0,0,0,0.15); border-radius: 4px;
+  padding: 1px 6px; font-family: monospace; font-size: 11px;
+}
+.edit-mode-bar-btn {
+  background: rgba(0,0,0,0.15); border: none; border-radius: 5px;
+  padding: 4px 12px; font-size: 12px; font-weight: 600;
+  cursor: pointer; color: #1A1A00; font-family: 'Pretendard',sans-serif;
+}
+.edit-mode-bar-btn:hover { background: rgba(0,0,0,0.25); }
+
+/* ── data-var cells: ALWAYS show as blue editable (normal mode) ── */
+.var-cell {
+  color: #0044CC !important;
+  font-weight: 500;
+  cursor: text;
+}
+.var-cell:hover {
+  background: rgba(0,68,204,0.06) !important;
+  outline: 1px dashed rgba(0,68,204,0.35);
+}
+.var-cell:focus {
+  background: #EEF3FF !important;
+  outline: 2px solid #0044CC !important;
+  color: #0044CC !important;
+  border-radius: 2px;
+}
+
+/* ── Edit mode: ALL contenteditable cells show hints ── */
+body.edit-mode [contenteditable="true"]:hover {
+  outline: 1px dashed rgba(245,158,11,0.7) !important;
+  background: rgba(255,251,219,0.25) !important;
+  cursor: text !important;
+}
+body.edit-mode [contenteditable="true"]:focus {
+  outline: 2px solid #F59E0B !important;
+  background: rgba(255,251,219,0.95) !important;
+  border-radius: 2px;
+  position: relative; z-index: 5;
+}
+/* var-cell gets special style in edit mode too */
+body.edit-mode .var-cell:focus {
+  outline: 2px solid #0044CC !important;
+  background: #EEF3FF !important;
+}
+
+/* ── Computed cells: always read-only appearance ── */
+td[id^="cv_"] { cursor: default !important; }
+td[id^="cv_"]:hover { outline: none !important; background: inherit !important; }
+
+/* ═══════════════════════════════════════════════════════
+   PPT MODE
+   ═══════════════════════════════════════════════════════ */
+
+/* ── PPT Mode: hide normal UI ── */
+body.ppt-mode .page-header,
+body.ppt-mode .top-nav,
+body.ppt-mode .edit-mode-bar,
+body.ppt-mode .page-footer { display: none !important; }
+body.ppt-mode { background: #2d2d2d; overflow: hidden; }
+body.ppt-mode .section { display: none !important; }
+body.ppt-mode #section-ppt { display: block !important; }
+
+/* ── Slide viewport ── */
+.ppt-viewport {
+  width: 100vw; height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative;
+}
+
+/* ── Slide ── */
+.ppt-slide {
+  display: none;
+  width: 960px; min-height: 400px; max-height: 90vh;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+  position: relative;
+}
+.ppt-slide.active { display: flex; flex-direction: column; }
+
+/* ── Slide header ── */
+.ppt-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 32px 14px;
+  border-bottom: 2px solid var(--accent);
+  flex-shrink: 0;
+}
+.ppt-page-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; flex-shrink: 0;
+}
+.ppt-title {
+  font-size: 20px; font-weight: 700; color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* ── Slide body ── */
+.ppt-body {
+  flex: 1; padding: 18px 32px 20px;
+  overflow-y: auto; font-size: 13px; line-height: 1.65;
+}
+
+/* ── Cover slide ── */
+.ppt-cover {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: var(--accent); color: #fff;
+  text-align: center; padding: 40px;
+}
+.ppt-cover-label {
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 20px;
+}
+.ppt-cover-title {
+  font-size: 36px; font-weight: 700; margin-bottom: 16px;
+  letter-spacing: -0.03em; line-height: 1.25;
+}
+.ppt-cover-sub {
+  font-size: 16px; color: rgba(255,255,255,0.7);
+  line-height: 1.7; margin-bottom: 30px;
+}
+.ppt-cover-meta {
+  display: flex; gap: 20px; font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── Navigation ── */
+.ppt-nav {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: 16px;
+  background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+  padding: 8px 20px; border-radius: 30px;
+  z-index: 500;
+}
+.ppt-nav-btn {
+  background: rgba(255,255,255,0.15); border: none; border-radius: 6px;
+  padding: 6px 16px; color: #fff; font-size: 13px; font-weight: 500;
+  cursor: pointer; font-family: 'Pretendard',sans-serif;
+  transition: background 0.15s;
+}
+.ppt-nav-btn:hover { background: rgba(255,255,255,0.3); }
+.ppt-nav-info { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 500; min-width: 60px; text-align: center; }
+
+/* ── PPT Exit button ── */
+.ppt-exit-btn {
+  position: fixed; top: 16px; right: 24px; z-index: 500;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+  padding: 8px 18px; color: #fff; font-size: 13px; font-weight: 500;
+  cursor: pointer; font-family: 'Pretendard',sans-serif;
+}
+.ppt-exit-btn:hover { background: rgba(0,0,0,0.8); }
+
+/* ── PPT Edit Mode ── */
+.ppt-edit-mode .ppt-slide.active [contenteditable="true"] {
+  outline: 1px dashed rgba(76,175,80,0.4);
+  outline-offset: 1px;
+  cursor: text;
+}
+.ppt-edit-mode .ppt-slide.active [contenteditable="true"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  background: rgba(76,175,80,0.04);
+}
+.ppt-edit-mode .ppt-slide.active table {
+  resize: both;
+  overflow: auto;
+}
+.ppt-edit-mode .ppt-slide.active table:hover {
+  outline: 1px dashed rgba(0,0,0,0.2);
+}
+
+/* ── Vision box ── */
+.ppt-vision-box {
+  background: var(--surface2); border-left: 4px solid var(--accent);
+  padding: 14px 18px; margin-bottom: 18px;
+  font-size: 13px; color: var(--text2); line-height: 1.7;
+  border-radius: 0 6px 6px 0;
+}
+
+/* ── Banner ── */
+.ppt-banner {
+  background: var(--accent); color: #fff; padding: 10px 18px;
+  border-radius: 6px; font-size: 14px; font-weight: 600;
+  text-align: center; margin-bottom: 18px;
+}
+
+/* ── 3-Column ── */
+.ppt-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.ppt-pillar {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.ppt-pillar-num { font-size: 11px; color: var(--text3); font-weight: 600; margin-bottom: 4px; }
+.ppt-pillar-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+.ppt-pillar ul { margin: 0; padding-left: 16px; }
+.ppt-pillar li { font-size: 12px; color: var(--text2); margin-bottom: 4px; line-height: 1.5; }
+
+/* ── 2-Column ── */
+.ppt-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+/* ── Sub title ── */
+.ppt-sub-title {
+  font-size: 11px; font-weight: 600; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 10px; padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* ── KPI ── */
+.ppt-kpi-row { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.ppt-kpi {
+  flex: 1; min-width: 100px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 14px; text-align: center;
+}
+.ppt-kpi-val { font-size: 18px; font-weight: 700; color: var(--text); }
+.ppt-kpi-label { font-size: 10px; color: var(--text3); margin-top: 4px; }
+.ppt-kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.ppt-kpi-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px; text-align: center;
+}
+.ppt-kpi-card-val { font-size: 16px; font-weight: 700; color: var(--accent); }
+.ppt-kpi-card-label { font-size: 10px; color: var(--text3); margin-top: 3px; }
+
+/* ── Mini table ── */
+.ppt-mini-table { width: auto; border-collapse: collapse; font-size: 12px; }
+.ppt-mini-table th {
+  background: var(--surface2); color: var(--text3); font-size: 10px;
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 5px 8px; text-align: left; border-bottom: 1px solid var(--border);
+}
+.ppt-mini-table td {
+  padding: 4px 8px; border-bottom: 1px solid var(--border);
+  color: var(--text); text-align: left;
+}
+.ppt-total-row td { background: var(--surface2); font-weight: 600; }
+
+/* ── Diff table ── */
+.ppt-diff-table { overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }
+.ppt-diff-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.ppt-diff-table th {
+  background: var(--accent); color: #fff; padding: 8px 10px;
+  text-align: left; font-weight: 500; font-size: 11px;
+}
+.ppt-diff-table td {
+  padding: 6px 10px; border-bottom: 1px solid var(--border);
+  color: var(--text); line-height: 1.5;
+}
+.ppt-group-cell { background: var(--surface2); font-weight: 500; }
+.ppt-bad { color: #791F1F; }
+.ppt-good { color: #27500A; font-weight: 500; }
+
+/* ── Flow diagram ── */
+.ppt-flow-diagram { padding: 10px 0; }
+.ppt-flow-row {
+  display: flex; align-items: flex-start; justify-content: center;
+  gap: 0; margin-bottom: 12px; flex-wrap: nowrap;
+}
+.ppt-flow-node {
+  min-width: 110px; max-width: 140px; padding: 10px 12px;
+  border-radius: 8px; text-align: center;
+  font-size: 12px; font-weight: 600; line-height: 1.5;
+  border: 2px solid var(--border);
+}
+.ppt-flow-node span {
+  display: block; font-size: 10px; font-weight: 400;
+  color: var(--text3); margin-top: 3px;
+}
+.ppt-fn-start { background: #E6F1FB; border-color: #85B7EB; color: #0C447C; }
+.ppt-fn-process { background: var(--surface); border-color: var(--border-mid); color: var(--text); }
+.ppt-fn-decision { background: #FAEEDA; border-color: #EF9F27; color: #633806; clip-path: polygon(15% 0, 85% 0, 100% 50%, 85% 100%, 15% 100%, 0 50%); padding: 14px 20px; }
+.ppt-fn-yes { background: #EAF3DE; border-color: #C0DD97; color: #27500A; }
+.ppt-fn-no { background: var(--surface2); border-color: var(--border-mid); color: var(--text2); }
+.ppt-fn-end { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ppt-fn-end span { color: rgba(255,255,255,0.7); }
+.ppt-flow-arrow {
+  width: 30px; height: 2px; background: var(--text3);
+  align-self: center; position: relative; flex-shrink: 0;
+}
+.ppt-flow-arrow::after {
+  content: ''; position: absolute; right: -1px; top: -4px;
+  border: 5px solid transparent; border-left: 6px solid var(--text3);
+}
+.ppt-flow-branch {
+  display: flex; flex-direction: column; gap: 6px;
+  margin: 0 0 12px 60px; padding-left: 20px;
+  border-left: 2px dashed var(--text3);
+}
+.ppt-flow-branch-line { display: none; }
+.ppt-flow-sub { justify-content: flex-start; margin-bottom: 4px; }
+
+/* ── Water flow ── */
+.ppt-water-flow { padding: 4px 0; }
+.ppt-wf-row { display: flex; align-items: center; justify-content: center; gap: 0; }
+.ppt-wf-node {
+  min-width: 130px; padding: 12px 14px; border-radius: 10px;
+  text-align: center; font-size: 12px; font-weight: 600;
+  border: 2px solid; line-height: 1.5;
+}
+.ppt-wf-node span { display: block; font-size: 10px; font-weight: 400; color: var(--text3); margin-top: 3px; }
+.ppt-wf-source { background: #E6F1FB; border-color: #85B7EB; color: #0C447C; }
+.ppt-wf-process { background: var(--surface); border-color: var(--border-mid); color: var(--text); }
+.ppt-wf-dest { background: #EAF3DE; border-color: #C0DD97; color: #27500A; }
+.ppt-wf-arrow-r, .ppt-wf-arrow-l {
+  width: 40px; height: 2px; background: var(--text3);
+  position: relative; flex-shrink: 0;
+}
+.ppt-wf-arrow-r::after {
+  content: ''; position: absolute; right: -1px; top: -4px;
+  border: 5px solid transparent; border-left: 6px solid var(--text3);
+}
+.ppt-wf-arrow-l::after {
+  content: ''; position: absolute; left: -1px; top: -4px;
+  border: 5px solid transparent; border-right: 6px solid var(--text3);
+}
+.ppt-wf-return {
+  display: flex; justify-content: center; margin: 6px 0;
+}
+.ppt-wf-return-line {
+  width: 70%; border: 1px dashed var(--text3);
+  border-top: none; border-radius: 0 0 10px 10px;
+  height: 20px; position: relative; text-align: center;
+}
+.ppt-wf-return-label {
+  position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+  background: #2d2d2d; color: rgba(255,255,255,0.7); font-size: 10px;
+  padding: 0 8px; white-space: nowrap;
+}
+body:not(.ppt-mode) .ppt-wf-return-label { background: #fff; color: var(--text3); }
+
+/* ── AI flow ── */
+.ppt-ai-flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.ppt-ai-layer {
+  width: 80%; border: 2px solid; border-radius: 10px;
+  padding: 14px 20px; text-align: center;
+}
+.ppt-ai-layer-title { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.ppt-ai-tags { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.ppt-ai-tags span {
+  padding: 3px 10px; border-radius: 12px; font-size: 11px;
+  font-weight: 500; background: rgba(255,255,255,0.7);
+  color: var(--text); border: 1px solid var(--border);
+}
+.ppt-ai-arrow-down {
+  width: 2px; height: 20px; background: var(--text3); position: relative;
+}
+.ppt-ai-arrow-down::after {
+  content: ''; position: absolute; bottom: -1px; left: -4px;
+  border: 5px solid transparent; border-top: 6px solid var(--text3);
+}
+
+/* ── Bar chart ── */
+.ppt-bar-chart { display: flex; flex-direction: column; gap: 6px; }
+.ppt-bar-item { display: flex; align-items: center; gap: 8px; }
+.ppt-bar-label { width: 110px; font-size: 11px; color: var(--text2); text-align: right; flex-shrink: 0; }
+.ppt-bar-track { flex: 1; height: 16px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+.ppt-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+.ppt-bar-val { width: 50px; font-size: 11px; font-weight: 600; color: var(--text); }
+
+/* ── Compare ── */
+.ppt-compare-row { display: flex; align-items: center; gap: 6px; }
+.ppt-compare-item {
+  flex: 1; padding: 8px 10px; border-radius: 6px;
+  border: 1.5px solid var(--border); text-align: center;
+  font-size: 11px; color: var(--text2); line-height: 1.6;
+}
+.ppt-compare-item.ppt-bad { border-color: #D9534F; background: #FFF5F5; }
+.ppt-compare-item.ppt-good { border-color: #27500A; background: #EAF3DE; }
+.ppt-compare-arrow { font-size: 16px; color: var(--text3); flex-shrink: 0; }
+
+/* ── Package list ── */
+.ppt-pkg-list { display: flex; flex-direction: column; gap: 6px; }
+.ppt-pkg {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 10px; border-radius: 6px;
+  border: 1px solid var(--border); font-size: 12px; line-height: 1.5;
+}
+.ppt-pkg-num {
+  background: var(--accent); color: #fff; font-size: 10px;
+  font-weight: 700; padding: 2px 6px; border-radius: 4px;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* ── Gantt ── */
+.ppt-gantt { display: flex; flex-direction: column; gap: 6px; }
+.ppt-gantt-row { display: flex; align-items: center; gap: 8px; }
+.ppt-gantt-label { width: 120px; font-size: 11px; color: var(--text2); text-align: right; flex-shrink: 0; }
+.ppt-gantt-track {
+  flex: 1; height: 22px; background: var(--surface2);
+  border-radius: 4px; position: relative; overflow: hidden;
+}
+.ppt-gantt-bar {
+  position: absolute; top: 0; height: 100%;
+  background: var(--accent); border-radius: 4px;
+  color: #fff; font-size: 10px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 6px; white-space: nowrap;
+}
+
+/* ── Cost ── */
+.ppt-cost-row { display: flex; gap: 10px; }
+.ppt-cost-item {
+  flex: 1; padding: 10px; border-radius: 6px;
+  border: 1px solid var(--border); text-align: center;
+  font-size: 12px; color: var(--text2); line-height: 1.6;
+}
+
+/* ── Education flow ── */
+.ppt-edu-flow { display: flex; align-items: flex-start; gap: 0; margin-bottom: 20px; }
+.ppt-edu-step {
+  flex: 1; padding: 12px 10px; border-radius: 8px;
+  text-align: center; border: 2px solid var(--border);
+  background: var(--surface);
+}
+.ppt-edu-step-num { font-size: 9px; font-weight: 700; color: var(--text3); letter-spacing: 0.08em; }
+.ppt-edu-step-title { font-size: 14px; font-weight: 700; color: var(--text); margin: 3px 0; }
+.ppt-edu-step-dur { font-size: 11px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+.ppt-edu-step-desc { font-size: 10px; color: var(--text3); line-height: 1.5; }
+.ppt-edu-s1 { border-color: #85B7EB; }
+.ppt-edu-s2 { border-color: #C0DD97; }
+.ppt-edu-s3 { border-color: #EF9F27; }
+.ppt-edu-s4 { border-color: #AFA9EC; }
+.ppt-edu-s5 { border-color: var(--accent); background: var(--accent); }
+.ppt-edu-s5 .ppt-edu-step-num, .ppt-edu-s5 .ppt-edu-step-title { color: #fff; }
+.ppt-edu-s5 .ppt-edu-step-dur { color: rgba(255,255,255,0.7); }
+.ppt-edu-s5 .ppt-edu-step-desc { color: rgba(255,255,255,0.6); }
+.ppt-edu-arrow {
+  width: 20px; height: 2px; background: var(--text3);
+  align-self: center; position: relative; flex-shrink: 0;
+}
+.ppt-edu-arrow::after {
+  content: ''; position: absolute; right: -1px; top: -4px;
+  border: 5px solid transparent; border-left: 6px solid var(--text3);
+}
+.ppt-edu-stats {
+  display: flex; gap: 12px; justify-content: center;
+  padding: 12px; background: var(--surface2); border-radius: 8px;
+}
+.ppt-edu-stat {
+  font-size: 12px; color: var(--text2);
+  padding: 6px 14px; background: var(--surface);
+  border-radius: 6px; border: 1px solid var(--border);
+}
+
+/* ── Roadmap ── */
+.ppt-roadmap {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 10px;
+}
+.ppt-rm-phase {
+  border-radius: 8px; padding: 14px 12px;
+  border: 2px solid; position: relative;
+}
+.ppt-rm-1 { border-color: #85B7EB; background: #F5FAFF; }
+.ppt-rm-2 { border-color: #C0DD97; background: #F7FBF2; }
+.ppt-rm-3 { border-color: #EF9F27; background: #FFFBF2; }
+.ppt-rm-4 { border-color: #AFA9EC; background: #F9F8FF; }
+.ppt-rm-year {
+  font-size: 11px; font-weight: 700; color: var(--text3);
+  margin-bottom: 6px;
+}
+.ppt-rm-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+.ppt-roadmap ul { margin: 0; padding-left: 14px; }
+.ppt-roadmap li { font-size: 11px; color: var(--text2); margin-bottom: 3px; line-height: 1.5; }
+
+/* ── PPT Button active state ── */
+.edit-mode-btn.ppt-active {
+  background: #2563EB; border-color: #2563EB;
+  color: #fff; font-weight: 700;
+}
+</style>
+
+</body>
+</html>

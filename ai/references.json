@@ -1,0 +1,261 @@
+{
+  "description": "GREF AI 모델 참고 자료 목록 — 논문, GitHub, 공식 사이트",
+  "models": [
+    {
+      "id": "koidra",
+      "name": "Koidra KoPilot",
+      "refs": [
+        {"type": "website", "label": "Koidra 공식 사이트", "url": "https://www.koidra.ai/horticulture/kopilot/"}
+      ]
+    },
+    {
+      "id": "igrow",
+      "name": "iGrow",
+      "refs": [
+        {"type": "paper", "label": "iGrow: AAAI 2022 논문", "url": "https://ojs.aaai.org/index.php/AAAI/article/view/20391"},
+        {"type": "github", "label": "iGrow GitHub", "url": "https://github.com/holmescao/iGrow"}
+      ]
+    },
+    {
+      "id": "blueradix",
+      "name": "Blue Radix Crop Controller",
+      "refs": [
+        {"type": "website", "label": "Blue Radix 공식 사이트", "url": "https://blue-radix.com/autonomous-growing/"}
+      ]
+    },
+    {
+      "id": "deepc",
+      "name": "DeePC for Greenhouse",
+      "refs": [
+        {"type": "github", "label": "PyDeePC GitHub", "url": "https://github.com/rssalessio/PyDeePC"}
+      ]
+    },
+    {
+      "id": "ddpg",
+      "name": "DDPG RL Greenhouse Controller",
+      "refs": [
+        {"type": "paper", "label": "RL vs MPC Greenhouse (Computers & Electronics in Ag.)", "url": "https://doi.org/10.1016/j.compag.2023.107944"}
+      ]
+    },
+    {
+      "id": "rlrnmpc",
+      "name": "RL-RNMPC",
+      "refs": [
+        {"type": "paper", "label": "arXiv:2409.12789", "url": "https://arxiv.org/abs/2409.12789"},
+        {"type": "github", "label": "mpcrl-greenhouse GitHub", "url": "https://github.com/SamuelMallick/mpcrl-greenhouse"}
+      ]
+    },
+    {
+      "id": "ddrmpc",
+      "name": "DDRMPC",
+      "refs": [
+        {"type": "paper", "label": "Applied Energy 2023 논문", "url": "https://doi.org/10.1016/j.apenergy.2023.121190"}
+      ]
+    },
+    {
+      "id": "lstm-rnn",
+      "name": "LSTM-RNN Growth Predictor",
+      "refs": [
+        {"type": "paper", "label": "arXiv:1907.00624", "url": "https://arxiv.org/abs/1907.00624"}
+      ]
+    },
+    {
+      "id": "tcn-rnn",
+      "name": "TCN-RNN Hybrid",
+      "refs": [
+        {"type": "paper", "label": "Sensors 2021, 21(13), 4537", "url": "https://doi.org/10.3390/s21134537"}
+      ]
+    },
+    {
+      "id": "mmst-vit",
+      "name": "MMST-ViT",
+      "refs": [
+        {"type": "paper", "label": "ICCV 2023 논문", "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Lin_MMST-ViT_Climate_Change-Aware_Crop_Yield_Prediction_via_Multi-Modal_Spatial-Temporal_Vision_ICCV_2023_paper.html"}
+      ]
+    },
+    {
+      "id": "stacked-ensemble",
+      "name": "Stacked Ensemble (Tomato)",
+      "refs": [
+        {"type": "paper", "label": "ICEIS 2024 논문", "url": "https://doi.org/10.5220/0012569500003690"}
+      ]
+    },
+    {
+      "id": "apsim-ml",
+      "name": "APSIM + ML Hybrid",
+      "refs": [
+        {"type": "paper", "label": "Scientific Reports (PMC 7810832)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810832/"}
+      ]
+    },
+    {
+      "id": "agritransformer",
+      "name": "AgriTransformer",
+      "refs": [
+        {"type": "paper", "label": "Electronics 2025, 14(12), 2466", "url": "https://doi.org/10.3390/electronics14122466"}
+      ]
+    },
+    {
+      "id": "serpensgate",
+      "name": "SerpensGate-YOLOv8",
+      "refs": [
+        {"type": "paper", "label": "Frontiers in Plant Science 2024", "url": "https://doi.org/10.3389/fpls.2024.1452550"}
+      ]
+    },
+    {
+      "id": "yolo-leafnet",
+      "name": "YOLO-LeafNet",
+      "refs": [
+        {"type": "paper", "label": "Scientific Reports 2025", "url": "https://doi.org/10.1038/s41598-025-85609-w"}
+      ]
+    },
+    {
+      "id": "plantvillage",
+      "name": "PlantVillage CNN Ensemble",
+      "refs": [
+        {"type": "website", "label": "PlantVillage 데이터셋", "url": "https://plantvillage.psu.edu/"},
+        {"type": "github", "label": "PlantVillage Dataset GitHub", "url": "https://github.com/spMohanty/PlantVillage-Dataset"}
+      ]
+    },
+    {
+      "id": "marvin",
+      "name": "MARVIN Gen2",
+      "refs": [
+        {"type": "website", "label": "Automate.org 케이스 스터디", "url": "https://www.automate.org/vision/case-studies/high-throughput-plant-phenotyping-with-unique-3d-vision-technology"}
+      ]
+    },
+    {
+      "id": "nerf-phenotyping",
+      "name": "NeRF 3D Crop Phenotyping",
+      "refs": [
+        {"type": "paper", "label": "Frontiers in Plant Science 2024", "url": "https://doi.org/10.3389/fpls.2024.1386568"}
+      ]
+    },
+    {
+      "id": "phenospex",
+      "name": "Phenospex PlantEye",
+      "refs": [
+        {"type": "website", "label": "Phenospex 공식 사이트", "url": "https://phenospex.com/products/plant-phenotyping/"}
+      ]
+    },
+    {
+      "id": "drl-semiclosed",
+      "name": "DRL Semi-Closed GH Controller",
+      "refs": [
+        {"type": "paper", "label": "Advances in Applied Energy 2022", "url": "https://doi.org/10.1016/j.adapen.2022.100104"}
+      ]
+    },
+    {
+      "id": "ann-cost",
+      "name": "ANN-Accelerated Cost Optimizer",
+      "refs": [
+        {"type": "paper", "label": "ScienceDirect 2025", "url": "https://doi.org/10.1016/j.compag.2025.110075"}
+      ]
+    },
+    {
+      "id": "rbf-energy",
+      "name": "RBF Energy Optimizer",
+      "refs": [
+        {"type": "paper", "label": "Renewable & Sustainable Energy Reviews 2024", "url": "https://doi.org/10.1016/j.rser.2024.114735"}
+      ]
+    },
+    {
+      "id": "deep-tomatos",
+      "name": "Deep-ToMaToS",
+      "refs": [
+        {"type": "paper", "label": "Computers & Electronics in Ag. 2022", "url": "https://doi.org/10.1016/j.compag.2022.107300"}
+      ]
+    },
+    {
+      "id": "drl-grasping",
+      "name": "DRL Collision-Free Grasping",
+      "refs": [
+        {"type": "paper", "label": "Computers & Electronics in Ag. 2023", "url": "https://doi.org/10.1016/j.compag.2023.108338"}
+      ]
+    },
+    {
+      "id": "ahppebot",
+      "name": "AHPPEBot",
+      "refs": [
+        {"type": "paper", "label": "arXiv:2405.06959", "url": "https://arxiv.org/abs/2405.06959"}
+      ]
+    },
+    {
+      "id": "metomotion",
+      "name": "MetoMotion GRoW",
+      "refs": [
+        {"type": "website", "label": "MetoMotion 공식 사이트", "url": "https://metomotion.com/"}
+      ]
+    },
+    {
+      "id": "vtc",
+      "name": "Virtual Tomato Crop (VTC)",
+      "refs": [
+        {"type": "paper", "label": "in silico Plants 2025 (Oxford)", "url": "https://doi.org/10.1093/insilicoplants/diae028"}
+      ]
+    },
+    {
+      "id": "ghi40",
+      "name": "GHI4.0 Digital Twin",
+      "refs": [
+        {"type": "paper", "label": "Energy Informatics 2021", "url": "https://doi.org/10.1186/s42162-021-00161-7"}
+      ]
+    },
+    {
+      "id": "solar-gh-twin",
+      "name": "Solar GH Digital Twin",
+      "refs": [
+        {"type": "paper", "label": "Energy Conversion & Management 2025", "url": "https://doi.org/10.1016/j.enconman.2024.119392"}
+      ]
+    },
+    {
+      "id": "priva",
+      "name": "Priva Connext",
+      "refs": [
+        {"type": "website", "label": "Priva Connext", "url": "https://www.priva.com/horticulture/solutions/climate-and-process-computers/priva-connext"}
+      ]
+    },
+    {
+      "id": "sourceag",
+      "name": "Source.ag",
+      "refs": [
+        {"type": "website", "label": "Source.ag 공식 사이트", "url": "https://www.source.ag/"}
+      ]
+    },
+    {
+      "id": "ridder",
+      "name": "Ridder HortiMaX Pro",
+      "refs": [
+        {"type": "website", "label": "Ridder HortiMaX Pro", "url": "https://ridder.com/hortimax-pro"}
+      ]
+    },
+    {
+      "id": "hoogendoorn",
+      "name": "Hoogendoorn IIVO",
+      "refs": [
+        {"type": "website", "label": "Hoogendoorn 공식 사이트", "url": "https://hoogendoorn.com/en/"}
+      ]
+    },
+    {
+      "id": "letsgrow",
+      "name": "LetsGrow.com MyLetsGrow",
+      "refs": [
+        {"type": "website", "label": "LetsGrow.com", "url": "https://www.letsgrow.com/"}
+      ]
+    },
+    {
+      "id": "phytech",
+      "name": "Phytech PlantBeat",
+      "refs": [
+        {"type": "website", "label": "Phytech 공식 사이트", "url": "https://www.phytech.com/"}
+      ]
+    },
+    {
+      "id": "dssat",
+      "name": "DSSAT",
+      "refs": [
+        {"type": "website", "label": "DSSAT 공식 사이트", "url": "https://dssat.net/"},
+        {"type": "github", "label": "DSSAT GitHub", "url": "https://github.com/DSSAT/dssat-csm-os"}
+      ]
+    }
+  ]
+}

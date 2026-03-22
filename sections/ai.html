@@ -1,0 +1,1088 @@
+<div class="container">
+
+  <div class="tabs" id="ai-tabs">
+    <button class="tab-btn active" onclick="switchTab('a-devplan',this,'ai')">개발 계획</button>
+    <button class="tab-btn" onclick="switchTab('a-modeldb',this,'ai')">전체 모델 DB</button>
+    <button class="tab-btn" onclick="switchTab('a-compare',this,'ai')">모델별 비교표</button>
+    <button class="tab-btn" onclick="switchTab('a-models',this,'ai')">AI 모델 상세</button>
+    <button class="tab-btn" onclick="switchTab('a-data',this,'ai')">필요 데이터</button>
+    <button class="tab-btn" onclick="switchTab('a-io',this,'ai')">입력 → 결과물</button>
+    <button class="tab-btn" onclick="switchTab('a-glossary',this,'ai')">용어 설명</button>
+  </div>
+
+  <!-- AI tab panels loaded from external content below -->
+  <div id="tab-a-devplan" class="tab-panel active">
+    <div class="dp-hero">
+      <div class="dp-hero-left">
+        <div class="dp-hero-label">GREF 재배 AI 개발 로드맵</div>
+        <div class="dp-hero-title">재배 최적화 → 경영 의사결정 통합 AI</div>
+        <div class="dp-hero-desc">오픈소스 4개 모델 기반 서브 에이전트 구조 · 실증 검증 · 시장 가격·에너지·인건비 통합 전략 AI</div>
+      </div>
+      <div class="dp-hero-right">
+        <div class="dp-meta-item"><span class="dp-meta-label">총 예상 기간</span><span class="dp-meta-val">40 ~ 50개월</span></div>
+        <div class="dp-meta-item"><span class="dp-meta-label">단계</span><span class="dp-meta-val">6단계</span></div>
+        <div class="dp-meta-item"><span class="dp-meta-label">데이터 환경</span><span class="dp-meta-val">기후컴퓨터 연동 + 자동 수집</span></div>
+        <div class="dp-meta-item"><span class="dp-meta-label">개발 방식</span><span class="dp-meta-val">내부 인력 중심 + 외부 협력</span></div>
+      </div>
+    </div>
+    <div class="dp-arch" style="padding:16px 18px">
+      <div class="dp-arch-label">개발 단계 흐름도 (1~6단계)</div>
+      <div style="overflow-x:auto">
+      <div style="display:flex;align-items:flex-start;gap:0;min-width:900px">
+
+        <!-- 1단계 -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:var(--e1-bg);border:2px solid #85B7EB;text-align:center;width:100%">
+            <div style="font-size:10px;font-weight:700;color:var(--e1-text)">1단계</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text)">모델 탐색·선정</div>
+            <div style="font-size:9px;color:var(--text3);margin-top:3px">1~2개월</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            DeePC · iGrow · YOLOv8 · SAC 선정<br>기능 분담표 · 입출력 스펙
+          </div>
+        </div>
+
+        <div style="width:24px;height:2px;background:var(--text3);align-self:center;margin-top:-20px;position:relative;flex-shrink:0"><div style="position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:6px solid var(--text3)"></div></div>
+
+        <!-- 2단계 -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:var(--e2-bg);border:2px solid #C0DD97;text-align:center;width:100%">
+            <div style="font-size:10px;font-weight:700;color:var(--e2-text)">2단계</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text)">WUR 데이터 학습</div>
+            <div style="font-size:9px;color:var(--text3);margin-top:3px">3~4개월</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            AGC 공개 데이터셋 학습<br>모델 성능 비교 보고서
+          </div>
+        </div>
+
+        <div style="width:24px;height:2px;background:var(--text3);align-self:center;margin-top:-20px;position:relative;flex-shrink:0"><div style="position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:6px solid var(--text3)"></div></div>
+
+        <!-- 3단계 -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:var(--e3-bg);border:2px solid #EF9F27;text-align:center;width:100%">
+            <div style="font-size:10px;font-weight:700;color:var(--e3-text)">3단계</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text)">서브에이전트 통합</div>
+            <div style="font-size:9px;color:var(--text3);margin-top:3px">6~8개월</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            오케스트레이터 설계<br>충돌 처리 · 실행 순서 정의
+          </div>
+        </div>
+
+        <div style="width:24px;height:2px;background:var(--text3);align-self:center;margin-top:-20px;position:relative;flex-shrink:0"><div style="position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:6px solid var(--text3)"></div></div>
+
+        <!-- 4단계 -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:var(--e4-bg);border:2px solid #AFA9EC;text-align:center;width:100%">
+            <div style="font-size:10px;font-weight:700;color:var(--e4-text)">4단계</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text)">실증 비교</div>
+            <div style="font-size:9px;color:var(--text3);margin-top:3px">3~6개월 (1 사이클)</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            AI vs 재배사 동시 운영<br>성과 데이터 수집·분석
+          </div>
+        </div>
+
+        <div style="width:24px;height:2px;background:var(--text3);align-self:center;margin-top:-20px;position:relative;flex-shrink:0"><div style="position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:6px solid var(--text3)"></div></div>
+
+        <!-- 5단계 (반복) -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:var(--surface2);border:2px solid var(--border-mid);text-align:center;width:100%;position:relative">
+            <div style="font-size:10px;font-weight:700;color:var(--text2)">5단계</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text)">피드백 반복</div>
+            <div style="font-size:9px;color:var(--text3);margin-top:3px">상시 반복</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            전문가 리뷰 · 모델 수정<br>완료기준: 오차 15% 이내
+          </div>
+        </div>
+
+        <div style="width:24px;height:2px;background:var(--text3);align-self:center;margin-top:-20px;position:relative;flex-shrink:0"><div style="position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:6px solid var(--text3)"></div></div>
+
+        <!-- 비용/수요예측 데이터 수립 -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:#FBEAF0;border:2px solid #72243E;text-align:center;width:100%">
+            <div style="font-size:10px;font-weight:700;color:#72243E">5.5단계</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text)">비용/수요예측<br>데이터 수립</div>
+            <div style="font-size:9px;color:var(--text3);margin-top:3px">5단계와 병행</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            에너지·인건비 데이터 + 도매단가 수집·예측
+          </div>
+        </div>
+
+        <div style="width:24px;height:2px;background:var(--text3);align-self:center;margin-top:-20px;position:relative;flex-shrink:0"><div style="position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:6px solid var(--text3)"></div></div>
+
+        <!-- 6단계 -->
+        <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;flex:1">
+          <div style="padding:10px 12px;border-radius:8px;background:var(--accent);border:2px solid var(--accent);text-align:center;width:100%">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7)">6단계</div>
+            <div style="font-size:12px;font-weight:700;color:#fff">경영 통합 AI</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.6);margin-top:3px">6~10개월</div>
+          </div>
+          <!-- detail removed --><div style="display:none">
+            시장가격·에너지·인건비 연동<br>순수익 전략 자동 생성
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+    </div>
+    <div class="dp-step-card"><div class="dp-step-header"><div class="dp-step-badge" style="background:var(--e1-bg);color:var(--e1-text);">1단계</div><div class="dp-step-info"><div class="dp-step-name">AI 모델 탐색 및 선정</div><div class="dp-step-meta">오픈소스 4가지 모델 선정 · 역할 분담 및 입출력 스펙 설계</div></div><div class="dp-step-duration">1 ~ 2개월</div></div><div class="dp-step-body"><div class="dp-col-wrap"><div class="dp-col"><div class="dp-col-title">추천 모델 조합</div><table class="dp-inner-table"><thead><tr><th>역할</th><th>모델</th><th>라이선스</th></tr></thead><tbody><tr><td>기후 제어 예측</td><td>PyDeePC / RL-RNMPC</td><td>MIT</td></tr><tr><td>수확량 예측</td><td>iGrow (Tencent) / LSTM-RNN</td><td>공개</td></tr><tr><td>생육 파라미터 추정</td><td>YOLOv8 (YOLO-LeafNet 참고)</td><td>AGPL-3.0</td></tr><tr><td>수익 최적화</td><td>Stable Baselines3 (SAC)</td><td>MIT</td></tr><tr><td>디지털트윈 (확장)</td><td>VTC / GHI4.0 참고</td><td>연구</td></tr></tbody></table></div><div class="dp-col"><div class="dp-col-title">핵심 산출물</div><ul class="dp-list"><li>4개 모델 기능 분담표</li><li>모델별 입출력 스펙 문서</li><li>데이터 연동 구조 초안</li></ul><div class="dp-col-title" style="margin-top:10px">주의사항</div><ul class="dp-list minus"><li>역할 겹침 없도록 기능 분담 먼저 확정</li><li>입출력 스펙 미문서화 시 3단계 통합 붕괴 위험</li></ul></div></div></div></div>
+    <div class="dp-step-card"><div class="dp-step-header"><div class="dp-step-badge" style="background:var(--e2-bg);color:var(--e2-text);">2단계</div><div class="dp-step-info"><div class="dp-step-name">WUR 로우 데이터 기초 학습 및 모델 비교</div><div class="dp-step-meta">WUR 공개 데이터셋으로 각 모델 학습 · 동일 지표로 성능 비교</div></div><div class="dp-step-duration">3 ~ 4개월</div></div><div class="dp-step-body"><div class="dp-col-wrap"><div class="dp-col"><div class="dp-col-title">활용 데이터셋 (WUR 공개)</div><ul class="dp-list"><li>1회 오이 · 2회 방울토마토 · 4회 왜성토마토</li><li>5분 단위 시계열 · 무료 공개</li></ul><div class="dp-col-title" style="margin-top:10px">공통 평가 지표</div><ul class="dp-list"><li>예측 수확량 오차 (RMSE)</li><li>광이용효율 (LUE, g/mol)</li><li>가상 순수익 (€/m²)</li></ul></div><div class="dp-col"><div class="dp-col-title">주의사항</div><ul class="dp-list minus"><li>WUR 데이터는 네덜란드 기후 → 진주 전이학습 필수</li><li>이 단계는 기초 학습이며 최종 모델이 아님</li></ul></div></div></div></div>
+    <div class="dp-step-card"><div class="dp-step-header"><div class="dp-step-badge" style="background:var(--e3-bg);color:var(--e3-text);">3단계</div><div class="dp-step-info"><div class="dp-step-name">서브 에이전트 통합 구조 구축</div><div class="dp-step-meta">4개 모델이 협력하는 오케스트레이션 레이어 설계 · 충돌 처리 로직</div></div><div class="dp-step-duration">6 ~ 8개월</div></div><div class="dp-step-body"><div class="dp-col-wrap"><div class="dp-col"><div class="dp-col-title">에이전트 간 데이터 흐름</div><div class="dp-flow"><div class="dp-flow-item">DeePC<br><span>기후 setpoint</span></div><div class="dp-flow-arr">→</div><div class="dp-flow-item">iGrow<br><span>수확량 예측</span></div><div class="dp-flow-arr">→</div><div class="dp-flow-item">SAC<br><span>수익 전략</span></div><div class="dp-flow-arr">→</div><div class="dp-flow-item">오케스트레이터<br><span>통합 출력</span></div></div></div><div class="dp-col"><div class="dp-col-title">반드시 설계할 3가지</div><ul class="dp-list"><li>에이전트 간 실행 순서 정의</li><li>충돌 처리 — 난방 AI와 비용 AI 상충 시 중재</li><li>사람 개입 지점 — 판단 근거 가독성 출력</li></ul></div></div></div></div>
+    <div class="dp-step-card"><div class="dp-step-header"><div class="dp-step-badge" style="background:var(--e4-bg);color:var(--e4-text);">4단계</div><div class="dp-step-info"><div class="dp-step-name">실제 온실 적용 — AI vs 재배사 비교 실증</div><div class="dp-step-meta">같은 조건 하에 AI 제어 온실 vs 재배사 제어 온실 동시 운영</div></div><div class="dp-step-duration">3 ~ 6개월 (1 사이클)</div></div><div class="dp-step-body"><div class="desc">품종·재식 밀도·파종일이 동일한 조건에서 AI 제어 온실과 재배사 제어 온실을 동시 운영합니다 AGC 대회와 동일한 방식으로 AI 성능을 객관적으로 입증하는 가장 강력한 방법입니다 육묘 사이클(40~60일)이 짧아 빠른 반복이 가능하며, 비교 데이터는 WUR 제출 자료로도 활용 가능합니다</div></div></div>
+    <div class="dp-step-card"><div class="dp-step-header"><div class="dp-step-badge" style="background:var(--surface2);color:var(--text2);border:1px solid var(--border);">5단계</div><div class="dp-step-info"><div class="dp-step-name">전문가 피드백 반영 및 모델 수정</div><div class="dp-step-meta">재배사 · 컨설턴트 · AI 전문가 논의 → AI 판단 수정 → 재실증 반복</div></div><div class="dp-step-duration">상시 반복</div></div><div class="dp-step-body"><div class="dp-col-wrap"><div class="dp-col"><div class="dp-col-title">격주 리뷰 미팅</div><div class="dp-flow"><div class="dp-flow-item">AI 판단<br><span>근거 출력</span></div><div class="dp-flow-arr">→</div><div class="dp-flow-item">실제 결과<br><span>측정</span></div><div class="dp-flow-arr">→</div><div class="dp-flow-item">전문가<br><span>의견</span></div><div class="dp-flow-arr">→</div><div class="dp-flow-item">모델<br><span>수정</span></div></div></div><div class="dp-col"><div class="dp-col-title">이 단계가 핵심인 이유</div><ul class="dp-list"><li>AGC 4회 하위권 팀 실패 원인: 현장 지식 미반영</li><li>피드백 문서 누적 → 모델 재학습 레이블 데이터</li><li>GREF 개발 계획의 가장 강력한 차별점</li></ul></div></div></div></div>
+    <div class="dp-step-card" style="border-color:#72243E;"><div class="dp-step-header" style="background:#FBEAF0;border-bottom:1px solid #72243E;"><div class="dp-step-badge" style="background:#72243E;color:#fff;">5.5단계</div><div class="dp-step-info"><div class="dp-step-name" style="color:#72243E;">비용(에너지·인건비) / 수요예측 데이터 수립</div><div class="dp-step-meta">경영 통합 AI의 입력 데이터를 사전 수집·분석하는 단계 · 5단계와 병행</div></div><div class="dp-step-duration" style="color:#72243E;">5단계와 병행</div></div><div class="dp-step-body"><div class="dp-col-wrap"><div class="dp-col"><div class="dp-col-title">수집 데이터</div><table class="dp-inner-table"><thead><tr><th>분류</th><th>항목</th><th>수집 방법</th></tr></thead><tbody><tr><td>에너지 비용</td><td>전기 요금 시간대별 (SMP)</td><td>한전 API</td></tr><tr><td>에너지 비용</td><td>가스·열에너지 단가</td><td>도시가스 요금표</td></tr><tr><td>인건비</td><td>작업 유형별 시간당 단가</td><td>내부 인사 데이터</td></tr><tr><td>도매단가</td><td>품목별 일별 도매 시세</td><td>aT 공공데이터 API</td></tr><tr><td>기상</td><td>기상청 단기·중기 예보</td><td>기상청 API</td></tr></tbody></table></div><div class="dp-col"><div class="dp-col-title">수요예측 시스템 (운영 중)</div><div class="dp-output-card" style="border-color:#72243E;"><div class="dp-output-title" style="color:#72243E;">GREF AI 단가 예측 대시보드</div><div class="dp-output-desc">도매단가 실시간 수집 + 기상청 API 날씨 데이터 연동 → 품목별 도매단가 30일 선행 예측 (MAPE 7.32%)</div><div style="margin-top:6px"><a href="https://greftukim.github.io/gref_ai/dashboard.html" target="_blank" style="color:#72243E;text-decoration:underline;font-size:12px;font-weight:600">대시보드 바로가기</a></div></div><div class="dp-col-title" style="margin-top:10px">예측 대상 품목</div><ul class="dp-list"><li>토마토(완숙) — 현재 3,043원/kg</li><li>오이(백다다기) — 현재 2,955원/kg</li><li>딸기(설향) — 현재 6,504원/kg</li><li>파프리카(미니) — 현재 8,567원/kg</li></ul></div></div></div></div>
+    <div class="dp-step-card" style="border-color:var(--accent);"><div class="dp-step-header" style="background:var(--accent);"><div class="dp-step-badge" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);">6단계</div><div class="dp-step-info"><div class="dp-step-name" style="color:#fff;">경영 통합 AI — 시장 가격 · 에너지 · 인건비 연동</div><div class="dp-step-meta" style="color:rgba(255,255,255,0.55);">재배 AI 안정화 이후 경영 판단 레이어 추가 · 상용 서비스 수준</div></div><div class="dp-step-duration" style="color:rgba(255,255,255,0.85);">6 ~ 10개월</div></div><div class="dp-step-body"><div class="dp-col-wrap"><div class="dp-col"><div class="dp-col-title">추가 입력 데이터 (경영 레이어)</div><table class="dp-inner-table"><thead><tr><th>분류</th><th>항목</th></tr></thead><tbody><tr><td>에너지</td><td>전기 요금 시간대별 (SMP)</td></tr><tr><td>에너지</td><td>가스·열에너지 단가</td></tr><tr><td>인건비</td><td>작업 유형별 시간당 단가</td></tr><tr><td>시장</td><td>육묘 품종별·규격별 가격</td></tr><tr><td>시장</td><td>경쟁사 출하 동향</td></tr></tbody></table></div><div class="dp-col"><div class="dp-col-title">최종 출력 결과물 (3종)</div><div class="dp-output-card"><div class="dp-output-title">재배 가이드</div><div class="dp-output-desc">기후 setpoint 권고 · 관개 일정 · 이상 상태 경보</div></div><div class="dp-output-card"><div class="dp-output-title">예상 수확량</div><div class="dp-output-desc">품종별·출하일별 예측 수량 · 주간 갱신</div></div><div class="dp-output-card" style="border-color:var(--accent);"><div class="dp-output-title" style="color:var(--accent);">최고 순수익 전략</div><div class="dp-output-desc">예시 — "향후 2주 가격 하락 예상, 수확 7일 연장 후 출하 시 순수익 +12%" · 에너지 피크 시 보광등 자동 조정 권고</div></div></div></div></div></div>
+    <div class="dp-timeline-wrap">
+      <div class="dp-timeline-title">전체 개발 일정 요약</div>
+      <table class="app-table">
+        <thead><tr><th style="width:55px">단계</th><th>명칭</th><th>핵심 산출물</th><th style="width:90px">기간</th><th style="width:75px">누적</th></tr></thead>
+        <tbody>
+          <tr><td><span class="dp-tl-badge" style="background:var(--e1-bg);color:var(--e1-text);">1</span></td><td>모델 선정</td><td>기능 분담표 + 입출력 스펙</td><td>1~2개월</td><td style="color:var(--text3)">~2개월</td></tr>
+          <tr><td><span class="dp-tl-badge" style="background:var(--e2-bg);color:var(--e2-text);">2</span></td><td>WUR 기초 학습</td><td>모델 성능 비교 보고서</td><td>3~4개월</td><td style="color:var(--text3)">~6개월</td></tr>
+          <tr><td><span class="dp-tl-badge" style="background:var(--e3-bg);color:var(--e3-text);">3</span></td><td>서브 에이전트 구축</td><td>통합 오케스트레이터</td><td>6~8개월</td><td style="color:var(--text3)">~14개월</td></tr>
+          <tr><td><span class="dp-tl-badge" style="background:var(--e4-bg);color:var(--e4-text);">4</span></td><td>실증 비교 (1 사이클)</td><td>AI vs 재배사 성과 데이터</td><td>3~6개월</td><td style="color:var(--text3)">~20개월</td></tr>
+          <tr><td><span class="dp-tl-badge" style="background:var(--surface2);color:var(--text2);border:1px solid var(--border);">5</span></td><td>전문가 피드백 반복</td><td>수정 모델 + 피드백 문서</td><td>상시 반복</td><td style="color:var(--text3)">~30개월</td></tr>
+          <tr style="background:#FDF2F5;"><td><span class="dp-tl-badge" style="background:#FBEAF0;color:#72243E;border:1px solid #72243E;">5.5</span></td><td>비용/수요예측 데이터 수립</td><td>에너지·인건비 데이터 + 도매단가 수집·예측 (<a href="https://greftukim.github.io/gref_ai/dashboard.html" target="_blank" style="color:#72243E;text-decoration:underline">GREF AI 대시보드</a>)</td><td>5단계와 병행</td><td style="color:var(--text3)">~30개월</td></tr>
+          <tr style="background:#F7F9F7;"><td><span class="dp-tl-badge" style="background:var(--accent);color:#fff;">6</span></td><td><strong>경영 통합 AI 구축</strong></td><td>가격 예측 + 출하 타이밍 + 순수익 전략</td><td>6~10개월</td><td><strong>40~50개월</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="divider"></div>
+  </div><!-- /a-devplan -->
+<div id="tab-a-modeldb" class="tab-panel">
+
+  <!-- Filter buttons -->
+  <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px" id="modelFilterBar">
+    <button class="tag" style="cursor:pointer;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;padding:4px 12px" onclick="filterModels('all',this)">전체</button>
+    <button class="tag tag-ml" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('env',this)">환경제어</button>
+    <button class="tag tag-dl" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('growth',this)">생장예측</button>
+    <button class="tag tag-cv" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('vision',this)">비전AI</button>
+    <button class="tag tag-dp" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('energy',this)">에너지</button>
+    <button class="tag tag-rb" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('harvest',this)">수확로봇</button>
+    <button class="tag tag-bayes" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('twin',this)">디지털트윈</button>
+    <button class="tag tag-rl" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent" onclick="filterModels('platform',this)">통합플랫폼</button>
+    <span style="width:1px;height:20px;background:var(--border);margin:0 4px;align-self:center"></span>
+    <button class="tag" style="cursor:pointer;font-size:12px;padding:4px 12px;border:1.5px solid transparent;background:var(--e2-bg);color:var(--e2-text)" onclick="filterModels('opensource',this)">오픈소스 공개</button>
+  </div>
+
+  <!-- Model cards grid -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="modelCardGrid">
+
+    <!-- ═══ 환경제어 AI ═══ -->
+    <div class="model-card" data-cat="env">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">Koidra KoPilot</div><div class="model-team">Koidra Inc. (Dr. Kenneth Tran)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토, 오이, 가지, 상추</div>
+        <div class="sl">핵심 기술</div><div class="desc">Physics-Informed ML + MPC + RL 결합. AGC 1회(2018) 및 3회(2022) 우승</div>
+        <div class="sl">성능</div><div class="desc">오이 수율 +19.6%, 가지 수율 +28.5%, 순이익 +27.8%</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.koidra.ai/horticulture/kopilot/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Koidra 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="env" data-opensource="true">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">iGrow</div><div class="model-team">Tencent / AAAI 2022</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-purple">오픈소스</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토, 오이</div>
+        <div class="sl">핵심 기술</div><div class="desc">Bi-level Optimization + NN 시뮬레이터 + MDP. GitHub 공개</div>
+        <div class="sl">성능</div><div class="desc">수율 +10.15%, 순이익 +92.70% (인간 전문가 대비)</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/20391" target="_blank" style="color:var(--e1-text);text-decoration:underline">AAAI 2022 논문</a> · <a href="https://github.com/holmescao/iGrow" target="_blank" style="color:var(--e1-text);text-decoration:underline">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="env">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">Blue Radix Crop Controller</div><div class="model-team">Blue Radix (Rotterdam)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토, 오이, 파프리카, 가지</div>
+        <div class="sl">핵심 기술</div><div class="desc">AI 자율 기후·관개 제어. 3일 선행 최적화, 5분 간격 실행. 20개국 이상 도입</div>
+        <div class="sl">성능</div><div class="desc">수율 +7%, 수익 +5%, 에너지 -15%, 물·비료 -10%</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://blue-radix.com/autonomous-growing/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Blue Radix 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="env" data-opensource="true">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">DeePC for Greenhouse</div><div class="model-team">ETH Zurich</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">Data-enabled Predictive Control — 모델 식별 없이 과거 데이터만으로 제어. 행동 시스템 이론 기반</div>
+        <div class="sl">성능</div><div class="desc">MPC와 동등한 제어 성능, 모델링 불필요</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://github.com/rssalessio/PyDeePC" target="_blank" style="color:var(--e1-text);text-decoration:underline">PyDeePC GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="env">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">DDPG RL Greenhouse Controller</div><div class="model-team">UPC Barcelona 외</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">Deep Deterministic Policy Gradient (DDPG) — 연속 상태-행동 공간 강화학습</div>
+        <div class="sl">성능</div><div class="desc">통합 벤치마크에서 MPC와 동등 또는 우수</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.compag.2023.107944" target="_blank" style="color:var(--e1-text);text-decoration:underline">Computers & Electronics in Ag. 2023</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="env" data-opensource="true">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">RL-RNMPC</div><div class="model-team">TU Delft (Samuel Mallick)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-purple">오픈소스</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">파라미터화 MPC + 온라인 RL 학습. GitHub 공개 (Python 3.11)</div>
+        <div class="sl">성능</div><div class="desc">기존 MPC 대비 제약 위반 감소 및 생장 효율 향상</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://arxiv.org/abs/2409.12789" target="_blank" style="color:var(--e1-text);text-decoration:underline">arXiv:2409.12789</a> · <a href="https://github.com/SamuelMallick/mpcrl-greenhouse" target="_blank" style="color:var(--e1-text);text-decoration:underline">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="env">
+      <div class="model-header"><div class="edition-dot e1">E</div><div><div class="model-name">DDRMPC</div><div class="model-team">Applied Energy (2023)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-ml">환경제어</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">Data-Driven Robust MPC + ANN + Minimax 최적화 + PSO</div>
+        <div class="sl">성능</div><div class="desc">RMSE 0.32°C(동절기), 에너지 절감 9.67%(동절기) / 23.61%(하절기)</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.apenergy.2023.121190" target="_blank" style="color:var(--e1-text);text-decoration:underline">Applied Energy 2023</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ 생장예측 모델 ═══ -->
+    <div class="model-card" data-cat="growth">
+      <div class="model-header"><div class="edition-dot e2">G</div><div><div class="model-name">LSTM-RNN Growth Predictor</div><div class="model-team">EU SMARTGREEN Project</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dl">생장예측</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토 (수율), Ficus (줄기 생장)</div>
+        <div class="sl">핵심 기술</div><div class="desc">LSTM-RNN 기반 미기후 + 과거 생장 데이터 활용 예측</div>
+        <div class="sl">성능</div><div class="desc">SVR, RF 대비 MSE·RMSE·MAE 모두 우수</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://arxiv.org/abs/1907.00624" target="_blank" style="color:var(--e1-text);text-decoration:underline">arXiv:1907.00624</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="growth">
+      <div class="model-header"><div class="edition-dot e2">G</div><div><div class="model-name">TCN-RNN Hybrid</div><div class="model-team">MDPI Sensors (2021)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dl">생장예측</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">Temporal Convolutional Network + RNN(LSTM) 계층적 통합</div>
+        <div class="sl">성능</div><div class="desc">3개 테스트 데이터셋 전체에서 기존 ML 대비 평균 RMSE 감소</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.3390/s21134537" target="_blank" style="color:var(--e1-text);text-decoration:underline">Sensors 2021, 21(13), 4537</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="growth">
+      <div class="model-header"><div class="edition-dot e2">G</div><div><div class="model-name">MMST-ViT</div><div class="model-team">ICCV 2023</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dl">생장예측</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">옥수수, 대두 (미국 카운티 수준)</div>
+        <div class="sl">핵심 기술</div><div class="desc">Multi-Modal Spatial-Temporal Vision Transformer + 대조 학습 사전훈련. 단기 기상 + 장기 기후변화 반영</div>
+        <div class="sl">성능</div><div class="desc">카운티 수준 수확량 예측 SOTA</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://openaccess.thecvf.com/content/ICCV2023/html/Lin_MMST-ViT_Climate_Change-Aware_Crop_Yield_Prediction_via_Multi-Modal_Spatial-Temporal_Vision_ICCV_2023_paper.html" target="_blank" style="color:var(--e1-text);text-decoration:underline">ICCV 2023 논문</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="growth">
+      <div class="model-header"><div class="edition-dot e2">G</div><div><div class="model-name">Stacked Ensemble (Tomato)</div><div class="model-team">ICEIS 2024</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dl">생장예측</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토 (온실)</div>
+        <div class="sl">핵심 기술</div><div class="desc">KNN + Random Forest + LightGBM 메타 러너 스택 앙상블</div>
+        <div class="sl">성능</div><div class="desc">비교 모델 중 최고 R-squared</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.5220/0012569500003690" target="_blank" style="color:var(--e1-text);text-decoration:underline">ICEIS 2024 논문</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="growth">
+      <div class="model-header"><div class="edition-dot e2">G</div><div><div class="model-name">APSIM + ML Hybrid</div><div class="model-team">Scientific Reports (2021)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dl">생장예측</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">옥수수 (미국 Corn Belt)</div>
+        <div class="sl">핵심 기술</div><div class="desc">APSIM 프로세스 모델 출력을 ML 피처로 활용 (LightGBM, XGBoost 등 6개 앙상블)</div>
+        <div class="sl">성능</div><div class="desc">ML 단독 대비 RMSE 7~20% 감소</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810832/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Scientific Reports (PMC)</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="growth">
+      <div class="model-header"><div class="edition-dot e2">G</div><div><div class="model-name">AgriTransformer</div><div class="model-team">MDPI Electronics (2025)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dl">생장예측</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">다품종 (인도 Telangana)</div>
+        <div class="sl">핵심 기술</div><div class="desc">Transformer + Attention 기반 다중모달 테이블·식생지수 융합</div>
+        <div class="sl">성능</div><div class="desc">R-squared 0.919 (최고 선형 모델 0.884 대비)</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.3390/electronics14122466" target="_blank" style="color:var(--e1-text);text-decoration:underline">Electronics 2025</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ 비전 AI ═══ -->
+    <div class="model-card" data-cat="vision">
+      <div class="model-header"><div class="edition-dot e3">V</div><div><div class="model-name">SerpensGate-YOLOv8</div><div class="model-team">Frontiers in Plant Science (2024)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-cv">비전AI</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">13종 식물 / 30종 병해</div>
+        <div class="sl">핵심 기술</div><div class="desc">YOLOv8 + Dynamic Snake Convolution + SPPELAN 모듈</div>
+        <div class="sl">성능</div><div class="desc">PlantDoc 데이터셋 기준 mAP 향상 (기본 YOLOv8 대비)</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.3389/fpls.2024.1452550" target="_blank" style="color:var(--e1-text);text-decoration:underline">Frontiers in Plant Science 2024</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="vision">
+      <div class="model-header"><div class="edition-dot e3">V</div><div><div class="model-name">YOLO-LeafNet</div><div class="model-team">Nature Scientific Reports (2025)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-cv">비전AI</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">포도, 파프리카, 옥수수, 감자</div>
+        <div class="sl">핵심 기술</div><div class="desc">Enhanced YOLOv8 아키텍처 기반 다종 병해 탐지</div>
+        <div class="sl">성능</div><div class="desc">Precision 0.985, Recall 0.980, mAP50 0.990</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1038/s41598-025-85609-w" target="_blank" style="color:var(--e1-text);text-decoration:underline">Scientific Reports 2025</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="vision" data-opensource="true">
+      <div class="model-header"><div class="edition-dot e3">V</div><div><div class="model-name">PlantVillage CNN Ensemble</div><div class="model-team">Penn State University</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-cv">비전AI</span><span class="badge badge-purple">오픈소스</span></div>
+        <div class="sl">적용 작목</div><div class="desc">14종 작물 / 38 클래스</div>
+        <div class="sl">핵심 기술</div><div class="desc">DenseNet201 + EfficientNet 앙상블. PlantVillage 54,305장 데이터셋 공개</div>
+        <div class="sl">성능</div><div class="desc">정확도 99.89% (실험실), 필드 이미지 31.69%</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://plantvillage.psu.edu/" target="_blank" style="color:var(--e1-text);text-decoration:underline">PlantVillage 데이터셋</a> · <a href="https://github.com/spMohanty/PlantVillage-Dataset" target="_blank" style="color:var(--e1-text);text-decoration:underline">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="vision">
+      <div class="model-header"><div class="edition-dot e3">V</div><div><div class="model-name">MARVIN Gen2</div><div class="model-team">Wageningen University (WUR)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-cv">비전AI</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 식물</div>
+        <div class="sl">핵심 기술</div><div class="desc">다중 카메라 3D 스캔 (MotionCam-3D) + 로봇팔 360도 회전</div>
+        <div class="sl">성능</div><div class="desc">밀리초 단위 3D 식물 모델 생성</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.automate.org/vision/case-studies/high-throughput-plant-phenotyping-with-unique-3d-vision-technology" target="_blank" style="color:var(--e1-text);text-decoration:underline">Automate.org 케이스 스터디</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="vision">
+      <div class="model-header"><div class="edition-dot e3">V</div><div><div class="model-name">NeRF 3D Crop Phenotyping</div><div class="model-team">KIST (한국과학기술연구원)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-cv">비전AI</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토 (온실)</div>
+        <div class="sl">핵심 기술</div><div class="desc">Neural Radiance Fields (NeRF) + 무인 온실 로봇 RGB 이미지 기반 비파괴 3D 측정</div>
+        <div class="sl">성능</div><div class="desc">마디 길이, 엽면적, 과일 부피 비파괴 측정</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.3389/fpls.2024.1386568" target="_blank" style="color:var(--e1-text);text-decoration:underline">Frontiers in Plant Science 2024</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="vision">
+      <div class="model-header"><div class="edition-dot e3">V</div><div><div class="model-name">Phenospex PlantEye</div><div class="model-team">Phenospex (Netherlands)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-cv">비전AI</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 (실험실, 온실)</div>
+        <div class="sl">핵심 기술</div><div class="desc">3D 이미징 + 다분광 분석 (특허). 고처리량 재현성 있는 표현체 데이터</div>
+        <div class="sl">성능</div><div class="desc">미공개</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://phenospex.com/products/plant-phenotyping/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Phenospex 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ 에너지 최적화 ═══ -->
+    <div class="model-card" data-cat="energy">
+      <div class="model-header"><div class="edition-dot e4">N</div><div><div class="model-name">DRL Semi-Closed GH Controller</div><div class="model-team">Advances in Applied Energy (2022)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dp">에너지</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">Deep RL + Robust Optimization. 기후 궤적 불확실성 헤징</div>
+        <div class="sl">성능</div><div class="desc">에너지 효율 최적 제어, 불확실성 대응</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.adapen.2022.100104" target="_blank" style="color:var(--e1-text);text-decoration:underline">Advances in Applied Energy 2022</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="energy">
+      <div class="model-header"><div class="edition-dot e4">N</div><div><div class="model-name">ANN-Accelerated Cost Optimizer</div><div class="model-team">ScienceDirect (2025)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dp">에너지</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토</div>
+        <div class="sl">핵심 기술</div><div class="desc">완전 결합 ANN 가속 동적 온실 모델. 난방·물·CO2·조명 비용 통합 최적화</div>
+        <div class="sl">성능</div><div class="desc">토마토 kg당 비용 최적화</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.compag.2025.110075" target="_blank" style="color:var(--e1-text);text-decoration:underline">ScienceDirect 2025</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="energy">
+      <div class="model-header"><div class="edition-dot e4">N</div><div><div class="model-name">RBF Energy Optimizer</div><div class="model-team">Renew. Sustain. Energy Rev. (2024)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-dp">에너지</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">Radial Basis Function 신경망 기반 에너지 최적화</div>
+        <div class="sl">성능</div><div class="desc">RMSE 0.8, R-squared 0.98, 난방 에너지 대폭 절감</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.rser.2024.114735" target="_blank" style="color:var(--e1-text);text-decoration:underline">RSER 2024</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ 수확 로봇 AI ═══ -->
+    <div class="model-card" data-cat="harvest">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">R</div><div><div class="model-name">Deep-ToMaToS</div><div class="model-team">Computers &amp; Electronics in Ag. (2022)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rb">수확로봇</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토</div>
+        <div class="sl">핵심 기술</div><div class="desc">딥러닝 3단계 성숙도 분류 + 6D 포즈 추정 (3D 위치 + 3D 회전)</div>
+        <div class="sl">성능</div><div class="desc">6D 포즈 추정 정확도 96% (ADD_S 기준)</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.compag.2022.107300" target="_blank" style="color:var(--e1-text);text-decoration:underline">Computers & Electronics in Ag. 2022</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="harvest">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">R</div><div><div class="model-name">DRL Collision-Free Grasping</div><div class="model-team">Computers &amp; Electronics in Ag. (2023)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rb">수확로봇</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토</div>
+        <div class="sl">핵심 기술</div><div class="desc">Deep RL 기반 꽃대 충돌 회피 그래스핑 자세 결정</div>
+        <div class="sl">성능</div><div class="desc">수확 성공률 85.5% (고정자세 대비 +57.3%)</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.compag.2023.108338" target="_blank" style="color:var(--e1-text);text-decoration:underline">Computers & Electronics in Ag. 2023</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="harvest">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">R</div><div><div class="model-name">AHPPEBot</div><div class="model-team">Beijing Univ. of Tech. (2024)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rb">수확로봇</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토</div>
+        <div class="sl">핵심 기술</div><div class="desc">Multi-task YOLOv5 + Adaptive DBScan + 표현체 분석 + 포즈 추정</div>
+        <div class="sl">성능</div><div class="desc">수확 성공률 86.67%, 평균 32.46초/건</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://arxiv.org/abs/2405.06959" target="_blank" style="color:var(--e1-text);text-decoration:underline">arXiv:2405.06959</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="harvest">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">R</div><div><div class="model-name">MetoMotion GRoW</div><div class="model-team">MetoMotion (Israel)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rb">수확로봇</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토, 파프리카 (온실)</div>
+        <div class="sl">핵심 기술</div><div class="desc">듀얼 로봇팔 + 컴퓨터 비전. 수확·제엽·전정 통합</div>
+        <div class="sl">성능</div><div class="desc">미공개</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://metomotion.com/" target="_blank" style="color:var(--e1-text);text-decoration:underline">MetoMotion 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ 디지털트윈 ═══ -->
+    <div class="model-card" data-cat="twin">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-bayes-bg);color:var(--tag-bayes)">D</div><div><div class="model-name">Virtual Tomato Crop (VTC)</div><div class="model-team">Wageningen University (WUR)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-bayes">디지털트윈</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토</div>
+        <div class="sl">핵심 기술</div><div class="desc">기능적-구조적 식물 모델(FSPM) + KASPRO 기후 모델. 광 포집·광합성·동화산물 배분 실시간 시뮬레이션</div>
+        <div class="sl">성능</div><div class="desc">디지털트윈 응용을 위한 실시간 생장 시뮬레이션</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1093/insilicoplants/diae028" target="_blank" style="color:var(--e1-text);text-decoration:underline">in silico Plants 2025</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="twin">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-bayes-bg);color:var(--tag-bayes)">D</div><div><div class="model-name">GHI4.0 Digital Twin</div><div class="model-team">Energy Informatics (2021)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-bayes">디지털트윈</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">일반 온실 작물</div>
+        <div class="sl">핵심 기술</div><div class="desc">EnergyPlus + DSSAT 통합. 미기후·작물관리 동시 최적화</div>
+        <div class="sl">성능</div><div class="desc">생산 일정·에너지·인건비 동시 최적화</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1186/s42162-021-00161-7" target="_blank" style="color:var(--e1-text);text-decoration:underline">Energy Informatics 2021</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="twin">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-bayes-bg);color:var(--tag-bayes)">D</div><div><div class="model-name">Solar GH Digital Twin</div><div class="model-team">중국과학원 (2025)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-bayes">디지털트윈</span><span class="badge badge-blue">연구</span></div>
+        <div class="sl">적용 작목</div><div class="desc">오이</div>
+        <div class="sl">핵심 기술</div><div class="desc">3D 온실 모델 + FSPM + 분산 정량 광 제어</div>
+        <div class="sl">성능</div><div class="desc">기존 고정시간 조명 대비 전력 소비 -52.6%</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://doi.org/10.1016/j.enconman.2024.119392" target="_blank" style="color:var(--e1-text);text-decoration:underline">Energy Conversion & Management 2025</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ 통합 플랫폼 ═══ -->
+    <div class="model-card" data-cat="platform">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">Priva Connext</div><div class="model-team">Priva (Netherlands, 50년+)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">채소, 화훼, 과일류</div>
+        <div class="sl">핵심 기술</div><div class="desc">기후 컴퓨터 + 에너지 관리 + 오픈 플랫폼 (60개+ 통합 파트너, Source.ag AI 포함)</div>
+        <div class="sl">성능</div><div class="desc">네덜란드 재배자 기준 수율 최대 +20%</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.priva.com/horticulture/solutions/climate-and-process-computers/priva-connext" target="_blank" style="color:var(--e1-text);text-decoration:underline">Priva Connext</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="platform">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">Source.ag</div><div class="model-team">Source.ag (Amsterdam, 2020)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">토마토, 파프리카, 오이</div>
+        <div class="sl">핵심 기술</div><div class="desc">AI 자율 관개 + 재배 시뮬레이션 + 수확 예측 (8주 선행). 300+ 온실, 18개국</div>
+        <div class="sl">성능</div><div class="desc">2,500 ha 이상 운영, 총 펀딩 $60M+</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.source.ag/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Source.ag 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="platform">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">Ridder HortiMaX Pro</div><div class="model-team">Ridder (Netherlands, 1953~)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">전 품목</div>
+        <div class="sl">핵심 기술</div><div class="desc">통합 기후·관개·에너지 제어. 오픈 아키텍처, 모듈형 확장</div>
+        <div class="sl">성능</div><div class="desc">미공개</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://ridder.com/hortimax-pro" target="_blank" style="color:var(--e1-text);text-decoration:underline">Ridder HortiMaX Pro</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="platform">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">Hoogendoorn IIVO</div><div class="model-team">Hoogendoorn (Netherlands, 50년+)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">전 품목</div>
+        <div class="sl">핵심 기술</div><div class="desc">클라우드 네이티브 프로세스 컴퓨터. Plant Empowerment 원칙, 기상예보 연계 제어</div>
+        <div class="sl">성능</div><div class="desc">미공개</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://hoogendoorn.com/en/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Hoogendoorn 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="platform">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">LetsGrow.com MyLetsGrow</div><div class="model-team">LetsGrow.com (Netherlands, 2002)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">전 품목</div>
+        <div class="sl">핵심 기술</div><div class="desc">중앙 데이터 플랫폼 + AI 분석 + 이상 탐지 + Strategy Manager. 모든 기후 컴퓨터 브랜드 연동</div>
+        <div class="sl">성능</div><div class="desc">물·가스·비료 -20%, 생산량 +10%. 2,000+ 고객, 45개국</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.letsgrow.com/" target="_blank" style="color:var(--e1-text);text-decoration:underline">LetsGrow.com</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="platform">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">Phytech PlantBeat</div><div class="model-team">Phytech (Israel)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-green">상용</span></div>
+        <div class="sl">적용 작목</div><div class="desc">감귤, 옥수수, 아몬드, 포도, 아보카도 등</div>
+        <div class="sl">핵심 기술</div><div class="desc">수간직경 센서(Dendrometer) + IoT + ML 알고리즘 + NLP 기반 AI 관개 자문</div>
+        <div class="sl">성능</div><div class="desc">현장 센서 데이터 기반 최초 AI 관개 자문 시스템</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://www.phytech.com/" target="_blank" style="color:var(--e1-text);text-decoration:underline">Phytech 공식 사이트</a></div>
+      </div>
+    </div>
+
+    <div class="model-card" data-cat="platform" data-opensource="true">
+      <div class="model-header"><div class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</div><div><div class="model-name">DSSAT</div><div class="model-team">Univ. of Florida 컨소시엄 (1980s~)</div></div></div>
+      <div class="model-body">
+        <div><span class="tag tag-rl">통합플랫폼</span><span class="badge badge-purple">오픈소스</span></div>
+        <div class="sl">적용 작목</div><div class="desc">42개 작물 모델 (벼, 밀, 옥수수, 토마토 등)</div>
+        <div class="sl">핵심 기술</div><div class="desc">프로세스 기반 작물 시뮬레이션 (생리·토양·기상). DSSAT-Pythia (Python 버전) 제공</div>
+        <div class="sl">성능</div><div class="desc">100개국+ 사용, ML 결합 시 R-squared 0.95 이상</div>
+        <div class="sl">공개 자료</div><div class="desc"><a href="https://dssat.net/" target="_blank" style="color:var(--e1-text);text-decoration:underline">DSSAT 공식 사이트</a> · <a href="https://github.com/DSSAT/dssat-csm-os" target="_blank" style="color:var(--e1-text);text-decoration:underline">GitHub</a></div>
+      </div>
+    </div>
+
+  </div><!-- /modelCardGrid -->
+
+  <!-- ═══ 요약 비교표 ═══ -->
+  <div class="xl-section-title" style="margin-top:18px">모델 요약 비교표 (36개)</div>
+  <div class="card"><div class="card-body" style="padding:0;overflow-x:auto">
+    <table class="data-table" style="min-width:800px;font-size:12px">
+      <thead><tr>
+        <th style="width:160px">모델/시스템</th><th style="width:90px">카테고리</th><th style="width:100px">개발 주체</th><th style="width:100px">작목</th><th style="width:120px">핵심 기술</th><th style="width:100px">주요 성능</th><th style="width:70px">공개</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><strong>Koidra KoPilot</strong></td><td>환경제어</td><td>Koidra</td><td>토마토, 오이</td><td>PIML+MPC+RL</td><td>수율 +19.6%</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>iGrow</strong></td><td>환경제어</td><td>Tencent</td><td>토마토, 오이</td><td>Bi-level+NN+MDP</td><td>이익 +92.7%</td><td><span class="badge badge-purple">오픈</span></td></tr>
+        <tr><td><strong>Blue Radix</strong></td><td>환경제어</td><td>Blue Radix</td><td>과채류 전반</td><td>AI 자율 제어</td><td>수율+7%, E-15%</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>DeePC</strong></td><td>환경제어</td><td>ETH Zurich</td><td>일반</td><td>Data-enabled PC</td><td>MPC 동등</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>DDPG RL</strong></td><td>환경제어</td><td>UPC Barcelona</td><td>일반</td><td>DDPG RL</td><td>MPC 동등+</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>RL-RNMPC</strong></td><td>환경제어</td><td>TU Delft</td><td>일반</td><td>MPC+RL</td><td>MPC 대비 향상</td><td><span class="badge badge-purple">오픈</span></td></tr>
+        <tr><td><strong>DDRMPC</strong></td><td>환경제어</td><td>Applied Energy</td><td>일반</td><td>Robust MPC+ANN</td><td>E -23.6%</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>LSTM-RNN</strong></td><td>생장예측</td><td>EU SMARTGREEN</td><td>토마토</td><td>LSTM-RNN</td><td>SVR/RF 초과</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>TCN-RNN</strong></td><td>생장예측</td><td>MDPI Sensors</td><td>일반</td><td>TCN+LSTM</td><td>RMSE 감소</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>MMST-ViT</strong></td><td>생장예측</td><td>ICCV 2023</td><td>옥수수, 대두</td><td>Transformer</td><td>SOTA</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>Stacked Ensemble</strong></td><td>생장예측</td><td>ICEIS 2024</td><td>토마토</td><td>KNN+RF+LightGBM</td><td>최고 R²</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>APSIM+ML</strong></td><td>생장예측</td><td>Sci. Reports</td><td>옥수수</td><td>APSIM+LightGBM</td><td>RMSE -7~20%</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>AgriTransformer</strong></td><td>생장예측</td><td>MDPI Elec.</td><td>다품종</td><td>Transformer</td><td>R²=0.919</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>SerpensGate-YOLOv8</strong></td><td>비전AI</td><td>Frontiers</td><td>13종/30병해</td><td>YOLOv8+DySnake</td><td>mAP 향상</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>YOLO-LeafNet</strong></td><td>비전AI</td><td>Sci. Reports</td><td>포도, 감자 등</td><td>YOLOv8 개선</td><td>mAP50 0.990</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>PlantVillage CNN</strong></td><td>비전AI</td><td>Penn State</td><td>14종/38클래스</td><td>DenseNet+EfficientNet</td><td>정확도 99.89%</td><td><span class="badge badge-purple">오픈</span></td></tr>
+        <tr><td><strong>MARVIN Gen2</strong></td><td>비전AI</td><td>WUR</td><td>일반 온실</td><td>3D 스캔 로봇</td><td>ms 단위 3D</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>NeRF Phenotyping</strong></td><td>비전AI</td><td>KIST</td><td>토마토</td><td>NeRF+로봇 RGB</td><td>비파괴 3D</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>Phenospex PlantEye</strong></td><td>비전AI</td><td>Phenospex</td><td>일반</td><td>3D+다분광</td><td>미공개</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>DRL Semi-Closed GH</strong></td><td>에너지</td><td>Adv. Appl. E.</td><td>일반</td><td>DRL+Robust Opt</td><td>에너지 효율</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>ANN Cost Optimizer</strong></td><td>에너지</td><td>ScienceDirect</td><td>토마토</td><td>ANN 가속 모델</td><td>kg당 비용 최적</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>RBF Energy Opt.</strong></td><td>에너지</td><td>RSER</td><td>일반</td><td>RBF NN</td><td>R²=0.98</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>Deep-ToMaToS</strong></td><td>수확로봇</td><td>C&amp;E in Ag.</td><td>토마토</td><td>DL 6D 포즈</td><td>포즈 96%</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>DRL Grasping</strong></td><td>수확로봇</td><td>C&amp;E in Ag.</td><td>토마토</td><td>DRL 충돌회피</td><td>성공률 85.5%</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>AHPPEBot</strong></td><td>수확로봇</td><td>Beijing UT</td><td>토마토</td><td>YOLOv5+DBScan</td><td>성공률 86.67%</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>MetoMotion GRoW</strong></td><td>수확로봇</td><td>MetoMotion</td><td>토마토, 파프리카</td><td>듀얼 로봇팔+CV</td><td>미공개</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>VTC (WUR)</strong></td><td>디지털트윈</td><td>WUR</td><td>토마토</td><td>FSPM+KASPRO</td><td>실시간 시뮬</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>GHI4.0</strong></td><td>디지털트윈</td><td>Energy Inf.</td><td>일반</td><td>EnergyPlus+DSSAT</td><td>동시 최적화</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>Solar GH Twin</strong></td><td>디지털트윈</td><td>중국과학원</td><td>오이</td><td>3D+FSPM+광제어</td><td>전력 -52.6%</td><td><span class="badge badge-blue">연구</span></td></tr>
+        <tr><td><strong>Priva Connext</strong></td><td>통합플랫폼</td><td>Priva</td><td>전 품목</td><td>기후컴퓨터+AI</td><td>수율 +20%</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>Source.ag</strong></td><td>통합플랫폼</td><td>Source.ag</td><td>과채류</td><td>AI 자율관개+예측</td><td>2,500ha+</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>Ridder HortiMaX</strong></td><td>통합플랫폼</td><td>Ridder</td><td>전 품목</td><td>통합 제어</td><td>미공개</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>Hoogendoorn IIVO</strong></td><td>통합플랫폼</td><td>Hoogendoorn</td><td>전 품목</td><td>클라우드 네이티브</td><td>미공개</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>LetsGrow.com</strong></td><td>통합플랫폼</td><td>LetsGrow.com</td><td>전 품목</td><td>데이터+AI분석</td><td>생산 +10%</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>Phytech PlantBeat</strong></td><td>통합플랫폼</td><td>Phytech</td><td>과수류</td><td>Dendrometer+ML</td><td>AI 관개자문</td><td><span class="badge badge-green">상용</span></td></tr>
+        <tr><td><strong>DSSAT</strong></td><td>통합플랫폼</td><td>UF 컨소시엄</td><td>42개 작물</td><td>프로세스 기반</td><td>100개국+</td><td><span class="badge badge-purple">오픈</span></td></tr>
+      </tbody>
+    </table>
+  </div></div>
+
+</div><!-- /tab-a-modeldb -->
+
+  <div id="tab-a-compare" class="tab-panel">
+    <div class="cmp-summary-row">
+      <div class="cmp-sum-card">
+        <div class="cmp-sum-dot e1">1</div>
+        <div class="cmp-sum-name">Bayesian RL</div>
+        <div class="cmp-sum-meta">Microsoft Research · 2018</div>
+        <div class="cmp-sum-crop">오이</div>
+        <div><span class="cmp-kpi-val">55</span><span class="cmp-kpi-unit">kg/m²</span></div>
+        <div class="cmp-sum-profit">순수익 +17%</div>
+      </div>
+      <div class="cmp-sum-card">
+        <div class="cmp-sum-dot e2">2</div>
+        <div class="cmp-sum-name">DeePC 하이브리드</div>
+        <div class="cmp-sum-meta">TU Delft · 2020</div>
+        <div class="cmp-sum-crop">방울토마토</div>
+        <div style="line-height:1.4"><span style="font-size:13px;font-weight:600;color:var(--text)">순수익·지속가능성<br>AI전략 전 부문 1위</span></div>
+        <div class="cmp-sum-profit">3개 평가 항목 모두 최고점</div>
+      </div>
+      <div class="cmp-sum-card">
+        <div class="cmp-sum-dot e3">3</div>
+        <div class="cmp-sum-name">KoPilot RL+CV</div>
+        <div class="cmp-sum-meta">Koidra · 2022</div>
+        <div class="cmp-sum-crop">상추</div>
+        <div><span class="cmp-kpi-val">400</span><span class="cmp-kpi-unit">g/개</span></div>
+        <div class="cmp-sum-profit">순수익 +27.8%</div>
+      </div>
+      <div class="cmp-sum-card">
+        <div class="cmp-sum-dot e4">4</div>
+        <div class="cmp-sum-name">멀티태스크 DL</div>
+        <div class="cmp-sum-meta">절강대 · 2024</div>
+        <div class="cmp-sum-crop">왜성 토마토</div>
+        <div><span class="cmp-kpi-val">45</span><span class="cmp-kpi-unit">kg/m²</span></div>
+        <div class="cmp-sum-profit">최고 순수익</div>
+      </div>
+    </div>
+    <div class="cmp-table-wrap">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="cmp-th-label">비교 항목</th>
+            <th class="cmp-th e1">1회 · Sonoma<br><span class="cmp-th-sub">Bayesian RL</span></th>
+            <th class="cmp-th e2">2회 · Automatoes<br><span class="cmp-th-sub">DeePC 하이브리드</span></th>
+            <th class="cmp-th e3">3회 · Koala<br><span class="cmp-th-sub">KoPilot RL+CV</span></th>
+            <th class="cmp-th e4">4회 · IDEAS<br><span class="cmp-th-sub">멀티태스크 DL</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="cmp-row-label">재배 작목</td><td>오이</td><td>방울토마토</td><td>상추</td><td>왜성 토마토</td></tr>
+          <tr class="cmp-row-highlight">
+            <td class="cmp-row-label">수확 성적</td>
+            <td><strong>55 kg/m²</strong><span class="cmp-meta">전팀 최고 수확량</span></td>
+            <td><strong>수확량 1위</strong><span class="cmp-meta">품질·자원효율 동시 1위</span></td>
+            <td><strong>400 g/개</strong><span class="cmp-meta">목표(250g) 160% 초과</span></td>
+            <td><strong>45 kg/m²</strong><span class="cmp-meta">m²당 40포트 고밀도</span></td>
+          </tr>
+          <tr class="cmp-row-highlight">
+            <td class="cmp-row-label">순수익 성과</td>
+            <td><strong class="cmp-plus">+17%</strong><span class="cmp-meta">vs 전문 재배사</span></td>
+            <td><strong class="cmp-plus">전 평가 부문 최고점</strong><span class="cmp-meta">순수익·지속가능성·AI전략</span></td>
+            <td><strong class="cmp-plus">+27.8%</strong><span class="cmp-meta">유일하게 기준 재배사 초과</span></td>
+            <td><strong class="cmp-plus">최고 순수익</strong><span class="cmp-meta">고밀도 전략으로 달성</span></td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">핵심 알고리즘</td>
+            <td>Bayesian Model-Based RL + 전문가 규칙</td>
+            <td>DeePC + Computer Vision + 모듈형 설계</td>
+            <td>강화학습 + RGB·열화상 카메라</td>
+            <td>멀티태스크 딥러닝 (4개 AI 역할 분담)</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">우승 핵심 이유</td>
+            <td>샘플 효율 높은 모델 기반 RL. 도메인 지식 규칙으로 인코딩하여 AI와 결합</td>
+            <td>문제 세분화·최적 알고리즘 배치. 카메라로 당도까지 관리하여 품질·수량·자원효율 동시 달성</td>
+            <td>열화상 카메라로 생체중 실시간 추정. 유일하게 네덜란드 전문 재배사 순수익 초과</td>
+            <td>m²당 40포트 고밀도 식재 전략. 에너지 스크린 적극 활용으로 비용 최소화</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">장점</td>
+            <td><ul class="cmp-list"><li>데이터 부족해도 잘 작동</li><li>불확실 센서에도 안정적</li><li>도메인 지식 통합 가능</li></ul></td>
+            <td><ul class="cmp-list"><li>물리 모델 불필요</li><li>완전 오픈소스 (MIT)</li><li>WUR 데이터로 바로 학습</li></ul></td>
+            <td><ul class="cmp-list"><li>비접촉 생육 모니터링</li><li>KoPilot로 즉시 도입 가능</li><li>Priva·Hoogendoorn 연동</li></ul></td>
+            <td><ul class="cmp-list"><li>해충까지 자동 탐지</li><li>3D 생육 분석 가능</li><li>논문·데이터셋 공개</li></ul></td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">단점</td>
+            <td><ul class="cmp-list minus"><li>구현 복잡 — RL 전문 인력 필요</li><li>코드 미공개</li></ul></td>
+            <td><ul class="cmp-list minus"><li>충분한 과거 데이터 필요</li><li>카메라 인프라 필요</li></ul></td>
+            <td><ul class="cmp-list minus"><li>유료 SaaS</li><li>한국 서비스 지원 미확인</li></ul></td>
+            <td><ul class="cmp-list minus"><li>RGBD 카메라 고사양 필요</li><li>코드 미공개</li></ul></td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">GREF 사용 가능</td>
+            <td><span class="cmp-avail partial">간접 활용</span><div class="cmp-avail-desc">KoPilot SaaS 형태로 간접 활용 가능</div></td>
+            <td><span class="cmp-avail yes">즉시 가능</span><div class="cmp-avail-desc">PyDeePC + WUR 데이터셋으로 바로 시작</div></td>
+            <td><span class="cmp-avail partial">계약 후 가능</span><div class="cmp-avail-desc">Priva 도입 시 연동. 한국 체계 확인 필요</div></td>
+            <td><span class="cmp-avail partial">학술 협력 필요</span><div class="cmp-avail-desc">데이터셋 공개. 절강대 협력 또는 AGC 참가</div></td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">도입 비용</td>
+            <td><span class="cmp-cost high">높음</span></td>
+            <td><span class="cmp-cost low">낮음</span></td>
+            <td><span class="cmp-cost mid">중간</span></td>
+            <td><span class="cmp-cost mid">중간~높음</span></td>
+          </tr>
+          <tr>
+            <td class="cmp-row-label">코드·데이터 공개</td>
+            <td><span class="cmp-badge partial">논문 공개</span><span class="cmp-badge no">코드 비공개</span></td>
+            <td><span class="cmp-badge yes">오픈소스</span><span class="cmp-badge yes">WUR 데이터셋</span></td>
+            <td><span class="cmp-badge no">코드 비공개</span><span class="cmp-badge partial">WUR 데이터셋</span></td>
+            <td><span class="cmp-badge partial">논문 공개</span><span class="cmp-badge yes">WUR 데이터셋(2025)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="xl-section-title" style="margin-top:18px">추가 주요 모델 GREF 적용 가능성 비교</div>
+    <div class="cmp-table-wrap">
+      <table class="cmp-table">
+        <thead><tr>
+          <th class="cmp-th-label">비교 항목</th>
+          <th class="cmp-th e1">Blue Radix<br><span class="cmp-th-sub">Crop Controller</span></th>
+          <th class="cmp-th e2">iGrow<br><span class="cmp-th-sub">Tencent AAAI 2022</span></th>
+          <th class="cmp-th e3">Source.ag<br><span class="cmp-th-sub">Cultivate + Irrigation</span></th>
+          <th class="cmp-th e4">RL-RNMPC<br><span class="cmp-th-sub">TU Delft 2024</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="cmp-row-label">카테고리</td><td>환경제어</td><td>환경제어</td><td>통합플랫폼</td><td>환경제어</td></tr>
+          <tr><td class="cmp-row-label">적용 작목</td><td>토마토·오이·파프리카</td><td>토마토·오이</td><td>토마토·파프리카·오이</td><td>일반 온실 작물</td></tr>
+          <tr><td class="cmp-row-label">핵심 기술</td><td>AI 자율 기후+관개</td><td>Bi-level Opt+NN+MDP</td><td>AI 관개+수확 예측</td><td>MPC+온라인 RL</td></tr>
+          <tr class="cmp-row-highlight"><td class="cmp-row-label">주요 성능</td>
+            <td><strong class="cmp-plus">수율 +7%, E -15%</strong><span class="cmp-meta">20개국 상용 운영</span></td>
+            <td><strong class="cmp-plus">이익 +92.7%</strong><span class="cmp-meta">인간 전문가 대비</span></td>
+            <td><strong class="cmp-plus">2,500ha+</strong><span class="cmp-meta">18개국, $60M+ 펀딩</span></td>
+            <td><strong class="cmp-plus">MPC 대비 향상</strong><span class="cmp-meta">제약 위반 감소</span></td>
+          </tr>
+          <tr><td class="cmp-row-label">공개 여부</td>
+            <td><span class="cmp-badge no">상용 SaaS</span></td>
+            <td><span class="cmp-badge yes">오픈소스</span></td>
+            <td><span class="cmp-badge no">상용 SaaS</span></td>
+            <td><span class="cmp-badge yes">오픈소스</span></td>
+          </tr>
+          <tr><td class="cmp-row-label">GREF 적용 가능성</td>
+            <td><span class="cmp-avail partial">계약 후</span><div class="cmp-avail-desc">SaaS 구독. 기존 기후컴퓨터 연동</div></td>
+            <td><span class="cmp-avail yes">즉시 가능</span><div class="cmp-avail-desc">GitHub 공개. Python 환경 필요</div></td>
+            <td><span class="cmp-avail partial">계약 후</span><div class="cmp-avail-desc">SaaS 구독. Priva 등 연동</div></td>
+            <td><span class="cmp-avail yes">즉시 가능</span><div class="cmp-avail-desc">GitHub 공개. Python 3.11</div></td>
+          </tr>
+          <tr><td class="cmp-row-label">도입 비용</td>
+            <td><span class="cmp-cost mid">중간</span></td>
+            <td><span class="cmp-cost low">낮음</span></td>
+            <td><span class="cmp-cost mid">중간~높음</span></td>
+            <td><span class="cmp-cost low">낮음</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /a-compare -->
+
+  <div id="tab-a-models" class="tab-panel">
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">1</span><div><div class="model-name">Bayesian Model-Based 강화학습</div><div class="model-team">Team Sonoma (Microsoft Research) · 2018 · 오이</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-rl">Model-Based RL</span><span class="tag tag-bayes">베이지안 추론</span><span class="tag tag-rb">전문가 규칙 결합</span><div class="sl">작동 원리</div><div class="desc">AI가 먼저 온실의 반응을 수학적 모델로 학습합니다 실제 작물을 망가뜨리지 않고 머릿속 시뮬레이션으로 수천 가지 전략을 미리 테스트한 뒤 가장 이익이 높은 전략을 실행합니다</div><div class="sl">성과</div><div class="desc">순수익 +17% vs 전문 재배사 · 수확량 +6% · 55kg/m²</div><div class="access-row"><span class="access-badge badge-partial">논문 공개 (구현체 비공개)</span><span class="access-badge badge-comm">Koidra KoPilot로 상업화</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">2</span><div><div class="model-name">DeePC + 모듈형 하이브리드 AI</div><div class="model-team">Team Automatoes (TU Delft · KeyGene · Hoogendoorn) · 2020 · 방울토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dp">DeePC</span><span class="tag tag-cv">Computer Vision</span><span class="tag tag-ml">온라인 최적화</span><span class="tag tag-rb">물리 모델 결합</span><div class="sl">작동 원리</div><div class="desc">과거의 "이런 설정값 → 이런 결과" 기록을 쌓아두면, 그 데이터만으로 다음에 어떤 설정을 해야 할지 예측합니다 문제를 잘게 쪼개서 기후 제어·이미지 분석·수확 판단을 각각 다른 전문 알고리즘이 담당하는 모듈형 설계를 적용했습니다</div><div class="sl">성과</div><div class="desc">순수익·지속가능성·AI전략 전 평가 부문 최고점. 모든 AI팀이 인간 재배사 초과 달성</div><div class="access-row"><span class="access-badge badge-open">완전 오픈소스 (MIT 라이선스)</span><span class="access-badge badge-open">WUR 데이터셋 무료 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">3</span><div><div class="model-name">KoPilot — 강화학습 + 컴퓨터 비전</div><div class="model-team">Team Koala (Koidra · Cornell · Rutgers) · 2022 · 상추</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-rl">강화학습 (RL)</span><span class="tag tag-cv">RGB + 열화상 카메라</span><span class="tag tag-ml">Physics-aware AI</span><div class="sl">작동 원리</div><div class="desc">카메라가 상추를 계속 촬영해 잎 크기와 수분 상태를 실시간으로 파악합니다 AI는 이 정보를 받아 환기·난방·관수 간격을 자동으로 결정합니다</div><div class="sl">성과</div><div class="desc">순수익 +27.8% vs 네덜란드 기준 재배사 · 400g/개 (목표 250g 초과) · 24개국 46팀 중 유일하게 기준 재배사 초과 달성</div><div class="access-row"><span class="access-badge badge-comm">상업 SaaS (월정액 계약)</span><span class="access-badge badge-partial">기존 기후컴퓨터에 연동 설치</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">4</span><div><div class="model-name">멀티태스크 딥러닝 통합 시스템</div><div class="model-team">Team IDEAS (절강대 ZJU · Prof. LIN Tao) · 2024 · 왜성 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성 (4개 역할 분담)</div><span class="tag tag-cv">생육 비전 분석</span><span class="tag tag-dl">해충 자동 탐지</span><span class="tag tag-ml">기후 · 관개 제어</span><span class="tag tag-rl">수확 시점 최적화</span><div class="sl">작동 원리</div><div class="desc">카메라 AI가 토마토 크기·숙도를 분석하고, 해충 탐지 AI가 끈끈이트랩 사진을 보고 해충 수를 셉니다 기후 AI가 온도·CO₂를 조절하고, 수확 AI가 "지금 따는 게 이익"인지 계산합니다</div><div class="sl">성과</div><div class="desc">m²당 최고 순수익 · 40포트/m² 고밀도 식재 · 45kg/m² 수확</div><div class="access-row"><span class="access-badge badge-open">논문 + 데이터셋 공개 (2025.6)</span><span class="access-badge badge-partial">코드는 학술 협력 채널 필요</span></div></div></div>
+    <div class="model-card" style="opacity:.82"><div class="model-header"><span class="edition-dot e-ref">참고</span><div><div class="model-name">iGrow (Tencent Research · AAAI 2022)</div><div class="model-team">GitHub 무료 공개 · SAC + EGA 알고리즘</div></div></div><div class="model-body"><span class="tag tag-rl">SAC 강화학습</span><span class="tag tag-ml">진화 게임 알고리즘 (EGA)</span><span class="tag tag-ml">신경망 시뮬레이터</span><div class="sl">작동 원리</div><div class="desc">실제 온실에서 실험하기 전에 컴퓨터 안에 가상 온실을 만들어 미리 연습합니다 코드가 전부 무료 공개되어 있어 당장 내려받아 실험해볼 수 있는 것이 최대 장점입니다</div></div></div>
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">추가 주요 모델 상세</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">5</span><div><div class="model-name">Blue Radix Crop Controller</div><div class="model-team">Blue Radix (Rotterdam) · 과채류 전반</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">AI 자율제어</span><span class="tag tag-rl">3일 선행 최적화</span><div class="sl">작동 원리</div><div class="desc">AI가 3일 앞의 기후를 예측하고, 5분 간격으로 기후·관개를 자율 제어한다 기후컴퓨터 워크로드를 80% 감소시키며, 재배사는 전략적 의사결정에 집중 가능하다</div><div class="sl">성과</div><div class="desc">수율 +7%, 수익 +5%, 에너지 -15%, 물·비료 -10%. 20개국 이상 상용 운영</div><div class="access-row"><span class="access-badge badge-comm">상용 SaaS (월정액)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">6</span><div><div class="model-name">RL-RNMPC (MPC + 온라인 RL)</div><div class="model-team">TU Delft (Samuel Mallick) · 2024 · 온실 전반</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-rl">강화학습 (RL)</span><span class="tag tag-ml">파라미터화 MPC</span><div class="sl">작동 원리</div><div class="desc">MPC를 RL의 정책 네트워크로 사용하여, 온라인으로 제어 파라미터를 학습한다 MPC의 안정성과 RL의 적응성을 결합한 하이브리드 접근이다</div><div class="sl">성과</div><div class="desc">기존 MPC 대비 제약 위반 감소 및 생장 효율 향상</div><div class="access-row"><span class="access-badge badge-open">오픈소스 (GitHub, Python 3.11)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">7</span><div><div class="model-name">YOLO-LeafNet (병해 탐지)</div><div class="model-team">Nature Scientific Reports · 2025 · 다품종</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">YOLOv8 개선</span><span class="tag tag-dl">CNN</span><div class="sl">작동 원리</div><div class="desc">Enhanced YOLOv8 아키텍처 기반으로 포도·파프리카·옥수수·감자 등 다종 식물의 병해를 실시간 탐지한다 단일 모델로 다품종 대응이 가능하다</div><div class="sl">성과</div><div class="desc">Precision 0.985, Recall 0.980, mAP50 0.990. YOLOv5/v8 기본 모델 대비 우수</div><div class="access-row"><span class="access-badge badge-partial">논문 공개 (코드 문의 필요)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">8</span><div><div class="model-name">Virtual Tomato Crop (디지털트윈)</div><div class="model-team">Wageningen University (WUR) · 2025 · 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-bayes">FSPM</span><span class="tag tag-ml">KASPRO 기후모델</span><div class="sl">작동 원리</div><div class="desc">기능적-구조적 식물 모델(FSPM)과 온실 기후 모델(KASPRO)을 결합하여, 광 포집·광합성·동화산물 배분·생장·수확을 실시간으로 시뮬레이션한다</div><div class="sl">성과</div><div class="desc">디지털트윈 응용을 위한 실시간 생장 시뮬레이션 구현</div><div class="access-row"><span class="access-badge badge-partial">논문 공개 (WUR 협력 필요)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">9</span><div><div class="model-name">Source.ag (통합 플랫폼)</div><div class="model-team">Source.ag (Amsterdam, 2020) · 과채류</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">AI 자율 관개</span><span class="tag tag-dl">수확 예측</span><span class="tag tag-cv">재배 시뮬레이션</span><div class="sl">작동 원리</div><div class="desc">AI 기반 자율 관개, 재배 시뮬레이션, 수확 예측(8주 선행)을 통합 제공한다 300개 이상 온실, 18개국, 2,500ha 이상에서 운영 중이다</div><div class="sl">성과</div><div class="desc">총 펀딩 $60M+. 글로벌 확장 중</div><div class="access-row"><span class="access-badge badge-comm">상용 SaaS (단계별 상품)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">10</span><div><div class="model-name">DRL Collision-Free Grasping</div><div class="model-team">Computers &amp; Electronics in Ag. · 2023 · 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-rl">Deep RL</span><span class="tag tag-rb">충돌 회피</span><div class="sl">작동 원리</div><div class="desc">Deep RL을 활용하여 꽃대(peduncle)와 충돌하지 않는 그래스핑 자세를 자율 결정한다 고정 자세 방식 대비 수확 성공률을 크게 향상시킨다</div><div class="sl">성과</div><div class="desc">수확 성공률 85.5% (고정자세 대비 +57.3%)</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">환경제어 — 추가 모델</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">11</span><div><div class="model-name">DeePC for Greenhouse</div><div class="model-team">ETH Zurich · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dp">DeePC</span><span class="tag tag-ml">비모수 데이터 기반</span><div class="sl">작동 원리</div><div class="desc">과거 데이터의 입출력 쌍만으로 미래 제어를 예측한다 모델 식별 과정 없이 행동 시스템 이론에 기반하여 MPC와 동등한 제어 성능을 달성한다</div><div class="sl">성과</div><div class="desc">MPC와 동등한 제어 성능, 모델링 불필요</div><div class="access-row"><span class="access-badge badge-open">PyDeePC 오픈소스</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">12</span><div><div class="model-name">DDPG RL Greenhouse Controller</div><div class="model-team">UPC Barcelona 외 · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-rl">DDPG</span><span class="tag tag-ml">연속 제어</span><div class="sl">작동 원리</div><div class="desc">Deep Deterministic Policy Gradient를 사용하여 연속 상태-행동 공간에서 온실 기후를 제어한다 Actor-Critic 구조로 정책과 가치를 동시에 학습한다</div><div class="sl">성과</div><div class="desc">통합 벤치마크에서 MPC와 동등 또는 우수</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">13</span><div><div class="model-name">DDRMPC (Data-Driven Robust MPC)</div><div class="model-team">Applied Energy (2023) · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">Robust MPC</span><span class="tag tag-dl">ANN</span><span class="tag tag-ml">PSO</span><div class="sl">작동 원리</div><div class="desc">ANN으로 온실 동적 모델을 학습하고, Minimax 최적화로 불확실성에 강건한 제어를 수행한다 PSO로 전역 최적해를 탐색한다</div><div class="sl">성과</div><div class="desc">RMSE 0.32°C(동절기), 에너지 절감 9.67%(동절기) / 23.61%(하절기)</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">생장예측 — 전체 모델</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">14</span><div><div class="model-name">LSTM-RNN Growth Predictor</div><div class="model-team">EU SMARTGREEN Project · 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">LSTM</span><span class="tag tag-dl">RNN</span><div class="sl">작동 원리</div><div class="desc">미기후 데이터와 과거 생장 기록을 LSTM-RNN에 입력하여 수확량과 줄기 생장을 예측한다 장기 시계열 패턴 학습에 강점이 있다</div><div class="sl">성과</div><div class="desc">SVR, RF 대비 MSE·RMSE·MAE 모두 우수</div><div class="access-row"><span class="access-badge badge-open">arXiv:1907.00624</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">15</span><div><div class="model-name">TCN-RNN Hybrid</div><div class="model-team">MDPI Sensors (2021) · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">TCN</span><span class="tag tag-dl">LSTM</span><div class="sl">작동 원리</div><div class="desc">Temporal Convolutional Network가 단기 패턴을 포착하고, LSTM이 장기 의존성을 학습하는 계층적 통합 구조이다</div><div class="sl">성과</div><div class="desc">3개 테스트셋 전체에서 기존 ML 대비 평균 RMSE 감소</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">16</span><div><div class="model-name">MMST-ViT</div><div class="model-team">ICCV 2023 · 옥수수·대두</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">Transformer</span><span class="tag tag-cv">위성 이미지</span><div class="sl">작동 원리</div><div class="desc">Multi-Modal Spatial-Temporal Vision Transformer로, 위성 이미지와 기상 데이터를 동시에 처리하여 카운티 수준 수확량을 예측한다 대조 학습으로 사전훈련한다</div><div class="sl">성과</div><div class="desc">카운티 수준 수확량 예측 SOTA</div><div class="access-row"><span class="access-badge badge-partial">논문 공개 (ICCV)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">17</span><div><div class="model-name">Stacked Ensemble (Tomato)</div><div class="model-team">ICEIS 2024 · 토마토 (온실)</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">KNN</span><span class="tag tag-ml">RF</span><span class="tag tag-ml">LightGBM</span><div class="sl">작동 원리</div><div class="desc">KNN과 Random Forest의 예측을 LightGBM 메타 러너가 종합하여 최종 수확량을 예측하는 스택 앙상블이다</div><div class="sl">성과</div><div class="desc">비교 모델 중 최고 R-squared</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">18</span><div><div class="model-name">APSIM + ML Hybrid</div><div class="model-team">Scientific Reports (2021) · 옥수수</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">APSIM</span><span class="tag tag-ml">LightGBM</span><span class="tag tag-ml">XGBoost</span><div class="sl">작동 원리</div><div class="desc">APSIM 프로세스 모델의 출력(토양수분 등)을 ML 피처로 활용한다 물리 기반 시뮬레이션과 데이터 기반 학습의 하이브리드이다</div><div class="sl">성과</div><div class="desc">ML 단독 대비 RMSE 7~20% 감소</div><div class="access-row"><span class="access-badge badge-partial">논문 공개 (PMC)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">19</span><div><div class="model-name">AgriTransformer</div><div class="model-team">MDPI Electronics (2025) · 다품종</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">Transformer</span><span class="tag tag-dl">Attention</span><div class="sl">작동 원리</div><div class="desc">Attention 메커니즘 기반 Transformer로 테이블 데이터와 식생지수를 융합하여 다품종 수확량을 예측한다</div><div class="sl">성과</div><div class="desc">R-squared 0.919 (최고 선형 모델 0.884 대비)</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">비전 AI — 추가 모델</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">20</span><div><div class="model-name">SerpensGate-YOLOv8</div><div class="model-team">Frontiers in Plant Science (2024) · 13종/30병해</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">YOLOv8</span><span class="tag tag-cv">DySnakeConv</span><div class="sl">작동 원리</div><div class="desc">Dynamic Snake Convolution으로 잎맥·줄기 같은 곡선 구조를 더 정확히 포착하고, SPPELAN 모듈로 다중 스케일 특징을 강화한다</div><div class="sl">성과</div><div class="desc">PlantDoc 데이터셋 기준 기본 YOLOv8 대비 mAP 향상</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">21</span><div><div class="model-name">PlantVillage CNN Ensemble</div><div class="model-team">Penn State · 14종/38클래스</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">DenseNet201</span><span class="tag tag-cv">EfficientNet</span><div class="sl">작동 원리</div><div class="desc">54,305장 PlantVillage 데이터셋으로 DenseNet201과 EfficientNet 앙상블을 학습한다 실험실 조건에서 매우 높은 정확도를 보인다</div><div class="sl">성과</div><div class="desc">정확도 99.89% (실험실), 필드 31.69%</div><div class="access-row"><span class="access-badge badge-open">데이터셋 + GitHub 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">22</span><div><div class="model-name">MARVIN Gen2</div><div class="model-team">Wageningen University · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">3D 스캔</span><span class="tag tag-rb">로봇팔</span><div class="sl">작동 원리</div><div class="desc">MotionCam-3D 다중 카메라를 로봇팔에 장착하여 360도 회전하며 식물을 스캔한다 밀리초 단위로 3D 식물 모델을 생성한다</div><div class="sl">성과</div><div class="desc">ms 단위 3D 모델 생성, 잎·줄기 구조 측정</div><div class="access-row"><span class="access-badge badge-partial">연구시설</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">23</span><div><div class="model-name">NeRF 3D Crop Phenotyping</div><div class="model-team">KIST · 토마토 (온실)</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">NeRF</span><span class="tag tag-rb">로봇 RGB</span><div class="sl">작동 원리</div><div class="desc">무인 온실 로봇이 다각도 RGB 이미지를 촬영하고, Neural Radiance Fields로 3D 장면을 재구성하여 마디길이·엽면적·과일부피를 비파괴 측정한다</div><div class="sl">성과</div><div class="desc">비파괴 3D 형태 측정 파이프라인 구현</div><div class="access-row"><span class="access-badge badge-partial">논문 공개 (Frontiers)</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">24</span><div><div class="model-name">Phenospex PlantEye</div><div class="model-team">Phenospex (Netherlands) · 일반</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">3D 이미징</span><span class="tag tag-cv">다분광</span><div class="sl">작동 원리</div><div class="desc">특허 기술 기반 3D 이미징과 다분광 분석으로 고처리량 표현체 데이터를 생산한다 실험실·온실 모두 적용 가능하다</div><div class="sl">성과</div><div class="desc">미공개 (상용 제품)</div><div class="access-row"><span class="access-badge badge-comm">상용 제품</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">에너지 최적화</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">25</span><div><div class="model-name">DRL Semi-Closed GH Controller</div><div class="model-team">Advances in Applied Energy (2022) · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-rl">Deep RL</span><span class="tag tag-ml">Robust Optimization</span><div class="sl">작동 원리</div><div class="desc">Deep RL에 Robust Optimization을 결합하여 기후 궤적의 불확실성을 헤징하며 에너지 효율적 제어를 수행한다</div><div class="sl">성과</div><div class="desc">에너지 효율 최적 제어, 불확실성 대응</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">26</span><div><div class="model-name">ANN-Accelerated Cost Optimizer</div><div class="model-team">ScienceDirect (2025) · 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">ANN</span><span class="tag tag-ml">동적 모델</span><div class="sl">작동 원리</div><div class="desc">완전 결합 ANN으로 온실 동적 모델을 가속하고, 난방·물·CO₂·조명 비용을 통합 최적화하여 토마토 kg당 생산 비용을 최소화한다</div><div class="sl">성과</div><div class="desc">토마토 kg당 비용 최적화</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">27</span><div><div class="model-name">RBF Energy Optimizer</div><div class="model-team">RSER (2024) · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">RBF NN</span><div class="sl">작동 원리</div><div class="desc">Radial Basis Function 신경망으로 에너지 소비를 예측하고 최적화한다</div><div class="sl">성과</div><div class="desc">RMSE 0.8, R-squared 0.98, 난방 에너지 대폭 절감</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">수확 로봇 — 추가 모델</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">28</span><div><div class="model-name">Deep-ToMaToS</div><div class="model-team">Computers &amp; Electronics in Ag. (2022) · 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-dl">딥러닝 분류</span><span class="tag tag-cv">6D 포즈</span><div class="sl">작동 원리</div><div class="desc">딥러닝으로 토마토 성숙도를 3단계 분류하고, 6D 포즈(3D 위치 + 3D 회전)를 추정하여 로봇 수확을 안내한다</div><div class="sl">성과</div><div class="desc">6D 포즈 추정 정확도 96% (ADD_S 기준)</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">29</span><div><div class="model-name">AHPPEBot</div><div class="model-team">Beijing Univ. of Tech. (2024) · 토마토</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">YOLOv5 Multi-task</span><span class="tag tag-ml">DBScan</span><div class="sl">작동 원리</div><div class="desc">Multi-task YOLOv5로 과실을 탐지하고, Adaptive DBScan으로 클러스터링 후, 표현체 분석과 포즈 추정을 통합 수행한다</div><div class="sl">성과</div><div class="desc">수확 성공률 86.67%, 평균 32.46초/건</div><div class="access-row"><span class="access-badge badge-open">arXiv 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">30</span><div><div class="model-name">MetoMotion GRoW</div><div class="model-team">MetoMotion (Israel) · 토마토·파프리카</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-cv">컴퓨터 비전</span><span class="tag tag-rb">듀얼 로봇팔</span><div class="sl">작동 원리</div><div class="desc">듀얼 로봇팔과 컴퓨터 비전을 결합하여 수확·제엽·전정을 통합 수행하는 상용 수확 로봇이다</div><div class="sl">성과</div><div class="desc">미공개 (상용 제품)</div><div class="access-row"><span class="access-badge badge-comm">상용 제품</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">디지털트윈</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-bayes-bg);color:var(--tag-bayes)">31</span><div><div class="model-name">GHI4.0 Digital Twin</div><div class="model-team">Energy Informatics (2021) · 일반 온실</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">EnergyPlus</span><span class="tag tag-ml">DSSAT</span><div class="sl">작동 원리</div><div class="desc">건물 에너지 시뮬레이션(EnergyPlus)과 작물 모델(DSSAT)을 통합하여 미기후와 작물관리를 동시에 최적화한다</div><div class="sl">성과</div><div class="desc">생산 일정·에너지·인건비 동시 최적화</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-bayes-bg);color:var(--tag-bayes)">32</span><div><div class="model-name">Solar GH Digital Twin</div><div class="model-team">중국과학원 (2025) · 오이</div></div></div><div class="model-body"><div class="sl">알고리즘 구성</div><span class="tag tag-ml">3D 모델</span><span class="tag tag-ml">FSPM</span><div class="sl">작동 원리</div><div class="desc">3D 온실 모델과 FSPM을 결합하고, 분산 정량 광 제어로 조명을 최적화한다</div><div class="sl">성과</div><div class="desc">기존 고정시간 조명 대비 전력 소비 -52.6%</div><div class="access-row"><span class="access-badge badge-partial">논문 공개</span></div></div></div>
+
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">통합 플랫폼</div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">33</span><div><div class="model-name">Priva Connext</div><div class="model-team">Priva (Netherlands, 50년+) · 전 품목</div></div></div><div class="model-body"><div class="sl">플랫폼 구성</div><span class="tag tag-ml">기후 컴퓨터</span><span class="tag tag-ml">에너지 관리</span><span class="tag tag-ml">오픈 플랫폼</span><div class="sl">특징</div><div class="desc">60개 이상 통합 파트너(Source.ag AI 포함)와 연동하는 오픈 플랫폼 기후 컴퓨터이다</div><div class="sl">성과</div><div class="desc">네덜란드 재배자 기준 수율 최대 +20%</div><div class="access-row"><span class="access-badge badge-comm">상용</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">34</span><div><div class="model-name">Ridder HortiMaX Pro</div><div class="model-team">Ridder (Netherlands, 1953~) · 전 품목</div></div></div><div class="model-body"><div class="sl">플랫폼 구성</div><span class="tag tag-ml">통합 제어</span><span class="tag tag-ml">오픈 아키텍처</span><div class="sl">특징</div><div class="desc">기후·관개·에너지를 통합 제어하는 모듈형 확장 가능 시스템이다</div><div class="sl">성과</div><div class="desc">미공개</div><div class="access-row"><span class="access-badge badge-comm">상용</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">35</span><div><div class="model-name">Hoogendoorn IIVO</div><div class="model-team">Hoogendoorn (Netherlands, 50년+) · 전 품목</div></div></div><div class="model-body"><div class="sl">플랫폼 구성</div><span class="tag tag-ml">클라우드 네이티브</span><span class="tag tag-ml">Plant Empowerment</span><div class="sl">특징</div><div class="desc">클라우드 네이티브 프로세스 컴퓨터. Plant Empowerment 원칙 기반, 기상예보 연계 제어이다</div><div class="sl">성과</div><div class="desc">미공개</div><div class="access-row"><span class="access-badge badge-comm">상용</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">36</span><div><div class="model-name">LetsGrow.com MyLetsGrow</div><div class="model-team">LetsGrow.com (Netherlands, 2002) · 전 품목</div></div></div><div class="model-body"><div class="sl">플랫폼 구성</div><span class="tag tag-ml">데이터 플랫폼</span><span class="tag tag-dl">AI 분석</span><div class="sl">특징</div><div class="desc">모든 기후 컴퓨터 브랜드와 연동하는 중앙 데이터 플랫폼. AI 분석, 이상 탐지, Strategy Manager 기능을 제공한다</div><div class="sl">성과</div><div class="desc">물·가스·비료 -20%, 생산량 +10%. 2,000+ 고객, 45개국</div><div class="access-row"><span class="access-badge badge-comm">상용 SaaS</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">37</span><div><div class="model-name">Phytech PlantBeat + AI Advisor</div><div class="model-team">Phytech (Israel) · 과수류</div></div></div><div class="model-body"><div class="sl">플랫폼 구성</div><span class="tag tag-ml">Dendrometer</span><span class="tag tag-dl">ML</span><span class="tag tag-dl">NLP</span><div class="sl">특징</div><div class="desc">수간직경 센서(Dendrometer)와 IoT 기반 ML 알고리즘으로 식물 상태를 실시간 모니터링한다 NLP 기반 AI 관개 자문을 제공한다</div><div class="sl">성과</div><div class="desc">현장 센서 데이터 기반 최초 AI 관개 자문</div><div class="access-row"><span class="access-badge badge-comm">상용</span></div></div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">38</span><div><div class="model-name">DSSAT</div><div class="model-team">Univ. of Florida 컨소시엄 (1980s~) · 42개 작물</div></div></div><div class="model-body"><div class="sl">플랫폼 구성</div><span class="tag tag-ml">프로세스 기반</span><span class="tag tag-ml">작물 시뮬레이션</span><div class="sl">특징</div><div class="desc">42개 작물 모델을 갖춘 프로세스 기반 작물 시뮬레이션 플랫폼. 생리·토양·기상 통합 시뮬레이션. DSSAT-Pythia(Python 버전) 제공</div><div class="sl">성과</div><div class="desc">100개국+ 사용, ML 결합 시 R-squared 0.95 이상</div><div class="access-row"><span class="access-badge badge-open">오픈소스 (GitHub)</span></div></div></div>
+  </div><!-- /a-models -->
+
+  <div id="tab-a-data" class="tab-panel">
+    <div class="data-legend">
+      <div class="legend-item"><span class="legend-dot ld-req"></span><strong>필수</strong> — 모든 모델 공통</div>
+      <div class="legend-item"><span class="legend-dot ld-opt"></span>선택 — 일부 모델</div>
+      <div class="legend-item"><span class="legend-dot ld-uni"></span>고유 — 해당 회차 특화</div>
+    </div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">1</span><div><div class="model-name">Bayesian Model-Based RL — Sonoma (2018)</div><div class="model-team">오이 · 수집 주기: 5분</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">실외 기상</div><div class="data-list"><span class="data-item required">외기 온도 (°C)</span><span class="data-item required">외기 상대습도 (%)</span><span class="data-item required">외기 일사량 누적 (J/cm²/일)</span><span class="data-item required">외기 PAR (μmol/m²/s)</span><span class="data-item required">풍속 (m/s)</span><span class="data-item optional">7일 기상예보</span></div></div>
+      <div class="data-group"><div class="data-group-title">실내 기후</div><div class="data-list"><span class="data-item required">실내 온도 (°C)</span><span class="data-item required">실내 절대습도/습도부족량 (g/m³)</span><span class="data-item required">CO₂ 농도 (ppm)</span><span class="data-item required">난방관 온도 레일·작물관 (°C)</span><span class="data-item required">난방 소비 전력 (W/m²)</span><span class="data-item required">보광등 점등 상태</span><span class="data-item required">차광·에너지 스크린 개도 (%)</span><span class="data-item required">환기창 개도 (%)</span></div></div>
+      <div class="data-group"><div class="data-group-title">관개·작물·자원</div><div class="data-list"><span class="data-item required">급액량·배액량 (L/m²)</span><span class="data-item required">배액 EC (dS/m)·pH</span><span class="data-item required">수확량 (kg/m²)</span><span class="data-item required">에너지·전기·CO₂·물 소비량</span><span class="data-item optional">슬랩 내 EC·수분 함량</span></div></div>
+    </div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">2</span><div><div class="model-name">DeePC + 모듈형 하이브리드 — Automatoes (2020)</div><div class="model-team">방울토마토 · 5분 + 영상 실시간</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">기상·기후 (1회와 공통)</div><div class="data-list"><span class="data-item required">외기·실내 온도·습도·CO₂·일사량</span><span class="data-item required">LED 채널별 강도 (0~100%)</span><span class="data-item required">HPS·LED 점등 상태</span><span class="data-item required">에너지·차광 스크린 개도</span></div></div>
+      <div class="data-group"><div class="data-group-title">관개·배지</div><div class="data-list"><span class="data-item required">급배액량·EC·pH</span><span class="data-item required">슬랩 수분·EC·온도</span><span class="data-item optional">양액 조성 상세 (Ca·K·Mg·NO₃)</span></div></div>
+      <div class="data-group"><div class="data-group-title">작물 측정</div><div class="data-list"><span class="data-item required">수확량 (kg/m²)</span><span class="data-item required">과실 당도 Brix (%)</span><span class="data-item optional">초장 (cm)·엽면적 (LAI)</span></div></div>
+      <div class="data-group"><div class="data-group-title">이미지 (DeePC 고유)</div><div class="data-list"><span class="data-item unique">RGB 카메라 영상 (작물 전경)</span><span class="data-item unique">열화상 카메라 영상 (잎 온도)</span><span class="data-item unique">이미지 기반 생육 파라미터</span></div></div>
+    </div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">3</span><div><div class="model-name">KoPilot — 강화학습+CV (Koala, 2022)</div><div class="model-team">상추 · 실시간</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">기후·관개 (공통)</div><div class="data-list"><span class="data-item required">실내외 온도·습도·CO₂·PAR</span><span class="data-item required">급배액량·EC·pH·관수 간격</span></div></div>
+      <div class="data-group"><div class="data-group-title">이미지 (KoPilot 핵심)</div><div class="data-list"><span class="data-item unique">RGB 카메라 — 상추 전체 영상</span><span class="data-item unique">열화상 — 잎 수분 증산 속도</span><span class="data-item unique">이미지 추정 생체중 (g/개)</span><span class="data-item unique">이미지 추정 직경·엽면적·건물중</span></div></div>
+    </div></div>
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">4</span><div><div class="model-name">멀티태스크 딥러닝 — IDEAS (2024)</div><div class="model-team">왜성 토마토 · 5분 + 시간당 RGBD</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">기후·배지</div><div class="data-list"><span class="data-item required">외기 온도·습도·일사량·풍속·7일 예보</span><span class="data-item required">실내 온도·VPD·CO₂·PAR·난방관·LED·스크린</span><span class="data-item required">배지 수분·EC·온도 (3점 센서)</span><span class="data-item required">급배액·EC·pH·관수 shot 간격</span></div></div>
+      <div class="data-group"><div class="data-group-title">RGBD 이미지 (4회 고유)</div><div class="data-list"><span class="data-item unique">RGB 컬러 이미지 (2160p, 시간당)</span><span class="data-item unique">깊이(Depth) 이미지 — 3D 점군</span><span class="data-item unique">IR 적외선 이미지</span><span class="data-item unique">이미지 추정 초장·엽면적·과실수·숙도</span></div></div>
+      <div class="data-group"><div class="data-group-title">해충·운영 (4회 고유)</div><div class="data-list"><span class="data-item unique">황색 끈끈이트랩 촬영 이미지</span><span class="data-item unique">온실가루이 개체 수 (딥러닝 탐지)</span><span class="data-item unique">IPM 천적 투입 이력</span><span class="data-item required">재식 밀도·수확일·수확량·비용 데이터</span></div></div>
+    </div></div>
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">카테고리별 필요 데이터 요약</div>
+
+    <div class="model-card"><div class="model-header"><span class="edition-dot e1">E</span><div><div class="model-name">환경제어 AI 공통 필요 데이터</div><div class="model-team">Koidra · Blue Radix · iGrow · DeePC · RL-RNMPC · DDRMPC</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">실외 기상 (필수)</div><div class="data-list"><span class="data-item required">외기 온도 (°C)</span><span class="data-item required">외기 상대습도 (%)</span><span class="data-item required">외기 일사량 / PAR</span><span class="data-item required">풍속 (m/s)</span><span class="data-item required">7일 기상 예보</span></div></div>
+      <div class="data-group"><div class="data-group-title">실내 기후 (필수)</div><div class="data-list"><span class="data-item required">실내 온도·습도·VPD</span><span class="data-item required">CO₂ 농도 (ppm)</span><span class="data-item required">난방관 온도·전력</span><span class="data-item required">환기창·스크린 개도 (%)</span><span class="data-item required">보광등 상태</span></div></div>
+      <div class="data-group"><div class="data-group-title">관개·작물 (필수)</div><div class="data-list"><span class="data-item required">급배액량·EC·pH</span><span class="data-item required">수확량 (kg/m²)</span><span class="data-item required">에너지·전기·CO₂·물 소비량</span></div></div>
+      <div class="data-group"><div class="data-group-title">과거 데이터 (DeePC·RL 계열)</div><div class="data-list"><span class="data-item unique">최소 1작기 이상 과거 시계열 데이터</span><span class="data-item unique">5분 간격 입출력 쌍 기록</span></div></div>
+    </div></div>
+
+    <div class="model-card"><div class="model-header"><span class="edition-dot e2">G</span><div><div class="model-name">생장예측 모델 공통 필요 데이터</div><div class="model-team">LSTM-RNN · TCN-RNN · MMST-ViT · APSIM+ML · AgriTransformer</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">환경 시계열 (필수)</div><div class="data-list"><span class="data-item required">일별 평균·최고·최저 기온</span><span class="data-item required">일별 일사량 누적</span><span class="data-item required">일별 관수량·EC</span><span class="data-item required">CO₂ 농도 시계열</span></div></div>
+      <div class="data-group"><div class="data-group-title">작물 측정 (필수)</div><div class="data-list"><span class="data-item required">주간 생육조사 (초장·엽수·화방수)</span><span class="data-item required">수확량 실측 (kg/m²)</span><span class="data-item optional">엽면적지수 (LAI)</span></div></div>
+      <div class="data-group"><div class="data-group-title">APSIM 연계 시 추가</div><div class="data-list"><span class="data-item unique">토양 특성 (수분·유기물·질감)</span><span class="data-item unique">작물 품종 파라미터</span><span class="data-item unique">재식 밀도·파종일</span></div></div>
+    </div></div>
+
+    <div class="model-card"><div class="model-header"><span class="edition-dot e3">V</span><div><div class="model-name">비전 AI 공통 필요 데이터</div><div class="model-team">YOLO-LeafNet · SerpensGate · PlantVillage · MARVIN · NeRF</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">이미지 데이터 (필수)</div><div class="data-list"><span class="data-item required">RGB 고해상도 이미지 (1080p+)</span><span class="data-item required">라벨링된 학습 데이터셋 (바운딩 박스)</span><span class="data-item required">병해충 종류별 분류 라벨</span></div></div>
+      <div class="data-group"><div class="data-group-title">3D 표현체 분석 시 추가</div><div class="data-list"><span class="data-item unique">RGBD 카메라 (깊이 센서)</span><span class="data-item unique">다각도 촬영 이미지 (NeRF용)</span><span class="data-item unique">3D 포인트클라우드</span></div></div>
+      <div class="data-group"><div class="data-group-title">수확 로봇 비전</div><div class="data-list"><span class="data-item unique">과실 성숙도 라벨</span><span class="data-item unique">6D 포즈 어노테이션</span><span class="data-item unique">그리퍼 위치 학습 데이터</span></div></div>
+    </div></div>
+
+    <div class="model-card"><div class="model-header"><span class="edition-dot e4">N</span><div><div class="model-name">에너지·디지털트윈 필요 데이터</div><div class="model-team">DRL Semi-Closed · RBF Optimizer · VTC · GHI4.0</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">에너지 데이터 (필수)</div><div class="data-list"><span class="data-item required">시간대별 전기 요금 (SMP)</span><span class="data-item required">가스·열에너지 소비량</span><span class="data-item required">히트펌프·보일러 운전 기록</span><span class="data-item required">보광등 전력 소비</span></div></div>
+      <div class="data-group"><div class="data-group-title">디지털트윈 구축 시 추가</div><div class="data-list"><span class="data-item unique">온실 구조 도면 (3D)</span><span class="data-item unique">유리·피복재 투과율</span><span class="data-item unique">작물 품종별 생리 파라미터</span><span class="data-item unique">EnergyPlus 또는 KASPRO 모델 파일</span></div></div>
+    </div></div>
+
+    <div class="model-card"><div class="model-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</span><div><div class="model-name">통합 플랫폼 연동 데이터</div><div class="model-team">Priva · Ridder · Hoogendoorn · LetsGrow · Source.ag · Blue Radix</div></div></div><div class="model-body">
+      <div class="data-group"><div class="data-group-title">기후컴퓨터 연동 (필수)</div><div class="data-list"><span class="data-item required">기후컴퓨터 API 또는 디지털 인터페이스</span><span class="data-item required">5분 간격 자동 데이터 수집</span><span class="data-item required">setpoint 자동 전송 권한</span></div></div>
+      <div class="data-group"><div class="data-group-title">클라우드 연동</div><div class="data-list"><span class="data-item optional">LetsGrow.com 계정 (데이터 중앙화)</span><span class="data-item optional">기상 예보 API 연동</span><span class="data-item optional">시장 가격 데이터 피드</span></div></div>
+    </div></div>
+
+  </div><!-- /a-data -->
+
+  <div id="tab-a-io" class="tab-panel">
+    <div class="io-card"><div class="io-header"><span class="edition-dot e2">2</span><div><div class="model-name">DeePC + 모듈형 AI — Automatoes (2020) · GREF 추천 첫 모델</div><div class="model-team">방울토마토 · 5분 주기</div></div></div><div class="io-body">
+      <div class="io-flow"><div class="io-col io-col-in"><div class="io-col-header">입력 데이터 (Input)</div><div class="io-col-body">
+        <div class="io-group-title">실외 기상</div>
+        <div class="io-item"><span class="io-item-label">외기 온도·습도·풍속</span></div>
+        <div class="io-item"><span class="io-item-label">외기 일사량 누적</span><span class="io-item-unit">J/cm²/일</span></div>
+        <div class="io-item"><span class="io-item-label">7일 기상 예보</span></div>
+        <div class="io-group-title">실내 기후</div>
+        <div class="io-item"><span class="io-item-label">실내 온도·습도·CO₂</span></div>
+        <div class="io-item"><span class="io-item-label">LED 채널별 강도</span><span class="io-item-unit">0~100%</span></div>
+        <div class="io-item"><span class="io-item-label">난방관 온도·전력</span></div>
+        <div class="io-group-title">관개·작물</div>
+        <div class="io-item"><span class="io-item-label">급배액·EC·pH</span></div>
+        <div class="io-item"><span class="io-item-label">수확량·당도 Brix</span></div>
+        <div class="io-group-title">카메라</div>
+        <div class="io-item"><span class="io-item-label">RGB·열화상 영상</span></div>
+      </div></div>
+      <div class="io-arrow">→</div>
+      <div class="io-col io-col-out"><div class="io-col-header">출력 결과물 (Output)</div><div class="io-col-body">
+        <div class="io-group-title">기후 제어 Setpoint (5분마다 자동)</div>
+        <div class="io-out-item"><span class="io-out-label">난방 목표 온도 <span class="out-freq-badge">5분</span></span><span class="io-out-detail">°C</span></div>
+        <div class="io-out-item"><span class="io-out-label">환기 온도·최소 개도 <span class="out-freq-badge">5분</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">CO₂ 공급 농도 <span class="out-freq-badge">5분</span></span><span class="io-out-detail">ppm</span></div>
+        <div class="io-out-item"><span class="io-out-label">LED 채널별 강도 <span class="out-freq-badge">5분</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">에너지·차광 스크린 개도 <span class="out-freq-badge">5분</span></span></div>
+        <div class="io-group-title">관개·작물 분석</div>
+        <div class="io-out-item"><span class="io-out-label">관수 간격 <span class="out-freq-badge">일 단위</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">생육 파라미터 추정 <span class="out-freq-badge">실시간</span></span><span class="io-out-detail">초장·무게·Brix</span></div>
+        <div class="io-out-item"><span class="io-out-label">예상 수확량·수익 <span class="out-freq-badge">매일</span></span><span class="io-out-detail">kg/m² · 원/m²</span></div>
+      </div></div></div>
+      <div class="io-decision-block"><div class="io-decision-title">AI가 자율 결정하는 액션 범위</div><div class="io-decision-items"><span class="io-decision-item io-d-climate">난방 온도</span><span class="io-decision-item io-d-climate">환기 전략</span><span class="io-decision-item io-d-climate">CO₂ 농도</span><span class="io-decision-item io-d-climate">LED 스펙트럼</span><span class="io-decision-item io-d-climate">스크린 2종</span><span class="io-decision-item io-d-irrig">관수 간격</span><span class="io-decision-item io-d-irrig">양액 EC 조정</span><span class="io-decision-item io-d-econ">수익 최적화</span></div></div>
+    </div></div>
+
+    <div class="io-card"><div class="io-header"><span class="edition-dot e4">4</span><div><div class="model-name">멀티태스크 딥러닝 — IDEAS (2024) · 가장 종합적인 모델</div><div class="model-team">왜성 토마토 · 5분 + 시간당 RGBD</div></div></div><div class="io-body">
+      <div class="io-flow"><div class="io-col io-col-in"><div class="io-col-header">입력 데이터 (Input)</div><div class="io-col-body">
+        <div class="io-group-title">기후·배지 센서</div>
+        <div class="io-item"><span class="io-item-label">외기·실내 전 기후 변수</span></div>
+        <div class="io-item"><span class="io-item-label">배지 3점 수분·EC·온도</span></div>
+        <div class="io-item"><span class="io-item-label">급배액·EC·pH·관수 간격</span></div>
+        <div class="io-group-title">RGBD 카메라 (시간당)</div>
+        <div class="io-item"><span class="io-item-label">RGB 2160p + Depth + IR</span></div>
+        <div class="io-group-title">해충 모니터링</div>
+        <div class="io-item"><span class="io-item-label">황색 끈끈이트랩 사진</span></div>
+        <div class="io-group-title">재배 운영</div>
+        <div class="io-item"><span class="io-item-label">현재 재식 밀도 (포트/m²)</span></div>
+      </div></div>
+      <div class="io-arrow">→</div>
+      <div class="io-col io-col-out"><div class="io-col-header">출력 — 4개 태스크별</div><div class="io-col-body">
+        <div class="io-group-title">태스크1: 생육 비전 분석</div>
+        <div class="io-out-item"><span class="io-out-label">초장·엽면적·과실수·숙도 <span class="out-freq-badge">시간당</span></span></div>
+        <div class="io-group-title">태스크2: 기후·관개 Setpoint</div>
+        <div class="io-out-item"><span class="io-out-label">난방·환기·CO₂·LED·스크린 <span class="out-freq-badge">5분</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">관수 shot 간격 <span class="out-freq-badge">5분</span></span></div>
+        <div class="io-group-title">태스크3: 해충 탐지</div>
+        <div class="io-out-item"><span class="io-out-label">가루이 개체 수·IPM 권고 <span class="out-freq-badge">주 단위</span></span></div>
+        <div class="io-group-title">태스크4: 시스템 최적화</div>
+        <div class="io-out-item"><span class="io-out-label">재식 밀도 조정 지시 <span class="out-freq-badge">필요 시</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">수확 최적 날짜 <span class="out-freq-badge">1회</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">예상 수확량·순수익 <span class="out-freq-badge">매일</span></span></div>
+      </div></div></div>
+      <div class="io-decision-block"><div class="io-decision-title">AI가 자율 결정하는 액션 범위</div><div class="io-decision-items"><span class="io-decision-item io-d-climate">기후 전반</span><span class="io-decision-item io-d-irrig">관수·양액</span><span class="io-decision-item io-d-crop">생육 진단</span><span class="io-decision-item io-d-crop">재식 밀도</span><span class="io-decision-item io-d-crop">수확 결정</span><span class="io-decision-item io-d-ipm">해충 탐지</span><span class="io-decision-item io-d-ipm">IPM 전략</span><span class="io-decision-item io-d-econ">순수익 전략</span></div></div>
+    </div></div>
+    <div class="divider" style="margin:14px 0"></div>
+    <div class="xl-section-title">카테고리별 입력 → 결과물</div>
+
+    <div class="io-card"><div class="io-header"><span class="edition-dot e2">G</span><div><div class="model-name">생장예측 모델 — LSTM-RNN / TCN-RNN / APSIM+ML</div><div class="model-team">수확량·생육 예측</div></div></div><div class="io-body">
+      <div class="io-flow"><div class="io-col io-col-in"><div class="io-col-header">입력 데이터 (Input)</div><div class="io-col-body">
+        <div class="io-group-title">환경 시계열</div>
+        <div class="io-item"><span class="io-item-label">일별 온도·습도·일사량</span></div>
+        <div class="io-item"><span class="io-item-label">CO₂ 농도·관수량·EC</span></div>
+        <div class="io-group-title">작물 측정</div>
+        <div class="io-item"><span class="io-item-label">주간 생육조사 데이터</span></div>
+        <div class="io-item"><span class="io-item-label">과거 수확량 실측</span></div>
+      </div></div>
+      <div class="io-arrow">→</div>
+      <div class="io-col io-col-out"><div class="io-col-header">출력 결과물 (Output)</div><div class="io-col-body">
+        <div class="io-out-item"><span class="io-out-label">향후 수확량 예측 <span class="out-freq-badge">주간</span></span><span class="io-out-detail">kg/m²</span></div>
+        <div class="io-out-item"><span class="io-out-label">생육 추이 예측 <span class="out-freq-badge">일간</span></span><span class="io-out-detail">초장·엽수·화방수</span></div>
+        <div class="io-out-item"><span class="io-out-label">이상 생육 경보 <span class="out-freq-badge">실시간</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">최적 출하 시기 권고 <span class="out-freq-badge">주간</span></span></div>
+      </div></div></div>
+    </div></div>
+
+    <div class="io-card"><div class="io-header"><span class="edition-dot e3">V</span><div><div class="model-name">비전 AI — YOLO-LeafNet / NeRF / PlantVillage CNN</div><div class="model-team">병해충 탐지 · 3D 표현체 분석</div></div></div><div class="io-body">
+      <div class="io-flow"><div class="io-col io-col-in"><div class="io-col-header">입력 데이터 (Input)</div><div class="io-col-body">
+        <div class="io-group-title">이미지</div>
+        <div class="io-item"><span class="io-item-label">RGB 카메라 촬영 이미지</span></div>
+        <div class="io-item"><span class="io-item-label">RGBD 깊이 이미지 (선택)</span></div>
+        <div class="io-group-title">학습 데이터</div>
+        <div class="io-item"><span class="io-item-label">라벨링된 병해 이미지셋</span></div>
+      </div></div>
+      <div class="io-arrow">→</div>
+      <div class="io-col io-col-out"><div class="io-col-header">출력 결과물 (Output)</div><div class="io-col-body">
+        <div class="io-out-item"><span class="io-out-label">병해충 종류·위치 탐지 <span class="out-freq-badge">실시간</span></span><span class="io-out-detail">바운딩 박스 + 신뢰도</span></div>
+        <div class="io-out-item"><span class="io-out-label">3D 식물 구조 모델 <span class="out-freq-badge">촬영 시</span></span><span class="io-out-detail">마디길이·엽면적·과일부피</span></div>
+        <div class="io-out-item"><span class="io-out-label">과실 성숙도 분류 <span class="out-freq-badge">실시간</span></span><span class="io-out-detail">미숙/적숙/과숙</span></div>
+        <div class="io-out-item"><span class="io-out-label">IPM 방제 권고 <span class="out-freq-badge">주간</span></span></div>
+      </div></div></div>
+    </div></div>
+
+    <div class="io-card"><div class="io-header"><span class="edition-dot" style="background:var(--tag-rb-bg);color:var(--tag-rb)">R</span><div><div class="model-name">수확 로봇 AI — Deep-ToMaToS / DRL Grasping / AHPPEBot</div><div class="model-team">자율 수확 시스템</div></div></div><div class="io-body">
+      <div class="io-flow"><div class="io-col io-col-in"><div class="io-col-header">입력 데이터 (Input)</div><div class="io-col-body">
+        <div class="io-group-title">센서</div>
+        <div class="io-item"><span class="io-item-label">RGB-D 카메라 (과실 인식)</span></div>
+        <div class="io-item"><span class="io-item-label">LiDAR (경로 계획)</span></div>
+        <div class="io-group-title">로봇 상태</div>
+        <div class="io-item"><span class="io-item-label">그리퍼 위치·토크 센서</span></div>
+        <div class="io-item"><span class="io-item-label">관절 각도·속도</span></div>
+      </div></div>
+      <div class="io-arrow">→</div>
+      <div class="io-col io-col-out"><div class="io-col-header">출력 결과물 (Output)</div><div class="io-col-body">
+        <div class="io-out-item"><span class="io-out-label">과실 위치·6D 포즈 <span class="out-freq-badge">실시간</span></span><span class="io-out-detail">3D 좌표 + 회전</span></div>
+        <div class="io-out-item"><span class="io-out-label">충돌 회피 그래스핑 자세 <span class="out-freq-badge">실시간</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">자율 이동 경로 <span class="out-freq-badge">실시간</span></span><span class="io-out-detail">SLAM 기반</span></div>
+        <div class="io-out-item"><span class="io-out-label">수확 성공률·속도 로그 <span class="out-freq-badge">건별</span></span></div>
+      </div></div></div>
+    </div></div>
+
+    <div class="io-card"><div class="io-header"><span class="edition-dot" style="background:var(--tag-rl-bg);color:var(--tag-rl)">P</span><div><div class="model-name">통합 플랫폼 — Blue Radix / Source.ag / Priva+LetsGrow</div><div class="model-team">자율 재배 통합 시스템</div></div></div><div class="io-body">
+      <div class="io-flow"><div class="io-col io-col-in"><div class="io-col-header">입력 데이터 (Input)</div><div class="io-col-body">
+        <div class="io-group-title">기후컴퓨터 자동 연동</div>
+        <div class="io-item"><span class="io-item-label">실내외 전 기후 변수 (5분)</span></div>
+        <div class="io-item"><span class="io-item-label">급배액·EC·pH (자동)</span></div>
+        <div class="io-group-title">외부 데이터</div>
+        <div class="io-item"><span class="io-item-label">기상 예보 (3~7일)</span></div>
+        <div class="io-item"><span class="io-item-label">에너지 가격 (SMP)</span></div>
+      </div></div>
+      <div class="io-arrow">→</div>
+      <div class="io-col io-col-out"><div class="io-col-header">출력 결과물 (Output)</div><div class="io-col-body">
+        <div class="io-out-item"><span class="io-out-label">기후 setpoint 자동 전송 <span class="out-freq-badge">5분</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">관수 일정 자동 제어 <span class="out-freq-badge">자동</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">수확량 예측 (8주 선행) <span class="out-freq-badge">주간</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">에너지 최적화 권고 <span class="out-freq-badge">일간</span></span></div>
+        <div class="io-out-item"><span class="io-out-label">이상 탐지·경보 <span class="out-freq-badge">실시간</span></span></div>
+      </div></div></div>
+    </div></div>
+
+  </div><!-- /a-io -->
+
+
+  <div id="tab-a-glossary" class="tab-panel">
+    <div class="gloss-grid">
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">강화학습 (RL) <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Reinforcement Learning</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 게임 캐릭터 키우기</div><div class="gloss-desc">AI가 직접 행동을 해보고 결과(점수)를 받으며 스스로 배우는 방법입니다 온실에서는 "창문을 열었더니 온도가 내려가고 수확량이 늘었다"는 피드백을 받으며 최적 전략을 학습합니다</div><div class="gloss-use">AGC에서의 역할 → 온실 설정값(온도·CO₂·광량) 자율 조정</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">DeePC <span class="cat-badge cat-math">수학</span></div><div class="gloss-en">Data-Enabled Predictive Control</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 주식 차트 패턴 분석</div><div class="gloss-desc">과거 데이터의 패턴만 보고 미래를 예측해 제어하는 방법입니다 복잡한 수식 없이 "이런 설정을 했더니 이런 결과가 나왔다"는 기록만으로 다음 최적 설정값을 계산합니다 ETH 취리히에서 개발, 오픈소스로 무료 공개</div><div class="gloss-use">Automatoes팀 기후 제어 핵심 기술</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">컴퓨터 비전 (CV) <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Computer Vision</div></div><div class="gloss-body"><div class="gloss-analogy">비유: AI의 눈</div><div class="gloss-desc">카메라 사진·영상을 AI가 분석하는 기술입니다 AI가 이미지를 보고 작물의 무게·크기·숙도·병충해 여부를 자동으로 파악합니다 온실에 들어가지 않아도 원격으로 모니터링 가능합니다</div><div class="gloss-use">생육 파라미터 추출 · 해충 탐지</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">딥러닝 (DL) <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Deep Learning</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 여러 겹의 필터</div><div class="gloss-desc">인간의 뇌 신경망을 모방한 AI 기법입니다 이미지를 여러 겹의 필터로 통과시키면서 "이것은 흰파리다"를 구분합니다 복잡한 패턴도 인식할 수 있어 해충 탐지, 과실 숙도 판별에 활용됩니다</div><div class="gloss-use">해충·과실 이미지 분류</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">Setpoint <span class="cat-badge cat-hard">설비</span></div><div class="gloss-en">목표 설정값</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 에어컨 설정 온도</div><div class="gloss-desc">기후컴퓨터에 입력하는 목표 수치입니다 "온실 온도 22도, CO₂ 800ppm"이라는 명령입니다 AGC에서 AI가 자율적으로 결정하는 것이 바로 이 값입니다</div><div class="gloss-use">AI가 자동으로 결정·전송하는 제어 명령</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">PAR <span class="cat-badge cat-hard">센서</span></div><div class="gloss-en">광합성 유효 방사량 (μmol/m²/s)</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 식물이 실제로 쓸 수 있는 빛의 양</div><div class="gloss-desc">400~700nm 파장대의 빛만 측정하는 센서입니다 전체 햇빛 중 식물이 광합성에 실제로 사용하는 부분만 측정하므로, 단순 조도(Lux)보다 훨씬 중요한 재배 지표입니다</div><div class="gloss-use">보광등 제어 · 광합성 속도 추정</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">EC (전기전도도) <span class="cat-badge cat-hard">센서</span></div><div class="gloss-en">Electrical Conductivity (dS/m)</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 양액의 진하기</div><div class="gloss-desc">배지나 배액 속 양분의 농도를 간접적으로 측정하는 지표입니다 EC가 너무 높으면 식물이 물을 흡수하기 어렵고, 너무 낮으면 양분이 부족합니다</div><div class="gloss-use">양액 농도 · 관개 전략 결정</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">VPD / 습도부족량 <span class="cat-badge cat-hard">센서</span></div><div class="gloss-en">Vapor Pressure Deficit</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 대기가 식물에서 물을 빼앗는 힘</div><div class="gloss-desc">현재 공기가 수분을 더 받아들일 수 있는 여유 공간입니다 VPD가 높으면 식물이 물을 빠르게 잃어 스트레스를 받고, 너무 낮으면 곰팡이 위험이 높아집니다</div><div class="gloss-use">환기·안개분무 제어의 핵심 지표</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">RGBD 카메라 <span class="cat-badge cat-hard">하드웨어</span></div><div class="gloss-en">RGB + Depth Camera</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 사진 + 거리 측정기의 결합</div><div class="gloss-desc">일반 RGB 컬러 사진에 깊이(Depth) 정보까지 함께 측정하는 카메라입니다 식물의 높이·부피를 3차원으로 계산해 무게와 엽면적을 비접촉으로 추정할 수 있습니다</div><div class="gloss-use">3D 생육 분석 · 수확 시점 판단</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">오픈소스 <span class="cat-badge cat-ai">소프트웨어</span></div><div class="gloss-en">Open Source</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 공개 레시피</div><div class="gloss-desc">소프트웨어의 설계도(코드)가 무료로 공개된 것입니다 누구나 내려받아 사용·수정할 수 있습니다 DeePC(PyDeePC)와 iGrow가 오픈소스입니다</div><div class="gloss-use">비용 없이 사용 가능한 소프트웨어</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">서브 에이전트 <span class="cat-badge cat-ai">AI 구조</span></div><div class="gloss-en">Sub-Agent Architecture</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 전문 분야별 팀 협업</div><div class="gloss-desc">큰 문제를 여러 AI가 역할을 나눠 해결하는 구조입니다 GREF에서는 기후 AI·수확량 AI·비전 AI·수익 AI가 각자 전문 역할을 수행하고 오케스트레이터가 최종 판단을 내립니다</div><div class="gloss-use">GREF AI 개발의 핵심 아키텍처</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">전이학습 <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Transfer Learning</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 자동차 면허가 있으면 트럭도 빨리 배우는 것</div><div class="gloss-desc">한 곳에서 배운 AI 지식을 다른 곳에 재활용하는 기법입니다 WUR 네덜란드 데이터로 학습한 AI를 진주 시설 소량 데이터로 추가 학습시켜 빠르게 적응시킵니다</div><div class="gloss-use">WUR 데이터 → GREF 시설 AI 적용 시 필수</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">MPC <span class="cat-badge cat-math">제어</span></div><div class="gloss-en">Model Predictive Control</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 내비게이션의 경로 재계산</div><div class="gloss-desc">수학적 모델로 미래 상태를 예측하고, 최적의 제어 입력을 계산하는 기법이다 매 시간 단계마다 예측을 갱신하여 실시간으로 최적 경로를 재계산한다 DeePC의 모델 기반 대안이다</div><div class="gloss-use">온실 환경 제어의 전통적 최적화 기법</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">LSTM <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Long Short-Term Memory</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 장기 기억력이 좋은 AI</div><div class="gloss-desc">시계열 데이터에서 장기 패턴을 학습하는 순환 신경망(RNN)의 일종이다 과거 수일~수주의 환경 데이터로부터 작물 생장량을 예측하는 데 많이 사용된다</div><div class="gloss-use">수확량 예측 · 생육 추이 분석</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">YOLO <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">You Only Look Once</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 한 번 보고 바로 아는 AI</div><div class="gloss-desc">이미지에서 물체를 실시간으로 탐지하는 딥러닝 모델이다 한 번의 연산으로 위치와 종류를 동시에 판별하여 속도가 빠르다 병해충 탐지, 과실 인식, 수확 로봇 시각 시스템에 핵심이다</div><div class="gloss-use">병해 탐지 · 과실 인식 · 수확 로봇 비전</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">디지털트윈 <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Digital Twin</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 컴퓨터 속 가상 온실</div><div class="gloss-desc">실제 온실과 동일한 가상 환경을 컴퓨터에 구축하여, 제어 전략을 미리 시험하는 기술이다 물리적 실험 없이 다양한 시나리오를 검증할 수 있어 비용과 리스크를 줄인다</div><div class="gloss-use">환경 제어 시뮬레이션 · 의사결정 사전 검증</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">NeRF <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Neural Radiance Fields</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 여러 각도 사진으로 3D 모델 자동 생성</div><div class="gloss-desc">다수의 2D 이미지로부터 3D 장면을 신경망으로 재구성하는 기술이다 로봇이 촬영한 다각도 RGB 이미지에서 작물의 3D 구조를 비파괴적으로 측정할 수 있다</div><div class="gloss-use">3D 표현체 분석 · 비파괴 생육 측정</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">FSPM <span class="cat-badge cat-math">모델</span></div><div class="gloss-en">Functional-Structural Plant Model</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 식물의 성장 시뮬레이터</div><div class="gloss-desc">식물의 생리적 기능(광합성, 양분 배분)과 구조적 형태(잎 배치, 줄기 길이)를 동시에 모사하는 모델이다 디지털트윈의 핵심 구성요소로, 가상 환경에서 작물 생장을 예측한다</div><div class="gloss-use">디지털트윈 · 가상 작물 시뮬레이션</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">SaaS <span class="cat-badge cat-ai">소프트웨어</span></div><div class="gloss-en">Software as a Service</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 넷플릭스처럼 구독하는 소프트웨어</div><div class="gloss-desc">소프트웨어를 직접 설치하지 않고 인터넷으로 접속하여 월정액으로 사용하는 방식이다 Blue Radix, Koidra KoPilot 등이 이 형태로 서비스된다</div><div class="gloss-use">상용 AI 서비스 도입 방식</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">API <span class="cat-badge cat-ai">소프트웨어</span></div><div class="gloss-en">Application Programming Interface</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 식당의 메뉴판과 주문 창구</div><div class="gloss-desc">서로 다른 소프트웨어가 대화하는 규칙이다 기후컴퓨터와 AI가 API를 통해 데이터를 주고받고 setpoint를 전달한다</div><div class="gloss-use">기후컴퓨터 ↔ AI 연동의 핵심</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">GitHub <span class="cat-badge cat-ai">소프트웨어</span></div><div class="gloss-en">코드 저장·공유 플랫폼</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 코드의 구글 드라이브</div><div class="gloss-desc">프로그래머들이 코드를 저장하고 공유하는 플랫폼이다 오픈소스 프로젝트의 코드가 여기에 공개되어 있어 누구나 내려받아 사용할 수 있다</div><div class="gloss-use">iGrow, PyDeePC, DSSAT 등 코드 공개 장소</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">CNN <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">Convolutional Neural Network</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 이미지를 작은 조각으로 훑어보는 AI</div><div class="gloss-desc">이미지를 작은 영역씩 스캔하며 특징을 추출하는 신경망이다 사람이 얼굴의 눈·코·입을 각각 인식하듯, CNN은 잎의 반점·변색·형태를 단계적으로 인식한다</div><div class="gloss-use">병해충 이미지 분류의 기본 구조</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">Transformer <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">어텐션 기반 신경망</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 문장 전체를 한눈에 보고 핵심을 찾는 AI</div><div class="gloss-desc">데이터의 모든 부분을 동시에 비교하여 중요한 관계를 찾아내는 AI 구조이다 기존 순차 처리 방식보다 빠르고 정확하다 ChatGPT, AgriTransformer 등의 핵심 기술이다</div><div class="gloss-use">수확량 예측 · 자연어 처리</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">IoT <span class="cat-badge cat-hard">하드웨어</span></div><div class="gloss-en">Internet of Things (사물인터넷)</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 온실 안 모든 기기가 인터넷으로 대화하는 것</div><div class="gloss-desc">온도 센서, 습도 센서, 관수 밸브 등 물리적 기기들이 인터넷으로 연결되어 데이터를 자동 수집하고 원격 제어가 가능한 시스템이다</div><div class="gloss-use">온실 센서 데이터 자동 수집 인프라</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">LiDAR <span class="cat-badge cat-hard">센서</span></div><div class="gloss-en">Light Detection and Ranging</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 레이저로 거리를 재는 눈</div><div class="gloss-desc">레이저 빔을 발사하여 반사 시간으로 거리를 측정하는 센서이다 주변 환경의 3D 지도를 만들어 로봇이 자율 이동 경로를 계획할 수 있게 한다</div><div class="gloss-use">수확 로봇 자율주행 · SLAM</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">SLAM <span class="cat-badge cat-ai">로봇</span></div><div class="gloss-en">Simultaneous Localization and Mapping</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 지도 없이 탐험하며 동시에 지도를 그리는 것</div><div class="gloss-desc">로봇이 알 수 없는 환경에서 이동하면서 동시에 지도를 만들고 자신의 위치를 파악하는 기술이다 온실 통로를 자율 이동하는 핵심 기술이다</div><div class="gloss-use">수확 로봇 · 측정 로봇 자율주행</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">Epoch / 학습 <span class="cat-badge cat-ai">AI</span></div><div class="gloss-en">모델 학습 반복 횟수</div></div><div class="gloss-body"><div class="gloss-analogy">비유: 교과서를 처음부터 끝까지 읽는 1회</div><div class="gloss-desc">AI 모델이 전체 학습 데이터를 한 번 처음부터 끝까지 보는 것을 1 에포크라 한다 보통 수십~수백 에포크를 반복하여 모델의 정확도를 높인다</div><div class="gloss-use">AI 모델 학습 과정의 기본 단위</div></div></div>
+      <div class="gloss-card"><div class="gloss-head"><div class="gloss-term">Setpoint 전송 <span class="cat-badge cat-hard">설비</span></div><div class="gloss-en">AI → 기후컴퓨터 자동 명령</div></div><div class="gloss-body"><div class="gloss-analogy">비유: AI가 에어컨 리모컨을 대신 누르는 것</div><div class="gloss-desc">AI가 계산한 최적 온도·습도·CO2 목표값을 기후컴퓨터(Priva, Hoogendoorn 등)에 디지털 인터페이스로 자동 전달하는 과정이다 AI는 설비를 직접 건드리지 않고 목표값만 전달한다</div><div class="gloss-use">AI 자율제어의 실제 실행 방식</div></div></div>
+    </div>
+  </div><!-- /a-glossary -->
+
+
+</div>
