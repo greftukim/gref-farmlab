@@ -813,15 +813,22 @@ body{background:var(--bg);color:var(--text);font-family:'Pretendard',-apple-syst
 <!-- Password Modal -->
 <div class="pw-overlay" id="pwOverlay">
   <div class="pw-box">
-    <h3>편집 모드 비밀번호</h3>
-    <input type="password" id="pwInput" placeholder="비밀번호를 입력하세요" autocomplete="off">
-    <div class="pw-error" id="pwError">비밀번호가 일치하지 않습니다</div>
+    <h3>편집 모드 인증</h3>
+    <p style="font-size:13px;color:#666;margin:0 0 12px">GitHub Personal Access Token을 입력하세요</p>
+    <input type="password" id="pwInput" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+    <div class="pw-error" id="pwError">인증에 실패했습니다. 토큰을 확인하세요.</div>
+    <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:#888;cursor:pointer">
+      <input type="checkbox" id="pwRemember"> 이 브라우저에 토큰 저장
+    </label>
     <div class="pw-btns">
       <button class="pw-btn-cancel" onclick="closePwModal()">취소</button>
-      <button class="pw-btn-ok" onclick="checkPassword()">확인</button>
+      <button class="pw-btn-ok" id="pwOkBtn" onclick="checkPassword()">인증</button>
     </div>
   </div>
 </div>
+
+<!-- Save Notification -->
+<div id="saveNotification" style="display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:100000;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:opacity 0.3s"></div>
 
 <div class="edit-mode-bar" id="editModeBar">
   <div class="edit-mode-bar-left">
@@ -830,7 +837,8 @@ body{background:var(--bg);color:var(--text);font-family:'Pretendard',-apple-syst
     <span class="edit-mode-bar-kbd">Enter</span> 확정 ·
     <span class="edit-mode-bar-kbd">Esc</span> 취소
   </div>
-  <div>
+  <div style="display:flex;gap:8px">
+    <button class="edit-mode-bar-btn" id="saveToGithubBtn" onclick="saveToGithub()" style="background:#2ea44f;color:#fff">GitHub에 저장</button>
     <button class="edit-mode-bar-btn" onclick="toggleEditMode()">편집 모드 종료</button>
   </div>
 </div>
@@ -1499,18 +1507,30 @@ function initVarCells() {
   });
 }
 
-// ── 3. Toggle edit mode (with password) ──
+// ── 3. Toggle edit mode (with GitHub token auth) ──
 let editAuthenticated = false;
+let githubToken = '';
+const GITHUB_OWNER = 'greftukim';
+const GITHUB_REPO  = 'gref-farmlab';
+const GITHUB_FILE  = 'index.html';
+const GITHUB_BRANCH = 'master';
 
 function toggleEditMode() {
   if (!editMode && !editAuthenticated) {
-    // Show password modal
     const overlay = document.getElementById('pwOverlay');
     const input = document.getElementById('pwInput');
     const error = document.getElementById('pwError');
+    const remember = document.getElementById('pwRemember');
     overlay.classList.add('visible');
-    input.value = '';
     error.style.display = 'none';
+    // 저장된 토큰 복원
+    const saved = localStorage.getItem('gh_token');
+    if (saved) {
+      input.value = saved;
+      remember.checked = true;
+    } else {
+      input.value = '';
+    }
     input.focus();
     return;
   }
@@ -1521,21 +1541,112 @@ function closePwModal() {
   document.getElementById('pwOverlay').classList.remove('visible');
 }
 
-function checkPassword() {
+async function checkPassword() {
   const input = document.getElementById('pwInput');
   const error = document.getElementById('pwError');
-  if (input.value === '1234') {
+  const okBtn = document.getElementById('pwOkBtn');
+  const token = input.value.trim();
+  if (!token) { error.style.display = 'block'; return; }
+
+  okBtn.textContent = '인증 중...';
+  okBtn.disabled = true;
+
+  try {
+    // GitHub API로 토큰 유효성 + repo 접근 권한 확인
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
+      headers: { 'Authorization': `token ${token}` }
+    });
+    if (!res.ok) throw new Error('auth failed');
+    const data = await res.json();
+    if (!data.permissions || !data.permissions.push) throw new Error('no push access');
+
+    githubToken = token;
     editAuthenticated = true;
+    // 토큰 저장 여부
+    if (document.getElementById('pwRemember').checked) {
+      localStorage.setItem('gh_token', token);
+    } else {
+      localStorage.removeItem('gh_token');
+    }
     closePwModal();
     activateEditMode();
-  } else {
+  } catch (e) {
     error.style.display = 'block';
-    input.value = '';
     input.focus();
+  } finally {
+    okBtn.textContent = '인증';
+    okBtn.disabled = false;
   }
 }
 
-// Enter key in password input
+// ── GitHub 저장 함수 ──
+function showNotification(msg, success) {
+  const el = document.getElementById('saveNotification');
+  el.textContent = msg;
+  el.style.background = success ? '#2ea44f' : '#d73a49';
+  el.style.color = '#fff';
+  el.style.display = 'block';
+  el.style.opacity = '1';
+  setTimeout(() => { el.style.opacity = '0'; setTimeout(() => { el.style.display = 'none'; }, 300); }, 3000);
+}
+
+async function saveToGithub() {
+  if (!githubToken) { showNotification('인증이 필요합니다', false); return; }
+
+  const btn = document.getElementById('saveToGithubBtn');
+  btn.textContent = '저장 중...';
+  btn.disabled = true;
+
+  try {
+    // 1) 현재 파일의 SHA 가져오기
+    const metaRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`,
+      { headers: { 'Authorization': `token ${githubToken}` } }
+    );
+    if (!metaRes.ok) throw new Error('파일 정보를 가져올 수 없습니다');
+    const metaData = await metaRes.json();
+    const sha = metaData.sha;
+
+    // 2) 현재 HTML 전체를 가져와서 업데이트
+    const htmlContent = document.documentElement.outerHTML;
+    // DOCTYPE 추가
+    const fullHtml = '<!DOCTYPE html>\n' + htmlContent;
+    // Base64 인코딩 (한글 지원)
+    const encoded = btoa(unescape(encodeURIComponent(fullHtml)));
+
+    // 3) GitHub API로 파일 업데이트
+    const updateRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${githubToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: '웹 편집모드에서 콘텐츠 업데이트',
+          content: encoded,
+          sha: sha,
+          branch: GITHUB_BRANCH
+        })
+      }
+    );
+
+    if (!updateRes.ok) {
+      const err = await updateRes.json();
+      throw new Error(err.message || '저장 실패');
+    }
+
+    showNotification('GitHub에 저장 완료! 1-2분 후 사이트에 반영됩니다.', true);
+  } catch (e) {
+    showNotification('저장 실패: ' + e.message, false);
+  } finally {
+    btn.textContent = 'GitHub에 저장';
+    btn.disabled = false;
+  }
+}
+
+// Enter key in token input
 document.addEventListener('DOMContentLoaded', () => {
   const pwInput = document.getElementById('pwInput');
   if (pwInput) {
