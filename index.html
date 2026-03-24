@@ -7316,6 +7316,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   updateDisplay();
   initVarCells();
   document.getElementById('editModeLabel').textContent = '편집모드 OFF';
+  // 저장 알림 강제 숨김 (페이지 로드 시)
+  var sn = document.getElementById('saveNotification');
+  if (sn) { sn.style.display = 'none'; sn.style.opacity = '0'; }
 
   // ── PPT: Init first slide ──
   const slides = document.querySelectorAll('.ppt-slide');
