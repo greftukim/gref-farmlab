@@ -110,16 +110,16 @@ body.locked { overflow: hidden; }
 }
 
 /* ── NAV TABS ── */
-.tabs, .top-nav {
+.tabs {
   display: flex;
   gap: 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-.tabs::-webkit-scrollbar, .top-nav::-webkit-scrollbar { display: none; }
+.tabs::-webkit-scrollbar { display: none; }
 
-.tab-btn, .top-nav-btn {
+.tab-btn {
   background: none;
   border: none;
   padding: 10px 20px;
@@ -134,8 +134,8 @@ body.locked { overflow: hidden; }
   letter-spacing: 0.02em;
 }
 
-.tab-btn:hover, .top-nav-btn:hover { color: var(--fg); }
-.tab-btn.active, .top-nav-btn.active { color: var(--fg); border-bottom-color: var(--fg); font-weight: 600; }
+.tab-btn:hover { color: var(--fg); }
+.tab-btn.active { color: var(--fg); border-bottom-color: var(--fg); font-weight: 600; }
 
 /* ── MAIN ── */
 .main-content {
@@ -443,16 +443,16 @@ body.locked { overflow: hidden; }
 /* ── Edit mode button (in top nav) ── */
 .edit-mode-btn {
   display: flex; align-items: center; gap: 5px;
-  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.75); padding: 5px 14px; border-radius: 6px;
-  font-family: 'Pretendard',sans-serif; font-size: 12px; font-weight: 500;
+  background: var(--accent-light); border: 1px solid var(--border);
+  color: var(--fg-secondary); padding: 5px 14px; border-radius: 4px;
+  font-family: var(--font-sans); font-size: 11px; font-weight: 500;
   cursor: pointer; transition: all 0.15s; margin: auto 0; white-space: nowrap;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
 }
-.edit-mode-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
-.edit-mode-btn.active {
-  background: #F59E0B; border-color: #F59E0B;
-  color: #1A1A00; font-weight: 700;
+.edit-mode-btn:hover { background: var(--border); color: var(--fg); }
+.edit-mode-btn.active, .edit-mode-btn.ppt-active {
+  background: var(--fg); border-color: var(--fg);
+  color: var(--bg); font-weight: 700;
 }
 
 /* ── Edit mode info bar ── */
@@ -520,7 +520,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 
 /* ── PPT Mode: hide normal UI ── */
 body.ppt-mode .header,
-body.ppt-mode .top-nav,
+body.ppt-mode .main-content,
 body.ppt-mode .edit-mode-bar,
 body.ppt-mode .page-footer { display: none !important; }
 body.ppt-mode { background: #2d2d2d; overflow: hidden; }
@@ -939,8 +939,8 @@ body:not(.ppt-mode) .ppt-wf-return-label { background: #fff; color: var(--text3)
 
 /* ── PPT Button active state ── */
 .edit-mode-btn.ppt-active {
-  background: #2563EB; border-color: #2563EB;
-  color: #fff; font-weight: 700;
+  background: var(--fg); border-color: var(--fg);
+  color: var(--bg); font-weight: 700;
 }
 </style>
 
@@ -958,16 +958,16 @@ body:not(.ppt-mode) .ppt-wf-return-label { background: #fff; color: var(--text3)
       <div class="header-sub">미래 온실(대규모 GRID) 효율적 운영을 위한 기술 개발 · 검증 · 확산</div>
     </div>
     <nav class="tabs" id="main-tabs">
-      <button class="tab-btn active" onclick="switchSection('home',this)"><span class="nav-label">개요</span></button>
-      <button class="tab-btn" onclick="switchSection('nursery',this)"><span class="nav-label">육묘</span></button>
-      <button class="tab-btn" onclick="switchSection('ai',this)"><span class="nav-label">AI</span></button>
-      <button class="tab-btn" onclick="switchSection('robot',this)"><span class="nav-label">로봇</span></button>
-      <button class="tab-btn" onclick="switchSection('education',this)"><span class="nav-label">교육</span></button>
+      <button class="tab-btn nav-tab active" onclick="switchSection('home',this)"><span class="nav-label">개요</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('nursery',this)"><span class="nav-label">육묘</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('ai',this)"><span class="nav-label">AI</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('robot',this)"><span class="nav-label">로봇</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('education',this)"><span class="nav-label">교육</span></button>
       <div style="flex:1"></div>
-      <button class="tab-btn edit-mode-btn" id="pptModeBtn" onclick="togglePptMode()">
+      <button class="edit-mode-btn" id="pptModeBtn" onclick="togglePptMode()">
         <span class="edit-mode-label" id="pptModeLabel">PPT 모드</span>
       </button>
-      <button class="tab-btn edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
+      <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
         <span class="edit-mode-label" id="editModeLabel">편집모드 ON</span>
       </button>
     </nav>
@@ -1019,7 +1019,7 @@ body:not(.ppt-mode) .ppt-wf-return-label { background: #fff; color: var(--text3)
 <script>
 function switchSection(name, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('#main-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#main-tabs .nav-tab').forEach(b => b.classList.remove('active'));
   document.getElementById('section-'+name).classList.add('active');
   btn.classList.add('active');
 }
