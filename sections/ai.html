@@ -3117,7 +3117,7 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 <!-- ======================================================== -->
 <!-- TAB 1: AI 기초                                          -->
 <!-- ======================================================== -->
-<section class="tab-panel" id="panel-ai-basic" data-title="AI 기초">
+<section class="tab-panel active" id="panel-ai-basic" data-title="AI 기초">
 <style>
 /* ── AI BASICS TAB STYLES ── */
 
@@ -9682,8 +9682,10 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
 
     var tabId = activeBtn.getAttribute('data-tab');
 
-    // 기존 tab-panel 들 전체 숨기기 (Phase 0 영역 내)
-    var existingPanels = document.querySelectorAll('.tab-panel');
+    // Phase 0 래퍼 내 tab-panel만 숨기기
+    var wrapper = document.getElementById('panel-proj-phase0');
+    if (!wrapper) return;
+    var existingPanels = wrapper.querySelectorAll('.tab-panel');
     existingPanels.forEach(function(p) { p.classList.remove('active'); });
 
     // 대상 패널 활성화
