@@ -1,195 +1,423 @@
-  <div class="container">
+<style>
+/* ── Home Section Styles ── */
+.home-section { margin-bottom: 48px; }
+.home-section:last-child { margin-bottom: 0; }
+
+.home-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+  font-family: var(--font-sans);
+}
+
+.home-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* Vision block */
+.home-vision {
+  padding: 32px 0;
+  margin-bottom: 8px;
+}
+.home-vision-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.home-vision-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--fg-secondary);
+}
+
+/* 3-column card grid */
+.home-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 720px) {
+  .home-card-grid { grid-template-columns: 1fr; }
+}
+
+.home-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.home-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.home-card-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  background: var(--fg);
+  color: var(--bg);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+.home-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.home-card-body {
+  padding: 14px 16px;
+}
+.home-card-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-secondary);
+}
+
+/* Need card number */
+.home-card-num {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Tech detail cards */
+.home-tech {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.home-tech:last-child { margin-bottom: 0; }
+
+.home-tech-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.home-tech-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  background: var(--fg);
+  color: var(--bg);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+.home-tech-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+}
+.home-tech-sub {
+  font-size: 11px;
+  color: var(--fg-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+.home-tech-body {
+  padding: 18px 20px;
+}
+
+/* Sub-labels inside tech cards */
+.home-sl {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-top: 18px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-light);
+}
+.home-sl:first-child { margin-top: 0; }
+
+/* Tags */
+.home-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  margin: 2px 4px 2px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface2);
+  color: var(--fg-secondary);
+  font-family: var(--font-sans);
+}
+
+/* Detail lists */
+.home-detail-list {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+}
+.home-detail-list li { margin-bottom: 4px; }
+.home-detail-list li:last-child { margin-bottom: 0; }
+
+/* Desc paragraphs */
+.home-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-secondary);
+  margin-top: 6px;
+}
+
+/* Sub-grid (2 col boxes) */
+.home-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  .home-sub-grid { grid-template-columns: 1fr; }
+}
+.home-sub-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.home-sub-box-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.home-sub-box-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fg-secondary);
+}
+</style>
+
+<div class="container">
 
   <!-- ═══ 지향점 ═══ -->
-  <div class="vision-block">
-    <div class="vision-title">우리의 지향점</div>
-    <div class="vision-desc">
+  <div class="home-vision">
+    <div class="home-vision-title">우리의 지향점</div>
+    <div class="home-vision-desc">
       미래 온실(대규모 GRID)의 효율적 운영을 위해 필요한 핵심 기술을 개발하고 현장에서 검증한다<br>
-      <strong>무인화 · 에너지 · 생산성</strong> 3대 축의 기술 융합을 통해, 대한민국 시설원예를 글로벌 수준으로 끌어올리는 것이 Farm LAB의 목표이다
+      <strong style="color:var(--fg)">무인화 · 에너지 · 생산성</strong> 3대 축의 기술 융합을 통해, 대한민국 시설원예를 글로벌 수준으로 끌어올리는 것이 Farm LAB의 목표이다
     </div>
   </div>
 
   <!-- ═══ 운영 방향 ═══ -->
-  <div class="section-label">Farm LAB 운영 방향</div>
-  <div class="dir-row">
-    <div class="dir-card">
-      <div class="dir-card-header">
-        <div class="dir-icon dev">T</div>
-        <div class="dir-card-title">기술 개발</div>
+  <div class="home-section">
+    <div class="home-section-label">Farm LAB 운영 방향</div>
+    <div class="home-card-grid">
+      <div class="home-card">
+        <div class="home-card-head">
+          <div class="home-card-icon">T</div>
+          <div class="home-card-title">기술 개발</div>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-desc">협업 연구를 통해 미래 농업 선도 기술 개발. 산학연 파트너십 기반 R&D(Research & Development) 추진</div>
+        </div>
       </div>
-      <div class="dir-card-body">
-        <div class="dir-card-desc">협업 연구를 통해 미래 농업 선도 기술 개발. 산학연 파트너십 기반 R&D(Research & Development) 추진</div>
+      <div class="home-card">
+        <div class="home-card-head">
+          <div class="home-card-icon">F</div>
+          <div class="home-card-title">현장 구현</div>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-desc">개발된 기술의 현장 파급을 통한 상용화 실현. Farm LAB 자체 온실에서 실증 후 확산</div>
+        </div>
       </div>
-    </div>
-    <div class="dir-card">
-      <div class="dir-card-header">
-        <div class="dir-icon field">F</div>
-        <div class="dir-card-title">현장 구현</div>
-      </div>
-      <div class="dir-card-body">
-        <div class="dir-card-desc">개발된 기술의 현장 파급을 통한 상용화 실현. Farm LAB 자체 온실에서 실증 후 확산</div>
-      </div>
-    </div>
-    <div class="dir-card">
-      <div class="dir-card-header">
-        <div class="dir-icon open">O</div>
-        <div class="dir-card-title">개방성</div>
-      </div>
-      <div class="dir-card-body">
-        <div class="dir-card-desc">GREF-us(농가·기업·정부 등) 연계를 통한 성과 확산. 기술 공유 플랫폼으로서의 역할 수행</div>
+      <div class="home-card">
+        <div class="home-card-head">
+          <div class="home-card-icon">O</div>
+          <div class="home-card-title">개방성</div>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-desc">GREF-us(농가·기업·정부 등) 연계를 통한 성과 확산. 기술 공유 플랫폼으로서의 역할 수행</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="divider"></div>
+  <hr class="home-divider">
 
   <!-- ═══ 미래 온실 핵심 기술 3요소 ═══ -->
-  <div class="section-label">미래 온실 — 핵심 기술 3대 축</div>
-  <div class="need-row">
-    <div class="need-card">
-      <div class="need-card-header">
-        <div class="need-card-num">01</div>
-        <div class="need-card-title">무인화</div>
-      </div>
-      <div class="need-card-body">
-        <div class="need-card-desc">
-          AI 기반 실시간 온실 운영 및 표준화·정밀화 제어. 로봇 활용을 전제로, 로봇이 효과적으로 작동할 수 있는 재배 환경 조성
+  <div class="home-section">
+    <div class="home-section-label">미래 온실 — 핵심 기술 3대 축</div>
+    <div class="home-card-grid">
+      <div class="home-card">
+        <div class="home-card-head">
+          <div class="home-card-num">01</div>
+          <div class="home-card-title">무인화</div>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-desc">
+            AI 기반 실시간 온실 운영 및 표준화·정밀화 제어. 로봇 활용을 전제로, 로봇이 효과적으로 작동할 수 있는 재배 환경 조성
+          </div>
         </div>
       </div>
-    </div>
-    <div class="need-card">
-      <div class="need-card-header">
-        <div class="need-card-num">02</div>
-        <div class="need-card-title">에너지 자립</div>
-      </div>
-      <div class="need-card-body">
-        <div class="need-card-desc">
-          폐열·수열·공기열·지열 등 다양한 에너지원 탐색·적용. 영농형 태양광 및 EMS(Energy Management System) AI 연계를 통한 에너지 자립 실현
+      <div class="home-card">
+        <div class="home-card-head">
+          <div class="home-card-num">02</div>
+          <div class="home-card-title">에너지 자립</div>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-desc">
+            폐열·수열·공기열·지열 등 다양한 에너지원 탐색·적용. 영농형 태양광 및 EMS(Energy Management System) AI 연계를 통한 에너지 자립 실현
+          </div>
         </div>
       </div>
-    </div>
-    <div class="need-card">
-      <div class="need-card-header">
-        <div class="need-card-num">03</div>
-        <div class="need-card-title">생산성 극대화</div>
-      </div>
-      <div class="need-card-body">
-        <div class="need-card-desc">
-          생산공간 LOSS 최소화(대묘 육묘, 공동 APC(Agricultural Products Processing Center)와 브랜딩) 및 밀식재배를 위한 온도·습도·광 등 환경 제어 기술 확보
+      <div class="home-card">
+        <div class="home-card-head">
+          <div class="home-card-num">03</div>
+          <div class="home-card-title">생산성 극대화</div>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-desc">
+            생산공간 LOSS 최소화(대묘 육묘, 공동 APC(Agricultural Products Processing Center)와 브랜딩) 및 밀식재배를 위한 온도·습도·광 등 환경 제어 기술 확보
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="divider"></div>
+  <hr class="home-divider">
 
   <!-- ═══ 기술별 세부 추진 방향 ═══ -->
-  <div class="section-label">기술별 세부 추진 방향</div>
+  <div class="home-section">
+    <div class="home-section-label">기술별 세부 추진 방향</div>
 
-  <!-- 1. 무인화 -->
-  <div class="tech-card">
-    <div class="tech-header">
-      <div class="tech-dot t-unmanned">A</div>
-      <div>
-        <div class="tech-name">무인화</div>
-        <div class="tech-sub">AI Autonomous Control · Robotics · Plant-driven Greenhouse</div>
-      </div>
-    </div>
-    <div class="tech-body">
-
-      <div class="sl">자율제어 — 식물 주도형 자율 인터랙티브 그린하우스</div>
-      <div>
-        <span class="tag tag-ai">식물랭귀지 분석</span>
-        <span class="tag tag-ai">GREF AI 생장모델</span>
-        <span class="tag tag-ai">자율제어온실</span>
-      </div>
-      <ul class="detail-list" style="margin-top:8px;">
-        <li>식물랭귀지 분석 기술 기반 생육 상태 실시간 진단</li>
-        <li>GREF AI 생장모델 생성 및 검증 — 생장·생산성과 인건비·에너지비 등 비용·농산물 판매가격 연계를 통한 수익 최대화 지향</li>
-        <li>농산물 도매단가 예측 시스템 운영 중 — 기상청 API 연동 품목별 30일 선행 단가 예측 (<a href="https://greftukim.github.io/gref_ai/dashboard.html" target="_blank" style="color:var(--accent);text-decoration:underline">대시보드 바로가기</a>)</li>
-        <li>AI와 환경제어 시스템 연계를 통한 자율제어온실 구현</li>
-      </ul>
-
-      <div class="sl">측정 로봇 — 생육상태 측정 로봇 개발</div>
-      <div>
-        <span class="tag tag-robot">3D 피노타이핑</span>
-        <span class="tag tag-robot">VOCs 측정</span>
-        <span class="tag tag-robot">스트레스 진단</span>
-      </div>
-      <div class="desc" style="margin-top:6px;">3D 피노타이핑(Phenotyping) & VOCs(Volatile Organic Compounds) · 스트레스 측정 로봇 개발</div>
-
-      <div class="sl">수확 로봇</div>
-      <div class="desc">초기에는 시장 내 판매 로봇 활용 → 현장 운용 중 개선점 파악 → 단계적 자체 개발</div>
-
-      <div class="sl">로봇 친화적 환경 조성</div>
-      <ul class="detail-list">
-        <li>야간 작업 대응 재배 체계 수립</li>
-        <li>측지(Side Shoot) 깔끔한 제거 관리</li>
-        <li>로봇 이동이 용이한 공간 설계</li>
-        <li>로봇 수확이 쉬운 작물 품종 개발</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 2. 에너지 -->
-  <div class="tech-card">
-    <div class="tech-header">
-      <div class="tech-dot t-energy">B</div>
-      <div>
-        <div class="tech-name">에너지</div>
-        <div class="tech-sub">Multi-source Energy & AI-linked EMS</div>
-      </div>
-    </div>
-    <div class="tech-body">
-      <div class="sl">에너지원 다변화</div>
-      <div>
-        <span class="tag tag-energy">폐열</span>
-        <span class="tag tag-energy">수열</span>
-        <span class="tag tag-energy">공기열</span>
-        <span class="tag tag-energy">지열</span>
-      </div>
-
-      <div class="sub-grid">
-        <div class="sub-box">
-          <div class="sub-box-title">태양광</div>
-          <div class="sub-box-desc">영농형 태양광 모듈 개발 참여 — 작물 생육과 발전 효율 양립 가능한 모듈 설계</div>
-        </div>
-        <div class="sub-box">
-          <div class="sub-box-title">에너지 관리</div>
-          <div class="sub-box-desc">EMS(Energy Management System)를 통한 AI 연계 에너지 통합 관리 체계 구축</div>
+    <!-- 1. 무인화 -->
+    <div class="home-tech">
+      <div class="home-tech-head">
+        <div class="home-tech-icon">A</div>
+        <div>
+          <div class="home-tech-name">무인화</div>
+          <div class="home-tech-sub">AI Autonomous Control · Robotics · Plant-driven Greenhouse</div>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="home-tech-body">
 
-  <!-- 3. 생산성 -->
-  <div class="tech-card">
-    <div class="tech-header">
-      <div class="tech-dot t-prod">C</div>
-      <div>
-        <div class="tech-name">생산성</div>
-        <div class="tech-sub">Productivity Enhancement Solutions</div>
+        <div class="home-sl">자율제어 — 식물 주도형 자율 인터랙티브 그린하우스</div>
+        <div>
+          <span class="home-tag">식물랭귀지 분석</span>
+          <span class="home-tag">GREF AI 생장모델</span>
+          <span class="home-tag">자율제어온실</span>
+        </div>
+        <ul class="home-detail-list">
+          <li>식물랭귀지 분석 기술 기반 생육 상태 실시간 진단</li>
+          <li>GREF AI 생장모델 생성 및 검증 — 생장·생산성과 인건비·에너지비 등 비용·농산물 판매가격 연계를 통한 수익 최대화 지향</li>
+          <li>농산물 도매단가 예측 시스템 운영 중 — 기상청 API 연동 품목별 30일 선행 단가 예측 (<a href="https://greftukim.github.io/gref_ai/dashboard.html" target="_blank" style="color:var(--fg);text-decoration:underline;font-weight:500">대시보드 바로가기</a>)</li>
+          <li>AI와 환경제어 시스템 연계를 통한 자율제어온실 구현</li>
+        </ul>
+
+        <div class="home-sl">측정 로봇 — 생육상태 측정 로봇 개발</div>
+        <div>
+          <span class="home-tag">3D 피노타이핑</span>
+          <span class="home-tag">VOCs 측정</span>
+          <span class="home-tag">스트레스 진단</span>
+        </div>
+        <div class="home-desc">3D 피노타이핑(Phenotyping) & VOCs(Volatile Organic Compounds) · 스트레스 측정 로봇 개발</div>
+
+        <div class="home-sl">수확 로봇</div>
+        <div class="home-desc">초기에는 시장 내 판매 로봇 활용 → 현장 운용 중 개선점 파악 → 단계적 자체 개발</div>
+
+        <div class="home-sl">로봇 친화적 환경 조성</div>
+        <ul class="home-detail-list">
+          <li>야간 작업 대응 재배 체계 수립</li>
+          <li>측지(Side Shoot) 깔끔한 제거 관리</li>
+          <li>로봇 이동이 용이한 공간 설계</li>
+          <li>로봇 수확이 쉬운 작물 품종 개발</li>
+        </ul>
       </div>
     </div>
-    <div class="tech-body">
-      <div class="sl">솔루션</div>
-      <div>
-        <span class="tag tag-prod">대묘 육묘</span>
-        <span class="tag tag-prod">공동 APC</span>
-        <span class="tag tag-prod">브랜딩</span>
+
+    <!-- 2. 에너지 -->
+    <div class="home-tech">
+      <div class="home-tech-head">
+        <div class="home-tech-icon">B</div>
+        <div>
+          <div class="home-tech-name">에너지</div>
+          <div class="home-tech-sub">Multi-source Energy & AI-linked EMS</div>
+        </div>
       </div>
+      <div class="home-tech-body">
+        <div class="home-sl">에너지원 다변화</div>
+        <div>
+          <span class="home-tag">폐열</span>
+          <span class="home-tag">수열</span>
+          <span class="home-tag">공기열</span>
+          <span class="home-tag">지열</span>
+        </div>
 
-      <div class="sl">기술 개발</div>
-      <ul class="detail-list">
-        <li>밀식재배(High-density Planting) 시 온습도 정밀 제어</li>
-        <li>보광(Supplemental Lighting) 기술 적용을 통한 광 환경 최적화</li>
-        <li>생산공장 LOSS 최소화를 위한 공정 개선</li>
-      </ul>
-
-      <div class="sl">밸류체인 강화</div>
-      <div class="desc">대묘 육묘로 정식 후 조기 수확 실현, 공동 APC(Agricultural Products Processing Center) 운영으로 선별·포장 효율화, 통합 브랜딩을 통한 가격 경쟁력 확보</div>
+        <div class="home-sub-grid">
+          <div class="home-sub-box">
+            <div class="home-sub-box-title">태양광</div>
+            <div class="home-sub-box-desc">영농형 태양광 모듈 개발 참여 — 작물 생육과 발전 효율 양립 가능한 모듈 설계</div>
+          </div>
+          <div class="home-sub-box">
+            <div class="home-sub-box-title">에너지 관리</div>
+            <div class="home-sub-box-desc">EMS(Energy Management System)를 통한 AI 연계 에너지 통합 관리 체계 구축</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <!-- 3. 생산성 -->
+    <div class="home-tech">
+      <div class="home-tech-head">
+        <div class="home-tech-icon">C</div>
+        <div>
+          <div class="home-tech-name">생산성</div>
+          <div class="home-tech-sub">Productivity Enhancement Solutions</div>
+        </div>
+      </div>
+      <div class="home-tech-body">
+        <div class="home-sl">솔루션</div>
+        <div>
+          <span class="home-tag">대묘 육묘</span>
+          <span class="home-tag">공동 APC</span>
+          <span class="home-tag">브랜딩</span>
+        </div>
+
+        <div class="home-sl">기술 개발</div>
+        <ul class="home-detail-list">
+          <li>밀식재배(High-density Planting) 시 온습도 정밀 제어</li>
+          <li>보광(Supplemental Lighting) 기술 적용을 통한 광 환경 최적화</li>
+          <li>생산공장 LOSS 최소화를 위한 공정 개선</li>
+        </ul>
+
+        <div class="home-sl">밸류체인 강화</div>
+        <div class="home-desc">대묘 육묘로 정식 후 조기 수확 실현, 공동 APC(Agricultural Products Processing Center) 운영으로 선별·포장 효율화, 통합 브랜딩을 통한 가격 경쟁력 확보</div>
+      </div>
+    </div>
+
+  </div>
 
 </div>

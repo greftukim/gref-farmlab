@@ -1,0 +1,141 @@
+
+  <div class="proj-phase-card">
+    <div class="proj-phase-header">
+      <div class="proj-phase-tag">Phase 3</div>
+      <div class="proj-phase-title">예측 + MPC + 출하 연동</div>
+      <div class="proj-phase-duration">12 ~ 18개월</div>
+    </div>
+    <div class="proj-phase-body">
+      <div class="phase-cards-container" id="phase3-cards">
+
+  <div class="phase-summary">
+    <div class="phase-summary-period">12 ~ 18개월</div>
+    <div class="phase-summary-goal">예측 모델 + MPC 제어 + 2작기 실적 데이터</div>
+  </div>
+
+  <!-- 01 -->
+  <div class="phase-card">
+    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
+      <span class="phase-card-status">&#11036;</span>
+      <span class="phase-card-num">01</span>
+      <h3 class="phase-card-title">TOMGRO 생육 수식 이식</h3>
+      <span class="phase-card-tag tag-required">필수</span>
+      <span class="phase-card-toggle">+</span>
+    </div>
+    <div class="phase-card-body">
+      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>토마토 전용 생육 시뮬레이션 수식을 Python에 이식하여, AI가 비현실적 제안을 할 때 필터링합니다.</p></div>
+      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI(RL)가 "온도 40도로 올려라" 같은 비현실적 제안을 할 수 있습니다. 식물 생리학 기반 수식으로 "이건 말이 안 된다"고 걸러내야 합니다.</p></div>
+      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>TOMGRO 논문의 수식을 Python 함수로 구현하여 AI 제안값의 유효성을 검사합니다.</p></div>
+      <div class="phase-card-output"><h4>산출물</h4><p>생육 기반 필터링 모듈</p></div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="phase-card">
+    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
+      <span class="phase-card-status">&#11036;</span>
+      <span class="phase-card-num">02</span>
+      <h3 class="phase-card-title">예측 모델 파인튜닝</h3>
+      <span class="phase-card-tag tag-required">필수</span>
+      <span class="phase-card-toggle">+</span>
+    </div>
+    <div class="phase-card-body">
+      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>1작기 데이터를 기반으로 생육 예측 모델을 우리 온실에 맞게 조정합니다.</p></div>
+      <div class="phase-card-why"><h4>왜 하는가</h4><p>범용 모델은 우리 온실의 특성(품종, 지역 기후, 시설 규모)을 모릅니다. 실제 데이터로 맞춤 조정해야 정확도가 올라갑니다.</p></div>
+      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>반드시 Baseline(이동평균)을 먼저 이기는지 확인한 후 채택합니다. 못 이기면 Baseline을 유지합니다.</p></div>
+      <div class="phase-card-output"><h4>산출물</h4><p>우리 온실 맞춤 수확량 예측 모델</p></div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="phase-card">
+    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
+      <span class="phase-card-status">&#11036;</span>
+      <span class="phase-card-num">03</span>
+      <h3 class="phase-card-title">가격 예측 + 출하 스케줄 연동</h3>
+      <span class="phase-card-tag tag-required">필수</span>
+      <span class="phase-card-toggle">+</span>
+    </div>
+    <div class="phase-card-body">
+      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>도매 시세 예측에 경매장 휴무일, 직거래처 납품 일정을 결합하여 "언제 수확해서 어디로 보내라"까지 안내합니다.</p></div>
+      <div class="phase-card-why"><h4>왜 하는가</h4><p>농사는 기르는 게 반, 파는 게 반입니다. 수확 타이밍이 하루만 어긋나도 가격이 크게 달라집니다.</p></div>
+      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Prophet과 LightGBM 앙상블에 유통사 납품 스케줄 DB를 연동합니다.</p></div>
+      <div class="phase-card-output"><h4>산출물</h4><p>출하 전략 포함 가격 예측 시스템</p></div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="phase-card">
+    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
+      <span class="phase-card-status">&#11036;</span>
+      <span class="phase-card-num">04</span>
+      <h3 class="phase-card-title">MPC 도입</h3>
+      <span class="phase-card-tag tag-required">필수</span>
+      <span class="phase-card-toggle">+</span>
+    </div>
+    <div class="phase-card-body">
+      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>모델 예측 제어(MPC)를 도입하여 안전 범위 내에서 보수적으로 환경을 제어합니다.</p></div>
+      <div class="phase-card-why"><h4>왜 하는가</h4><p>Rule-based는 단순 if-else라 최적화가 되지 않습니다. MPC는 "2시간 후 예측"을 기반으로 미리 대응하여 더 정밀한 제어가 가능합니다.</p></div>
+      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Python MPC 라이브러리를 활용하고, 온도, 습도, CO2 안전 제약 조건을 설정합니다.</p></div>
+      <div class="phase-card-output"><h4>산출물</h4><p>예측 기반 환경 제어 시스템</p></div>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="phase-card">
+    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
+      <span class="phase-card-status">&#11036;</span>
+      <span class="phase-card-num">05</span>
+      <h3 class="phase-card-title">자동 재학습 트리거</h3>
+      <span class="phase-card-tag tag-required">필수</span>
+      <span class="phase-card-toggle">+</span>
+    </div>
+    <div class="phase-card-body">
+      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>AI 예측이 일정 수준 이상 틀리면 자동으로 모델을 재학습시키는 시스템을 구축합니다.</p></div>
+      <div class="phase-card-why"><h4>왜 하는가</h4><p>봄에 학습한 모델이 가을에는 정확도가 떨어집니다(Concept Drift). 계절과 환경 변화에 맞춰 모델도 업데이트되어야 합니다.</p></div>
+      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>수확량 예측 오차가 15%를 초과하는 상태가 3일 연속되면, 클라우드 A100에서 자동 재학습 후 검증을 거쳐 모델을 교체합니다.</p></div>
+      <div class="phase-card-output"><h4>산출물</h4><p>MLOps 자동 재학습 파이프라인</p></div>
+    </div>
+  </div>
+
+</div>
+
+      <div class="proj-phase-output">
+        <div class="proj-phase-output-label">산출물</div>
+        <p>예측 모델 + MPC 제어 + 2작기 실적 데이터</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 향후 계획 -->
+  <div class="proj-future">
+    <div class="proj-future-label">향후 계획 (18 ~ 24개월)</div>
+
+    <div class="proj-phase-card">
+      <div class="proj-phase-header">
+        <div class="proj-phase-tag">Phase 4 (향후)</div>
+        <div class="proj-phase-title">자동화 + 확장</div>
+        <div class="proj-phase-duration">18 ~ 24개월</div>
+      </div>
+      <div class="proj-phase-body">
+        <div class="proj-timeline">
+
+          <div class="proj-timeline-item">
+            <div class="proj-timeline-text"><strong>RL 어드바이저 모드</strong> — 추천만, 사람이 승인</div>
+          </div>
+          <div class="proj-timeline-item">
+            <div class="proj-timeline-text"><strong>Priva API 연동 협상</strong> — 실적 데이터 기반 딜러 협상</div>
+          </div>
+          <div class="proj-timeline-item">
+            <div class="proj-timeline-text"><strong>MLOps 파이프라인</strong> — 자동 재학습 + 모델 교체</div>
+          </div>
+          <div class="proj-timeline-item">
+            <div class="proj-timeline-text"><strong>다동 확장</strong> — 반자동 온실 제어 시스템</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

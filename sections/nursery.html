@@ -1,3 +1,255 @@
+<style>
+/* ── Nursery Section — Monochrome Design System ── */
+
+/* Section titles */
+.xl-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin: 20px 0 8px;
+  font-family: var(--font-sans);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+.xl-section-title:first-child { margin-top: 0; }
+
+.xl-sub-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-secondary);
+  margin: 14px 0 6px;
+  letter-spacing: 0.02em;
+}
+
+/* Vision banner */
+.xl-vision-banner {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  padding: 16px 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+/* Tables */
+.xl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+.xl-table thead th {
+  background: var(--surface2);
+  color: var(--fg-muted);
+  font-weight: 500;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 7px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.xl-table thead th.num {
+  text-align: right;
+}
+.xl-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--fg);
+  vertical-align: top;
+}
+.xl-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: -0.01em;
+}
+.xl-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.xl-table tbody tr:hover td {
+  background: var(--accent-light);
+}
+
+/* Wide table */
+.xl-table.xl-wide {
+  min-width: 900px;
+}
+
+/* Editable input cells — blue text */
+.xl-input {
+  color: #2563eb !important;
+  cursor: text;
+}
+
+/* Total row */
+.xl-total td {
+  background: var(--surface2) !important;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border) !important;
+  font-weight: 600;
+}
+
+/* Subtotal row */
+.xl-subtotal td {
+  background: var(--accent-light) !important;
+  font-weight: 500;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Highlight row */
+.xl-highlight td {
+  background: var(--surface2) !important;
+  font-style: italic;
+}
+.xl-highlight-green td {
+  background: var(--surface2) !important;
+  font-weight: 600;
+}
+
+/* Group cell (merged rows) */
+.xl-group-cell {
+  background: var(--surface2);
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+/* Good / Bad markers */
+.xl-bad {
+  color: var(--fg-secondary);
+}
+.xl-good {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* P&L indentation */
+.pl-sub {
+  padding-left: 24px !important;
+  color: var(--fg-secondary);
+}
+.pl-sub2 {
+  padding-left: 40px !important;
+  color: var(--fg-muted);
+  font-size: 11px;
+}
+
+/* Crop cards grid */
+.xl-crop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+@media (max-width: 640px) {
+  .xl-crop-grid { grid-template-columns: 1fr; }
+}
+.xl-crop-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.xl-crop-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.xl-crop-reasons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.xl-crop-reasons li {
+  font-size: 12px;
+  color: var(--fg-secondary);
+  line-height: 1.6;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.xl-crop-reasons li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--fg-muted);
+}
+
+/* Two-column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media (max-width: 640px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* HVAC diagram cards */
+.hvac-diagram-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.hvac-diagram-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.hvac-diagram-header.hvac-heat {
+  background: var(--surface2);
+}
+.hvac-diagram-header.hvac-cool {
+  background: var(--surface2);
+}
+.hvac-diagram-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.hvac-diagram-subtitle {
+  font-size: 11px;
+  color: var(--fg-muted);
+  margin-top: 2px;
+}
+
+/* Flow chart wrap */
+.fc-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.fc-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 12px;
+}
+</style>
+
 <div class="container">
 
   <div class="tabs" id="nursery-tabs">
@@ -377,13 +629,13 @@
           <tbody>
             <tr class="xl-total"><td><strong>전체 점유율 합계</strong></td>
               <td class="num">35%</td>
-              <td class="num" style="font-weight:700;color:var(--e3-text)">112%</td>
+              <td class="num" style="font-weight:700;color:var(--fg)">112%</td>
               <td class="num">93%</td>
               <td class="num">50%</td>
               <td class="num">40%</td>
               <td class="num">85%</td>
               <td class="num">100%</td>
-              <td class="num" style="font-weight:700;color:var(--e3-text)">125%</td>
+              <td class="num" style="font-weight:700;color:var(--fg)">125%</td>
               <td class="num">93%</td>
               <td class="num">75%</td>
               <td class="num">73%</td>
@@ -428,8 +680,8 @@
         </div>
         <div class="card-body">
           <div style="display:flex;align-items:center;gap:16px;padding:12px 0">
-            <div style="font-size:36px;font-weight:800;color:var(--accent);letter-spacing:-1px">~2,500원</div>
-            <div style="font-size:13px;color:var(--text2);line-height:1.7">
+            <div style="font-size:36px;font-weight:800;color:var(--fg);letter-spacing:-1px">~2,500원</div>
+            <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7">
               접목 및 핀칭 완료된 <strong>60일 묘</strong> 기준<br>
               (종자 제외 / 프러그 + 큐브 포함)<br>
               현재 국내 시장 실거래 기준
@@ -465,31 +717,31 @@
       <div class="card-body">
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start">
           <!-- Price badge -->
-          <div style="grid-column:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--accent);border-radius:10px;padding:20px;color:#fff;text-align:center">
+          <div style="grid-column:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--fg);border-radius:var(--radius);padding:20px;color:#fff;text-align:center">
             <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;opacity:0.6;margin-bottom:6px">설정 단가</div>
             <div style="font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1">3,000원</div>
             <div style="font-size:11px;opacity:0.6;margin-top:6px">VAT 별도 · 토마토 대묘 기준</div>
           </div>
           <!-- Rationale -->
           <div style="grid-column:2;display:flex;flex-direction:column;gap:10px">
-            <div style="border-left:3px solid var(--e1-text);background:var(--e1-bg);padding:10px 12px;border-radius:0 6px 6px 0">
-              <div style="font-size:11px;font-weight:600;color:var(--e1-text);margin-bottom:4px">Cost-Plus 근거</div>
-              <div style="font-size:12px;color:var(--text2);line-height:1.6">대묘 생산 원가 약 2,200원에 적정 기업 이윤을 반영한 합리적 가격 설정</div>
+            <div style="border-left:3px solid var(--fg);background:var(--surface2);padding:10px 12px;border-radius:0 var(--radius) var(--radius) 0">
+              <div style="font-size:11px;font-weight:600;color:var(--fg);margin-bottom:4px">Cost-Plus 근거</div>
+              <div style="font-size:12px;color:var(--fg-secondary);line-height:1.6">대묘 생산 원가 약 2,200원에 적정 기업 이윤을 반영한 합리적 가격 설정</div>
             </div>
-            <div style="border-left:3px solid var(--accent);background:var(--e2-bg);padding:10px 12px;border-radius:0 6px 6px 0">
-              <div style="font-size:11px;font-weight:600;color:var(--accent);margin-bottom:4px">Premium 전략 근거</div>
-              <div style="font-size:12px;color:var(--text2);line-height:1.6">국내 최초 대묘 시장 진입 및 물류 이점(수입 대체)을 고려한 전략적 프리미엄 가격</div>
+            <div style="border-left:3px solid var(--fg-muted);background:var(--accent-light);padding:10px 12px;border-radius:0 var(--radius) var(--radius) 0">
+              <div style="font-size:11px;font-weight:600;color:var(--fg);margin-bottom:4px">Premium 전략 근거</div>
+              <div style="font-size:12px;color:var(--fg-secondary);line-height:1.6">국내 최초 대묘 시장 진입 및 물류 이점(수입 대체)을 고려한 전략적 프리미엄 가격</div>
             </div>
           </div>
           <!-- Profit analysis -->
           <div style="grid-column:3">
-            <div style="font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px">수익성 분석</div>
+            <div style="font-size:11px;font-weight:500;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px">수익성 분석</div>
             <table class="xl-table">
               <tbody>
-                <tr><td>판매가</td><td class="num" style="color:var(--accent);font-weight:600">3,000원</td></tr>
+                <tr><td>판매가</td><td class="num" style="color:var(--fg);font-weight:600">3,000원</td></tr>
                 <tr><td>제조 원가</td><td class="num">2,197원</td></tr>
-                <tr class="xl-total"><td><strong>주당 영업이익</strong></td><td class="num" style="color:var(--accent)"><strong>803원</strong></td></tr>
-                <tr><td>목표 마진율</td><td class="num" style="color:var(--e2-text);font-weight:600">약 26.7%</td></tr>
+                <tr class="xl-total"><td><strong>주당 영업이익</strong></td><td class="num" style="color:var(--fg)"><strong>803원</strong></td></tr>
+                <tr><td>목표 마진율</td><td class="num" style="color:var(--fg);font-weight:600">약 26.7%</td></tr>
               </tbody>
             </table>
           </div>
@@ -553,10 +805,10 @@
 
     <div class="two-col" style="margin-bottom:8px">
       <!-- Situation A -->
-      <div class="card" style="border-top:3px solid #9B6040">
-        <div class="card-header" style="background:#F5EDE6">
-          <div class="card-title" style="color:#9B6040">[상황 A] 기존 관행 묘</div>
-          <div class="card-sub" style="color:#B8845A">단가 500원 · 어린 모종 구입 후 농가 자체 육묘</div>
+      <div class="card" style="border-top:2px solid var(--fg-muted)">
+        <div class="card-header" style="background:var(--surface2)">
+          <div class="card-title" style="color:var(--fg-secondary)">[상황 A] 기존 관행 묘</div>
+          <div class="card-sub" style="color:var(--fg-muted)">단가 500원 · 어린 모종 구입 후 농가 자체 육묘</div>
         </div>
         <div class="card-body" style="padding:0">
           <table class="xl-table">
@@ -570,12 +822,12 @@
               <tr>
                 <td style="white-space:nowrap;font-weight:500">2단계: 육묘 기간</td>
                 <td>난방비, 인건비, 자재비 등 관리 비용 발생</td>
-                <td style="color:var(--tag-rl)">추가 비용 발생</td>
+                <td style="color:var(--fg-muted)">추가 비용 발생</td>
               </tr>
               <tr>
                 <td style="white-space:nowrap;font-weight:500">3단계: 정식 및 수확</td>
                 <td>60일 후 수확 시작</td>
-                <td style="color:var(--tag-rl)">수확 시점 늦어짐</td>
+                <td style="color:var(--fg-muted)">수확 시점 늦어짐</td>
               </tr>
             </tbody>
           </table>
@@ -583,10 +835,10 @@
       </div>
 
       <!-- Situation B -->
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <div class="card-header" style="background:var(--e2-bg)">
+      <div class="card" style="border-top:2px solid var(--fg)">
+        <div class="card-header" style="background:var(--surface2)">
           <div class="card-title" style="color:var(--accent)">[상황 B] 대묘 도입</div>
-          <div class="card-sub" style="color:var(--accent2)">단가 3,000원 · 육묘 위탁으로 공백기 제거</div>
+          <div class="card-sub" style="color:var(--fg-secondary)">단가 3,000원 · 육묘 위탁으로 공백기 제거</div>
         </div>
         <div class="card-body" style="padding:0">
           <table class="xl-table">
@@ -595,17 +847,17 @@
               <tr>
                 <td style="white-space:nowrap;font-weight:500">1단계: 위탁 기간</td>
                 <td>대묘 육묘장에서 자람 (30일)</td>
-                <td style="color:var(--e2-text)">농가 공간 확보</td>
+                <td style="color:var(--fg);font-weight:500">농가 공간 확보</td>
               </tr>
               <tr>
                 <td style="white-space:nowrap;font-weight:500">2단계: 정식 및 수확</td>
                 <td>공백기 없이 바로 수확 단계로 진입</td>
-                <td style="color:var(--e2-text)">조기 수확 시작</td>
+                <td style="color:var(--fg);font-weight:500">조기 수확 시작</td>
               </tr>
               <tr>
                 <td style="white-space:nowrap;font-weight:500">3단계: 추가 수확</td>
                 <td>기존 작기 연장 재배 가능</td>
-                <td style="color:var(--e2-text)">매출 약 1.3억원↑</td>
+                <td style="color:var(--fg);font-weight:500">매출 약 1.3억원↑</td>
               </tr>
             </tbody>
           </table>
@@ -617,18 +869,18 @@
     <div class="card">
       <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;text-align:center">
         <div>
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">모종비 증가분</div>
-          <div style="font-size:24px;font-weight:700;color:var(--tag-rl)">+2,500원/주</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:3px">관행 묘 대비 추가 비용</div>
+          <div style="font-size:11px;color:var(--fg-muted);margin-bottom:4px">모종비 증가분</div>
+          <div style="font-size:24px;font-weight:700;color:var(--fg-muted)">+2,500원/주</div>
+          <div style="font-size:11px;color:var(--fg-muted);margin-top:3px">관행 묘 대비 추가 비용</div>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--text3)">→</div>
+        <div style="display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--fg-muted)">→</div>
         <div>
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px">매출·기회비용 개선</div>
-          <div style="font-size:24px;font-weight:700;color:var(--e2-text)">최소 +10%</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:3px">기존 대비 매출 상승 효과</div>
+          <div style="font-size:11px;color:var(--fg-muted);margin-bottom:4px">매출·기회비용 개선</div>
+          <div style="font-size:24px;font-weight:700;color:var(--fg);font-weight:500">최소 +10%</div>
+          <div style="font-size:11px;color:var(--fg-muted);margin-top:3px">기존 대비 매출 상승 효과</div>
         </div>
       </div>
-      <div style="border-top:1px solid var(--border);padding:10px 18px;font-size:13px;color:var(--text2);background:var(--e2-bg)">
+      <div style="border-top:1px solid var(--border);padding:10px 18px;font-size:13px;color:var(--fg-secondary);background:var(--surface2)">
         <strong>결론:</strong> 대묘 도입 시 모종 구매 비용 등 제반 비용이 증가하나, 조기 수확에 따른 매출 증대 효과가 더 높아 — <strong>기존 대비 최소 10% 이상 매출 상승 + 기존 작기 연장 재배로 약 1.3억원 추가 매출</strong>
       </div>
     </div>
@@ -904,8 +1156,8 @@
           <tr><td>파종 라인 (Sowing Line – Rockwool)</td><td class="num">153,300</td><td class="num"></td><td class="num">1,000</td><td class="num"></td><td class="num">154,300</td><td class="num">265,704,600</td></tr>
           <tr><td>선별기 (MaxSorter 2대 – 대목·접수용)</td><td class="num">273,240</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">273,240</td><td class="num">470,519,280</td></tr>
           <tr><td>접목기 (Graft Single 2대 + UV-C)</td><td class="num">204,130</td><td class="num">4,140</td><td class="num"></td><td class="num"></td><td class="num">208,270</td><td class="num">358,640,940</td></tr>
-          <tr><td>패키지 할인 (선별기+접목기 조합)</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num" style="color:var(--tag-rl)">-10,000</td><td class="num" style="color:var(--tag-rl)">-10,000</td><td class="num" style="color:var(--tag-rl)">-17,220,000</td></tr>
-          <tr class="xl-total"><td><strong>설비 합계</strong></td><td class="num"><strong>630,670</strong></td><td class="num">4,140</td><td class="num">1,000</td><td class="num" style="color:var(--tag-rl)">-10,000</td><td class="num"><strong>625,810</strong></td><td class="num"><strong>1,077,644,820</strong></td></tr>
+          <tr><td>패키지 할인 (선별기+접목기 조합)</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num" style="color:var(--fg-muted)">-10,000</td><td class="num" style="color:var(--fg-muted)">-10,000</td><td class="num" style="color:var(--fg-muted)">-17,220,000</td></tr>
+          <tr class="xl-total"><td><strong>설비 합계</strong></td><td class="num"><strong>630,670</strong></td><td class="num">4,140</td><td class="num">1,000</td><td class="num" style="color:var(--fg-muted)">-10,000</td><td class="num"><strong>625,810</strong></td><td class="num"><strong>1,077,644,820</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -1011,7 +1263,7 @@
           <div class="hvac-diagram-title">Peak Heating Load</div>
           <div class="hvac-diagram-subtitle">겨울 최악 조건 열손실 분석 — 진주 −11.8°C</div>
         </div>
-        <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;background:#EBF3FB;">
+        <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;background:var(--accent-light);">
           <defs>
             <linearGradient id="heatSky" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#D0E8F8"/>
@@ -1298,11 +1550,11 @@
             <table class="xl-table">
               <thead><tr><th>부위/항목</th><th>기호</th><th class="num">kcal/h</th><th class="num">kW</th><th>산식</th></tr></thead>
               <tbody>
-                <tr><td>일사 부하 (지붕)</td><td>Qs_roof</td><td class="num" id="cv_Qc_sol" style="color:var(--e3-text);font-weight:600">2,546,577</td><td class="num" id="cv_Qc_sol_kw">2,190</td><td>I_sol × τ × (1-f_shade) × Ar × 0.86</td></tr>
+                <tr><td>일사 부하 (지붕)</td><td>Qs_roof</td><td class="num" id="cv_Qc_sol" style="color:var(--fg);font-weight:600">2,546,577</td><td class="num" id="cv_Qc_sol_kw">2,190</td><td>I_sol × τ × (1-f_shade) × Ar × 0.86</td></tr>
                 <tr><td>관류 열취득 (지붕)</td><td>Qc_roof</td><td class="num" id="cv_Qc_roof">477,763</td><td class="num" id="cv_Qc_roof_kw">411</td><td>ht_roof × (Td_s - Ts_c) × Ar</td></tr>
                 <tr><td>관류 열취득 (벽면)</td><td>Qc_wall</td><td class="num" id="cv_Qc_wall">30,308</td><td class="num" id="cv_Qc_wall_kw">26</td><td>ht_wall × (Td_s - Ts_c) × (Ag1+Ag2)</td></tr>
                 <tr><td>환기 열취득</td><td>Qv</td><td class="num" id="cv_Qc_vent">38,440</td><td class="num" id="cv_Qc_vent_kw">33</td><td>hv × (Td_s - Ts_c) × A_total</td></tr>
-                <tr><td style="color:var(--e1-text)">지중 냉각 (차감)</td><td>Qs_gnd</td><td class="num" id="cv_Qc_gnd" style="color:var(--e1-text)">-24,200</td><td class="num" id="cv_Qc_gnd_kw" style="color:var(--e1-text)">-21</td><td>-hs × (Ts_c - Tg_s) × As</td></tr>
+                <tr><td style="color:var(--fg)">지중 냉각 (차감)</td><td>Qs_gnd</td><td class="num" id="cv_Qc_gnd" style="color:var(--fg)">-24,200</td><td class="num" id="cv_Qc_gnd_kw" style="color:var(--fg)">-21</td><td>-hs × (Ts_c - Tg_s) × As</td></tr>
                 <tr><td>내부 발열</td><td>Qi</td><td class="num" id="cv_Qi">170,590</td><td class="num" id="cv_Qi_kw">147</td><td>As × 20W/㎡ × 0.86</td></tr>
                 <tr class="xl-total"><td><strong>최대냉방부하 Qc</strong></td><td></td><td class="num" id="cv_Qc_total"><strong>3,239,478</strong></td><td class="num" id="cv_Qc_total_kw"><strong>2,785</strong></td><td></td></tr>
               </tbody>
@@ -1577,29 +1829,29 @@
     <div class="card" style="margin-bottom:14px;width:100%;max-width:100%"><div class="card-body" style="padding:16px">
       <!-- Row 1 -->
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;flex-wrap:nowrap">
-        <div style="padding:8px 12px;border-radius:8px;background:#E6F1FB;border:2px solid #85B7EB;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#0C447C">종자 입고</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#fff;border:2px solid rgba(0,0,0,0.15);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">자동 파종</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#fff;border:2px solid rgba(0,0,0,0.15);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">발아실</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#EAF3DE;border:2px solid #C0DD97;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#27500A">1차 육묘</div><div style="font-size:9px;color:#27500A">프러그 단계</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#FAEEDA;border:2px solid #EF9F27;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#633806">접목 여부</div><div style="font-size:9px;color:#633806">접목 / 실생</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#EAF3DE;border:2px solid #C0DD97;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#27500A">활착실</div><div style="font-size:9px;color:#27500A">LED 챔버</div></div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--surface2);border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:var(--fg)">종자 입고</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:#fff;border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">자동 파종</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:#fff;border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">발아실</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--accent-light);border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:var(--fg)">1차 육묘</div><div style="font-size:9px;color:var(--fg)">프러그 단계</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--surface2);border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:var(--fg)">접목 여부</div><div style="font-size:9px;color:var(--fg)">접목 / 실생</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--accent-light);border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:var(--fg)">활착실</div><div style="font-size:9px;color:var(--fg)">LED 챔버</div></div>
       </div>
       <!-- Row 2 -->
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:nowrap">
-        <div style="padding:8px 12px;border-radius:8px;background:#EAF3DE;border:2px solid #C0DD97;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#27500A">2차 육묘</div><div style="font-size:9px;color:#27500A">큐브 이식</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#C8E6C9;border:2px solid #2E6644;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#1A3A2A">3차 육묘</div><div style="font-size:9px;color:#2E6644">대묘 육묘</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#fff;border:2px solid rgba(0,0,0,0.15);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">선별·검수</div><div style="font-size:9px;color:#5A5A55">자동 선별기</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#fff;border:2px solid rgba(0,0,0,0.15);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">포장·출하</div><div style="font-size:9px;color:#5A5A55">트롤리·트럭</div></div>
-        <div style="font-size:16px;color:#9A9A94;flex-shrink:0">→</div>
-        <div style="padding:8px 12px;border-radius:8px;background:#1A3A2A;border:2px solid #1A3A2A;text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#fff">농가 납품</div><div style="font-size:9px;color:rgba(255,255,255,0.7)">활착률 98%</div></div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--accent-light);border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:var(--fg)">2차 육묘</div><div style="font-size:9px;color:var(--fg)">큐브 이식</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--surface2);border:1px solid var(--fg-muted);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:var(--fg)">3차 육묘</div><div style="font-size:9px;color:var(--fg-secondary)">대묘 육묘</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:#fff;border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">선별·검수</div><div style="font-size:9px;color:var(--fg-muted)">자동 선별기</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:#fff;border:1px solid var(--border);text-align:center;flex:1"><div style="font-size:13px;font-weight:700">포장·출하</div><div style="font-size:9px;color:var(--fg-muted)">트롤리·트럭</div></div>
+        <div style="font-size:16px;color:var(--fg-muted);flex-shrink:0">→</div>
+        <div style="padding:8px 12px;border-radius:var(--radius);background:var(--fg);border:1px solid var(--fg);text-align:center;flex:1"><div style="font-size:13px;font-weight:700;color:#fff">농가 납품</div><div style="font-size:9px;color:rgba(255,255,255,0.7)">활착률 98%</div></div>
       </div>
     </div></div>
 
@@ -1746,11 +1998,11 @@
              alt="단계별 확장 부지 항공사진"
              style="width:100%;display:block;border-radius:0 0 var(--radius) var(--radius)">
         <!-- legend -->
-        <div style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.92);border-radius:8px;padding:10px 14px;font-size:12px;line-height:1.9;box-shadow:0 2px 8px rgba(0,0,0,0.15)">
-          <div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:#FFE030;border:1.5px solid #B8A000;border-radius:3px;display:inline-block"></span><strong>1단계</strong> 4,500평</div>
-          <div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:#6BA3D6;border:1.5px solid #1A5A9A;border-radius:3px;display:inline-block"></span><strong>2단계</strong> 6,000평</div>
-          <div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:#4EC977;border:1.5px solid #1A6A3A;border-radius:3px;display:inline-block"></span><strong>3단계</strong> 3,500평</div>
-          <div style="border-top:1px solid rgba(0,0,0,0.1);margin-top:6px;padding-top:6px;display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:transparent;border:2px solid #E00;border-radius:3px;display:inline-block"></span><strong>총 14,000평</strong></div>
+        <div style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.92);border-radius:var(--radius);padding:10px 14px;font-size:12px;line-height:1.9;box-shadow:0 2px 8px rgba(0,0,0,0.15)">
+          <div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:var(--fg-muted);border:1.5px solid var(--fg-muted);border-radius:3px;display:inline-block"></span><strong>1단계</strong> 4,500평</div>
+          <div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:var(--fg-secondary);border:1.5px solid var(--fg-secondary);border-radius:3px;display:inline-block"></span><strong>2단계</strong> 6,000평</div>
+          <div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:var(--fg);border:1.5px solid var(--fg);border-radius:3px;display:inline-block"></span><strong>3단계</strong> 3,500평</div>
+          <div style="border-top:1px solid rgba(0,0,0,0.1);margin-top:6px;padding-top:6px;display:flex;align-items:center;gap:7px"><span style="width:14px;height:14px;background:transparent;border:2px solid var(--fg);border-radius:3px;display:inline-block"></span><strong>총 14,000평</strong></div>
         </div>
       </div>
     </div>
@@ -1763,47 +2015,47 @@
           <thead>
             <tr>
               <th>구분</th>
-              <th class="num" style="background:#FFFBE6">1단계 (현재)</th>
-              <th class="num" style="background:#EBF3FB">2단계 (확장)</th>
-              <th class="num" style="background:#EAFAF0">3단계 (최종)</th>
-              <th class="num" style="background:#F5F3ED">합계</th>
+              <th class="num" style="background:var(--surface2)">1단계 (현재)</th>
+              <th class="num" style="background:var(--accent-light)">2단계 (확장)</th>
+              <th class="num" style="background:var(--surface2)">3단계 (최종)</th>
+              <th class="num" style="background:var(--surface2)">합계</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>면적</td>
-              <td class="num" style="background:#FFFBE6"><strong>4,500평</strong></td>
-              <td class="num" style="background:#EBF3FB"><strong>+6,000평</strong></td>
-              <td class="num" style="background:#EAFAF0"><strong>+3,500평</strong></td>
-              <td class="num" style="background:#F5F3ED"><strong>14,000평</strong></td>
+              <td class="num" style="background:var(--surface2)"><strong>4,500평</strong></td>
+              <td class="num" style="background:var(--accent-light)"><strong>+6,000평</strong></td>
+              <td class="num" style="background:var(--surface2)"><strong>+3,500평</strong></td>
+              <td class="num" style="background:var(--surface2)"><strong>14,000평</strong></td>
             </tr>
             <tr>
               <td>시기</td>
-              <td style="background:#FFFBE6">즉시 착수</td>
-              <td style="background:#EBF3FB">1단계 안정화 후<br>2~3년 내</td>
-              <td style="background:#EAFAF0">2단계 검증 후<br>단계적 착수</td>
-              <td style="background:#F5F3ED">—</td>
+              <td style="background:var(--surface2)">즉시 착수</td>
+              <td style="background:var(--accent-light)">1단계 안정화 후<br>2~3년 내</td>
+              <td style="background:var(--surface2)">2단계 검증 후<br>단계적 착수</td>
+              <td style="background:var(--surface2)">—</td>
             </tr>
             <tr>
               <td>주요 내용</td>
-              <td style="background:#FFFBE6">기존 온실 리모델링·자동화 설비 도입. 암면 대묘 생산 체계 확립 및 시장 레퍼런스 구축</td>
-              <td style="background:#EBF3FB">북측 인접 농지 매입 확장. 1단계 서비스동·설비 공유로 투자 효율 극대화</td>
-              <td style="background:#EAFAF0">남측 부지 추가 확보. 품목·수출 다변화, 연중 가동률 향상</td>
-              <td style="background:#F5F3ED">국내 최대 규모 암면 대묘 전문 생산 거점 완성</td>
+              <td style="background:var(--surface2)">기존 온실 리모델링·자동화 설비 도입. 암면 대묘 생산 체계 확립 및 시장 레퍼런스 구축</td>
+              <td style="background:var(--accent-light)">북측 인접 농지 매입 확장. 1단계 서비스동·설비 공유로 투자 효율 극대화</td>
+              <td style="background:var(--surface2)">남측 부지 추가 확보. 품목·수출 다변화, 연중 가동률 향상</td>
+              <td style="background:var(--surface2)">국내 최대 규모 암면 대묘 전문 생산 거점 완성</td>
             </tr>
             <tr>
               <td>예상 CAPA</td>
-              <td class="num" style="background:#FFFBE6">약 549만주/년</td>
-              <td class="num" style="background:#EBF3FB">약 +732만주/년</td>
-              <td class="num" style="background:#EAFAF0">약 +427만주/년</td>
-              <td class="num" style="background:#F5F3ED"><strong>약 1,708만주/년</strong></td>
+              <td class="num" style="background:var(--surface2)">약 549만주/년</td>
+              <td class="num" style="background:var(--accent-light)">약 +732만주/년</td>
+              <td class="num" style="background:var(--surface2)">약 +427만주/년</td>
+              <td class="num" style="background:var(--surface2)"><strong>약 1,708만주/년</strong></td>
             </tr>
             <tr>
               <td>예상 투자비</td>
-              <td class="num" style="background:#FFFBE6">60.9억원</td>
-              <td class="num" style="background:#EBF3FB">약 81.2억원</td>
-              <td class="num" style="background:#EAFAF0">약 47.4억원</td>
-              <td class="num" style="background:#F5F3ED"><strong>약 189.5억원</strong></td>
+              <td class="num" style="background:var(--surface2)">60.9억원</td>
+              <td class="num" style="background:var(--accent-light)">약 81.2억원</td>
+              <td class="num" style="background:var(--surface2)">약 47.4억원</td>
+              <td class="num" style="background:var(--surface2)"><strong>약 189.5억원</strong></td>
             </tr>
           </tbody>
         </table>
