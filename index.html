@@ -1334,7 +1334,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       </div>
     </div>
     <div class="card">
-      <div class="card-header"><div class="card-title" spellcheck="false">참고: 재배면적 산정(한국표준 육묘)</div></div>
+      <div class="card-header"><div class="card-title" spellcheck="false">참고: 재배면적 산정(한국표준육묘 기준)</div></div>
       <div class="card-body">
         <table class="data-table">
           <thead><tr><th spellcheck="false" class="">항목</th><th spellcheck="false" class="">수치</th></tr></thead>
@@ -4482,16 +4482,16 @@ tbody td {
 </style>
 
     <nav class="proj-top-tabs" id="proj-top-tabs">
-      <button class="proj-top-tab active" data-proj-tab="overview">프로젝트 개요</button>
+      <button class="proj-top-tab" data-proj-tab="overview">프로젝트 개요</button>
       <button class="proj-top-tab" data-proj-tab="analysis">현황 분석</button>
-      <button class="proj-top-tab" data-proj-tab="phase0">Phase 0 — 리서치</button>
+      <button class="proj-top-tab active" data-proj-tab="phase0">Phase 0 — 리서치</button>
       <button class="proj-top-tab" data-proj-tab="phase1">Phase 1</button>
       <button class="proj-top-tab" data-proj-tab="phase2">Phase 2</button>
       <button class="proj-top-tab" data-proj-tab="phase3">Phase 3</button>
       <button class="proj-top-tab" data-proj-tab="glossary">용어 설명</button>
     </nav>
     <!-- 현황 분석 하위 탭 -->
-    <nav class="proj-sub-tabs" id="analysis-sub-tabs" style="display:none">
+    <nav class="proj-sub-tabs" id="analysis-sub-tabs" style="display: none;">
       <button class="tab-btn active" data-tab="analysis-validation">데이터 검증</button>
       <button class="tab-btn" data-tab="analysis-status">현황</button>
       <button class="tab-btn" data-tab="analysis-datastrategy">데이터 전략</button>
@@ -4500,7 +4500,7 @@ tbody td {
       <button class="tab-btn" data-tab="analysis-expansion">확장 계획</button>
     </nav>
     <!-- Phase 0 하위 탭 -->
-    <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display:none">
+    <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display: flex;">
       <button class="tab-btn active" data-tab="ai-basic">AI 기초</button>
       <button class="tab-btn" data-tab="agri-ai">농업 AI 구조</button>
       <button class="tab-btn" data-tab="direction">방향성</button>
@@ -4513,7 +4513,7 @@ tbody td {
     </nav>
 
 <!-- ─── TAB 1: OVERVIEW ─── -->
-<section id="panel-proj-overview" class="proj-panel active">
+<section id="panel-proj-overview" class="proj-panel">
   <!-- 히어로 -->
   <!-- File: snippet_flowchart.html -->
 <!-- Description: AI 개발 흐름도 SVG — 개요 탭 히어로 영역 교체용 -->
@@ -5899,7 +5899,7 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 </div>
 
 <!-- ── PHASE 0 WRAPPER ── -->
-<div class="proj-panel" id="panel-proj-phase0">  <!-- Phase 0 sub-tabs content -->
+<div class="proj-panel active" id="panel-proj-phase0">  <!-- Phase 0 sub-tabs content -->
   
   <!-- Data Check tab (new) -->
 <!-- ============================================================
@@ -6273,7 +6273,7 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 .ai-basics-example-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 16px;
 }
@@ -14859,4 +14859,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 </script>
 
 
-<whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></body><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></html>
+<whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></body><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></html>
