@@ -1098,7 +1098,7 @@ async function saveToGithub() {
       if (sectionEl) {
         await saveFileToGithub('sections/' + name + '.html', sectionEl.innerHTML, githubToken);
         savedCount++;
-        showNotification('저장 중... (' + savedCount + '/' + totalFiles + ')', true);
+        showNotification('저장 중... ' + Math.round(savedCount/totalFiles*100) + '%', true, true);
       }
     }
 
@@ -1117,7 +1117,7 @@ async function saveToGithub() {
       if (el && el.innerHTML.trim()) {
         await saveFileToGithub(p.file, el.innerHTML, githubToken);
         savedCount++;
-        showNotification('저장 중... (' + savedCount + '/' + totalFiles + ')', true);
+        showNotification('저장 중... ' + Math.round(savedCount/totalFiles*100) + '%', true, true);
       }
     }
 
