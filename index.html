@@ -14616,49 +14616,42 @@ function showNotification(msg, success) {
   setTimeout(() => { el.style.opacity = '0'; setTimeout(() => { el.style.display = 'none'; }, 300); }, 3000);
 }
 
+async function saveFileToGithub(filePath, content, githubToken) {
+  const metaRes = await fetch(
+    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}?ref=${GITHUB_BRANCH}`,
+    { headers: { 'Authorization': `token ${githubToken}` } }
+  );
+  if (!metaRes.ok) throw new Error(filePath + ' 정보를 가져올 수 없습니다');
+  const sha = (await metaRes.json()).sha;
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const updateRes = await fetch(
+    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`,
+    {
+      method: 'PUT',
+      headers: { 'Authorization': `token ${githubToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: '웹 편집모드에서 콘텐츠 업데이트 — ' + filePath, content: encoded, sha: sha, branch: GITHUB_BRANCH })
+    }
+  );
+  if (!updateRes.ok) { const err = await updateRes.json(); throw new Error(err.message || filePath + ' 저장 실패'); }
+}
+
 async function saveToGithub() {
   if (!editAuthenticated) { showNotification('편집모드에서만 저장 가능합니다', false); return; }
   const githubToken = _gt();
   showNotification('GitHub에 저장 중...', true);
 
   try {
-    // 1) 현재 파일의 SHA 가져오기
-    const metaRes = await fetch(
-      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`,
-      { headers: { 'Authorization': `token ${githubToken}` } }
-    );
-    if (!metaRes.ok) throw new Error('파일 정보를 가져올 수 없습니다');
-    const metaData = await metaRes.json();
-    const sha = metaData.sha;
+    // 1) index.html 저장
+    const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    await saveFileToGithub(GITHUB_FILE, fullHtml, githubToken);
 
-    // 2) 현재 HTML 전체를 가져와서 업데이트
-    const htmlContent = document.documentElement.outerHTML;
-    // DOCTYPE 추가
-    const fullHtml = '<!DOCTYPE html>\n' + htmlContent;
-    // Base64 인코딩 (한글 지원)
-    const encoded = btoa(unescape(encodeURIComponent(fullHtml)));
-
-    // 3) GitHub API로 파일 업데이트
-    const updateRes = await fetch(
-      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Authorization': `token ${githubToken}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: '웹 편집모드에서 콘텐츠 업데이트',
-          content: encoded,
-          sha: sha,
-          branch: GITHUB_BRANCH
-        })
+    // 2) 각 섹션 파일도 저장 (fetch로 덮어쓰이는 파일들)
+    const sectionFiles = ['home','nursery','robot','education'];
+    for (const name of sectionFiles) {
+      const sectionEl = document.getElementById('section-' + name);
+      if (sectionEl) {
+        await saveFileToGithub('sections/' + name + '.html', sectionEl.innerHTML, githubToken);
       }
-    );
-
-    if (!updateRes.ok) {
-      const err = await updateRes.json();
-      throw new Error(err.message || '저장 실패');
     }
 
     showNotification('저장 완료! 1-2분 후 반영됩니다.', true);
