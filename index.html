@@ -1266,7 +1266,8 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 <div class="container">
 
   <div class="tabs" id="nursery-tabs">
-    <button class="tab-btn active" onclick="switchTab('n-vision',this,'nursery')">사업목표&amp;시장규모</button>
+    <button class="tab-btn active" onclick="switchTab('n-plantfactory',this,'nursery')">식물공장 모델 도입</button>
+    <button class="tab-btn" onclick="switchTab('n-vision',this,'nursery')">사업목표&amp;시장규모</button>
     <button class="tab-btn" onclick="switchTab('n-production',this,'nursery')">생산계획</button>
     <button class="tab-btn" onclick="switchTab('n-occupancy',this,'nursery')">점유율</button>
     <button class="tab-btn" onclick="switchTab('n-pricing',this,'nursery')">가격정책</button>
@@ -1281,8 +1282,111 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
     <button class="tab-btn" onclick="switchTab('n-expansion',this,'nursery')">확장계획</button>
   </div>
 
+  <!-- ══ 0. 식물공장 모델 도입 ══ -->
+  <div id="tab-n-plantfactory" class="tab-panel active">
+
+    <div class="sl" spellcheck="false">GREF 식물공장형 육묘 도입 계획</div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title" spellcheck="false">배경 및 검토 경위</div></div>
+      <div class="card-body">
+        <div class="desc" spellcheck="false">기존 GREF 계획은 진주 온실(벤로형)에서 플러그~대묘를 일관 생산하는 구조였으나, <strong>병해충 리스크·균일도·육묘 일수</strong> 등의 한계 보완을 위해 식물공장형 하이브리드 모델 검토 착수</div>
+        <div class="divider"></div>
+        <div class="desc" spellcheck="false">2026년 3월 25일, 국내 유일의 전기간 LED 식물공장형 육묘장을 운영 중인 <strong>한국표준육묘(동탄)</strong> 직접 방문 및 기술 검증 진행. 4년 운영 이력, 병해충 클레임 제로, 접목 활착률 98%, 토마토 접목 40~42일(관행 50~60일) 등 핵심 지표 현장 확인</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title" spellcheck="false">도입 모델 개요</div></div>
+      <div class="card-body">
+        <div class="three-col">
+          <div class="note-block note-info" spellcheck="false"><strong>식물공장 역할</strong><br>파종 → 발아 → 플러그 육묘 → 접목 → 활착 → 순화<br>(1~2차 육묘)</div>
+          <div class="note-block note-tip" spellcheck="false"><strong>온실 역할</strong><br>이식 이후 대묘 생산 전용<br>(3차 육묘)</div>
+          <div class="note-block" style="border-color:var(--fg);background:var(--surface2);color:var(--fg)" spellcheck="false"><strong>핵심 전략</strong><br>기존 온실을 대묘에만 집중시켜 공간 효율을 높이는 하이브리드 구조</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title" spellcheck="false">상업 규모: 30평 모듈</div><div class="card-sub" spellcheck="false">한국표준육묘 시스템 기준 30평 단위를 기본 모듈로 검토 중</div></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th spellcheck="false">항목</th><th spellcheck="false">내용</th></tr></thead>
+          <tbody>
+            <tr><td spellcheck="false">구축비</td><td spellcheck="false">약 800~900만원/평 (건물·전기 인입 제외)</td></tr>
+            <tr><td spellcheck="false">30평 기준 총 구축비</td><td spellcheck="false">약 2.4억~2.7억원</td></tr>
+            <tr><td spellcheck="false">연간 생산 가능량</td><td spellcheck="false">회전수 10회 기준, 토마토 접목묘 연간 약 20~25만주</td></tr>
+            <tr><td spellcheck="false">전기료</td><td spellcheck="false">월 120~130만원 (농업용 전기, 일반 운영 기준)</td></tr>
+            <tr><td spellcheck="false">SW 비용</td><td spellcheck="false">구독제 없음, 1회 구매 + 1년 코칭 포함</td></tr>
+            <tr><td spellcheck="false">도입 시점</td><td spellcheck="false">암면 프러그 레시피 확립 이후로 조율 예정</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title" spellcheck="false">프로토타입 검증: 부산 LAB (와사비실 활용)</div></div>
+      <div class="card-body">
+        <div class="desc" spellcheck="false">상업 규모 도입 전, 부산대학교와의 공동 프로젝트로 조성된 식물공장형 와사비 재배실을 활용한 소규모 자가육묘 선행 검증 계획. 현재 프로젝트 종료로 유휴 상태인 공간 재활용 가능</div>
+        <div class="divider"></div>
+        <table class="data-table">
+          <thead><tr><th spellcheck="false">항목</th><th spellcheck="false">내용</th></tr></thead>
+          <tbody>
+            <tr><td spellcheck="false">목적</td><td spellcheck="false">식물공장 환경에서의 자가육묘 프로세스 검증 (환경 제어, 관수 레시피, 접목 활착 등)</td></tr>
+            <tr><td spellcheck="false">대상 작목</td><td spellcheck="false">토마토 위주로 시작, 이후 파프리카·오이 확장</td></tr>
+            <tr><td spellcheck="false">의미</td><td spellcheck="false">30평 상업 모듈 투자 전 리스크 최소화 및 내부 운영 역량 선행 확보</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title" spellcheck="false">단계별 흐름</div></div>
+      <div class="card-body">
+        <div class="process-row">
+          <div class="proc-step">
+            <div class="proc-num">1</div>
+            <div class="proc-name" spellcheck="false">부산 와사비실 활용</div>
+            <div class="proc-sub" spellcheck="false">소규모 자가육묘 프로토타입 검증<br>환경 제어·레시피·접목 프로세스 내재화</div>
+          </div>
+          <div class="proc-step">
+            <div class="proc-num">2</div>
+            <div class="proc-name" spellcheck="false">암면 레시피 확립 확인</div>
+            <div class="proc-sub" spellcheck="false">한국표준육묘 암면 레시피 확립 확인 (월별 추적)<br>공급 가능 시점 확정</div>
+          </div>
+          <div class="proc-step">
+            <div class="proc-num">3</div>
+            <div class="proc-name" spellcheck="false">진주 30평 모듈 도입</div>
+            <div class="proc-sub" spellcheck="false">온실과 하이브리드 연계 운영 시작</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title" spellcheck="false">참고: 한국표준육묘</div></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th spellcheck="false">항목</th><th spellcheck="false">내용</th></tr></thead>
+          <tbody>
+            <tr><td spellcheck="false">모회사</td><td spellcheck="false">㈜티움 (KOSDAQ 상장, AI 디스플레이·반도체 비전설비·스마트팩토리 전문)</td></tr>
+            <tr><td spellcheck="false">위치</td><td spellcheck="false">경기도 동탄 본사</td></tr>
+            <tr><td spellcheck="false">운영 이력</td><td spellcheck="false">4년 R&amp;D 후 2024년부터 본격 판매</td></tr>
+            <tr><td spellcheck="false">핵심 특장점</td><td spellcheck="false">국내 유일 전기간 LED 식물공장형 육묘 운영, 병해충 차단, 고온기·저온기 관계없이 균일한 묘 생산</td></tr>
+            <tr><td spellcheck="false">기술 역량</td><td spellcheck="false">자체 LED 제작, 자체 환경제어 SW(웹 기반), 자체 접목기 개발 중</td></tr>
+            <tr><td spellcheck="false">시스템 공급 조건</td><td spellcheck="false">800~900만원/평 (건물·전기 인입 제외), 구독제 없음, SW 영구 제공, 1년 코칭 포함</td></tr>
+            <tr><td spellcheck="false">육묘 일수</td><td spellcheck="false">토마토 접목 40~42일 / 오이 실생 15~17일 (관행 대비 20~30% 단축)</td></tr>
+            <tr><td spellcheck="false">현황 및 계획</td><td spellcheck="false">연 1,000만주 이상 규모로 동탄 확장 이전 예정, 접목기·선별기 2027년 판매 예정</td></tr>
+            <tr><td spellcheck="false">주요 리스크</td><td spellcheck="false">암면 프러그 레시피 미확립 (테스트 중), 겨울철 순화 한계 존재</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ══ 1. 사업목표&시장규모 ══ -->
-  <div id="tab-n-vision" class="tab-panel active">
+  <div id="tab-n-vision" class="tab-panel">
 
     <!-- 비전 -->
     <div class="xl-section-title" spellcheck="false">0. Vision</div>
