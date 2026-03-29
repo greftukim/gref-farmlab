@@ -1,3 +1,72 @@
+<style>
+/* ── Education Section – Monochrome ── */
+.edu-wrap .header { padding:24px 32px 20px; border-bottom:1px solid var(--border); }
+.edu-wrap .h-label { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-muted); margin-bottom:4px; }
+.edu-wrap .h-title { font-size:22px; font-weight:700; color:var(--fg); margin:0 0 8px; }
+.edu-wrap .h-sub { font-size:12px; color:var(--fg-secondary); margin-bottom:16px; }
+.edu-wrap .h-stats { display:flex; gap:16px; flex-wrap:wrap; }
+.edu-wrap .h-stat { text-align:center; }
+.edu-wrap .h-stat-v { display:block; font-size:16px; font-weight:700; color:var(--fg); }
+.edu-wrap .h-stat-l { display:block; font-size:10px; color:var(--fg-muted); margin-top:2px; }
+.edu-wrap .nav-bar { display:flex; border-bottom:1px solid var(--border); background:var(--surface2); }
+.edu-wrap .nav-seg { flex:1; padding:12px 16px; border-right:1px solid var(--border); }
+.edu-wrap .nav-seg:last-child { border-right:none; }
+.edu-wrap .nav-icon { width:24px; height:24px; border-radius:50%; background:var(--fg); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; margin-bottom:6px; }
+.edu-wrap .nav-phase { font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-muted); }
+.edu-wrap .nav-title { font-size:13px; font-weight:700; color:var(--fg); }
+.edu-wrap .nav-sub { font-size:10px; color:var(--fg-secondary); margin-top:2px; }
+.edu-wrap .nav-depth { display:flex; gap:4px; margin-top:4px; }
+.edu-wrap .nav-dot { width:8px; height:8px; border-radius:50%; background:var(--border); }
+.edu-wrap .nav-dot.on { background:var(--fg); }
+.edu-wrap .body-wrap { display:flex; gap:0; }
+.edu-wrap .col { flex:1; border-right:1px solid var(--border); padding:16px; }
+.edu-wrap .col:last-child { border-right:none; }
+.edu-wrap .phase-block { margin-bottom:20px; }
+.edu-wrap .phase-label { font-size:11px; font-weight:700; letter-spacing:0.04em; padding:8px 12px; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:8px; color:var(--fg); }
+.edu-wrap .phase-body { padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); }
+.edu-wrap .sub-box { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:8px 10px; }
+.edu-wrap .sub-box-title { font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--fg-muted); margin-bottom:3px; }
+.edu-wrap .sub-box-body { font-size:11px; color:var(--fg); line-height:1.6; }
+.edu-wrap .sch-row { display:flex; gap:8px; padding:3px 0; font-size:11px; border-bottom:1px solid var(--border-light); }
+.edu-wrap .sch-time { font-weight:600; color:var(--fg-secondary); min-width:90px; }
+.edu-wrap .sch-body { color:var(--fg); }
+.edu-wrap .sch-pm { background:var(--surface2); margin:0 -4px; padding:3px 4px; border-radius:2px; }
+.edu-wrap .note { font-size:10px; color:var(--fg-muted); margin-top:8px; font-style:italic; }
+.edu-wrap .mini-table { width:100%; border-collapse:collapse; font-size:11px; margin-top:8px; }
+.edu-wrap .mini-table th { background:var(--surface2); font-weight:600; color:var(--fg-secondary); padding:5px 6px; border:1px solid var(--border); text-align:left; font-size:10px; }
+.edu-wrap .mini-table td { padding:5px 6px; border:1px solid var(--border); color:var(--fg); line-height:1.4; }
+.edu-wrap .tag-example { font-size:10px; font-weight:600; color:var(--fg-secondary); margin-top:10px; }
+.edu-wrap .chk { display:flex; gap:6px; font-size:11px; color:var(--fg); padding:3px 0; line-height:1.5; }
+.edu-wrap .chk-icon { color:var(--fg-muted); font-weight:700; }
+.edu-wrap .meta-row { display:flex; gap:8px; margin-bottom:10px; }
+.edu-wrap .meta-card { flex:1; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:8px; text-align:center; }
+.edu-wrap .mc-l { font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--fg-muted); margin-bottom:2px; }
+.edu-wrap .mc-v { font-size:14px; font-weight:700; color:var(--fg); }
+.edu-wrap .mc-s { font-size:9px; color:var(--fg-secondary); }
+.edu-wrap .chip { display:inline-block; font-size:10px; padding:3px 8px; border:1px solid var(--border); border-radius:12px; color:var(--fg-secondary); margin:2px; background:var(--surface); }
+.edu-wrap .cohort-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.edu-wrap .cohort-card { flex:1; min-width:100px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px; }
+.edu-wrap .cc-num { font-size:10px; font-weight:700; color:var(--fg-muted); letter-spacing:1px; margin-bottom:4px; }
+.edu-wrap .cc-name { font-size:12px; font-weight:700; color:var(--fg); }
+.edu-wrap .badge-m { font-size:9px; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:1px 5px; margin-left:4px; color:var(--fg-secondary); }
+.edu-wrap .cc-role { font-size:10px; color:var(--fg-secondary); }
+.edu-wrap .cc-school { font-size:10px; color:var(--fg-muted); }
+.edu-wrap .cc-etc { font-size:9px; color:var(--fg-muted); margin-top:6px; }
+.edu-wrap .retired { color:var(--fg-muted); }
+.edu-wrap .stat-summary { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px; }
+.edu-wrap .ss-title { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--fg-muted); margin-bottom:6px; }
+.edu-wrap .ss-row { font-size:11px; color:var(--fg); padding:3px 0; display:flex; gap:8px; }
+.edu-wrap .sec-divider { border-top:1px solid var(--border); margin:16px 0; }
+.edu-wrap .edu-footer { text-align:center; font-size:10px; color:var(--fg-muted); padding:16px; border-top:1px solid var(--border); margin-top:16px; }
+@media (max-width:768px) {
+  .edu-wrap .body-wrap { flex-direction:column; }
+  .edu-wrap .col { border-right:none; border-bottom:1px solid var(--border); }
+  .edu-wrap .nav-bar { flex-direction:column; }
+  .edu-wrap .nav-seg { border-right:none; border-bottom:1px solid var(--border); }
+  .edu-wrap .cohort-row { flex-direction:column; }
+}
+</style>
+<div class="edu-wrap">
 <div class="container" style="max-width:100%;padding:0;">
 <div class="header">
   <div class="h-label" contenteditable="false">GREF Internal HR Program</div>
@@ -57,14 +126,14 @@
           <div class="sub-box-title" contenteditable="false">교육 목적</div>
           <div class="sub-box-body" contenteditable="false">① 회사 철학·비전 이해 및 재배관리사 역할 이해<br>② 사내 네트워크 형성 — 조직구성원 간 교류를 통한 적응력 향상</div>
         </div>
-        <div style="font-size:11px; font-weight:600; color:var(--g1); margin-bottom:4px;" contenteditable="false">오전 — 본사 오리엔테이션</div>
+        <div style="font-size:11px; font-weight:600; color:var(--fg); margin-bottom:4px;" contenteditable="false">오전 — 본사 오리엔테이션</div>
         <div class="sch-row"><span class="sch-time" contenteditable="false">08:00 – 08:30</span><span class="sch-body" contenteditable="false">웰컴키트 전달 및 임직원 인사</span></div>
         <div class="sch-row"><span class="sch-time" contenteditable="false">08:30 – 08:40</span><span class="sch-body" contenteditable="false">오리엔테이션 및 일정 안내</span></div>
         <div class="sch-row"><span class="sch-time" contenteditable="false">08:40 – 09:40</span><span class="sch-body" contenteditable="false">회사 소개 (창립배경·비전·조직도·주요사업)</span></div>
         <div class="sch-row"><span class="sch-time" contenteditable="false">09:40 – 10:40</span><span class="sch-body" contenteditable="false">직무소개 (재배사 역할·주요업무·업무사이클)</span></div>
         <div class="sch-row"><span class="sch-time" contenteditable="false">10:40 – 11:00</span><span class="sch-body" contenteditable="false">계약서 작성 (근로조건·정보제공동의·기밀유지)</span></div>
         <div class="sch-row"><span class="sch-time" contenteditable="false">11:00 – 11:30</span><span class="sch-body" contenteditable="false">질의응답 및 오전 마무리</span></div>
-        <div style="font-size:11px; font-weight:600; color:var(--g1); margin:8px 0 4px;" contenteditable="false">오후 — 스마트팜 현장</div>
+        <div style="font-size:11px; font-weight:600; color:var(--fg); margin:8px 0 4px;" contenteditable="false">오후 — 스마트팜 현장</div>
         <div class="sch-row sch-pm"><span class="sch-time" contenteditable="false">12:30 – 13:00</span><span class="sch-body" contenteditable="false">스마트팜 현장 투어</span></div>
         <div class="sch-row sch-pm"><span class="sch-time" contenteditable="false">13:00 – 15:00</span><span class="sch-body" contenteditable="false">실습 : 작물관리 기본</span></div>
         <div class="sch-row sch-pm"><span class="sch-time" contenteditable="false">15:00 – 15:30</span><span class="sch-body" contenteditable="false">실습 피드백 정리</span></div>
@@ -82,9 +151,9 @@
             <div class="sub-box-title" contenteditable="false">방법</div>
             <div class="sub-box-body" contenteditable="false">자율학습·선배강의·실습·피드백·전문가특강·HUBvel 컨퍼런스</div>
           </div>
-          <div style="flex:1; min-width:90px; background:var(--g6); border:1px solid var(--g5); border-radius:5px; padding:8px 10px;">
-            <div style="font-size:9px; font-weight:700; letter-spacing:1px; color:var(--g3); text-transform:uppercase; margin-bottom:3px;" contenteditable="false">최종 산출물</div>
-            <div style="font-size:11px; font-weight:700; color:var(--g0);" contenteditable="false">일일 관찰일지<br>학습내용 정리</div>
+          <div style="flex:1; min-width:90px; background:var(--surface2); border:1px solid var(--border); border-radius:5px; padding:8px 10px;">
+            <div style="font-size:9px; font-weight:700; letter-spacing:1px; color:var(--fg-muted); text-transform:uppercase; margin-bottom:3px;" contenteditable="false">최종 산출물</div>
+            <div style="font-size:11px; font-weight:700; color:var(--fg);" contenteditable="false">일일 관찰일지<br>학습내용 정리</div>
           </div>
         </div>
         <table class="mini-table">
@@ -160,7 +229,7 @@
           <div class="chk" style="padding:4px 0;"><span class="chk-icon">-</span><span contenteditable="false"><strong>사례 발표 + 질의토론</strong> — 각 Hub 재배 이슈 공유 후 집단 해결</span></div>
           <div class="chk" style="padding:4px 0;"><span class="chk-icon">-</span><span contenteditable="false"><strong>파견전과정 연계</strong> — 신규 인력도 HUB벨 컨퍼런스 참석</span></div>
         </div>
-        <div style="font-size:10px; font-weight:700; color:var(--g2); margin-bottom:5px;" contenteditable="false">실시 이력</div>
+        <div style="font-size:10px; font-weight:700; color:var(--fg-secondary); margin-bottom:5px;" contenteditable="false">실시 이력</div>
         <table class="mini-table" style="margin-bottom:0;">
           <thead><tr><th contenteditable="false">차수</th><th contenteditable="false">일정</th><th contenteditable="false">주제 / 내용 요약</th><th contenteditable="false">Hub</th></tr></thead>
           <tbody>
@@ -183,23 +252,23 @@
     <div class="phase-block">
       <div class="phase-label s5" contenteditable="false">STEP 5 · 해외 파견 교육 — Lentiz × GREF</div>
       <div class="phase-body">
-        <div style="background:#1e4530; border-radius:5px 5px 0 0; padding:8px 12px; margin:-12px -14px 10px;">
-          <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#7ecba0; font-weight:700;" contenteditable="false">External Partner — Lentiz Cursus &amp; Consult (NL)</div>
+        <div style="background:var(--fg); border-radius:5px 5px 0 0; padding:8px 12px; margin:-12px -14px 10px;">
+          <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#fff; font-weight:700;" contenteditable="false">External Partner — Lentiz Cursus &amp; Consult (NL)</div>
         </div>
-        <div style="font-size:13px; font-weight:700; color:var(--g0); margin-bottom:6px;" contenteditable="false">네덜란드 현지 원예 전문 파견근무&amp;연수</div>
-        <div style="font-size:11px; color:var(--g2); line-height:1.7; margin-bottom:10px;" contenteditable="false">World Horti Center (Naaldwijk) 입주 기관과 협업. 3년차 이상 우수 GREF 매니저 대상 네덜란드 하이테크 온실 현장 파견근무&amp;연수 실시. 재배기술 고도화 및 글로벌 표준 공정 습득이 핵심 목적</div>
+        <div style="font-size:13px; font-weight:700; color:var(--fg); margin-bottom:6px;" contenteditable="false">네덜란드 현지 원예 전문 파견근무&amp;연수</div>
+        <div style="font-size:11px; color:var(--fg-secondary); line-height:1.7; margin-bottom:10px;" contenteditable="false">World Horti Center (Naaldwijk) 입주 기관과 협업. 3년차 이상 우수 GREF 매니저 대상 네덜란드 하이테크 온실 현장 파견근무&amp;연수 실시. 재배기술 고도화 및 글로벌 표준 공정 습득이 핵심 목적</div>
         <div style="display:flex; flex-direction:column; gap:5px;">
-          <div style="background:var(--g7); border:1px solid var(--border); border-radius:5px; padding:8px 10px; font-size:11px;">
-            <div style="font-size:9px; color:var(--g3); letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;" contenteditable="false">대상 조건</div>
-            <div style="font-weight:600; color:var(--g0);" contenteditable="false">입사 3년차 이상 · 매니저 직급 우수자</div>
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:5px; padding:8px 10px; font-size:11px;">
+            <div style="font-size:9px; color:var(--fg-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;" contenteditable="false">대상 조건</div>
+            <div style="font-weight:600; color:var(--fg);" contenteditable="false">입사 3년차 이상 · 매니저 직급 우수자</div>
           </div>
-          <div style="background:var(--g7); border:1px solid var(--border); border-radius:5px; padding:8px 10px; font-size:11px;">
-            <div style="font-size:9px; color:var(--g3); letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;" contenteditable="false">교육 구성 (3단계)</div>
-            <div style="font-weight:600; color:var(--g0); line-height:1.6;" contenteditable="false">① 입과 교육 <strong>1주</strong> (WHC 강의·현장 견학)<br>② 현지 온실 파견 근무 <strong>3개월 이상</strong> (예, beekenkamp)<br>③ 마무리 교육 <strong>1주</strong> (정리·수료)</div>
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:5px; padding:8px 10px; font-size:11px;">
+            <div style="font-size:9px; color:var(--fg-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;" contenteditable="false">교육 구성 (3단계)</div>
+            <div style="font-weight:600; color:var(--fg); line-height:1.6;" contenteditable="false">① 입과 교육 <strong>1주</strong> (WHC 강의·현장 견학)<br>② 현지 온실 파견 근무 <strong>3개월 이상</strong> (예, beekenkamp)<br>③ 마무리 교육 <strong>1주</strong> (정리·수료)</div>
           </div>
-          <div style="background:var(--g7); border:1px solid var(--border); border-radius:5px; padding:8px 10px; font-size:11px;">
-            <div style="font-size:9px; color:var(--g3); letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;" contenteditable="false">주요 커리큘럼</div>
-            <div style="font-weight:600; color:var(--g0);" contenteditable="false">기후제어·Priva / 온실건설 / 배지·관개 / 병해충 / 육종신기술 / 수직농업</div>
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:5px; padding:8px 10px; font-size:11px;">
+            <div style="font-size:9px; color:var(--fg-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;" contenteditable="false">주요 커리큘럼</div>
+            <div style="font-weight:600; color:var(--fg);" contenteditable="false">기후제어·Priva / 온실건설 / 배지·관개 / 병해충 / 육종신기술 / 수직농업</div>
           </div>
         </div>
       </div>
@@ -208,8 +277,8 @@
     <div class="sec-divider"></div>
 
     <div class="phase-block">
-      <div class="phase-label" style="background:var(--g0); color:white; font-size:10px; letter-spacing:1px;" contenteditable="false">육성 인력 현황 (GREF-US · 1~5기)</div>
-      <div class="phase-body" style="border:2px solid var(--g1); background:var(--g8);">
+      <div class="phase-label" style="background:var(--fg); color:white; font-size:10px; letter-spacing:1px;" contenteditable="false">육성 인력 현황 (GREF-US · 1~5기)</div>
+      <div class="phase-body" style="border:2px solid var(--fg); background:var(--surface);">
         <div class="cohort-row">
           <div class="cohort-card">
             <div class="cc-num" contenteditable="false">1기</div>
@@ -220,14 +289,14 @@
           </div>
           <div class="cohort-card">
             <div class="cc-num" contenteditable="false">2기</div>
-            <div style="border-bottom:1px solid var(--g5); padding-bottom:6px; margin-bottom:6px;">
+            <div style="border-bottom:1px solid var(--border); padding-bottom:6px; margin-bottom:6px;">
               <div class="cc-name" contenteditable="false">김도윤</div>
               <div class="cc-role" contenteditable="false">하동Hub장</div>
               <div class="cc-school" contenteditable="false">경북대</div>
             </div>
             <div>
               <div class="cc-name" contenteditable="false">김태우</div>
-              <div class="cc-role" style="color:var(--g2);" contenteditable="false">SEED장(육묘담당)</div>
+              <div class="cc-role" style="color:var(--fg-secondary);" contenteditable="false">SEED장(육묘담당)</div>
               <div class="cc-school" contenteditable="false">부산대</div>
             </div>
             <div class="cc-etc"><span class="retired" contenteditable="false">구자평 퇴사</span></div>
@@ -242,16 +311,16 @@
           <div class="cohort-card">
             <div class="cc-num" contenteditable="false">4기</div>
             <div class="cc-name" contenteditable="false">백남훈</div>
-            <div class="cc-role" style="color:var(--g3);" contenteditable="false">재배담당</div>
+            <div class="cc-role" style="color:var(--fg-muted);" contenteditable="false">재배담당</div>
             <div class="cc-school" contenteditable="false">한국농수산대</div>
             <div class="cc-etc"><span class="retired" contenteditable="false">곽준영 퇴사</span><br><span class="retired" contenteditable="false">이은혜 퇴사</span></div>
           </div>
           <div class="cohort-card">
             <div class="cc-num" contenteditable="false">5기</div>
             <div class="cc-name" contenteditable="false">홍승표<span class="badge-m">석사</span></div>
-            <div class="cc-role" style="color:var(--g3);" contenteditable="false">Farm LAB</div>
+            <div class="cc-role" style="color:var(--fg-muted);" contenteditable="false">Farm LAB</div>
             <div class="cc-school" contenteditable="false">경희대</div>
-            <div class="cc-etc" style="color:var(--g4); font-size:9px;" contenteditable="false">추가 예정</div>
+            <div class="cc-etc" style="color:var(--fg-muted); font-size:9px;" contenteditable="false">추가 예정</div>
           </div>
         </div>
         <div class="stat-summary">
@@ -272,4 +341,5 @@
   GREF Internal HR Document · Hub Manager Development Program · 2026.03 · Confidential
 </div>
 
+</div>
 </div>
