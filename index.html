@@ -14609,14 +14609,17 @@ function checkPassword() {
 }
 
 // ── GitHub 저장 함수 ──
-function showNotification(msg, success) {
+function showNotification(msg, success, persistent) {
   const el = document.getElementById('saveNotification');
   el.textContent = msg;
   el.style.background = success ? '#2ea44f' : '#d73a49';
   el.style.color = '#fff';
   el.style.display = 'block';
   el.style.opacity = '1';
-  setTimeout(() => { el.style.opacity = '0'; setTimeout(() => { el.style.display = 'none'; }, 300); }, 3000);
+  if (el._hideTimer) clearTimeout(el._hideTimer);
+  if (!persistent) {
+    el._hideTimer = setTimeout(() => { el.style.opacity = '0'; setTimeout(() => { el.style.display = 'none'; }, 300); }, success ? 4000 : 8000);
+  }
 }
 
 async function saveFileToGithub(filePath, content, githubToken) {
@@ -14641,12 +14644,26 @@ async function saveFileToGithub(filePath, content, githubToken) {
 async function saveToGithub() {
   if (!editAuthenticated) { showNotification('편집모드에서만 저장 가능합니다', false); return; }
   const githubToken = _gt();
-  showNotification('GitHub에 저장 중...', true);
+  showNotification('GitHub에 저장 중...', true, true);
+  console.log('[저장] 시작');
 
   try {
-    // 1) index.html 저장
+    // 1) index.html 저장 — 섹션 콘텐츠 제외하고 저장 (크기 축소)
+    const sectionNames = ['home','nursery','robot','education','ai'];
+    const sectionBackup = {};
+    sectionNames.forEach(name => {
+      const el = document.getElementById('section-' + name);
+      if (el) { sectionBackup[name] = el.innerHTML; el.innerHTML = ''; }
+    });
     const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    // 복원
+    sectionNames.forEach(name => {
+      const el = document.getElementById('section-' + name);
+      if (el && sectionBackup[name]) el.innerHTML = sectionBackup[name];
+    });
+    console.log('[저장] index.html 크기:', Math.round(fullHtml.length/1024) + 'KB');
     await saveFileToGithub(GITHUB_FILE, fullHtml, githubToken);
+    console.log('[저장] index.html 완료');
 
     // 2) 각 섹션 파일도 저장 (fetch로 덮어쓰이는 파일들)
     const sectionFiles = ['home','nursery','robot','education'];
@@ -14680,8 +14697,10 @@ async function saveToGithub() {
       }
     }
 
+    console.log('[저장] 완료! 총', savedCount, '개 파일');
     showNotification('저장 완료! (' + savedCount + '개 파일) 1-2분 후 반영됩니다.', true);
   } catch (e) {
+    console.error('[저장] 실패:', e);
     showNotification('저장 실패: ' + e.message, false);
   }
 }
