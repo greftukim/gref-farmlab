@@ -14650,14 +14650,37 @@ async function saveToGithub() {
 
     // 2) 각 섹션 파일도 저장 (fetch로 덮어쓰이는 파일들)
     const sectionFiles = ['home','nursery','robot','education'];
+    let savedCount = 1; // index.html already saved
+    const totalFiles = sectionFiles.length + 7 + 1; // sections + ai sub-files + index
     for (const name of sectionFiles) {
       const sectionEl = document.getElementById('section-' + name);
       if (sectionEl) {
         await saveFileToGithub('sections/' + name + '.html', sectionEl.innerHTML, githubToken);
+        savedCount++;
+        showNotification('저장 중... (' + savedCount + '/' + totalFiles + ')', true);
       }
     }
 
-    showNotification('저장 완료! 1-2분 후 반영됩니다.', true);
+    // 3) AI 서브파일도 저장
+    const aiPanels = [
+      {id:'panel-proj-overview', file:'sections/ai/overview.html'},
+      {id:'panel-proj-analysis', file:'sections/ai/analysis.html'},
+      {id:'panel-proj-phase0', file:'sections/ai/phase0.html'},
+      {id:'panel-proj-phase1', file:'sections/ai/phase1.html'},
+      {id:'panel-proj-phase2', file:'sections/ai/phase2.html'},
+      {id:'panel-proj-phase3', file:'sections/ai/phase3.html'},
+      {id:'panel-proj-glossary', file:'sections/ai/glossary.html'}
+    ];
+    for (const p of aiPanels) {
+      const el = document.getElementById(p.id);
+      if (el && el.innerHTML.trim()) {
+        await saveFileToGithub(p.file, el.innerHTML, githubToken);
+        savedCount++;
+        showNotification('저장 중... (' + savedCount + '/' + totalFiles + ')', true);
+      }
+    }
+
+    showNotification('저장 완료! (' + savedCount + '개 파일) 1-2분 후 반영됩니다.', true);
   } catch (e) {
     showNotification('저장 실패: ' + e.message, false);
   }
