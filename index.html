@@ -3103,9 +3103,6 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 <div id="ai-research-container">
 
 <style>
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ── SECTION HEADERS ── */
 .section-title {
   font-size: 11px;
@@ -3920,9 +3917,15 @@ tbody td {
   gap: 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border-top: 1px solid var(--border-light);
-  margin-top: 8px;
-  padding-top: 0;
+  border-bottom: 1px solid var(--border);
+  margin: 0 -32px;
+  padding: 0 32px;
+  position: sticky;
+  top: 65px;
+  z-index: 90;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .proj-top-tabs::-webkit-scrollbar { display: none; }
 
@@ -3953,9 +3956,15 @@ tbody td {
   gap: 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border-top: 1px solid var(--border-light);
-  padding-top: 0;
-  margin-top: 0;
+  border-bottom: 1px solid var(--border-light);
+  margin: 0 -32px;
+  padding: 0 32px;
+  position: sticky;
+  top: 110px;
+  z-index: 89;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .proj-sub-tabs::-webkit-scrollbar { display: none; }
 .proj-sub-tabs .tab-btn {
