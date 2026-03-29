@@ -1046,10 +1046,11 @@ function showNotification(msg, success, persistent) {
   }
 }
 
-async function saveFileToGithub(filePath, content, githubToken) {
+async function saveFileToGithub(filePath, content, githubToken, retry) {
+  if (!retry) retry = 0;
   const metaRes = await fetch(
-    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}?ref=${GITHUB_BRANCH}`,
-    { headers: { 'Authorization': `token ${githubToken}` } }
+    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}?ref=${GITHUB_BRANCH}&t=` + Date.now(),
+    { headers: { 'Authorization': `token ${githubToken}` }, cache: 'no-store' }
   );
   if (!metaRes.ok) throw new Error(filePath + ' 정보를 가져올 수 없습니다');
   const sha = (await metaRes.json()).sha;
@@ -1062,7 +1063,15 @@ async function saveFileToGithub(filePath, content, githubToken) {
       body: JSON.stringify({ message: '웹 편집모드에서 콘텐츠 업데이트 — ' + filePath, content: encoded, sha: sha, branch: GITHUB_BRANCH })
     }
   );
-  if (!updateRes.ok) { const err = await updateRes.json(); throw new Error(err.message || filePath + ' 저장 실패'); }
+  if (!updateRes.ok) {
+    const err = await updateRes.json();
+    if (err.message && err.message.includes('does not match') && retry < 3) {
+      console.log('[저장] SHA 충돌, 재시도 ' + (retry+1) + '/3: ' + filePath);
+      await new Promise(r => setTimeout(r, 1000 * (retry+1)));
+      return saveFileToGithub(filePath, content, githubToken, retry + 1);
+    }
+    throw new Error(err.message || filePath + ' 저장 실패');
+  }
 }
 
 async function saveToGithub() {
