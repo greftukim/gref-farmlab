@@ -1098,7 +1098,7 @@ async function saveToGithub() {
       if (sectionEl) {
         await saveFileToGithub('sections/' + name + '.html', sectionEl.innerHTML, githubToken);
         savedCount++;
-        showNotification('저장 중... ' + Math.round(savedCount/totalFiles*100) + '%', true, true);
+        showNotification('저장 중... (' + savedCount + '/' + totalFiles + ')', true);
       }
     }
 
@@ -1117,7 +1117,7 @@ async function saveToGithub() {
       if (el && el.innerHTML.trim()) {
         await saveFileToGithub(p.file, el.innerHTML, githubToken);
         savedCount++;
-        showNotification('저장 중... ' + Math.round(savedCount/totalFiles*100) + '%', true, true);
+        showNotification('저장 중... (' + savedCount + '/' + totalFiles + ')', true);
       }
     }
 
@@ -1325,4 +1325,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 </script>
 
 
-<whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></body><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></html>
+<whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></body><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch></html>
