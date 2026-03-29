@@ -1,134 +1,134 @@
 
   <div class="proj-phase-card">
     <div class="proj-phase-header">
-      <div class="proj-phase-tag">Phase 2</div>
-      <div class="proj-phase-title">환경 제어 AI + 검증 UI</div>
-      <div class="proj-phase-duration">6 ~ 12개월</div>
+      <div class="proj-phase-tag" spellcheck="false">Phase 2</div>
+      <div class="proj-phase-title" spellcheck="false">환경 제어 AI + 검증 UI</div>
+      <div class="proj-phase-duration" spellcheck="false">6 ~ 12개월</div>
     </div>
     <div class="proj-phase-body">
       <div class="phase-cards-container" id="phase2-cards">
 
   <div class="phase-summary">
-    <div class="phase-summary-period">6 ~ 12개월</div>
-    <div class="phase-summary-goal">재배사가 매일 쓰는 대시보드 + 1작기 데이터 축적</div>
+    <div class="phase-summary-period" spellcheck="false">6 ~ 12개월</div>
+    <div class="phase-summary-goal" spellcheck="false">재배사가 매일 쓰는 대시보드 + 1작기 데이터 축적</div>
   </div>
 
   <!-- 01 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">01</span>
-      <h3 class="phase-card-title">Rule-based 환경 제어</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">01</span>
+      <h3 class="phase-card-title" spellcheck="false">Rule-based 환경 제어</h3>
+      <span class="phase-card-tag tag-required" spellcheck="false">필수</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>"온도 28도 넘으면 환기, 습도 90% 넘으면 제습"과 같은 전문가 경험 규칙을 코드로 구현합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>1작기에는 AI(RL)를 바로 넣으면 디버깅이 불가능합니다. 단순한 규칙부터 시작해야 문제 원인 파악이 가능합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>재배 전문가의 설정값을 if-else 로직으로 구현하고, 30분 주기로 실행합니다(고온 시 10분 주기).</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>규칙 기반 자동 제어 시스템 + 데이터 로깅</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">"온도 28도 넘으면 환기, 습도 90% 넘으면 제습"과 같은 전문가 경험 규칙을 코드로 구현합니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">1작기에는 AI(RL)를 바로 넣으면 디버깅이 불가능합니다. 단순한 규칙부터 시작해야 문제 원인 파악이 가능합니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">재배 전문가의 설정값을 if-else 로직으로 구현하고, 30분 주기로 실행합니다(고온 시 10분 주기).</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">규칙 기반 자동 제어 시스템 + 데이터 로깅</p></div>
     </div>
   </div>
 
   <!-- 02 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">02</span>
-      <h3 class="phase-card-title">RL Shadow Mode 가동</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">02</span>
+      <h3 class="phase-card-title" spellcheck="false">RL Shadow Mode 가동</h3>
+      <span class="phase-card-tag tag-required" spellcheck="false">필수</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>강화학습(RL) AI가 실제 제어 없이 "내가 이렇게 했을 텐데"만 기록하는 모드를 가동합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>RL을 검증 없이 바로 실전에 넣으면 작물을 죽일 수 있습니다. "얼마나 다르게 생각하는지"를 축적하면 나중에 안전하게 전환할 수 있습니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>RL 에이전트가 매 30분마다 제안값을 생성하고, 실제 적용값과의 차이(delta)를 DB에 저장합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>RL 학습 데이터 축적 + "RL 제안 vs 실제" 비교 리포트</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">강화학습(RL) AI가 실제 제어 없이 "내가 이렇게 했을 텐데"만 기록하는 모드를 가동합니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">RL을 검증 없이 바로 실전에 넣으면 작물을 죽일 수 있습니다. "얼마나 다르게 생각하는지"를 축적하면 나중에 안전하게 전환할 수 있습니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">RL 에이전트가 매 30분마다 제안값을 생성하고, 실제 적용값과의 차이(delta)를 DB에 저장합니다.</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">RL 학습 데이터 축적 + "RL 제안 vs 실제" 비교 리포트</p></div>
     </div>
   </div>
 
   <!-- 03 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">03</span>
-      <h3 class="phase-card-title">엔진 간 조율 로직</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">03</span>
+      <h3 class="phase-card-title" spellcheck="false">엔진 간 조율 로직</h3>
+      <span class="phase-card-tag tag-required" spellcheck="false">필수</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>4개 AI 엔진이 서로 충돌하는 제안을 할 때 어떤 엔진의 말을 들을지 결정하는 로직을 구현합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>엔진1이 "가스비 아끼려면 야간 온도를 낮춰라"하고 엔진2가 "수확 맞추려면 야간 온도를 유지해라"하면 충돌합니다. 시스템이 멈추면 안 됩니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>우선순위를 하드코딩합니다: 생존 &gt; 품질/수확량 &gt; 환경제어 &gt; 비용절감 순서입니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>엔진 충돌 자동 해소 로직</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">4개 AI 엔진이 서로 충돌하는 제안을 할 때 어떤 엔진의 말을 들을지 결정하는 로직을 구현합니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">엔진1이 "가스비 아끼려면 야간 온도를 낮춰라"하고 엔진2가 "수확 맞추려면 야간 온도를 유지해라"하면 충돌합니다. 시스템이 멈추면 안 됩니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">우선순위를 하드코딩합니다: 생존 &gt; 품질/수확량 &gt; 환경제어 &gt; 비용절감 순서입니다.</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">엔진 충돌 자동 해소 로직</p></div>
     </div>
   </div>
 
   <!-- 04 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">04</span>
-      <h3 class="phase-card-title">적응형 제어 주기</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">04</span>
+      <h3 class="phase-card-title" spellcheck="false">적응형 제어 주기</h3>
+      <span class="phase-card-tag tag-required" spellcheck="false">필수</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>평상시에는 30분 간격, 고온 경보 시에는 10분 간격으로 자동 전환되는 제어 시스템을 만듭니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>한여름 직사광선 아래에서 30분을 기다리면 작물이 타죽습니다. 상황에 따라 즉각 대응이 필요합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>일사량과 온도 임계값을 감지하여 제어 주기를 자동으로 단축합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>상황 적응형 제어 시스템</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">평상시에는 30분 간격, 고온 경보 시에는 10분 간격으로 자동 전환되는 제어 시스템을 만듭니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">한여름 직사광선 아래에서 30분을 기다리면 작물이 타죽습니다. 상황에 따라 즉각 대응이 필요합니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">일사량과 온도 임계값을 감지하여 제어 주기를 자동으로 단축합니다.</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">상황 적응형 제어 시스템</p></div>
     </div>
   </div>
 
   <!-- 05 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">05</span>
-      <h3 class="phase-card-title">재배사 대시보드 (검증 UI)</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">05</span>
+      <h3 class="phase-card-title" spellcheck="false">재배사 대시보드 (검증 UI)</h3>
+      <span class="phase-card-tag tag-required" spellcheck="false">필수</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>재배사가 매일 AI 제안을 확인하고, 승인 또는 수정하고, 실제 결과를 입력하는 웹 대시보드를 구축합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI를 무조건 신뢰할 수 없으므로 사람이 검증하는 단계가 필수입니다. "AI가 제안했지만 사람이 수정한 이유"가 가장 값비싼 학습 데이터입니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>React 기반으로 AI 제안 vs 현재값 비교 테이블, A/B 테스트 차트, Ground Truth 입력 폼을 구현합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>재배사가 매일 사용하는 대시보드</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">재배사가 매일 AI 제안을 확인하고, 승인 또는 수정하고, 실제 결과를 입력하는 웹 대시보드를 구축합니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">AI를 무조건 신뢰할 수 없으므로 사람이 검증하는 단계가 필수입니다. "AI가 제안했지만 사람이 수정한 이유"가 가장 값비싼 학습 데이터입니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">React 기반으로 AI 제안 vs 현재값 비교 테이블, A/B 테스트 차트, Ground Truth 입력 폼을 구현합니다.</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">재배사가 매일 사용하는 대시보드</p></div>
     </div>
   </div>
 
   <!-- 06 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">06</span>
-      <h3 class="phase-card-title">LLM 리포트 생성</h3>
-      <span class="phase-card-tag tag-optional">선택</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">06</span>
+      <h3 class="phase-card-title" spellcheck="false">LLM 리포트 생성</h3>
+      <span class="phase-card-tag tag-optional" spellcheck="false">선택</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>4개 엔진의 분석 결과를 농부가 이해할 수 있는 한국어 보고서로 자동 변환합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>"VPD 0.87에서 1.02로 조정"이라는 지표를 "곰팡이 위험이 증가했습니다. 환기를 10% 올리세요"로 바꿔야 현장에서 실제로 사용됩니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Claude API에 확정된 JSON만 전달하여 번역만 수행합니다. 이상 이벤트가 없는 날은 호출하지 않아 비용을 최적화합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>일일 AI 브리핑 리포트</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">4개 엔진의 분석 결과를 농부가 이해할 수 있는 한국어 보고서로 자동 변환합니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">"VPD 0.87에서 1.02로 조정"이라는 지표를 "곰팡이 위험이 증가했습니다. 환기를 10% 올리세요"로 바꿔야 현장에서 실제로 사용됩니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">Claude API에 확정된 JSON만 전달하여 번역만 수행합니다. 이상 이벤트가 없는 날은 호출하지 않아 비용을 최적화합니다.</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">일일 AI 브리핑 리포트</p></div>
     </div>
   </div>
 
   <!-- 07 -->
   <div class="phase-card">
     <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">07</span>
-      <h3 class="phase-card-title">엣지 Fallback</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
+      <span class="phase-card-status" spellcheck="false">⬜</span>
+      <span class="phase-card-num" spellcheck="false">07</span>
+      <h3 class="phase-card-title" spellcheck="false">엣지 Fallback</h3>
+      <span class="phase-card-tag tag-required" spellcheck="false">필수</span>
+      <span class="phase-card-toggle" spellcheck="false">+</span>
     </div>
     <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>인터넷이 끊겨도 기본적인 환경 제어를 유지하는 독립 시스템을 구축합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>농장에서 인터넷은 자주 끊깁니다. 클라우드에만 의존하면 네트워크 장애 시 제어가 멈출 수 있습니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>현장 Jetson에 경량 Rule-based와 기본 MPC를 상주시키고, 네트워크 복구 시 데이터를 일괄 동기화합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>오프라인에서도 작동하는 엣지 제어 시스템</p></div>
+      <div class="phase-card-what"><h4 spellcheck="false" class="">무엇을 하는가</h4><p spellcheck="false" class="">인터넷이 끊겨도 기본적인 환경 제어를 유지하는 독립 시스템을 구축합니다.</p></div>
+      <div class="phase-card-why"><h4 spellcheck="false" class="">왜 하는가</h4><p spellcheck="false" class="">농장에서 인터넷은 자주 끊깁니다. 클라우드에만 의존하면 네트워크 장애 시 제어가 멈출 수 있습니다.</p></div>
+      <div class="phase-card-how"><h4 spellcheck="false" class="">어떻게 하는가</h4><p spellcheck="false" class="">현장 Jetson에 경량 Rule-based와 기본 MPC를 상주시키고, 네트워크 복구 시 데이터를 일괄 동기화합니다.</p></div>
+      <div class="phase-card-output"><h4 spellcheck="false" class="">산출물</h4><p spellcheck="false" class="">오프라인에서도 작동하는 엣지 제어 시스템</p></div>
     </div>
   </div>
 
@@ -141,8 +141,8 @@
 <!-- ============================================================ -->
 
       <div class="proj-phase-output">
-        <div class="proj-phase-output-label">산출물</div>
-        <p>재배사가 매일 쓰는 대시보드 + 1작기 데이터</p>
+        <div class="proj-phase-output-label" spellcheck="false">산출물</div>
+        <p spellcheck="false" class="">재배사가 매일 쓰는 대시보드 + 1작기 데이터</p>
       </div>
     </div>
   </div>
