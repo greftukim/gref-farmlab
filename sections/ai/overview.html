@@ -23,180 +23,168 @@
   <svg class="flow-svg" viewBox="0 0 960 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GREF AI 시스템 아키텍처 흐름도">
     <defs>
       <!-- 화살표 마커 (실선용) -->
-      <marker id="flow-arrow" viewBox="0 0 10 10" refX="10" refY="5"
-              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"/>
+      <marker id="flow-arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"></path>
       </marker>
       <!-- 화살표 마커 (점선/피드백용) -->
-      <marker id="flow-arrow-dash" viewBox="0 0 10 10" refX="10" refY="5"
-              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"/>
+      <marker id="flow-arrow-dash" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"></path>
       </marker>
     </defs>
 
     <!-- ====== Layer 0: Fail-safe (빨간 점선) ====== -->
-    <rect x="60" y="12" width="840" height="58" rx="4"
-          fill="#ffffff" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3"/>
+    <rect x="60" y="12" width="840" height="58" rx="4" fill="#ffffff" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3"></rect>
     <text x="480" y="36" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="#dc2626">⚠ Fail-safe (Layer 0) — PLC 레벨, AI와 독립</text>
     <text x="480" y="56" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#dc2626">temp&gt;35→강제환기 / humidity&gt;95→제습 / CO₂&gt;1500→차단</text>
 
     <!-- ====== Layer 1: 데이터 소스 ====== -->
-    <rect x="120" y="90" width="720" height="88" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="120" y="90" width="720" height="88" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="480" y="114" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="#111">데이터 소스 (Layer 1)</text>
     <text x="480" y="134" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">Priva (Read Only) · 기상청 API · KAMIS 시세 · 자체 DB</text>
     <text x="480" y="152" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">→ 결측치 보간 + VPD·GDD·DLI·DIF·RTR 파생변수</text>
     <text x="480" y="168" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">→ 센서 드리프트 감지</text>
 
     <!-- 데이터 소스 → 엔진 화살표 (3갈래) -->
-    <line x1="300" y1="178" x2="170" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
-    <line x1="480" y1="178" x2="400" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
-    <line x1="480" y1="178" x2="560" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
-    <line x1="660" y1="178" x2="790" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
+    <line x1="300" y1="178" x2="170" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
+    <line x1="480" y1="178" x2="400" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
+    <line x1="480" y1="178" x2="560" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
+    <line x1="660" y1="178" x2="790" y2="218" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
 
     <!-- ====== Layer 2: 4개 엔진 ====== -->
     <!-- 엔진1: 환경 제어 -->
-    <rect x="60" y="220" width="200" height="130" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="60" y="220" width="200" height="130" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="160" y="244" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="12" font-weight="700" fill="#111">엔진 1: 환경 제어</text>
-    <line x1="80" y1="254" x2="240" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"/>
+    <line x1="80" y1="254" x2="240" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"></line>
     <text x="160" y="274" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">1작기: Rule-based</text>
     <text x="160" y="292" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">2작기: MPC</text>
     <text x="160" y="310" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">3작기: RL</text>
 
     <!-- 엔진2: 생육 예측 -->
-    <rect x="280" y="220" width="200" height="130" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="280" y="220" width="200" height="130" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="380" y="244" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="12" font-weight="700" fill="#111">엔진 2: 생육 예측</text>
-    <line x1="300" y1="254" x2="460" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"/>
+    <line x1="300" y1="254" x2="460" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"></line>
     <text x="380" y="274" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">Baseline → Prophet</text>
     <text x="380" y="292" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">+ VPD / GDD 연동</text>
 
     <!-- 엔진3: 비전 AI -->
-    <rect x="500" y="220" width="200" height="130" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="500" y="220" width="200" height="130" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="600" y="244" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="12" font-weight="700" fill="#111">엔진 3: 비전 AI</text>
-    <line x1="520" y1="254" x2="680" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"/>
+    <line x1="520" y1="254" x2="680" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"></line>
     <text x="600" y="274" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">YOLOv8 — 4대 병해</text>
     <text x="600" y="292" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">+ SAM + CLIP</text>
     <text x="600" y="310" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">+ 샘플링</text>
 
     <!-- 엔진4: 수요 예측 -->
-    <rect x="720" y="220" width="200" height="130" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="720" y="220" width="200" height="130" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="820" y="244" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="12" font-weight="700" fill="#111">엔진 4: 수요 예측</text>
-    <line x1="740" y1="254" x2="900" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"/>
+    <line x1="740" y1="254" x2="900" y2="254" stroke="#111" stroke-width="0.5" opacity="0.3"></line>
     <text x="820" y="274" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">Prophet + LightGBM</text>
     <text x="820" y="292" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">+ 출하 연동</text>
     <text x="820" y="310" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="10.5" fill="#111">+ 신뢰구간</text>
 
     <!-- 엔진들 → 합류 라인 -->
-    <line x1="160" y1="350" x2="160" y2="370" stroke="#111" stroke-width="1.5"/>
-    <line x1="380" y1="350" x2="380" y2="370" stroke="#111" stroke-width="1.5"/>
-    <line x1="600" y1="350" x2="600" y2="370" stroke="#111" stroke-width="1.5"/>
-    <line x1="820" y1="350" x2="820" y2="370" stroke="#111" stroke-width="1.5"/>
+    <line x1="160" y1="350" x2="160" y2="370" stroke="#111" stroke-width="1.5"></line>
+    <line x1="380" y1="350" x2="380" y2="370" stroke="#111" stroke-width="1.5"></line>
+    <line x1="600" y1="350" x2="600" y2="370" stroke="#111" stroke-width="1.5"></line>
+    <line x1="820" y1="350" x2="820" y2="370" stroke="#111" stroke-width="1.5"></line>
     <!-- 수평 합류선 -->
-    <line x1="160" y1="370" x2="820" y2="370" stroke="#111" stroke-width="1.5"/>
+    <line x1="160" y1="370" x2="820" y2="370" stroke="#111" stroke-width="1.5"></line>
     <!-- 합류 → 백엔드 -->
-    <line x1="480" y1="370" x2="480" y2="400" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
+    <line x1="480" y1="370" x2="480" y2="400" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
 
     <!-- ====== Layer 3: Python 백엔드 ====== -->
-    <rect x="270" y="402" width="420" height="80" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="270" y="402" width="420" height="80" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="480" y="426" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="#111">Python 백엔드 (Layer 3)</text>
     <text x="480" y="446" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">매출 / 비용 / 손익 확정 계산</text>
     <text x="480" y="462" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">확정값 vs 추정값 분리 · 엔진 간 조율 라우터</text>
 
     <!-- 백엔드 → LLM 화살표 -->
-    <line x1="480" y1="482" x2="480" y2="510" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
+    <line x1="480" y1="482" x2="480" y2="510" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
 
     <!-- ====== Layer 4: LLM ====== -->
-    <rect x="270" y="512" width="420" height="80" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="270" y="512" width="420" height="80" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="480" y="536" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="#111">LLM — Claude API (Layer 4)</text>
     <text x="480" y="556" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">JSON → 리포트 번역 (계산 안 함, 번역만)</text>
     <text x="480" y="572" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">엔지니어 → 농부 용어 변환</text>
 
     <!-- LLM → 검증 UI 화살표 -->
-    <line x1="480" y1="592" x2="480" y2="620" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
+    <line x1="480" y1="592" x2="480" y2="620" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow)"></line>
 
     <!-- ====== Layer 5: 검증 UI ====== -->
-    <rect x="270" y="622" width="420" height="96" rx="4"
-          fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+    <rect x="270" y="622" width="420" height="96" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.5"></rect>
     <text x="480" y="646" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="#111">검증 UI (Layer 5)</text>
     <text x="480" y="666" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">AI 제안 vs 현재값 비교</text>
     <text x="480" y="682" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">A/B 테스트 실적 비교 · Ground Truth 입력</text>
     <text x="480" y="698" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">승인 → Priva 반영</text>
 
     <!-- ====== 피드백 루프 (점선) ====== -->
-    <line x1="480" y1="718" x2="480" y2="748" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow-dash)"/>
+    <line x1="480" y1="718" x2="480" y2="748" stroke="#111" stroke-width="1.5" marker-end="url(#flow-arrow-dash)"></line>
     <text x="480" y="768" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="#111">피드백 DB → 재학습 (루프)</text>
 
     <!-- 피드백 루프 곡선: 아래에서 왼쪽으로 올라가 데이터소스로 복귀 -->
-    <path d="M 480 775 L 480 795 Q 480 805 470 805 L 50 805 Q 40 805 40 795 L 40 135 Q 40 125 50 125 L 112 125"
-          fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#flow-arrow-dash)"/>
+    <path d="M 480 775 L 480 795 Q 480 805 470 805 L 50 805 Q 40 805 40 795 L 40 135 Q 40 125 50 125 L 112 125" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#flow-arrow-dash)"></path>
 
   </svg>
-  <p class="flow-summary">AI가 제안하고, 사람이 검증하고, 데이터가 쌓이면서 점점 똑똑해지는 구조</p>
+  <p class="flow-summary" spellcheck="false">AI가 제안하고, 사람이 검증하고, 데이터가 쌓이면서 점점 똑똑해지는 구조</p>
 </div>
 
   <!-- 아키텍처 다이어그램 -->
   <div class="proj-arch">
-    <div class="proj-arch-title">전체 아키텍처</div>
+    <div class="proj-arch-title" spellcheck="false">전체 아키텍처</div>
     <div class="proj-arch-stack">
 
       <div class="proj-arch-layer">
-        <div class="proj-arch-label">Layer 0 — Fail-safe</div>
-        <div class="proj-arch-desc">
-          <strong>PLC 레벨, AI와 독립 작동</strong><br>
+        <div class="proj-arch-label" spellcheck="false">Layer 0 — Fail-safe</div>
+        <div class="proj-arch-desc" spellcheck="false">
+          <strong spellcheck="false" class="">PLC 레벨, AI와 독립 작동</strong><br>
           temp&gt;35 → 강제환기 &nbsp;/&nbsp; humidity&gt;95 → 제습 &nbsp;/&nbsp; CO2&gt;1500 → 차단<br>
           AI 서버 다운돼도 독립 작동
         </div>
       </div>
-      <div class="proj-arch-connector">&#9661;</div>
+      <div class="proj-arch-connector" spellcheck="false">▽</div>
 
       <div class="proj-arch-layer">
-        <div class="proj-arch-label">Layer 1 — 데이터</div>
-        <div class="proj-arch-desc">
-          <strong>데이터 파이프라인</strong><br>
-          Priva 센서(Read Only) &middot; 기상청 API &middot; KAMIS API &middot; 자체 DB(에너지/인건비/자재비)<br>
+        <div class="proj-arch-label" spellcheck="false">Layer 1 — 데이터</div>
+        <div class="proj-arch-desc" spellcheck="false">
+          <strong spellcheck="false" class="">데이터 파이프라인</strong><br>
+          Priva 센서(Read Only) · 기상청 API · KAMIS API · 자체 DB(에너지/인건비/자재비)<br>
           전처리: 결측치 보간, 센서 드리프트 감지, 파생변수 자동 산출 (VPD / GDD / DLI / DIF / RTR)
         </div>
       </div>
-      <div class="proj-arch-connector">&#9661;</div>
+      <div class="proj-arch-connector" spellcheck="false">▽</div>
 
       <div class="proj-arch-layer">
-        <div class="proj-arch-label">Layer 2 — AI 엔진</div>
-        <div class="proj-arch-desc">
-          <strong>4개 엔진 병렬 운영</strong><br>
-          환경 제어 &middot; 생육 예측 &middot; 비전 AI &middot; 수요/가격 예측
+        <div class="proj-arch-label" spellcheck="false">Layer 2 — AI 엔진</div>
+        <div class="proj-arch-desc" spellcheck="false">
+          <strong spellcheck="false" class="">4개 엔진 병렬 운영</strong><br>
+          환경 제어 · 생육 예측 · 비전 AI · 수요/가격 예측
         </div>
       </div>
-      <div class="proj-arch-connector">&#9661;</div>
+      <div class="proj-arch-connector" spellcheck="false">▽</div>
 
       <div class="proj-arch-layer">
-        <div class="proj-arch-label">Layer 3 — 백엔드</div>
-        <div class="proj-arch-desc">
-          <strong>Python 백엔드</strong><br>
-          매출/비용 확정 계산 (LLM에 계산 절대 안 시킴) &middot; 엔진 간 조율 로직 &middot; Vision API Circuit Breaker
+        <div class="proj-arch-label" spellcheck="false">Layer 3 — 백엔드</div>
+        <div class="proj-arch-desc" spellcheck="false">
+          <strong spellcheck="false" class="">Python 백엔드</strong><br>
+          매출/비용 확정 계산 (LLM에 계산 절대 안 시킴) · 엔진 간 조율 로직 · Vision API Circuit Breaker
         </div>
       </div>
-      <div class="proj-arch-connector">&#9661;</div>
+      <div class="proj-arch-connector" spellcheck="false">▽</div>
 
       <div class="proj-arch-layer">
-        <div class="proj-arch-label">Layer 4 — LLM</div>
-        <div class="proj-arch-desc">
-          <strong>Claude API</strong><br>
-          JSON → 리포트 번역 (계산 금지, 번역만) &middot; 엔지니어 용어 → 농부 용어 변환 &middot; 이상 이벤트 없는 날은 호출 안 함
+        <div class="proj-arch-label" spellcheck="false">Layer 4 — LLM</div>
+        <div class="proj-arch-desc" spellcheck="false">
+          <strong spellcheck="false" class="">Claude API</strong><br>
+          JSON → 리포트 번역 (계산 금지, 번역만) · 엔지니어 용어 → 농부 용어 변환 · 이상 이벤트 없는 날은 호출 안 함
         </div>
       </div>
-      <div class="proj-arch-connector">&#9661;</div>
+      <div class="proj-arch-connector" spellcheck="false">▽</div>
 
       <div class="proj-arch-layer">
-        <div class="proj-arch-label">Layer 5 — 검증 UI</div>
-        <div class="proj-arch-desc">
-          <strong>재배사 대시보드</strong><br>
-          AI 제안 vs 현재 비교 &middot; A/B 테스트 실적 &middot; Ground Truth 입력 &middot; 피드백 → DB → 모델 재학습
+        <div class="proj-arch-label" spellcheck="false">Layer 5 — 검증 UI</div>
+        <div class="proj-arch-desc" spellcheck="false">
+          <strong spellcheck="false" class="">재배사 대시보드</strong><br>
+          AI 제안 vs 현재 비교 · A/B 테스트 실적 · Ground Truth 입력 · 피드백 → DB → 모델 재학습
         </div>
       </div>
 
@@ -205,13 +193,13 @@
 
   <!-- 4개 엔진 카드 -->
   <div class="proj-engines">
-    <div class="proj-arch-title">AI 엔진 4개</div>
+    <div class="proj-arch-title" spellcheck="false">AI 엔진 4개</div>
     <div class="proj-engines-grid">
 
       <div class="proj-engine-card">
-        <div class="proj-engine-num">Engine 01</div>
-        <div class="proj-engine-name">환경 제어</div>
-        <div class="proj-engine-desc">
+        <div class="proj-engine-num" spellcheck="false">Engine 01</div>
+        <div class="proj-engine-name" spellcheck="false">환경 제어</div>
+        <div class="proj-engine-desc" spellcheck="false">
           제어 우선순위: 온도 범위(생존) → VPD 최적화(생장) → 에너지 비용(경제)<br>
           단계적 도입: Rule-based → MPC → RL 어드바이저<br>
           적응형 제어 주기 (기본 30분, 고온 시 10분)
@@ -219,9 +207,9 @@
       </div>
 
       <div class="proj-engine-card">
-        <div class="proj-engine-num">Engine 02</div>
-        <div class="proj-engine-name">생육 예측</div>
-        <div class="proj-engine-desc">
+        <div class="proj-engine-num" spellcheck="false">Engine 02</div>
+        <div class="proj-engine-name" spellcheck="false">생육 예측</div>
+        <div class="proj-engine-desc" spellcheck="false">
           모델 전략: Baseline(이동평균) → Prophet(보조) → TimesFM(실험)<br>
           복잡한 모델이 baseline을 이기지 못하면 baseline 사용<br>
           필수 파생변수: VPD, GDD(누적), DLI(누적), DIF, RTR
@@ -229,9 +217,9 @@
       </div>
 
       <div class="proj-engine-card">
-        <div class="proj-engine-num">Engine 03</div>
-        <div class="proj-engine-name">비전 AI</div>
-        <div class="proj-engine-desc">
+        <div class="proj-engine-num" spellcheck="false">Engine 03</div>
+        <div class="proj-engine-name" spellcheck="false">비전 AI</div>
+        <div class="proj-engine-desc" spellcheck="false">
           YOLOv8: 4대 병해 특화 (잿빛곰팡이, 흰가루병, 총채벌레, 온실가루이)<br>
           SAM + CLIP: 라벨링 비용 1/3~1/5 절감<br>
           Vision API Circuit Breaker: 일 10장 한도, 12h 쿨타임
@@ -239,9 +227,9 @@
       </div>
 
       <div class="proj-engine-card">
-        <div class="proj-engine-num">Engine 04</div>
-        <div class="proj-engine-name">수요/가격 예측</div>
-        <div class="proj-engine-desc">
+        <div class="proj-engine-num" spellcheck="false">Engine 04</div>
+        <div class="proj-engine-name" spellcheck="false">수요/가격 예측</div>
+        <div class="proj-engine-desc" spellcheck="false">
           Prophet + LightGBM 앙상블<br>
           KAMIS API + aT 반입량 + 기상 예보<br>
           유통사 납품 스케줄, 경매장 휴무일 반영
@@ -253,26 +241,26 @@
 
   <!-- 성공/실패 판단 기준 -->
   <div class="proj-metrics">
-    <div class="proj-arch-title">성공 / 실패 판단 기준</div>
+    <div class="proj-arch-title" spellcheck="false">성공 / 실패 판단 기준</div>
     <div class="proj-metrics-grid">
 
       <div class="proj-metric-box success">
-        <div class="proj-metric-label">성공 지표</div>
+        <div class="proj-metric-label" spellcheck="false">성공 지표</div>
         <ul class="proj-metric-list">
-          <li>재배사 Ground Truth 입력률 &gt; 80%</li>
-          <li>AI 제안 채택률 &gt; 50% (1작기 후)</li>
-          <li>A급 비율 향상 또는 폐기율 감소</li>
-          <li>순수익 기준 baseline 대비 +5% 이상</li>
+          <li spellcheck="false" class="">재배사 Ground Truth 입력률 &gt; 80%</li>
+          <li spellcheck="false" class="">AI 제안 채택률 &gt; 50% (1작기 후)</li>
+          <li spellcheck="false" class="">A급 비율 향상 또는 폐기율 감소</li>
+          <li spellcheck="false" class="">순수익 기준 baseline 대비 +5% 이상</li>
         </ul>
       </div>
 
       <div class="proj-metric-box failure">
-        <div class="proj-metric-label">실패 신호</div>
+        <div class="proj-metric-label" spellcheck="false">실패 신호</div>
         <ul class="proj-metric-list">
-          <li>재배사가 대시보드를 안 봄</li>
-          <li>Ground Truth 입력률 &lt; 30%</li>
-          <li>AI 제안을 매번 무시</li>
-          <li>→ 기술 문제가 아니라 UX 문제 → UI 재설계</li>
+          <li spellcheck="false" class="">재배사가 대시보드를 안 봄</li>
+          <li spellcheck="false" class="">Ground Truth 입력률 &lt; 30%</li>
+          <li spellcheck="false" class="">AI 제안을 매번 무시</li>
+          <li spellcheck="false" class="">→ 기술 문제가 아니라 UX 문제 → UI 재설계</li>
         </ul>
       </div>
 
@@ -281,17 +269,17 @@
 
   <!-- 인프라 비용 요약 -->
   <div class="proj-infra">
-    <div class="proj-arch-title">인프라 비용 요약</div>
+    <div class="proj-arch-title" spellcheck="false">인프라 비용 요약</div>
     <div class="proj-infra-box">
-      <div class="proj-infra-icon">~150~200만</div>
-      <div class="proj-infra-text">
-        <strong>클라우드-엣지 이원화 아키텍처</strong> &mdash;
+      <div class="proj-infra-icon" spellcheck="false">~150~200만</div>
+      <div class="proj-infra-text" spellcheck="false">
+        <strong spellcheck="false" class="">클라우드-엣지 이원화 아키텍처</strong> —
         학습은 AWS/GCP A100 스팟 (월 6~12만원),
         추론은 엣지 Jetson Orin (80만원) + CPU,
         Claude API 연간 ~3,300원,
         GPT-4o Vision 월 ~5만원,
         카메라 4대 + 방습 하우징 ~250만원 (초기 투자).
-        <strong>연간 총 운영비 ~150~200만원</strong> (Priva 연동비 제외)
+        <strong spellcheck="false" class="">연간 총 운영비 ~150~200만원</strong> (Priva 연동비 제외)
       </div>
     </div>
   </div>
