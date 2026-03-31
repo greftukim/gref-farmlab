@@ -163,6 +163,25 @@ body.locked { overflow: hidden; }
   padding: 0 18px;
   scrollbar-width: none;
 }
+
+/* ── Sub-tabs with horizontal scroll (sticky wrapper + inner scroll) ── */
+.section > .container > .tabs-scroll-wrap {
+  position: sticky;
+  top: 65px;
+  z-index: 90;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  margin: 0 -18px;
+  overflow: hidden;
+}
+.section > .container > .tabs-scroll-wrap .tabs {
+  overflow-x: auto;
+  padding: 0 18px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
 .container { max-width: 980px; margin: 0 auto; padding: 0 18px 32px; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
