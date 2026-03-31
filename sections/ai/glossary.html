@@ -1,28 +1,5 @@
-<style>
-.gloss-wrap{max-width:900px;margin:0 auto}
-.gloss-intro{font-size:14px;color:var(--fg-secondary);margin-bottom:28px;line-height:1.7}
-.gloss-search{width:100%;padding:10px 14px;font-family:var(--font-sans);font-size:13px;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;outline:none;transition:border-color var(--transition)}
-.gloss-search:focus{border-color:var(--fg)}
-.gloss-cat{margin-bottom:32px}
-.gloss-cat-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-muted);padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:12px}
-.gloss-item{padding:10px 0;border-bottom:1px solid var(--border-light);display:flex;gap:16px;align-items:baseline}
-.gloss-item.hidden{display:none}
-.gloss-term{font-weight:700;font-size:14px;min-width:180px;flex-shrink:0}
-.gloss-term .gloss-abbr{font-size:11px;color:var(--fg-muted);font-weight:500;display:block;margin-top:2px}
-.gloss-desc{font-size:13px;color:var(--fg-secondary);line-height:1.6}
-/* 본문 툴팁 */
-.gt{border-bottom:1px dotted var(--fg-muted);cursor:help;position:relative;white-space:nowrap}
-.gt:hover{border-bottom-color:var(--fg)}
-.gt .gt-tip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);font-size:12px;font-weight:400;line-height:1.5;padding:8px 12px;border-radius:3px;white-space:normal;width:max-content;max-width:320px;z-index:200;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.gt .gt-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--fg)}
-.gt:hover .gt-tip{display:block}
-@media(max-width:768px){
-  .gloss-item{flex-direction:column;gap:4px}
-  .gloss-term{min-width:auto}
-  .gt .gt-tip{left:0;transform:none;max-width:260px}
-}
-@media print{.gt .gt-tip{display:none!important}}
-</style>
+
+
 
 <div class="gloss-wrap">
   <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px" spellcheck="false" class="">용어 설명</h2>
@@ -74,7 +51,7 @@
     <div class="gloss-item" data-terms="cnn 합성곱신경망 convolutional neural network"><div class="gloss-term">CNN<span class="gloss-abbr" spellcheck="false">Convolutional Neural Network, 합성곱 신경망</span></div><div class="gloss-desc" spellcheck="false">이미지를 인식하는 데 특화된 AI 구조. 사진에서 가장자리, 색상, 패턴 등을 자동으로 추출하여 "이것은 병해다" 같은 판단을 내립니다.</div></div>
     <div class="gloss-item" data-terms="전이학습 transfer learning"><div class="gloss-term">전이학습<span class="gloss-abbr" spellcheck="false">Transfer Learning</span></div><div class="gloss-desc" spellcheck="false">다른 분야에서 미리 학습된 AI를 우리 분야에 가져와서 재학습시키는 방법. 처음부터 학습하는 것보다 훨씬 적은 데이터로도 좋은 성능을 낼 수 있습니다.</div></div>
     <div class="gloss-item" data-terms="제로샷 zero-shot"><div class="gloss-term">제로샷<span class="gloss-abbr" spellcheck="false">Zero-shot</span></div><div class="gloss-desc" spellcheck="false">한 번도 본 적 없는 종류의 데이터도 분류할 수 있는 AI 능력. 예: "흰가루병" 사진을 학습한 적 없어도 텍스트 설명만으로 해당 이미지를 찾아냄.</div></div>
-    <div class="gloss-item" data-terms="앙상블 ensemble"><div class="gloss-term">앙상블<span class="gloss-abbr" spellcheck="false">Ensemble</span></div><div class="gloss-desc" spellcheck="false">여러 AI 모델의 예측을 합쳐서 더 정확한 결과를 내는 방법. 여러 전문가의 의견을 모아 결정하는 것과 비슷합니다. Prophet + LightGBM 조합이 예시입니다.</div></div>
+    <div class="gloss-item" data-terms="앙상블 ensemble"><div class="gloss-term">앙상블<span class="gloss-abbr" spellcheck="false">Ensemble</span></div><div class="gloss-desc" spellcheck="false">여러 AI 모델의 예측을 합쳐서 더 정확한 결과를 내는 방법. 여러 전문가의 의견을 모아 결정하는 것과 비슷합니다. 이 프로젝트에서도 수요 예측에 앙상블 방식을 검토 중입니다.</div></div>
     <div class="gloss-item" data-terms="shap 변수기여도"><div class="gloss-term">SHAP<span class="gloss-abbr" spellcheck="false">SHapley Additive exPlanations</span></div><div class="gloss-desc" spellcheck="false">AI가 왜 그런 예측을 했는지 설명해주는 도구. "온도가 높아서 생장이 빨라질 것이다"처럼 각 변수의 기여도를 수치로 보여줍니다.</div></div>
     <div class="gloss-item" data-terms="피처 엔지니어링 feature engineering"><div class="gloss-term">피처 엔지니어링<span class="gloss-abbr" spellcheck="false">Feature Engineering</span></div><div class="gloss-desc" spellcheck="false">AI에 넣을 입력 데이터를 가공하는 작업. 예: 온도 데이터에서 "3일 이동평균 온도"나 "전주 대비 변화량" 같은 새 변수를 만드는 것.</div></div>
     <div class="gloss-item" data-terms="timesfm 타임즈에프엠"><div class="gloss-term">TimesFM<span class="gloss-abbr" spellcheck="false">Time-series Foundation Model</span></div><div class="gloss-desc" spellcheck="false">Google이 만든 대규모 시계열 예측 AI. 별도 학습 없이도 다양한 시계열 데이터를 예측할 수 있어, 실험적으로 테스트합니다.</div></div>
@@ -129,13 +106,4 @@
   </div>
 </div>
 
-<script>
-// Glossary search
-document.getElementById('gloss-search').addEventListener('input', function() {
-  var q = this.value.toLowerCase();
-  document.querySelectorAll('.gloss-item').forEach(function(item) {
-    var terms = (item.getAttribute('data-terms') || '') + ' ' + item.textContent.toLowerCase();
-    item.classList.toggle('hidden', q.length > 0 && terms.indexOf(q) === -1);
-  });
-});
-</script>
+
