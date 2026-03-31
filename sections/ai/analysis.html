@@ -1,28 +1,6 @@
 
-<style>
-.analysis-section { max-width: 900px; margin: 0 auto; padding: 0 0 48px; }
-.analysis-section:last-child { padding-bottom: 0; }
-.analysis-h2 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--fg); margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--fg); }
-.analysis-h3 { font-size: 15px; font-weight: 700; color: var(--fg); margin: 28px 0 12px; }
-.analysis-h4 { font-size: 13px; font-weight: 700; color: var(--fg); margin: 20px 0 8px; }
-.analysis-p { font-size: 13px; color: var(--fg-secondary); line-height: 1.8; margin-bottom: 12px; }
-.analysis-list { font-size: 13px; color: var(--fg-secondary); line-height: 1.8; margin: 0 0 12px 20px; }
-.analysis-list li { margin-bottom: 4px; }
-.analysis-code { font-family: var(--font-mono); font-size: 12px; background: var(--accent-light); padding: 12px 16px; border-left: 3px solid var(--fg); margin: 12px 0 16px; line-height: 1.7; white-space: pre-wrap; color: var(--fg); }
-.analysis-note { font-size: 12px; color: var(--fg-muted); background: var(--accent-light); padding: 10px 14px; border-left: 3px solid var(--border); margin: 12px 0 16px; line-height: 1.7; }
-.analysis-img-wrap { margin: 16px 0 24px; }
-.analysis-img-wrap img { max-width: 100%; border: 1px solid var(--border); border-radius: var(--radius); }
-.analysis-img-wrap .caption { font-size: 11px; color: var(--fg-muted); margin-top: 6px; letter-spacing: 0.02em; }
-.analysis-arrow { font-size: 13px; color: var(--fg); font-weight: 600; margin: 8px 0; }
-.analysis-check { list-style: none; margin: 0 0 12px 0; padding: 0; font-size: 13px; color: var(--fg-secondary); line-height: 2; }
-.analysis-check li::before { content: "□ "; font-weight: 600; }
-.analysis-divider { border: none; border-top: 1px solid var(--border-light); margin: 32px 0; }
-@media (max-width: 768px) {
-  .analysis-section { padding: 0 0 32px; }
-  .analysis-h2 { font-size: 16px; }
-  .analysis-code { font-size: 11px; padding: 10px 12px; }
-}
-</style>
+
+
 
 <!-- ── 탭 1: 데이터 검증 ── -->
 <div class="tab-panel active" id="panel-analysis-validation">
@@ -32,12 +10,12 @@
 
 <h3 class="analysis-h3" spellcheck="false">1-1. 학습 데이터 구성</h3>
 
-<div class="analysis-note" spellcheck="false"><strong spellcheck="false" class="">검증 목적:</strong><br>외부 AI 모델을 도입하기 전에, 우리 온실 데이터에 실제로 패턴이 존재하는지 확인하기 위해 자체 데이터로 머신러닝 PoC(개념 검증) 실시</div>
+<div class="analysis-note" spellcheck="false"><strong spellcheck="false" class="">검증 목적:</strong><br>외부 AI 모델을 도입하기 전에, 우리 온실 데이터에 실제로 패턴이 존재하는지 확인하기 위해 자체 데이터로 머신러닝 <span class="gt" spellcheck="false">PoC<span class="gt-tip" spellcheck="false">Proof of Concept (개념 증명) — 아이디어가 실제로 작동하는지 소규모 테스트.</span></span>(개념 검증) 실시</div>
 
 <div class="analysis-code" spellcheck="false">검증 대상:
   온실: 1번 온실
   품종: 토마지노 (토마토)
-  모델: Random Forest
+  모델: <span class="gt" spellcheck="false">Random Forest<span class="gt-tip" spellcheck="false">랜덤 포레스트 — 여러 결정 트리를 모아 다수결로 예측하는 안정적 AI 기법.</span></span>
   데이터: 32주간 주간 단위 생육 조사 + 환경 데이터</div>
 
 <div class="analysis-code" spellcheck="false">X (입력 — 환경 센서):
@@ -47,57 +25,7 @@
 Y (출력 — 생육 지표):
   주간생장길이 / 엽면적지수 / 줄기굵기 / 개화속도 / 수확량</div>
 
-<style>
-.analysis-data-table-wrap {
-  overflow: auto;
-  max-height: 400px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin: 16px 0 24px;
-}
-.analysis-data-table-wrap table {
-  width: max-content;
-  min-width: 100%;
-  border-collapse: collapse;
-  font-family: var(--font-mono);
-  font-size: 11px;
-}
-.analysis-data-table-wrap thead {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-.analysis-data-table-wrap thead th {
-  background: var(--bg);
-  padding: 8px 10px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-align: right;
-  white-space: nowrap;
-  border-bottom: 2px solid var(--fg);
-  color: var(--fg);
-  cursor: default;
-}
-.analysis-data-table-wrap thead th:first-child { text-align: center; }
-.analysis-data-table-wrap thead th.y-var {
-  background: var(--accent-light);
-}
-.analysis-data-table-wrap tbody td {
-  padding: 5px 10px;
-  text-align: right;
-  white-space: nowrap;
-  border-bottom: 1px solid var(--border-light);
-  color: var(--fg-secondary);
-  font-size: 11px;
-}
-.analysis-data-table-wrap tbody td:first-child {
-  text-align: center;
-  font-weight: 600;
-  color: var(--fg);
-}
-.analysis-data-table-wrap tbody tr:hover td { background: var(--accent-light); }
-</style>
+
 
 <div class="analysis-data-table-wrap">
 <table>
@@ -145,9 +73,9 @@ Y (출력 — 생육 지표):
 <h3 class="analysis-h3" spellcheck="false">1-2. 학습 결과 해석</h3>
 
 <div class="analysis-code" spellcheck="false">학습 결과 개요:
-  모델: Random Forest
+  모델: <span class="gt" spellcheck="false">Random Forest<span class="gt-tip" spellcheck="false">랜덤 포레스트 — 여러 결정 트리를 모아 다수결로 예측하는 안정적 AI 기법.</span></span>
   R² (결정계수): 0.89
-  MAE (평균절대오차): 1.2cm</div>
+  <span class="gt" spellcheck="false">MAE<span class="gt-tip" spellcheck="false">Mean Absolute Error (평균절대오차) — 예측과 실제의 평균 차이.</span></span> (평균절대오차): 1.2cm</div>
 
 <h4 class="analysis-h4" spellcheck="false">R² (결정계수) — 모델이 데이터를 얼마나 잘 설명하는지 나타내는 지표</h4>
 <ul class="analysis-list">
@@ -156,7 +84,7 @@ Y (출력 — 생육 지표):
 <li spellcheck="false" class="">일반적으로 0.7 이상이면 유의미, 0.85 이상이면 높은 수준</li>
 </ul>
 
-<h4 class="analysis-h4" spellcheck="false">MAE (평균절대오차) — 예측값과 실제값의 평균 차이</h4>
+<h4 class="analysis-h4" spellcheck="false"><span class="gt" spellcheck="false">MAE<span class="gt-tip" spellcheck="false">Mean Absolute Error (평균절대오차) — 예측과 실제의 평균 차이.</span></span> (평균절대오차) — 예측값과 실제값의 평균 차이</h4>
 <ul class="analysis-list">
 <li spellcheck="false" class="">1.2cm = 평균적으로 1.2cm 차이로 예측</li>
 <li spellcheck="false" class="">주간생장길이가 보통 14~30mm 범위인 점을 감안하면 오차 비율 약 4~8%</li>
@@ -179,7 +107,7 @@ Y (출력 — 생육 지표):
 
 <h3 class="analysis-h3" spellcheck="false">1-3. 변수 중요도 분석 결과</h3>
 
-<p class="analysis-p" spellcheck="false">주간생장길이 예측 시 변수별 영향도 (Feature Importance):</p>
+<p class="analysis-p" spellcheck="false">주간생장길이 예측 시 변수별 영향도 (변수 중요도):</p>
 
 <div class="analysis-code" spellcheck="false">24시간평균온도: 0.171 (최고)
 개화속도: 0.163
@@ -195,7 +123,7 @@ Y (출력 — 생육 지표):
 
 <div class="analysis-img-wrap">
 <img src="images/변수중요도_막대그래프.png" alt="변수 중요도 막대그래프">
-<div class="caption" spellcheck="false">Random Forest 변수 중요도 (주간생장길이 예측)</div>
+<div class="caption" spellcheck="false"><span class="gt" spellcheck="false">Random Forest<span class="gt-tip" spellcheck="false">랜덤 포레스트 — 여러 결정 트리를 모아 다수결로 예측하는 안정적 AI 기법.</span></span> 변수 중요도 (주간생장길이 예측)</div>
 </div>
 
 </div>
@@ -232,16 +160,16 @@ Y (출력 — 생육 지표):
 </ul>
 <p class="analysis-arrow" spellcheck="false">→ 자동화 없이는 데이터 해상도를 높이는 것이 현실적으로 불가능</p>
 
-<h3 class="analysis-h3" spellcheck="false">2-3. 제어 입력값 누락</h3>
+<h3 class="analysis-h3" spellcheck="false">2-3. X에 추가로 입력되어야 하는 값</h3>
 
 <p class="analysis-p" spellcheck="false">현재 X에 포함된 것: 환경 결과값</p>
 <div class="analysis-code" spellcheck="false">온도, 습도, CO₂, 광량 → "현재 온실 상태가 이렇다"</div>
 
-<p class="analysis-p" spellcheck="false">현재 X에 빠진 것: 제어 원인값</p>
-<div class="analysis-code" spellcheck="false">스크린 개폐율, 환기창 개도, 난방 설정값 → "왜 이 상태가 됐는지"
+<p class="analysis-p" spellcheck="false">X에 아직 반영되지 않은 값: 제어 원인값</p>
+<div class="analysis-code" spellcheck="false">스크린 개폐율, 환기창 개도, 난방 설정값 → "왜 이 상태가 됐는지" (<span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에 존재, 미활용)
 적엽, 방제, 유인, 적과 등 수동 작업 → "사람이 뭘 했는지"</div>
 
-<p class="analysis-p" spellcheck="false">Priva에서 자동 확보 가능:</p>
+<p class="analysis-p" spellcheck="false"><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에서 자동 확보 가능:</p>
 <ul class="analysis-list">
 <li spellcheck="false" class="">스크린 작동 시점 + 개폐율</li>
 <li spellcheck="false" class="">환기창 개도율</li>
@@ -265,23 +193,23 @@ Y (출력 — 생육 지표):
 
 <h3 class="analysis-h3" spellcheck="false">3-1. 자동 수집</h3>
 
-<h4 class="analysis-h4" spellcheck="false">3-1-1. Priva (환경 + 제어 이력)</h4>
+<h4 class="analysis-h4" spellcheck="false">3-1-1. <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> (환경 + 제어 이력)</h4>
 
 <p class="analysis-p" spellcheck="false">센서 데이터 (5분 간격 자동):</p>
 <div class="analysis-code" spellcheck="false">실내: 온도, 습도, CO₂, 광량
-관수: 흡수량, EC, pH</div>
+관수: 흡수량, <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span>, pH</div>
 
 <p class="analysis-p" spellcheck="false">제어 이력 (자동 기록):</p>
 <div class="analysis-code" spellcheck="false">스크린 개폐율 (%), 작동 시점
 환기창 개도율 (%)
 난방/냉방 설정값, 가동 시간</div>
 
-<p class="analysis-arrow" spellcheck="false">→ Priva Read API로 자동 수집 → DB 저장<br>→ 현재 Priva에 축적되어 있으나 체계적으로 추출/저장되지 않고 있음</p>
+<p class="analysis-arrow" spellcheck="false">→ <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> Read <span class="gt" spellcheck="false">API<span class="gt-tip" spellcheck="false">Application Programming Interface — 프로그램끼리 데이터를 주고받는 통로.</span></span>로 자동 수집 → DB 저장<br>→ 현재 <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에 축적되어 있으나 체계적으로 추출/저장되지 않고 있음</p>
 
 <div class="analysis-img-wrap">
 <img src="images/priva_graph_climate.png" alt="Priva 센서 수집 현황" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" style="display: none;">
-<div style="display: block; padding: 24px 16px; background: var(--accent-light); border: 1px dashed var(--border); font-size: 12px; color: var(--fg-muted); text-align: center; line-height: 1.7;" spellcheck="false" class="">Priva Graph Climate 이미지 — images/priva_graph_climate.png 파일을 추가하면 표시됨</div>
-<div class="caption" spellcheck="false">GREF 온실 Priva 센서 수집 현황 (Graph Climate)</div>
+<div style="display: block; padding: 24px 16px; background: var(--accent-light); border: 1px dashed var(--border); font-size: 12px; color: var(--fg-muted); text-align: center; line-height: 1.7;" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> Graph Climate 이미지 — images/priva_graph_climate.png 파일을 추가하면 표시됨</div>
+<div class="caption" spellcheck="false">GREF 온실 <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 센서 수집 현황 (Graph Climate)</div>
 </div>
 
 <h4 class="analysis-h4" spellcheck="false">3-1-2. 생육 데이터 (드론 기반 자동 측정)</h4>
@@ -292,7 +220,7 @@ Y (출력 — 생육 지표):
 <ul class="analysis-list">
 <li spellcheck="false" class="">주간생장길이 → 드론 촬영 + 이미지 분석으로 자동 계측</li>
 <li spellcheck="false" class="">엽면적지수 → 상부 촬영 이미지에서 녹색 면적 비율 산출</li>
-<li spellcheck="false" class="">개화 수 → 객체 탐지(YOLOv8)로 꽃 자동 카운팅</li>
+<li spellcheck="false" class="">개화 수 → 객체 탐지(<span class="gt" spellcheck="false">YOLOv8<span class="gt-tip" spellcheck="false">You Only Look Once v8 — 사진에서 물체를 실시간으로 찾아내는 AI.</span></span>)로 꽃 자동 카운팅</li>
 <li spellcheck="false" class="">과실 상태 → 색상/크기 변화 추적</li>
 </ul>
 
@@ -336,12 +264,12 @@ Y (출력 — 생육 지표):
 
 <p class="analysis-p" spellcheck="false">센서 원시값보다 식물 반응과 직접적으로 관련된 파생변수:</p>
 
-<div class="analysis-code" spellcheck="false">VPD (포차): 온도 + 습도로 계산 → 증산/곰팡이 리스크
-GDD (생육도일): 정식 후 누적 온도 → 생육 단계 판단
-DLI (일적산광량): 하루 누적 광량 → 광합성 총량
-DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div>
+<div class="analysis-code" spellcheck="false"><span class="gt" spellcheck="false">VPD<span class="gt-tip" spellcheck="false">Vapor Pressure Deficit (포차) — 공기가 수분을 더 머금을 수 있는 여유. 온실에서는 0.8~1.2 kPa가 적당합니다.</span></span> (포차): 온도 + 습도로 계산 → 증산/곰팡이 리스크
+<span class="gt" spellcheck="false">GDD<span class="gt-tip" spellcheck="false">Growing Degree Days (생육도일) — 심은 날부터 누적된 온도의 합. 생장 단계 예측에 사용.</span></span> (생육도일): 정식 후 누적 온도 → 생육 단계 판단
+<span class="gt" spellcheck="false">DLI<span class="gt-tip" spellcheck="false">Daily Light Integral (일적산광량) — 하루 동안 식물이 받은 빛의 총량.</span></span> (일적산광량): 하루 누적 광량 → 광합성 총량
+<span class="gt" spellcheck="false">DIF<span class="gt-tip" spellcheck="false">주야간 온도차 — 낮/밤 온도 차이. 줄기 길이 조절에 활용.</span></span> (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div>
 
-<p class="analysis-arrow" spellcheck="false">현재 33행에서도 이 변수를 추가하면 예측 성능 개선 기대<br>→ 식물은 "오늘 온도 24도"보다 "정식 후 누적 GDD 850도일"에 반응</p>
+<p class="analysis-arrow" spellcheck="false">현재 33행에서도 이 변수를 추가하면 예측 성능 개선 기대<br>→ 식물은 "오늘 온도 24도"보다 "정식 후 누적 <span class="gt" spellcheck="false">GDD<span class="gt-tip" spellcheck="false">Growing Degree Days (생육도일) — 심은 날부터 누적된 온도의 합. 생장 단계 예측에 사용.</span></span> 850도일"에 반응</p>
 
 </div>
 </div>
@@ -352,29 +280,29 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 
 <h2 class="analysis-h2" spellcheck="false">AI 방향성</h2>
 
-<h3 class="analysis-h3" spellcheck="false">4-1. 우리 데이터 중심</h3>
+<h3 class="analysis-h3" spellcheck="false">4-1. 단순한 모델 우선</h3>
 
-<p class="analysis-p" spellcheck="false">외부 모델(AGC 대회 등)은 변수 선택, 제어 전략 등 참고 자료로 활용<br>최종 모델은 반드시 GREF 온실 데이터로 직접 학습</p>
+<p class="analysis-p" spellcheck="false">복잡한 최신 모델(멀티모달 <span class="gt" spellcheck="false">RL<span class="gt-tip" spellcheck="false">Reinforcement Learning (강화학습) — 시행착오로 스스로 학습하는 AI 방식.</span></span> + 이미지 딥러닝 등)이 반드시 좋은 결과를 내지 않음</p>
+
+<div class="analysis-note" spellcheck="false"><span class="gt" spellcheck="false">AGC<span class="gt-tip" spellcheck="false">Autonomous Greenhouse Challenge — 네덜란드 와게닝대학교 주관 자율 온실 재배 대회.</span></span> 상위권 모델도 품종/환경이 다르면 성능 보장 안 됨<br>→ 파인튜닝으로 미세 조정 가능하나 근본적 차이는 해결 안 됨</div>
+
+<p class="analysis-p" spellcheck="false">원칙:</p>
+<ul class="analysis-list">
+<li spellcheck="false" class="">기준 모델(이동평균, 단순 RF)을 먼저 구축</li>
+<li spellcheck="false" class="">복잡한 모델이 기준 모델을 이기지 못하면 불채택</li>
+<li spellcheck="false" class="">우리 데이터 안에서 최적의 패턴을 찾는 것이 목표</li>
+</ul>
+
+<h3 class="analysis-h3" spellcheck="false">4-2. 우리 데이터 중심</h3>
+
+<p class="analysis-p" spellcheck="false">외부 모델(<span class="gt" spellcheck="false">AGC<span class="gt-tip" spellcheck="false">Autonomous Greenhouse Challenge — 네덜란드 와게닝대학교 주관 자율 온실 재배 대회.</span></span> 대회 등)은 변수 선택, 제어 전략 등 참고 자료로 활용<br>최종 모델은 반드시 GREF 온실 데이터로 직접 학습</p>
 
 <div class="analysis-note" spellcheck="false">품종이 다르고 기후가 다르면 같은 모델도 결과가 달라짐<br>→ 네덜란드 토마토 최적 모델이 한국 토마토에 맞지 않을 수 있음</div>
 
 <p class="analysis-p" spellcheck="false">활용 가능한 것:</p>
 <ul class="analysis-list">
-<li spellcheck="false" class="">어떤 변수(Feature)가 중요한지 힌트 → AGC 우승팀 분석 참고</li>
+<li spellcheck="false" class="">어떤 변수가 중요한지 힌트 → <span class="gt" spellcheck="false">AGC<span class="gt-tip" spellcheck="false">Autonomous Greenhouse Challenge — 네덜란드 와게닝대학교 주관 자율 온실 재배 대회.</span></span> 우승팀 분석 참고</li>
 <li spellcheck="false" class="">단, 실제로 통제 가능하고 측정 가능한 변수만 채택</li>
-</ul>
-
-<h3 class="analysis-h3" spellcheck="false">4-2. 단순한 모델 우선</h3>
-
-<p class="analysis-p" spellcheck="false">복잡한 최신 모델(멀티모달 RL + 이미지 딥러닝 등)이 반드시 좋은 결과를 내지 않음</p>
-
-<div class="analysis-note" spellcheck="false">AGC 상위권 모델도 품종/환경이 다르면 성능 보장 안 됨<br>→ 파인튜닝으로 미세 조정 가능하나 근본적 차이는 해결 안 됨</div>
-
-<p class="analysis-p" spellcheck="false">원칙:</p>
-<ul class="analysis-list">
-<li spellcheck="false" class="">Baseline(이동평균, 단순 RF)을 먼저 구축</li>
-<li spellcheck="false" class="">복잡한 모델이 Baseline을 이기지 못하면 불채택</li>
-<li spellcheck="false" class="">"우리 데이터 안에서 최적의 패턴을 찾는 것"이 핵심 컨셉</li>
 </ul>
 
 <h3 class="analysis-h3" spellcheck="false">4-3. 자동화 전제</h3>
@@ -390,16 +318,16 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 <p class="analysis-arrow" spellcheck="false">→ 데이터 품질이 현장 상황에 종속되는 구조는 지속 불가</p>
 
 <p class="analysis-p" spellcheck="false">해결:</p>
-<div class="analysis-code" spellcheck="false">환경 데이터 → Priva 자동 수집 (이미 가능)
-제어 이력 → Priva 자동 기록 (이미 가능)
+<div class="analysis-code" spellcheck="false">환경 데이터 → <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 자동 수집 (이미 가능)
+제어 이력 → <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 자동 기록 (이미 가능)
 수동 작업 → 0/1 체크리스트 (최소 부담)
 생육 데이터 → 드론/카메라 자동화 추진</div>
 
 <h3 class="analysis-h3" spellcheck="false">4-4. 현재 데이터로 가능한 범위</h3>
 
-<p class="analysis-p" spellcheck="false">Priva에 축적된 환경 데이터 기반:</p>
+<p class="analysis-p" spellcheck="false"><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에 축적된 환경 데이터 기반:</p>
 <ul class="analysis-list">
-<li spellcheck="false" class="">자동 온습도 조절 → Rule-based로 즉시 가능</li>
+<li spellcheck="false" class="">자동 온습도 조절 → <span class="gt" spellcheck="false">Rule-based<span class="gt-tip" spellcheck="false">규칙 기반 — 사람이 직접 규칙을 정해놓는 전통적 제어 방식.</span></span>로 즉시 가능</li>
 <li spellcheck="false" class="">스크린 자동 개폐 → 현재 데이터 패턴으로 가능</li>
 </ul>
 
@@ -409,76 +337,4 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 </div>
 </div>
 
-<!-- ── 탭 5: 개발 순서 ── -->
-<div class="tab-panel" id="panel-analysis-devorder">
-<div class="analysis-section">
-
-<h2 class="analysis-h2" spellcheck="false">개발 순서</h2>
-
-<h3 class="analysis-h3" spellcheck="false">5-1. 1순위 — 데이터 자동 확보 체계</h3>
-
-<ul class="analysis-list">
-<li spellcheck="false" class="">Priva Read 파이프라인 구축 (센서 + 제어 이력)</li>
-<li spellcheck="false" class="">작업 일지 표준화 (0/1 체크리스트)</li>
-<li spellcheck="false" class="">파생변수 자동 산출 (VPD, GDD, DLI, DIF)</li>
-</ul>
-<p class="analysis-arrow" spellcheck="false">→ 이 단계 없이는 이후 모든 AI 개발 불가</p>
-
-<h3 class="analysis-h3" spellcheck="false">5-2. 2순위 — 환경 제어 AI</h3>
-
-<ul class="analysis-list">
-<li spellcheck="false" class="">Rule-based → MPC → RL 순서로 고도화</li>
-<li spellcheck="false" class="">현재 Priva 데이터로 자동 온습도/스크린 제어부터 시작</li>
-<li spellcheck="false" class="">RL은 Shadow Mode(백그라운드 기록만)로 병행</li>
-</ul>
-
-<h3 class="analysis-h3" spellcheck="false">5-3. 3순위 — 생육 예측 AI</h3>
-
-<ul class="analysis-list">
-<li spellcheck="false" class="">충분한 데이터 축적 후 RF/LightGBM 본격 학습</li>
-<li spellcheck="false" class="">수확량 + 품질 등급 예측</li>
-</ul>
-<p class="analysis-arrow" spellcheck="false">→ 출하 시기 최적화 연동</p>
-
-<h3 class="analysis-h3" spellcheck="false">5-4. 4순위 — 비전 AI (이미지 딥러닝)</h3>
-
-<ul class="analysis-list">
-<li spellcheck="false" class="">카메라 기반 병해충 감지 (YOLOv8)</li>
-<li spellcheck="false" class="">잎/과일 자동 분할 (SAM)</li>
-<li spellcheck="false" class="">장기적으로 생육 데이터 수동 측정 → 카메라/드론 자동 측정 전환</li>
-</ul>
-
-<h3 class="analysis-h3" spellcheck="false">5-5. 5순위 — 수요/출하 예측</h3>
-
-<ul class="analysis-list">
-<li spellcheck="false" class="">경매 데이터(KAMIS) + 기상 예보 기반</li>
-<li spellcheck="false" class="">출하 시기/물량 최적화</li>
-</ul>
-
-</div>
-</div>
-
-<!-- ── 탭 6: 확장 계획 ── -->
-<div class="tab-panel" id="panel-analysis-expansion">
-<div class="analysis-section">
-
-<h2 class="analysis-h2" spellcheck="false">확장 계획</h2>
-
-<p class="analysis-p" spellcheck="false">전제 조건:</p>
-<div class="analysis-note" spellcheck="false">GREF에서 자동 데이터 확보 + AI 분석 + 자동화 환경이 완성된 이후</div>
-
-<h3 class="analysis-h3" spellcheck="false">적용 방식</h3>
-
-<ul class="analysis-list">
-<li spellcheck="false" class="">기 학습된 GREF 모델에서 적용 가능한 부분만 반영 (같은 품종이면 생육 패턴 일부 재활용 가능)</li>
-<li spellcheck="false" class="">적용과 동시에 해당 현장의 환경 데이터 수집 시작</li>
-<li spellcheck="false" class="">현장별 커스텀 모델 학습 → 품종/기후/시설 차이 반영</li>
-</ul>
-
-<h3 class="analysis-h3" spellcheck="false">핵심 전제</h3>
-
-<div class="analysis-note" spellcheck="false">해당 현장에서도 자동 데이터 확보가 가능한 환경이어야 함<br>수동 측정에 의존하는 현장에는 적용 불가</div>
-
-</div>
-</div>
 
