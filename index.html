@@ -1304,12 +1304,23 @@ document.addEventListener('paste', e => {
 });
 
 // ── 5. Init ──
+function execInjectedScripts(container) {
+  container.querySelectorAll('script').forEach(oldScript => {
+    const s = document.createElement('script');
+    if (oldScript.src) { s.src = oldScript.src; } else { s.textContent = oldScript.textContent; }
+    document.head.appendChild(s);
+    document.head.removeChild(s);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
-  const sectionNames = ['home','nursery','robot','education'];
+  const sectionNames = ['home','nursery','robot','education','ai'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
     const html = await res.text();
-    document.getElementById('section-' + name).innerHTML = html;
+    const el = document.getElementById('section-' + name);
+    el.innerHTML = html;
+    if (name === 'ai') execInjectedScripts(el);
   }));
   updateDisplay();
   initVarCells();
