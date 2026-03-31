@@ -570,6 +570,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <button class="tab-btn nav-tab" onclick="switchSection('nursery',this)"><span class="nav-label" spellcheck="false">생산성(육묘)</span></button>
       <button class="tab-btn nav-tab active" onclick="switchSection('ai',this)"><span class="nav-label" spellcheck="false">무인화(AI)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('robot',this)"><span class="nav-label" spellcheck="false">무인화(로봇)</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('energy',this)"><span class="nav-label" spellcheck="false">에너지(부산물)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('education',this)"><span class="nav-label" spellcheck="false">교육</span></button>
       <div style="flex:1"></div>
       <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
@@ -614,6 +615,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
   <div id="section-nursery" class="section"></div>
   <div id="section-ai" class="section active"></div>
   <div id="section-robot" class="section"></div>
+  <div id="section-energy" class="section"></div>
   <div id="section-education" class="section"></div>
 
 </div><!-- /main-content -->
@@ -1334,7 +1336,7 @@ function execInjectedScripts(container) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const sectionNames = ['home','nursery','robot','education','ai'];
+  const sectionNames = ['home','nursery','robot','energy','education','ai'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
     const html = await res.text();
