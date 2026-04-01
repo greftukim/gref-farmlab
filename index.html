@@ -568,9 +568,9 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
     <nav class="tabs" id="main-tabs">
       <button class="tab-btn nav-tab" onclick="switchSection('home',this)"><span class="nav-label" spellcheck="false">개요</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('nursery',this)"><span class="nav-label" spellcheck="false">생산성(육묘)</span></button>
-      <button class="tab-btn nav-tab" onclick="switchSection('ai',this)"><span class="nav-label" spellcheck="false">무인화(AI)</span></button>
+      <button class="tab-btn nav-tab active" onclick="switchSection('ai',this)"><span class="nav-label" spellcheck="false">무인화(AI)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('robot',this)"><span class="nav-label" spellcheck="false">무인화(로봇)</span></button>
-      <button class="tab-btn nav-tab active" onclick="switchSection('energy',this)"><span class="nav-label" spellcheck="false">에너지(부산물)</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('energy',this)"><span class="nav-label" spellcheck="false">에너지(부산물)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('education',this)"><span class="nav-label" spellcheck="false">교육</span></button>
       <div style="flex:1"></div>
       <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
@@ -613,9 +613,9 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 <div class="main-content">
   <div id="section-home" class="section"></div>
   <div id="section-nursery" class="section"></div>
-  <div id="section-ai" class="section"></div>
+  <div id="section-ai" class="section active"></div>
   <div id="section-robot" class="section"></div>
-  <div id="section-energy" class="section active"><style>
+  <div id="section-energy" class="section"><style>
 /* Energy section — monochrome design system */
 .energy-section-title {
   font-family: var(--font-sans);
@@ -752,16 +752,16 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 <div class="container">
 
   <div class="tabs" id="energy-tabs">
-    <button class="tab-btn" onclick="switchTab('e-overview',this,'energy')">사업개요</button>
+    <button class="tab-btn active" onclick="switchTab('e-overview',this,'energy')">사업개요</button>
     <button class="tab-btn" onclick="switchTab('e-policy',this,'energy')">정책·시장</button>
     <button class="tab-btn" onclick="switchTab('e-technology',this,'energy')">기술비교</button>
     <button class="tab-btn" onclick="switchTab('e-funding',this,'energy')">투자비·지원</button>
     <button class="tab-btn" onclick="switchTab('e-roadmap',this,'energy')">추진로드맵</button>
-    <button class="tab-btn active" onclick="switchTab('e-partner',this,'energy')">KINAVA 프로필</button>
+    <button class="tab-btn" onclick="switchTab('e-partner',this,'energy')">KINAVA 프로필</button>
   </div>
 
   <!-- ══ 탭1: 사업개요 ══ -->
-  <div id="tab-e-overview" class="tab-panel">
+  <div id="tab-e-overview" class="tab-panel active">
 
     <div class="energy-section-title" spellcheck="false">농업부산물(바이오매스) 연료화 사업 검토</div>
     <div class="energy-banner" spellcheck="false">축분+바이오매스 혼합 연료화를 통한 에너지 자원화 · 탄소저감 · 지역순환경제 구현</div>
@@ -1131,7 +1131,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
   </div><!-- /tab-e-roadmap -->
 
   <!-- ══ 탭6: KINAVA 프로필 ══ -->
-  <div id="tab-e-partner" class="tab-panel active">
+  <div id="tab-e-partner" class="tab-panel">
 
   <div class="energy-section-title" spellcheck="false">KINAVA (키나바) 회사 개요</div>
   <div class="energy-banner" spellcheck="false">The Global G2E (Green Waste to Energy) Company</div>
