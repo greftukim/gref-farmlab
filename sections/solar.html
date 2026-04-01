@@ -1,0 +1,382 @@
+<style>
+/* Solar section — monochrome design system */
+.solar-section-title {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 28px 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--fg);
+}
+.solar-section-title:first-child { margin-top: 0; }
+.solar-subtitle {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 20px 0 10px 0;
+}
+.solar-banner {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--fg-secondary);
+  background: var(--surface2);
+  border-left: 3px solid var(--fg);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.solar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.solar-card-header {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+.solar-card-body {
+  padding: 14px;
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.7;
+}
+.solar-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  margin-bottom: 20px;
+}
+.solar-table thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--accent);
+}
+.solar-table tbody td {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.solar-table tbody tr:nth-child(even) td {
+  background: var(--surface2);
+}
+.solar-table tbody tr:hover td {
+  background: var(--accent-light);
+}
+.solar-highlight {
+  font-weight: 700;
+  color: var(--fg);
+}
+</style>
+
+<div class="container">
+
+  <div class="tabs" id="solar-tabs">
+    <button class="tab-btn active" onclick="switchTab('s-overview',this,'solar')">과제 개요</button>
+    <button class="tab-btn" onclick="switchTab('s-demo',this,'solar')">실증 현황</button>
+    <button class="tab-btn" onclick="switchTab('s-led',this,'solar')">LED 보광</button>
+    <button class="tab-btn" onclick="switchTab('s-roadmap',this,'solar')">연차별 계획</button>
+    <button class="tab-btn" onclick="switchTab('s-partners',this,'solar')">참여기관</button>
+  </div>
+
+  <!-- ══ 탭1: 과제 개요 ══ -->
+  <div id="tab-s-overview" class="tab-panel active">
+
+    <div class="solar-section-title edit-target" contenteditable="true" spellcheck="false">과제 개요</div>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">과제 정보</div>
+    <table class="solar-table">
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>과제명</td><td class="edit-target" contenteditable="true" spellcheck="false">전국 5개소 300kW급 실증을 통한 AI 스마트팜 태양광 탄소중립 모델 구축</td></tr>
+        <tr><td>주관기관</td><td class="edit-target" contenteditable="true" spellcheck="false">㈜그랜드썬기술단</td></tr>
+        <tr><td>발주</td><td class="edit-target" contenteditable="true" spellcheck="false">기후에너지환경부 / 한국에너지기술평가원 (신재생에너지핵심기술개발사업)</td></tr>
+        <tr><td>기간</td><td class="edit-target" contenteditable="true" spellcheck="false">2026.04.01 ~ 2029.03.31 (36개월)</td></tr>
+        <tr><td>총 예산</td><td class="edit-target" contenteditable="true" spellcheck="false">약 216.5억원 (정부 150억, 민간 66.5억)</td></tr>
+        <tr><td>참여기관</td><td class="edit-target" contenteditable="true" spellcheck="false">12개 기관</td></tr>
+      </tbody>
+    </table>
+
+    <div class="solar-banner edit-target" contenteditable="true" spellcheck="false">영농형 태양광 + 복합열원 히트펌프 + AI EMS(에너지 관리 시스템)를 통합한 '에너지 자립형 스마트팜' 표준모델 확립</div>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">그레프 역할</div>
+    <table class="solar-table">
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>기관 구분</td><td class="edit-target" contenteditable="true" spellcheck="false">공동연구개발기관 2 (수요기관)</td></tr>
+        <tr><td>대표</td><td class="edit-target" contenteditable="true" spellcheck="false">박민식</td></tr>
+        <tr><td>담당 실증</td><td class="edit-target" contenteditable="true" spellcheck="false">경남 하동 100kW급 유리온실(벤로형, 900평) 토마토</td></tr>
+        <tr><td>핵심 기술</td><td class="edit-target" contenteditable="true" spellcheck="false">인터라이팅 LED 보광 시스템 자체 개발 + DLI 기반 AI 자동 보광 제어</td></tr>
+      </tbody>
+    </table>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">비즈니스 모델 역량</div>
+
+    <div class="solar-card">
+      <div class="solar-card-header">운영 실적</div>
+      <div class="solar-card-body edit-target" contenteditable="true" spellcheck="false">부산 신평(1,430평), 하동Hub(9,000평) 운영 — 폐열 활용 온실 국내 최다 경험</div>
+    </div>
+
+    <div class="solar-card">
+      <div class="solar-card-header">에너지 전략</div>
+      <div class="solar-card-body edit-target" contenteditable="true" spellcheck="false">4종 복합열원(폐열수 + 잉여열원 + 공기열 + 태양광) 통합 활용 / 에너지비 60~80% 절감 목표</div>
+    </div>
+
+    <div class="solar-card">
+      <div class="solar-card-header">사업 모델</div>
+      <div class="solar-card-body edit-target" contenteditable="true" spellcheck="false">AI EMS 자동운전 기반 턴키 솔루션 → EPC + 라이선스 + O&amp;M + ESCO + 탄소배출권 수익 다각화</div>
+    </div>
+
+    <div class="solar-card">
+      <div class="solar-card-header">스케일업 계획</div>
+      <div class="solar-card-body edit-target" contenteditable="true" spellcheck="false">당진 에코그리드 1차 36만평 (세계 최대 규모 폐열활용 스마트팜)</div>
+    </div>
+
+  </div><!-- /tab-s-overview -->
+
+  <!-- ══ 탭2: 실증 현황 ══ -->
+  <div id="tab-s-demo" class="tab-panel">
+
+    <div class="solar-section-title edit-target" contenteditable="true" spellcheck="false">5개소 실증 개요</div>
+
+    <div style="overflow-x:auto;">
+    <table class="solar-table">
+      <thead>
+        <tr><th>지역</th><th>작물</th><th>온실 면적</th><th>태양광 용량</th><th>에너지원</th><th>담당</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">경남 하동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">토마토</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">3,000㎡</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">100kW</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">태양광+폐수열+잉여열원+공기열</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">그레프</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">경북 구미</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">딸기</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">525㎡</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">100kW</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">태양광+지열+공기열</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">구미스마트농업연구소</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">강원 평창</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">산채(취나물)</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">900㎡</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">50kW</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">태양광</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">강원도산채연구소</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">충북 청주</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">과채류</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">4,368㎡</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">30kW</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">태양광+공기열</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">충북농업기술원</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">부산</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">엽채류·표고</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">28㎡×4동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">20kW</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">태양광</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">도시농사꾼</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">하동 실증 상세</div>
+    <table class="solar-table">
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>위치</td><td class="edit-target" contenteditable="true" spellcheck="false">경상남도 하동군 금성면 가덕리 1345</td></tr>
+        <tr><td>규모</td><td class="edit-target" contenteditable="true" spellcheck="false">유리온실(벤로형) 900평, 100kW 태양광</td></tr>
+        <tr><td>에너지원</td><td class="edit-target" contenteditable="true" spellcheck="false">4종 복합열원 (폐열수 + 잉여열원 + 공기열 + 태양광)</td></tr>
+        <tr><td>대조구</td><td class="edit-target" contenteditable="true" spellcheck="false">GREF 하동온실 기존 구역 (수확량 기준 106kg/평)</td></tr>
+        <tr><td>1차 실증 목표</td><td class="edit-target" contenteditable="true" spellcheck="false">대조구 대비 수확량 80% 확보</td></tr>
+        <tr><td>2차 실증 목표</td><td class="edit-target" contenteditable="true" spellcheck="false">대조구 대비 수확량 90% 확보</td></tr>
+      </tbody>
+    </table>
+
+  </div><!-- /tab-s-demo -->
+
+  <!-- ══ 탭3: LED 보광 ══ -->
+  <div id="tab-s-led" class="tab-panel">
+
+    <div class="solar-section-title edit-target" contenteditable="true" spellcheck="false">인터라이팅 LED 보광 시스템</div>
+
+    <div class="solar-banner edit-target" contenteditable="true" spellcheck="false">작물 군락 내부에 LED를 설치하여 하부 잎과 줄기에 직접 보광하는 방식. 기존 상부 고정형 대비 그림자 구역에 집중 보광이 가능하며, 광합성 광 이용효율(PLUE) 향상. 국산화를 통해 경제성 확보.</div>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">LED 사양</div>
+    <table class="solar-table">
+      <thead><tr><th>항목</th><th>사양</th></tr></thead>
+      <tbody>
+        <tr><td>소비전력</td><td class="edit-target" contenteditable="true" spellcheck="false">38W / AC220V</td></tr>
+        <tr><td>방수등급</td><td class="edit-target" contenteditable="true" spellcheck="false">IP65</td></tr>
+        <tr><td>광량</td><td class="edit-target" contenteditable="true" spellcheck="false">PPFD 100μmol</td></tr>
+        <tr><td>파장</td><td class="edit-target" contenteditable="true" spellcheck="false">450nm(청색) + 660nm(적색)</td></tr>
+        <tr><td>설계</td><td class="edit-target" contenteditable="true" spellcheck="false">모듈식 (이동·연결 가능)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">AI 보광 제어 알고리즘</div>
+    <table class="solar-table">
+      <thead><tr><th>제어 항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>기반 지표</td><td class="edit-target" contenteditable="true" spellcheck="false">DLI(일적산광량)</td></tr>
+        <tr><td>최대 일장</td><td class="edit-target" contenteditable="true" spellcheck="false">16시간 이내 (작물 생리적 스트레스 방지)</td></tr>
+        <tr><td>일출 전 제어</td><td class="edit-target" contenteditable="true" spellcheck="false">당일 일장시간 파악 후 일출 전 LED 가동</td></tr>
+        <tr><td>일출 후 제어</td><td class="edit-target" contenteditable="true" spellcheck="false">자연광 충분 시 LED 조건부 정지, 에너지 절감</td></tr>
+        <tr><td>광포화점 제어</td><td class="edit-target" contenteditable="true" spellcheck="false">구름·안개로 유효광량 감소 시 실시간 감지 후 LED 재가동</td></tr>
+        <tr><td>계절별 대응</td><td class="edit-target" contenteditable="true" spellcheck="false">인터라이팅 모듈 높이 조절 및 이동</td></tr>
+      </tbody>
+    </table>
+
+  </div><!-- /tab-s-led -->
+
+  <!-- ══ 탭4: 연차별 계획 ══ -->
+  <div id="tab-s-roadmap" class="tab-panel">
+
+    <div class="solar-section-title edit-target" contenteditable="true" spellcheck="false">연차별 계획</div>
+
+    <table class="solar-table">
+      <thead><tr><th>차년도</th><th>기간</th><th>주요 업무</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">1차 (9개월)</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2026.04 ~ 2026.12</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">실증부지 인허가(개발행위허가, 소규모환경영향평가), 인터라이팅 LED 시작품 개발</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2차 (12개월)</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2027.01 ~ 2027.12</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">유리온실 구축(PC캡 기초~골조~태양광모듈 일체형 설치), 인터라이팅 LED 시제품 제작·설치, 토마토 1차 실증 착수</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">3차 (12개월)</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2028.01 ~ 2028.12</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">1차 실증 수확 검증(대조구 대비 80%), 2차 실증 착수, LED 사양 개선·알고리즘 고도화</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">4차 (3개월)</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2029.01 ~ 2029.03</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2차 실증 검증(대조구 대비 90%), 수확률/품질 확보 모델 수립</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="solar-subtitle edit-target" contenteditable="true" spellcheck="false">온실 구축 세부 일정 (2차년도)</div>
+    <table class="solar-table">
+      <thead><tr><th>단계</th><th>기간</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">1단계 기반조성</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2026.04 ~ 2026.08</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">부지 정지, PC캡 기초, 배수로·중앙통로 콘크리트, 전력 인입·통신 인프라</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2단계 기반조성</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">2026.06 ~ 2026.10</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">온실 골조·피복재 설치, 태양광모듈 지붕 일체형 설치, 냉난방 배관·기계실 설비</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div><!-- /tab-s-roadmap -->
+
+  <!-- ══ 탭5: 참여기관 ══ -->
+  <div id="tab-s-partners" class="tab-panel">
+
+    <div class="solar-section-title edit-target" contenteditable="true" spellcheck="false">참여기관</div>
+
+    <div style="overflow-x:auto;">
+    <table class="solar-table">
+      <thead><tr><th>기관명</th><th>구분</th><th>역할</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">㈜그랜드썬기술단</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">주관</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">전체 과제 총괄, AI EMS 개발</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">에쓰와트</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동1</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">영농형 태양광 모듈 개발</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">그레프</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동2</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">하동 100kW 토마토 실증, 인터라이팅 LED 개발</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">도시농사꾼</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동3</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">부산 20kW 엽채류·표고 실증</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">SQI소프트</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">확인 필요</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">키엘연구원</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">확인 필요</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">구미스마트농업연구소</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">구미 100kW 딸기 실증</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">충북농업기술원</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">청주 30kW 과채류 실증</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">강원도산채연구소</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">평창 50kW 산채 실증</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">부산테크노파크</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">확인 필요</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">철원플라즈마산업기술연구원</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">확인 필요</td>
+        </tr>
+        <tr>
+          <td class="edit-target" contenteditable="true" spellcheck="false">성균관대학교</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">공동</td>
+          <td class="edit-target" contenteditable="true" spellcheck="false">확인 필요</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+  </div><!-- /tab-s-partners -->
+
+</div><!-- /container -->

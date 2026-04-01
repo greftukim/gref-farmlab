@@ -571,6 +571,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <button class="tab-btn nav-tab active" onclick="switchSection('ai',this)"><span class="nav-label" spellcheck="false">무인화(AI)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('robot',this)"><span class="nav-label" spellcheck="false">무인화(로봇)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('energy',this)"><span class="nav-label" spellcheck="false">에너지(부산물)</span></button>
+      <button class="tab-btn nav-tab" onclick="switchSection('solar',this)"><span class="nav-label" spellcheck="false">에너지(태양광)</span></button>
       <button class="tab-btn nav-tab" onclick="switchSection('education',this)"><span class="nav-label" spellcheck="false">교육</span></button>
       <div style="flex:1"></div>
       <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
@@ -1186,6 +1187,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 
 </div><!-- /container -->
 </div>
+  <div id="section-solar" class="section"></div>
   <div id="section-education" class="section"></div>
 
 </div><!-- /main-content -->
@@ -1674,7 +1676,7 @@ async function saveToGithub() {
 
   try {
     // 1) index.html 저장 — 섹션 콘텐츠 제외하고 저장 (크기 축소)
-    const sectionNames = ['home','nursery','robot','education','ai'];
+    const sectionNames = ['home','nursery','robot','energy','solar','education','ai'];
     const sectionBackup = {};
     sectionNames.forEach(name => {
       const el = document.getElementById('section-' + name);
@@ -1906,7 +1908,7 @@ function execInjectedScripts(container) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const sectionNames = ['home','nursery','robot','energy','education','ai'];
+  const sectionNames = ['home','nursery','robot','energy','solar','education','ai'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
     const html = await res.text();
