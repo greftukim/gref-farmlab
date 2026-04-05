@@ -579,7 +579,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 
 
 </head>
-<body class="has-subnav">
+<body class="">
 
 <!-- ═══════════════ STICKY BLUR HEADER ═══════════════ -->
 <header class="header">
@@ -589,23 +589,23 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <div class="header-sub" spellcheck="false">미래 온실(대규모 GRID) 효율적 운영을 위한 기술 개발 · 검증 · 확산</div>
     </div>
     <nav class="tabs" id="main-tabs">
-      <button class="tab-btn nav-tab" onclick="switchCategory('home',this)"><span class="nav-label" spellcheck="false">홈</span></button>
+      <button class="tab-btn nav-tab active" onclick="switchCategory('home',this)"><span class="nav-label" spellcheck="false">홈</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('automation',this)"><span class="nav-label" spellcheck="false">무인화</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('energy-cat',this)"><span class="nav-label" spellcheck="false">에너지</span></button>
-      <button class="tab-btn nav-tab active" onclick="switchCategory('productivity',this)"><span class="nav-label" spellcheck="false">생산성</span></button>
+      <button class="tab-btn nav-tab" onclick="switchCategory('productivity',this)"><span class="nav-label" spellcheck="false">생산성</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('education',this)"><span class="nav-label" spellcheck="false">교육</span></button>
       <div style="flex:1"></div>
       <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
         <span class="edit-mode-label" id="editModeLabel">편집모드 ON</span>
       </button>
     </nav>
-    <nav class="tabs sub-nav-bar" id="sub-nav" style="">
-      <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('ai',this)" style="display: none;"><span spellcheck="false">AI</span></button>
-      <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('robot',this)" style="display: none;"><span spellcheck="false">로봇</span></button>
+    <nav class="tabs sub-nav-bar" id="sub-nav" style="display: none;">
+      <button class="tab-btn sub-nav-tab active" data-cat="automation" onclick="switchSubSection('ai',this)" style=""><span spellcheck="false">AI</span></button>
+      <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('robot',this)" style=""><span spellcheck="false">로봇</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('energy',this)"><span spellcheck="false">부산물</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('solar',this)"><span spellcheck="false">태양광</span></button>
-      <button class="tab-btn sub-nav-tab" data-cat="productivity" style="" onclick="switchSubSection('nursery',this)"><span spellcheck="false">육묘</span></button>
-      <button class="tab-btn sub-nav-tab active" data-cat="productivity" style="" onclick="switchSubSection('seed',this)"><span spellcheck="false">종자</span></button>
+      <button class="tab-btn sub-nav-tab" data-cat="productivity" style="display: none;" onclick="switchSubSection('nursery',this)"><span spellcheck="false">육묘</span></button>
+      <button class="tab-btn sub-nav-tab" data-cat="productivity" style="display: none;" onclick="switchSubSection('seed',this)"><span spellcheck="false">종자</span></button>
     </nav>
   </div>
 </header>
@@ -641,9 +641,9 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 
 <!-- ═══════════════ SECTIONS ═══════════════ -->
 <div class="main-content">
-  <div id="section-home" class="section"></div>
+  <div id="section-home" class="section active"></div>
   <div id="section-nursery" class="section"></div>
-  <div id="section-seed" class="section active"></div>
+  <div id="section-seed" class="section"></div>
   <div id="section-ai" class="section"></div>
   <div id="section-robot" class="section"></div>
   <div id="section-energy" class="section"></div>
