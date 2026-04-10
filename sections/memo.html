@@ -26,12 +26,21 @@
   font-size: 13px;
   color: var(--fg-secondary);
   line-height: 1.8;
+  white-space: pre-wrap;
+}
+.memo-content:focus {
+  outline: none;
+  border-color: var(--border);
+  background: var(--surface2);
 }
 .memo-content p {
   margin: 0 0 8px;
 }
 .memo-content p:last-child {
   margin-bottom: 0;
+}
+.memo-content div {
+  min-height: 1em;
 }
 </style>
 

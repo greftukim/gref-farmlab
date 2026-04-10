@@ -1376,6 +1376,8 @@ document.addEventListener('keydown', e => {
   const el = document.activeElement;
   if (!el || el.contentEditable !== 'true') return;
   if (e.key === 'Enter') {
+    // 메모 영역에서는 Enter 줄바꿈 허용
+    if (el.closest('.memo-content')) return;
     // Allow Shift+Enter for newline in multi-line elements
     const multiline = ['P','DIV'].includes(el.tagName);
     if (!multiline || !e.shiftKey) {
