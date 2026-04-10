@@ -451,13 +451,13 @@
 
     <div class="robot-subtitle" spellcheck="false">개발 내역</div>
     <table class="robot-table">
-      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <thead><tr><th spellcheck="false" class="">항목</th><th spellcheck="false" class="">내용</th></tr></thead>
       <tbody>
-        <tr><td spellcheck="false">3D 카메라</td><td spellcheck="false">초소형 3D 카메라 구매(약 50만원) 후 ROS 시스템 연동</td></tr>
-        <tr><td spellcheck="false">디지털 트윈</td><td spellcheck="false">3D 카메라 기반 디지털 트윈 구현</td></tr>
-        <tr><td spellcheck="false">그리퍼</td><td spellcheck="false">외부 3D 프린트 의뢰 제작 (비용 5만원)</td></tr>
-        <tr><td spellcheck="false">비전 모델</td><td spellcheck="false">딸기 대상 YOLO 모델 학습 및 추론 완료</td></tr>
-        <tr><td spellcheck="false">통합 테스트</td><td spellcheck="false">YOLO 모델 적용 → 3D 카메라 좌표 인식 → 수확 테스트 진행</td></tr>
+        <tr><td spellcheck="false" class="">3D 카메라</td><td spellcheck="false" class="">초소형 3D 카메라 구매(약 50만원) 후 ROS 시스템 연동</td></tr>
+        <tr><td spellcheck="false" class="">디지털 트윈</td><td spellcheck="false" class="">3D 카메라 기반 디지털 트윈 구현</td></tr>
+        <tr><td spellcheck="false" class="">그리퍼</td><td spellcheck="false" class="">외부 3D 프린트 의뢰 제작 (비용 5만원)</td></tr>
+        <tr><td spellcheck="false" class="">비전 모델</td><td spellcheck="false" class="">딸기 대상 YOLO 모델 학습 및 추론 완료</td></tr>
+        <tr><td spellcheck="false" class="">통합 테스트</td><td spellcheck="false" class="">YOLO 모델 적용 → 3D 카메라 좌표 인식 → 수확 테스트 진행</td></tr>
       </tbody>
     </table>
 
@@ -465,21 +465,21 @@
     <div class="robot-banner" spellcheck="false">YOLO 모델 인지 후 그리퍼가 정확한 지점으로 이동하는 것 확인. 인식·위치 제어 정확도 양호.</div>
 
     <div class="robot-subtitle" spellcheck="false">현재 한계 및 향후 계획</div>
-    <div class="robot-banner" spellcheck="false">현재 커터칼 방식 그리퍼로 개발되어 있으나, 날이 무뎌 절단이 제대로 되지 않고 힘으로 부수는 방식으로 수확. <strong>가위형 그리퍼로 설계 변경 필요.</strong></div>
+    <div class="robot-banner" spellcheck="false">현재 커터칼 방식 그리퍼로 개발되어 있으나, 날이 무뎌 절단이 제대로 되지 않고 힘으로 부수는 방식으로 수확. <strong spellcheck="false" class="">가위형 그리퍼로 설계 변경 필요.</strong></div>
 
     <div class="robot-subtitle" spellcheck="false">영상</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
       <div>
-        <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
+        <video controls="" preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
           <source src="assets/robot/robot_harvest_test.mp4" type="video/mp4">
         </video>
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">로봇팔 수확 테스트 (절단은 되지 않으나 힘으로 수확되는 모습)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">로봇팔 수확 테스트 (절단은 되지 않으나 힘으로 수확되는 모습)</div>
       </div>
       <div>
-        <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
+        <video controls="" preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
           <source src="assets/robot/robot_digital_twin.mp4" type="video/mp4">
         </video>
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">모니터링 화면 녹화 (오른쪽이 디지털 트윈 기반 실시간 3D 화면)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">모니터링 화면 녹화 (오른쪽이 디지털 트윈 기반 실시간 3D 화면)</div>
       </div>
     </div>
 
@@ -487,15 +487,15 @@
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:28px;">
       <div>
         <img src="assets/robot/strawberry_yolo_01.jpg" alt="딸기 YOLO 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">딸기 YOLO 인식 결과 (strawberry 0.96)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">딸기 YOLO 인식 결과 (strawberry 0.96)</div>
       </div>
       <div>
         <img src="assets/robot/strawberry_yolo_02.jpg" alt="딸기 YOLO 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">딸기 YOLO 인식 결과 (strawberry 0.97)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">딸기 YOLO 인식 결과 (strawberry 0.97)</div>
       </div>
       <div>
         <img src="assets/robot/robot_hardware.jpg" alt="로봇팔 하드웨어" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">로봇팔 하드웨어 구성 (3D 카메라 + 그리퍼 + 모터 모듈)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">로봇팔 하드웨어 구성 (3D 카메라 + 그리퍼 + 모터 모듈)</div>
       </div>
     </div>
 
@@ -504,32 +504,32 @@
 
     <div class="robot-subtitle" spellcheck="false">개발 내역</div>
     <table class="robot-table">
-      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <thead><tr><th spellcheck="false" class="">항목</th><th spellcheck="false" class="">내용</th></tr></thead>
       <tbody>
-        <tr><td spellcheck="false">대상 작물</td><td spellcheck="false">오이</td></tr>
-        <tr><td spellcheck="false">개발 모델</td><td spellcheck="false">줄기 분기점 인식 모델</td></tr>
-        <tr><td spellcheck="false">학습 데이터</td><td spellcheck="false">자동 라벨링 프로그램 자체 개발로 생성</td></tr>
-        <tr><td spellcheck="false">데이터 규모</td><td spellcheck="false">약 300장</td></tr>
-        <tr><td spellcheck="false">인식 정확도</td><td spellcheck="false">95% 이상</td></tr>
+        <tr><td spellcheck="false" class="">대상 작물</td><td spellcheck="false" class="">오이</td></tr>
+        <tr><td spellcheck="false" class="">개발 모델</td><td spellcheck="false" class="">줄기 분기점 인식 모델</td></tr>
+        <tr><td spellcheck="false" class="">학습 데이터</td><td spellcheck="false" class="">자동 라벨링 프로그램 자체 개발로 생성</td></tr>
+        <tr><td spellcheck="false" class="">데이터 규모</td><td spellcheck="false" class="">약 300장</td></tr>
+        <tr><td spellcheck="false" class="">인식 정확도</td><td spellcheck="false" class="">95% 이상</td></tr>
       </tbody>
     </table>
 
     <div class="robot-subtitle" spellcheck="false">향후 계획</div>
     <div style="font-size:13px; color:var(--fg-secondary); line-height:1.75; margin-bottom:16px;">
-      <div style="padding:4px 0;" spellcheck="false">— 분기점 외 생육 정보 추출을 위한 다양한 추론 포인트 검토 및 모델 개발</div>
-      <div style="padding:4px 0;" spellcheck="false">— 3D 카메라 기반 현장 분기점 인식 진행</div>
-      <div style="padding:4px 0;" spellcheck="false">— 정부 제공 농산물 데이터 활용한 생육 모델 확장</div>
+      <div style="padding:4px 0;" spellcheck="false" class="">— 분기점 외 생육 정보 추출을 위한 다양한 추론 포인트 검토 및 모델 개발</div>
+      <div style="padding:4px 0;" spellcheck="false" class="">— 3D 카메라 기반 현장 분기점 인식 진행</div>
+      <div style="padding:4px 0;" spellcheck="false" class="">— 정부 제공 농산물 데이터 활용한 생육 모델 확장</div>
     </div>
 
     <div class="robot-subtitle" spellcheck="false">이미지</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
       <div>
         <img src="assets/robot/cucumber_branch_01.jpg" alt="오이 줄기 분기점 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">오이 줄기 분기점 인식 결과 (crop 0.75, 0.62)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">오이 줄기 분기점 인식 결과 (crop 0.75, 0.62)</div>
       </div>
       <div>
         <img src="assets/robot/cucumber_branch_02.jpg" alt="오이 줄기 분기점 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false">오이 줄기 분기점 인식 결과 (crop 0.87, 0.77)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="">오이 줄기 분기점 인식 결과 (crop 0.87, 0.77)</div>
       </div>
     </div>
 
