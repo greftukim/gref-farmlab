@@ -581,6 +581,14 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 </head>
 <body class="has-subnav">
 
+<!-- ═══════════════ PASSWORD GATE ═══════════════ -->
+<div id="password-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:var(--font-sans,sans-serif);">
+  <h2 style="margin-bottom:24px;font-weight:600;letter-spacing:-0.02em;">접근 비밀번호</h2>
+  <input type="password" id="gate-input" placeholder="비밀번호 입력" style="padding:12px 16px;font-size:14px;border:1px solid #ccc;border-radius:2px;width:260px;text-align:center;" />
+  <button id="gate-submit" style="margin-top:16px;padding:10px 32px;background:#111;color:#fff;border:none;border-radius:2px;font-size:13px;cursor:pointer;letter-spacing:0.02em;">입장</button>
+  <p id="gate-error" style="margin-top:12px;color:#c00;font-size:12px;display:none;">비밀번호가 올바르지 않습니다</p>
+</div>
+
 <!-- ═══════════════ STICKY BLUR HEADER ═══════════════ -->
 <header class="header">
   <div class="header-inner">
@@ -1434,5 +1442,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 </script>
 
+<script>
+(function() {
+  var SP = 'rmfpvm001';
+  var SK = 'gref_site_access';
+  var gate = document.getElementById('password-gate');
+  var inp = document.getElementById('gate-input');
+  var btn = document.getElementById('gate-submit');
+  var err = document.getElementById('gate-error');
+  if (sessionStorage.getItem(SK) === 'granted') { gate.style.display = 'none'; return; }
+  function verify() {
+    if (inp.value === SP) { sessionStorage.setItem(SK, 'granted'); gate.style.display = 'none'; }
+    else { err.style.display = 'block'; inp.value = ''; inp.focus(); }
+  }
+  btn.addEventListener('click', verify);
+  inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') verify(); });
+  window.addEventListener('DOMContentLoaded', function() { inp.focus(); });
+})();
+</script>
 
-<whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><whale-quicksearch translate="no" style="visibility: visible;"></whale-quicksearch><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a><a id="bottomBar" style="position: fixed; bottom: -40px; left: 0px; z-index: 9999; transform: translateX(-50%); background-color: transparent; border-radius: 5px 5px 0px 0px; opacity: 0.3; padding: 5px; transition: 0.3s; cursor: pointer; max-height: 100px; max-width: 45px;"><img src="chrome-extension://kobncfkmjelbefaoohoblamnbackjggk/icon/icon_32.png" style="width: 32px; height: 32px;"></a></body></html>
+</body></html> translate="no" style="visibility: visible;"></whale-quicksearch></body></html>
