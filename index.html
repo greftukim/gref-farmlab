@@ -594,6 +594,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <button class="tab-btn nav-tab" onclick="switchCategory('energy-cat',this)"><span class="nav-label" spellcheck="false">에너지</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('productivity',this)"><span class="nav-label" spellcheck="false">생산성</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('education',this)"><span class="nav-label" spellcheck="false">교육</span></button>
+      <button class="tab-btn nav-tab" onclick="switchCategory('memo',this)"><span class="nav-label" spellcheck="false">메모</span></button>
       <div style="flex:1"></div>
       <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
         <span class="edit-mode-label" id="editModeLabel">편집모드 ON</span>
@@ -651,6 +652,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
   <div id="section-energy" class="section"></div>
   <div id="section-solar" class="section"></div>
   <div id="section-education" class="section"></div>
+  <div id="section-memo" class="section"></div>
 
 </div><!-- /main-content -->
 <footer class="page-footer">GREF — Farm LAB 운영전략</footer>
@@ -662,7 +664,8 @@ var CAT_SECTIONS = {
   automation: ['ai', 'ai-work', 'robot'],
   'energy-cat': ['energy', 'solar'],
   productivity: ['nursery', 'seed'],
-  education: ['education']
+  education: ['education'],
+  memo: ['memo']
 };
 
 function switchCategory(cat, btn) {
@@ -1169,7 +1172,7 @@ async function saveToGithub() {
 
   try {
     // 1) index.html 저장 — 섹션 콘텐츠 제외하고 저장 (크기 축소)
-    const sectionNames = ['home','nursery','seed','robot','energy','solar','education','ai','ai-work'];
+    const sectionNames = ['home','nursery','seed','robot','energy','solar','education','ai','ai-work','memo'];
     const sectionBackup = {};
     sectionNames.forEach(name => {
       const el = document.getElementById('section-' + name);
@@ -1186,7 +1189,7 @@ async function saveToGithub() {
     console.log('[저장] index.html 완료');
 
     // 2) 각 섹션 파일도 저장 (fetch로 덮어쓰이는 파일들)
-    const sectionFiles = ['home','nursery','robot','education','ai-work'];
+    const sectionFiles = ['home','nursery','robot','education','ai-work','memo'];
     let savedCount = 1; // index.html already saved
     const totalFiles = sectionFiles.length + 7 + 1; // sections + ai sub-files + index
     for (const name of sectionFiles) {
@@ -1401,7 +1404,7 @@ function execInjectedScripts(container) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const sectionNames = ['home','nursery','seed','robot','energy','solar','education','ai','ai-work'];
+  const sectionNames = ['home','nursery','seed','robot','energy','solar','education','ai','ai-work','memo'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
     const html = await res.text();
