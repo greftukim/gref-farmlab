@@ -1,0 +1,229 @@
+<style>
+/* AI Work section — scoped monochrome */
+.aiw-hero {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.aiw-hero-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.aiw-hero-sub {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+.aiw-hero-body {
+  font-size: 14px;
+  color: var(--fg-secondary);
+  line-height: 1.75;
+}
+.aiw-section {
+  margin-bottom: 40px;
+}
+.aiw-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.aiw-subtitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 10px;
+}
+.aiw-body {
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.aiw-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.aiw-table th {
+  background: var(--surface2);
+  color: var(--fg-muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.aiw-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--fg);
+  line-height: 1.5;
+}
+.aiw-table tr:last-child td { border-bottom: none; }
+.aiw-note {
+  font-size: 12px;
+  color: var(--fg-secondary);
+  background: var(--surface2);
+  border-left: 3px solid var(--fg);
+  padding: 12px 16px;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.aiw-diff-group {
+  margin-bottom: 28px;
+}
+.aiw-diff-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.aiw-diff-body {
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.75;
+}
+.aiw-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.aiw-list li {
+  font-size: 13px;
+  color: var(--fg);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+.aiw-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--fg-muted);
+}
+.aiw-list li:last-child { border-bottom: none; }
+</style>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="aiw-hero">
+    <div class="aiw-hero-title" spellcheck="false">GREF FarmWork</div>
+    <div class="aiw-hero-sub" spellcheck="false">온실 운영 통합 관리 및 데이터 수집 플랫폼</div>
+    <div class="aiw-hero-body" spellcheck="false">GREF 산하 3개 지점(부산LAB, 진주HUB, 하동)에서 운영 중인 인력·작업·생육 통합 관리 시스템. 일상의 운영을 디지털화하는 동시에, 축적되는 작업 데이터를 향후 재배 AI 학습 자산으로 활용하는 것이 본 프로젝트의 우선 목적.</div>
+  </div>
+
+  <!-- 섹션 1: 추진 배경 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">01 — 추진 배경</div>
+    <div class="aiw-subtitle" spellcheck="false">농업 데이터화의 구조적 공백</div>
+    <div class="aiw-body" spellcheck="false">기존 농업 IT 시스템의 데이터 수집 범위는 크게 두 영역에 집중. 환경 센서 데이터(온도·습도·CO₂ 등)와 수확량 집계 데이터. 두 영역 사이에 위치한 작업 데이터 — 누가, 언제, 어떤 농작업을, 얼마나 수행했는가 — 는 대부분의 시스템에서 누락되거나 비정형으로만 기록됨.</div>
+    <div class="aiw-body" spellcheck="false">작물 생육은 환경 변수와 작업 변수의 복합 결과물. 예를 들어 적엽 작업은 작물의 증산량을 직접 변화시키며, 이는 온실 내부 환경에 영향을 주고, 다시 다음 단계 생육에 작용. 작업 데이터의 부재는 생육 결과의 인과 분석을 불가능하게 함.</div>
+    <div class="aiw-body" spellcheck="false">GREF FarmWork는 이 누락된 작업 데이터 영역을 체계적으로 수집·정형화하기 위해 개발됨.</div>
+  </div>
+
+  <!-- 섹션 2: 시스템 구성 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">02 — 시스템 구성</div>
+    <div class="aiw-subtitle" spellcheck="false">작업자 모바일 + 관리자 웹의 통합 PWA</div>
+    <table class="aiw-table">
+      <thead><tr><th>구분</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td spellcheck="false">작업자 인터페이스</td><td spellcheck="false">QR 기반 출퇴근, 작업 기록, 생육 조사 입력, 이상 신고·호출</td></tr>
+        <tr><td spellcheck="false">관리자 인터페이스</td><td spellcheck="false">작업 지시, 인력 운용, 근태·휴가 관리, 전체 현황 모니터링</td></tr>
+        <tr><td spellcheck="false">데이터 저장</td><td spellcheck="false">모든 작업 기록은 작물·구역·시점·담당자 메타데이터와 결합되어 저장</td></tr>
+        <tr><td spellcheck="false">권한 체계</td><td spellcheck="false">작업자, 재배팀장, 관리팀, 총괄, 마스터 5단계. 지점별 데이터 격리 적용</td></tr>
+        <tr><td spellcheck="false">기술 기반</td><td spellcheck="false">PWA(Progressive Web App)로 별도 앱 설치 불필요</td></tr>
+      </tbody>
+    </table>
+    <div class="aiw-note" spellcheck="false">인력·작업·근태 관리 기능 자체로도 운영상 가치를 가지나, 본 프로젝트의 우선 목적은 이 기능들을 통해 자연스럽게 축적되는 작업 데이터의 수집·정형화에 있음.</div>
+  </div>
+
+  <!-- 섹션 3: 차별점 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">03 — 차별점</div>
+
+    <div class="aiw-diff-group">
+      <div class="aiw-diff-title" spellcheck="false">3-1. 작업 데이터 완결성</div>
+      <div class="aiw-diff-body" spellcheck="false">환경 데이터·수확량 데이터에 더해 작업 데이터까지 포함한 통합 데이터셋 구축. 작업자가 별도 보고서를 작성하지 않으며, 평소 업무 흐름이 그대로 데이터 원천이 되는 구조. 기록 부담으로 인한 작업 효율 저하 없음.</div>
+    </div>
+
+    <div class="aiw-diff-group">
+      <div class="aiw-diff-title" spellcheck="false">3-2. 다지점 동시 운영 검증</div>
+      <div class="aiw-diff-body" spellcheck="false">3개 지점에서 단일 시스템으로 동시 운영 중. 지점 간 데이터 격리, 권한 분리, 통합 관제 구조가 실제 운영 환경에서 검증됨. 외부 농가로의 확장 시 필요한 다지점 운영 기반이 이미 확보된 상태.</div>
+    </div>
+
+    <div class="aiw-diff-group">
+      <div class="aiw-diff-title" spellcheck="false">3-3. 권한·보안 체계 정비</div>
+      <div class="aiw-diff-body" spellcheck="false">5단계 권한 체계 및 데이터베이스 수준의 행 단위 보안(RLS) 적용 완료(2026년 4월). 지점 간 데이터 격리, 역할별 접근 제한, 감사 추적 기반이 갖춰짐.</div>
+    </div>
+  </div>
+
+  <!-- 섹션 4: 데이터 활용 방향 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">04 — 데이터 활용 방향</div>
+    <div class="aiw-subtitle" spellcheck="false">두 가지 AI 모델의 학습 데이터 공급</div>
+    <div class="aiw-body" spellcheck="false">축적된 데이터는 두 가지 방향의 AI 모델 학습에 활용 예정.</div>
+    <table class="aiw-table">
+      <thead><tr><th>모델</th><th>설명</th></tr></thead>
+      <tbody>
+        <tr><td spellcheck="false">재배 AI</td><td spellcheck="false">작업·작물·환경 변수의 인과관계 학습. 작물 상태에 따른 최적 농작업 시점·종류·강도 제안. 사람의 경험에 의존하던 농법 의사결정을 데이터 기반으로 전환</td></tr>
+        <tr><td spellcheck="false">인력 배치 AI (향후 도입)</td><td spellcheck="false">작업자별 작업 속도·정확도·학습 곡선 데이터를 기반으로 일별 최적 인력 배치 제안. 같은 인력 규모에서 작업 처리량 증대 및 신규 작업자 학습 기간 단축 기대</td></tr>
+      </tbody>
+    </table>
+    <div class="aiw-note" spellcheck="false">두 모델 모두 동일한 데이터 플랫폼 위에서 학습됨. 별도 데이터 수집 인프라 구축 비용 없음.</div>
+  </div>
+
+  <!-- 섹션 5: 확장 가능성 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">05 — 확장 가능성</div>
+    <div class="aiw-subtitle" spellcheck="false">외부 농가 보급을 통한 데이터 자산 다변화</div>
+    <div class="aiw-body" spellcheck="false">단일 농장 데이터만으로는 AI 모델의 일반화에 한계. 작물 종류, 기후 조건, 운영 방식이 상이한 다수 농장의 데이터 확보가 모델 정확도 향상의 핵심 조건.</div>
+    <div class="aiw-body" spellcheck="false">GREF FarmWork를 외부 농가에 보급하는 경우, 도입 농가는 즉시 운영 가능한 농장 관리 도구 확보, GREF는 다양한 환경의 학습 데이터 확보. 양방향 가치 교환 구조 성립 가능.</div>
+    <div class="aiw-body" spellcheck="false">이 구조가 정착될 경우, GREF는 자체 온실 운영을 넘어 농업 데이터 인프라 보유 기업으로의 포지셔닝 전환 가능.</div>
+  </div>
+
+  <!-- 섹션 6: 현재 단계 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">06 — 현재 단계</div>
+    <div class="aiw-subtitle" spellcheck="false">운영 안정화 진행 중</div>
+    <table class="aiw-table">
+      <thead><tr><th>구분</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td spellcheck="false">현재 상태</td><td spellcheck="false">GREF 산하 3개 지점에서 일상 운영 중</td></tr>
+        <tr><td spellcheck="false">2026년 4월 완료</td><td spellcheck="false">권한 체계 재설계, 데이터 보안 정책 정비, 사용자 인터페이스 재구성</td></tr>
+        <tr><td spellcheck="false">진행 중</td><td spellcheck="false">일용직·시급제 작업자 관리, 포장 작업 관리 모듈 개발</td></tr>
+        <tr><td spellcheck="false">다음 단계</td><td spellcheck="false">데이터 분석 도구 개발, 외부 도입처 확보 준비</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 섹션 7: 요약 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">07 — 요약</div>
+    <div class="aiw-subtitle" spellcheck="false">핵심 메시지</div>
+    <ul class="aiw-list">
+      <li spellcheck="false">인력·작업 관리 기능을 통해 농작업 데이터를 체계적으로 수집·정형화하는 플랫폼</li>
+      <li spellcheck="false">농작업 데이터의 체계적 수집은 재배 AI 개발의 필수 조건</li>
+      <li spellcheck="false">3개 지점 운영을 통해 다지점 확장 기반 확보</li>
+      <li spellcheck="false">외부 보급 시 GREF의 사업 영역을 농업 데이터 인프라로 확장 가능</li>
+    </ul>
+  </div>
+
+</div>
