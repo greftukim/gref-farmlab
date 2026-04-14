@@ -601,7 +601,6 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <button class="tab-btn nav-tab" onclick="switchCategory('automation',this)"><span class="nav-label" spellcheck="false">1)무인화</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('energy-cat',this)"><span class="nav-label" spellcheck="false">2)에너지</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('productivity',this)"><span class="nav-label" spellcheck="false">3)생산성</span></button>
-      <button class="tab-btn nav-tab" onclick="switchCategory('education',this)"><span class="nav-label" spellcheck="false">4)육성</span></button>
       <button class="tab-btn nav-tab active" onclick="switchCategory('memo',this)"><span class="nav-label" spellcheck="false">[진행현황]</span></button>
       <div style="flex:1"></div>
       <button class="edit-mode-btn" id="editModeBtn" onclick="toggleEditMode()">
@@ -611,6 +610,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
     <nav class="tabs sub-nav-bar" id="sub-nav" style="">
       <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('ai',this)" style="display: none;"><span spellcheck="false">AI(재배)</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('ai-work',this)" style="display: none;"><span spellcheck="false">AI(작업 관리)</span></button>
+      <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('education',this)" style="display: none;"><span spellcheck="false">육성</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('robot',this)" style="display: none;"><span spellcheck="false">로봇</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('energy',this)"><span spellcheck="false">부산물</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('solar',this)"><span spellcheck="false">태양광</span></button>
@@ -669,10 +669,9 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 <script>
 var CAT_SECTIONS = {
   home: ['home'],
-  automation: ['ai', 'ai-work', 'robot'],
+  automation: ['ai', 'ai-work', 'education', 'robot'],
   'energy-cat': ['energy', 'solar'],
   productivity: ['nursery', 'seed'],
-  education: ['education'],
   memo: ['memo']
 };
 
@@ -680,7 +679,7 @@ function switchCategory(cat, btn) {
   document.querySelectorAll('#main-tabs .nav-tab').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
 
-  var hasSubs = cat !== 'home' && cat !== 'education';
+  var hasSubs = cat !== 'home' && cat !== 'memo';
   var subNav = document.getElementById('sub-nav');
   subNav.style.display = hasSubs ? '' : 'none';
   document.body.classList.toggle('has-subnav', hasSubs);
