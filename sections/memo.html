@@ -49,7 +49,28 @@
   <div class="memo-section">
     <h2 class="memo-section-title" spellcheck="false">AI (재배·작업 관리)</h2>
     <div class="memo-content" spellcheck="false">
-      <p spellcheck="false" class="">1) 적용모델 선정(Tomgrow, carmansi, DeePC, XGboost)과 필요 Dataset 정리와 현황 파악&nbsp; &nbsp;<br>- 예측: Carmassi(EC예측)→TOMGRO(생육예측) + XGBoost(단기환경예측) → DeePC가 목표 생육과의 GAP을 줄이는 환경 제어값 산출&nbsp;<br>- 실행: LLM이 제어 근거를 재배사에게 설명 → 재배사 승인 → 제어 실행 → 결과 피드백으로 각 모델 지속 개선<br>2) 외부 데이터 확인 (과기부 AI허브-온실 및 육묘장 데이터 다운로드 중) 및 적용모델 확인 예정&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3) 농작업 및 생육조사 사이트 개발 ; GREF Farm Work<br><br><b spellcheck="false" class="">[목표와 방향성]<br>재배 AI는 모든 것을 시작과 연결점으로 포기할 수 없는 두뇌 영역. <br>그리고 향후 GRID 개발을 통해 고밀도 데이터를 수집 활용할 수 있다면 시장 경쟁력 확보 가능.<br>=&gt; FarmLAB은 고밀도 데이터 온실이 되어야 함.&nbsp;</b><br><br></p>
+      <p spellcheck="false" class="">1) 적용모델 선정(Tomgrow, carmansi, DeePC, XGboost)과 필요 Dataset 정리와 현황 파악&nbsp; &nbsp;<br>- 예측: Carmassi(EC예측)→TOMGRO(생육예측) + XGBoost(단기환경예측) → DeePC가 목표 생육과의 GAP을 줄이는 환경 제어값 산출&nbsp;<br>- 실행: LLM이 제어 근거를 재배사에게 설명 → 재배사 승인 → 제어 실행 → 결과 피드백으로 각 모델 지속 개선<br>2) 외부 데이터 확인 (과기부 AI허브-온실 및 육묘장 데이터 다운로드 중) 및 적용모델 확인 예정&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3) 농작업 및 생육조사 사이트 개발 ; GREF Farm Work<br><br><b spellcheck="false" class="">[목표와 방향성]<br>재배 AI는 모든 것을 시작과 연결점으로 포기할 수 없는 두뇌 영역. <br>그리고 향후 GRID 개발을 통해 고밀도 데이터를 수집 활용할 수 있다면 시장 경쟁력 확보 가능.<br>=&gt; FarmLAB은 고밀도 데이터 온실이 되어야 함.&nbsp;
+</b>
+[우리의 개발 계획]</p><div>1) 로봇팔 커스텀 그리퍼 움직임 테스트 (완료)
+ 
+2) 로봇팔 가위형 그리퍼 개발 (현재 진행중)
+ 
+3) 외부업체 의뢰를 통한 가위형 금속 가공
+ 
+4) 가위형 그리퍼 절단 테스트
+ 
+5) 로봇팔 전체 개조
+ 
+- 4축 → 5축 : 손목 회전 추가
+ 
+- 전체 형태를 기존 산업용 로봇과 비슷한 형태로 설계
+ 
+- 5축 로봇팔 움직임 테스트
+ 
+6) 리프트 및 슬라이드 개발
+ 
+7) 하체 접목하여 테스트 진행 : 하반기 현대 모베드 구매
+끝</div><p></p>
     </div>
   </div>
 
@@ -57,12 +78,38 @@
     <h2 class="memo-section-title" spellcheck="false">로봇</h2>
     <div class="memo-content" spellcheck="false">
       <p spellcheck="false" class="">1) 수확로봇 관련 그리퍼 샘플 제작 및 테스트(박현도G)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2) 생육조사 자동화 방안 검토(박현도G/김태우M) ; 현 작물 인식(3D 비저닝 카메라) 및 주요 측정기준점 인식 가능 확인. 이후 드론 테스팅 예정
-- 4/14 아이모스 드론 적용 불가</p><div>- 거터 사이 접근 가능한 드론 서칭 및 일단은 드론 통한 자동 생육조사로 방향 잡기 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+- 4/14 아이모스 드론 적용 불가</p><div spellcheck="false" class="">- 거터 사이 접근 가능한 드론 서칭 및 일단은 드론 통한 자동 생육조사로 방향 잡기 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 3) 협업 기업 탐색
 - 메타파머스 대표 방문(4/14, FarmLAB) ; 현재 딸기 수확로봇 제품화 집중, 오이 poc중(아이오크롭스 진천 농장), 방제로봇은 제품화하여 판매 중(거터 사이도 자동으로 이관), 작업로봇 내년말 개발 예정(토마토 적과, 오이 적엽 등), 생육조사는 일부 내부 목적 상 연구목적으로 사용중(드론 형태)
 . 협업 포인트 : 수확로봇 (오이, 2차 POC, 10월경) / 방제는 우리도 필요하나 구매해야 하는 영역/ 수확 말고 적과(토마토), 적엽(오이) 등 농작업에 대한 로봇 사전 개
 </div><p></p><div spellcheck="false" class="">발 단계/ 생육조사로봇은 우리가 관심있어 대여 또는 공동 개발
-. 메타파머스 쪽 내부 협의 후 빠른 시간내 피드백 받기로 함<br><br></div><p></p>
+. 메타파머스 쪽 내부 협의 후 빠른 시간내 피드백 받기로 함
+
+[우리 생육조사 모델 개발 계획]
+1) 오이 줄기 분기점 인식 비전 모델 개발 (완료)
+ 
+2) 오이 최상단 인식 비전 모델 개발 (현재 진행중)
+ 
+3) 드론 사양 확인 및 구매
+ 
+- 스마트팜 실내용 드론 : 가로길이 30cm 내외 프레임
+ 
+- 사람 및 작물에 대한 안전 : 프로펠러 가드 필요
+ 
+- SLAM 및 비전 연산이 가능한 CPU 장착
+ 
+- 듀얼 카메라 장착 (가능하면 로봇팔용 기존에 구매했던 D405 사용 검토)
+ 
+- ROS2 및 자율 주행 가능 시스템 장착
+ 
+4) 드론 스마트팜 실제 환경 테스트
+ 
+5) 최상단 및 분기점 인식 정보를 활용하여 환경정보와 융합된 머신러닝/딥러닝 모델 개발 
+ 
+6) 드론 자율 충전 시스템 개발
+ 
+7) 드론 자율 주행 실시
+ <br><br></div><p></p>
     </div>
   </div>
 
