@@ -3538,15 +3538,16 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       <button class="proj-top-tab" data-proj-tab="roadmap">개발 로드맵</button>
       <button class="proj-top-tab" data-proj-tab="agreement">협의 사항</button>
       <button class="proj-top-tab" data-proj-tab="glossary">용어 설명</button>
+      <button class="proj-top-tab" data-proj-tab="sampletest">샘플 테스트</button>
     </nav>
 <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display:flex">
       <button class="tab-btn active" data-tab="ai-basic">AI 기초</button>
       <button class="tab-btn" data-tab="agri-ai">농업 AI 구조</button>
       <button class="tab-btn" data-tab="direction">방향성</button>
-      <button class="tab-btn" data-tab="overview">모델 총괄표</button>
+      <button class="tab-btn" data-tab="overview">모델 비교</button>
       <button class="tab-btn" data-tab="detail">모델 상세</button>
       <button class="tab-btn" data-tab="agc">AGC 2024</button>
-      <button class="tab-btn" data-tab="io">I/O 분석</button>
+      <button class="tab-btn" data-tab="io">필요 데이터 확인</button>
       <button class="tab-btn" data-tab="applicability">적용 가능성</button>
     </nav>
 <nav class="proj-sub-tabs" id="analysis-sub-tabs" style="display:none">
@@ -4883,6 +4884,18 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
 </section>
 
+<!-- ── 샘플 테스트 (farm-ai 임베드) ── -->
+<section id="panel-proj-sampletest" class="proj-panel">
+  <div style="max-width:1200px;margin:0 auto;padding:0 16px;">
+    <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">샘플 테스트</h2>
+    <p style="font-size:13px;color:var(--fg-muted);margin-bottom:16px">방울토마토 수확량 예측 AI — Phase 1.5 검증 결과 (gref-farm-ai)</p>
+    <div style="width:100%;height:calc(100vh - 200px);min-height:600px;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface)">
+      <iframe src="https://greftukim.github.io/gref-farm-ai/" style="width:100%;height:100%;border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <p style="font-size:12px;color:var(--fg-muted);margin-top:12px">원본: <a href="https://greftukim.github.io/gref-farm-ai/" target="_blank" rel="noopener" style="color:var(--fg);text-decoration:underline">greftukim.github.io/gref-farm-ai</a></p>
+  </div>
+</section>
+
 <!-- ── 현황 분석 WRAPPER ── -->
 <div class="proj-panel" id="panel-proj-analysis">
 
@@ -6048,370 +6061,333 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 
 
 <section class="tab-panel" id="panel-direction" data-title="방향성">
+<!-- 방향성 → 현황 분석 내용으로 교체 -->
+<div class="analysis-section">
+
+<h2 class="analysis-h2">데이터 검증</h2>
+
+<h3 class="analysis-h3">1-1. 학습 데이터 구성</h3>
+
+<div class="analysis-note"><strong>검증 목적:</strong><br>외부 AI 모델을 도입하기 전에, 우리 온실 데이터에 실제로 패턴이 존재하는지 확인하기 위해 자체 데이터로 머신러닝 PoC(개념 검증) 실시</div>
+
+<div class="analysis-code">검증 대상:
+  온실: 1번 온실
+  품종: 토마지노 (토마토)
+  모델: Random Forest
+  데이터: 32주간 주간 단위 생육 조사 + 환경 데이터</div>
+
+<div class="analysis-code">X (입력 — 환경 센서):
+  주차, 평균누적광량, 낮평균온도, 야간평균온도, 24시간평균온도,
+  낮RH, 야간RH, 24시간RH, 낮평균CO₂, 일일평균흡수량
+
+Y (출력 — 생육 지표):
+  주간생장길이 / 엽면적지수 / 줄기굵기 / 개화속도 / 수확량</div>
 
 
-<!-- ============================================================ -->
-<!-- Section 1: 데이터 표준화                                       -->
-<!-- ============================================================ -->
-<div class="direction-section">
-  <h3 class="direction-section-title">데이터 표준화</h3>
 
-  <div class="direction-callout">
-    <strong>왜 데이터가 먼저인가</strong><br>
-    AI 모델은 나중에 바꿀 수 있지만, 데이터가 없으면 아무것도 못 함. 모델 선택보다 데이터 수집 체계가 우선
-  </div>
-
-  <div class="direction-cards-3">
-    <div class="direction-card">
-      <div class="direction-card-title">센서 데이터</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>온습도, CO&#8322;, 조도, EC, pH</li>
-          <li>분 단위 자동 로그</li>
-          <li>파생변수: VPD, GDD, DLI, DIF, RTR</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">생육 데이터</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>주간 생장길이, 줄기 두께</li>
-          <li>화방 수, 착과수</li>
-          <li>주 1회 수동 조사</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">수확 데이터</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>수확량(kg), 폐기량(kg)</li>
-          <li>품질 등급(A/B/C)</li>
-          <li>낙찰가(원/kg)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">외부 데이터</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>기상청: 온도, 일사량, 강수</li>
-          <li>KAMIS: 경매 가격</li>
-          <li>aT: 반입량</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">에너지 데이터</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>전기/가스 사용량</li>
-          <li>시간대별 요금 단가</li>
-          <li>일별 기록</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 작업 일지 표준화 -->
-  <details class="direction-details" style="margin-top:24px;">
-    <summary>작업 일지 표준화</summary>
-    <div class="direction-details-body">
-      <h4>작업 일지가 필요한 이유</h4>
-      <p>AI가 센서 데이터만 보면 "왜 갑자기 이런 값이 나왔는지" 알 수 없음</p>
-      <div class="direction-sub-detail">
-        <strong>예시</strong>
-        센서 로그: 3/15 습도 급락, 온도 상승<br>
-        원인: 적엽 작업 &rarr; 잎 면적 감소 &rarr; 증산 감소<br>
-        작업 기록이 없으면 AI는 이 데이터를 이상치로 판단
-      </div>
-
-      <h4>수치화 원칙: 했다(1) / 안했다(0)만 기록</h4>
-      <div class="direction-table-wrap">
-        <table class="direction-table">
-          <thead>
-            <tr>
-              <th>날짜</th>
-              <th>온도</th>
-              <th>습도</th>
-              <th>적엽</th>
-              <th>방제</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>3/14</td><td>24</td><td>75</td><td>0</td><td>0</td></tr>
-            <tr><td>3/15</td><td>26</td><td>60</td><td>1</td><td>0</td></tr>
-            <tr><td>3/16</td><td>25</td><td>63</td><td>0</td><td>0</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h4>세부 수치를 넣지 않는 이유</h4>
-      <ul>
-        <li>재배사마다 기록 방식이 다름</li>
-        <li>누락, 오기입이 빈번</li>
-        <li>모델이 엉뚱한 패턴 학습할 위험</li>
-      </ul>
-
-      <h4>수치화 불가능한 경우</h4>
-      <p>"실수로 온도 잘못 건드림" 등 &rarr; 해당 날짜 데이터를 학습에서 제외</p>
-
-      <h4>체크리스트 시스템</h4>
-      <ul>
-        <li>센서 정상 + 생육 이상 감지 &rarr; 재배사에게 확인 리스트 전달</li>
-        <li>미완료 항목 &rarr; 작업 알람 발송</li>
-      </ul>
-    </div>
-  </details>
-
-  <div class="direction-callout" style="margin-top:24px;">
-    <strong>데이터 전처리</strong><br>
-    결측치 보간, 센서 드리프트 감지, 파생변수 자동 산출, "추천값 vs 실제적용값" 로그 분리 저장. AI 학습 시간의 60~70%가 여기서 소요
-  </div>
+<div class="analysis-data-table-wrap">
+<table>
+<thead><tr>
+<th>주차</th><th>평균누적광량</th><th>낮평균온도</th><th>야간평균온도</th><th>24시간평균온도</th><th>낮RH</th><th>야간RH</th><th>24시간RH</th><th>낮평균CO2</th><th>일일평균흡수량</th><th class="y-var">주간생장길이</th><th class="y-var">엽면적지수</th><th class="y-var">줄기굵기</th><th class="y-var">개화속도</th><th class="y-var">수확량</th>
+</tr></thead>
+<tbody>
+<tr><td>1</td><td>2783.285</td><td>29.085</td><td>24.657</td><td>27.571</td><td>82.885</td><td>86.557</td><td>84.257</td><td>417.671</td><td>672.857</td><td>29.000</td><td>2.000</td><td>11.200</td><td>2.400</td><td>0.0</td></tr>
+<tr><td>2</td><td>2569.571</td><td>29.328</td><td>23.971</td><td>27.014</td><td>84.714</td><td>87.100</td><td>85.514</td><td>413.471</td><td>641.428</td><td>28.666</td><td>3.799</td><td>11.933</td><td>0.966</td><td>0.0</td></tr>
+<tr><td>3</td><td>1383.142</td><td>28.242</td><td>24.742</td><td>26.828</td><td>85.742</td><td>89.671</td><td>87.542</td><td>433.614</td><td>745.000</td><td>27.166</td><td>2.008</td><td>12.666</td><td>2.033</td><td>0.0</td></tr>
+<tr><td>4</td><td>2060.285</td><td>29.028</td><td>24.042</td><td>26.514</td><td>81.771</td><td>88.485</td><td>84.985</td><td>435.957</td><td>617.142</td><td>30.333</td><td>2.974</td><td>10.143</td><td>1.066</td><td>13.0</td></tr>
+<tr><td>5</td><td>2406.142</td><td>30.457</td><td>25.385</td><td>28.057</td><td>79.014</td><td>89.100</td><td>83.785</td><td>432.675</td><td>833.333</td><td>28.166</td><td>4.198</td><td>10.466</td><td>1.266</td><td>247.7</td></tr>
+<tr><td>6</td><td>2065.428</td><td>29.714</td><td>24.600</td><td>27.385</td><td>79.942</td><td>88.899</td><td>84.028</td><td>435.385</td><td>660.285</td><td>26.333</td><td>2.304</td><td>11.110</td><td>1.333</td><td>220.1</td></tr>
+<tr><td>7</td><td>1883.285</td><td>29.214</td><td>24.014</td><td>26.642</td><td>81.885</td><td>87.957</td><td>84.500</td><td>425.542</td><td>648.000</td><td>22.833</td><td>2.616</td><td>10.443</td><td>1.933</td><td>300.4</td></tr>
+<tr><td>8</td><td>1279.000</td><td>27.071</td><td>22.657</td><td>25.042</td><td>81.942</td><td>88.342</td><td>85.085</td><td>437.557</td><td>758.761</td><td>27.000</td><td>3.128</td><td>10.053</td><td>0.966</td><td>32.5</td></tr>
+<tr><td>9</td><td>1430.571</td><td>27.100</td><td>22.242</td><td>24.800</td><td>81.771</td><td>91.128</td><td>86.171</td><td>444.942</td><td>676.571</td><td>27.333</td><td>3.060</td><td>9.936</td><td>1.233</td><td>188.3</td></tr>
+<tr><td>10</td><td>1345.428</td><td>26.514</td><td>22.600</td><td>24.485</td><td>82.428</td><td>89.342</td><td>86.071</td><td>439.257</td><td>817.428</td><td>28.333</td><td>4.753</td><td>10.400</td><td>0.966</td><td>247.0</td></tr>
+<tr><td>11</td><td>1215.000</td><td>25.914</td><td>21.985</td><td>23.942</td><td>80.542</td><td>91.885</td><td>86.071</td><td>450.000</td><td>1082.333</td><td>29.666</td><td>4.835</td><td>11.120</td><td>0.733</td><td>201.2</td></tr>
+<tr><td>12</td><td>1068.571</td><td>25.885</td><td>21.457</td><td>23.714</td><td>81.971</td><td>93.100</td><td>87.385</td><td>441.514</td><td>1075.000</td><td>29.333</td><td>4.388</td><td>11.013</td><td>1.699</td><td>175.0</td></tr>
+<tr><td>13</td><td>741.428</td><td>24.871</td><td>20.828</td><td>22.957</td><td>86.100</td><td>93.399</td><td>89.871</td><td>450.357</td><td>745.666</td><td>22.000</td><td>4.172</td><td>10.000</td><td>1.200</td><td>270.9</td></tr>
+<tr><td>14</td><td>1194.142</td><td>22.657</td><td>17.557</td><td>20.014</td><td>77.542</td><td>89.785</td><td>84.242</td><td>457.285</td><td>994.333</td><td>24.666</td><td>4.139</td><td>9.890</td><td>1.600</td><td>248.5</td></tr>
+<tr><td>15</td><td>1486.000</td><td>23.120</td><td>17.300</td><td>20.020</td><td>77.340</td><td>85.700</td><td>81.880</td><td>467.320</td><td>912.666</td><td>18.833</td><td>4.975</td><td>13.933</td><td>0.699</td><td>294.6</td></tr>
+<tr><td>16</td><td>1104.000</td><td>23.816</td><td>18.666</td><td>21.050</td><td>83.883</td><td>89.966</td><td>87.050</td><td>490.850</td><td>650.380</td><td>20.333</td><td>4.942</td><td>11.523</td><td>0.800</td><td>348.4</td></tr>
+<tr><td>17</td><td>1217.428</td><td>23.857</td><td>18.742</td><td>21.028</td><td>82.428</td><td>87.571</td><td>85.271</td><td>495.157</td><td>766.000</td><td>24.166</td><td>3.027</td><td>11.220</td><td>1.600</td><td>214.3</td></tr>
+<tr><td>18</td><td>1290.142</td><td>23.642</td><td>18.771</td><td>20.914</td><td>82.571</td><td>83.114</td><td>83.700</td><td>474.028</td><td>736.666</td><td>23.833</td><td>3.631</td><td>11.356</td><td>1.066</td><td>315.3</td></tr>
+<tr><td>19</td><td>1051.285</td><td>23.700</td><td>18.085</td><td>20.442</td><td>83.385</td><td>88.185</td><td>86.285</td><td>526.871</td><td>609.142</td><td>24.166</td><td>4.499</td><td>11.733</td><td>0.900</td><td>580.7</td></tr>
+<tr><td>20</td><td>1160.428</td><td>23.085</td><td>17.728</td><td>19.971</td><td>81.114</td><td>78.628</td><td>79.914</td><td>492.442</td><td>638.000</td><td>24.000</td><td>2.907</td><td>10.333</td><td>0.966</td><td>184.2</td></tr>
+<tr><td>21</td><td>965.714</td><td>22.828</td><td>17.685</td><td>19.871</td><td>80.214</td><td>77.114</td><td>78.771</td><td>508.699</td><td>608.285</td><td>27.166</td><td>2.575</td><td>10.333</td><td>1.333</td><td>384.8</td></tr>
+<tr><td>22</td><td>867.285</td><td>22.871</td><td>18.000</td><td>19.961</td><td>79.257</td><td>77.214</td><td>78.371</td><td>486.428</td><td>525.714</td><td>21.000</td><td>2.545</td><td>9.813</td><td>1.166</td><td>312.6</td></tr>
+<tr><td>23</td><td>1000.142</td><td>21.957</td><td>17.642</td><td>19.357</td><td>73.042</td><td>70.142</td><td>70.885</td><td>488.228</td><td>578.571</td><td>24.500</td><td>2.765</td><td>9.690</td><td>1.233</td><td>374.2</td></tr>
+<tr><td>24</td><td>1078.000</td><td>20.685</td><td>16.828</td><td>18.371</td><td>75.628</td><td>72.500</td><td>73.785</td><td>491.200</td><td>654.857</td><td>26.166</td><td>3.193</td><td>9.110</td><td>1.166</td><td>290.6</td></tr>
+<tr><td>25</td><td>1215.571</td><td>22.728</td><td>17.257</td><td>19.585</td><td>76.228</td><td>70.342</td><td>72.914</td><td>485.057</td><td>594.285</td><td>14.000</td><td>1.744</td><td>7.926</td><td>0.300</td><td>334.3</td></tr>
+<tr><td>26</td><td>1190.000</td><td>22.914</td><td>17.471</td><td>19.685</td><td>75.857</td><td>75.271</td><td>75.157</td><td>497.671</td><td>751.428</td><td>25.000</td><td>2.684</td><td>10.900</td><td>1.900</td><td>358.1</td></tr>
+<tr><td>27</td><td>1253.000</td><td>21.357</td><td>17.228</td><td>19.000</td><td>73.257</td><td>63.585</td><td>68.257</td><td>492.385</td><td>947.428</td><td>26.000</td><td>2.728</td><td>12.106</td><td>0.466</td><td>319.0</td></tr>
+<tr><td>28</td><td>1239.857</td><td>21.485</td><td>17.828</td><td>19.128</td><td>72.871</td><td>63.300</td><td>67.057</td><td>484.314</td><td>708.571</td><td>19.666</td><td>2.011</td><td>11.863</td><td>1.133</td><td>315.0</td></tr>
+<tr><td>29</td><td>1421.857</td><td>21.871</td><td>16.957</td><td>19.214</td><td>72.314</td><td>65.671</td><td>68.814</td><td>487.700</td><td>820.000</td><td>20.333</td><td>1.840</td><td>12.310</td><td>0.733</td><td>238.1</td></tr>
+<tr><td>30</td><td>1314.857</td><td>22.500</td><td>17.242</td><td>19.557</td><td>75.085</td><td>73.614</td><td>73.600</td><td>485.242</td><td>896.904</td><td>22.666</td><td>2.433</td><td>12.330</td><td>1.466</td><td>248.4</td></tr>
+<tr><td>31</td><td>1544.142</td><td>22.800</td><td>15.785</td><td>19.114</td><td>74.385</td><td>76.228</td><td>75.500</td><td>467.865</td><td>950.285</td><td>26.000</td><td>2.894</td><td>10.520</td><td>1.166</td><td>156.7</td></tr>
+<tr><td>32</td><td>855.142</td><td>20.842</td><td>16.928</td><td>18.642</td><td>77.057</td><td>68.557</td><td>72.771</td><td>460.785</td><td>515.333</td><td>20.333</td><td>2.317</td><td>10.623</td><td>0.866</td><td>310.5</td></tr>
+<tr><td>33</td><td>1418.571</td><td>21.900</td><td>15.714</td><td>18.714</td><td>73.614</td><td>75.942</td><td>74.214</td><td>460.300</td><td>644.285</td><td>21.000</td><td>2.143</td><td>10.016</td><td>0.933</td><td>285.8</td></tr>
+</tbody>
+</table>
 </div>
 
-<!-- ============================================================ -->
-<!-- Section 2: AI 개발 단계                                        -->
-<!-- ============================================================ -->
-<div class="direction-section">
-  <h3 class="direction-section-title">AI 개발 단계</h3>
+<h3 class="analysis-h3">1-2. 학습 결과 해석</h3>
 
-  <div class="direction-cards">
-    <div class="direction-card">
-      <div class="direction-card-title">환경제어 AI</div>
-      <div class="direction-card-body">
-        <ul>
-          <li><strong>1작기:</strong> Rule-based + 데이터 수집</li>
-          <li>RL은 섀도우 모드 (기록만)</li>
-          <li><strong>2작기:</strong> MPC 추가 (보수적 제어)</li>
-          <li>RL 추천값 vs 실제값 비교 리포트</li>
-          <li><strong>3작기~:</strong> RL 어드바이저 (추천만, 사람이 승인)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">생육 예측 AI</div>
-      <div class="direction-card-body">
-        <ul>
-          <li><strong>출발점:</strong> 기준 모델 (이동평균 + Seasonal Naive)</li>
-          <li><strong>비교 검토:</strong> 시계열 예측 모델 (Prophet 등 — 미결정)</li>
-          <li><strong>실험 후보:</strong> 파운데이션 모델 (TimesFM 등 — 미결정)</li>
-          <li>기준 모델을 못 이기는 모델은 채택 안 함</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">병해충 예측</div>
-      <div class="direction-card-body">
-        <ul>
-          <li><strong>YOLOv8:</strong> 4대 병해 특화</li>
-          <li>잿빛곰팡이, 흰가루병, 총채벌레, 온실가루이</li>
-          <li><strong>SAM:</strong> 잎/과일 자동 분할</li>
-          <li><strong>CLIP:</strong> 건강/의심/확진 3단계</li>
-          <li>"의심"만 사람 검수 &rarr; 비용 1/3~1/5</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">수요/가격 예측</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>시계열 + 트리 계열 앙상블 (모델 미결정)</li>
-          <li>KAMIS + aT 반입량 + 기상 예보</li>
-          <li>유통사 납품 스케줄 반영</li>
-          <li>경매장 휴무일 반영</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="analysis-code">학습 결과 개요:
+  모델: Random Forest
+  R² (결정계수): 0.89
+  MAE (평균절대오차): 1.2cm</div>
+
+<h4 class="analysis-h4">R² (결정계수) — 모델이 데이터를 얼마나 잘 설명하는지 나타내는 지표</h4>
+<ul class="analysis-list">
+<li>0 = 전혀 설명 못함, 1 = 완벽하게 설명</li>
+<li>0.89 = 데이터 변동의 89%를 모델이 설명</li>
+<li>일반적으로 0.7 이상이면 유의미, 0.85 이상이면 높은 수준</li>
+</ul>
+
+<h4 class="analysis-h4">MAE (평균절대오차) — 예측값과 실제값의 평균 차이</h4>
+<ul class="analysis-list">
+<li>1.2cm = 평균적으로 1.2cm 차이로 예측</li>
+<li>주간생장길이가 보통 14~30mm 범위인 점을 감안하면 오차 비율 약 4~8%</li>
+</ul>
+
+<hr class="analysis-divider">
+
+<div class="analysis-code">33행에서 R² 0.89는 높은 수치이나 과적합 가능성 존재
+  변수 6개 ÷ 데이터 33행 = 비율 5.5:1
+  권장 비율: 변수당 최소 10~20행 → 현재 절반 수준</div>
+
+<p class="analysis-p">다만 실제 테스트에서 유효한 결과 확인<br>변수 간 상관관계 자체는 의미 있다고 판단</p>
+
+<p class="analysis-arrow">→ 데이터 양 증가 시 과적합 해소 + 안정적 모델 가능<br>→ 현재보다 훨씬 많은 데이터 확보 필요 (다수 작기 축적)</p>
+
+<div class="analysis-img-wrap">
+<img src="images/변수상관관계_히트맵.png" alt="변수 간 상관계수 히트맵">
+<div class="caption">변수 간 상관계수 히트맵 (33주 데이터 기반)</div>
 </div>
 
-<!-- ============================================================ -->
-<!-- Section 3: 검증 구조                                           -->
-<!-- ============================================================ -->
-<div class="direction-section">
-  <h3 class="direction-section-title">검증 구조</h3>
+<h3 class="analysis-h3">1-3. 변수 중요도 분석 결과</h3>
 
-  <h4 style="font-size:13px; font-weight:600; color:var(--fg); margin-bottom:8px;">Ground Truth (정답 데이터)</h4>
+<p class="analysis-p">주간생장길이 예측 시 변수별 영향도 (변수 중요도):</p>
 
-  <div class="direction-json-block">{
-  "actual_yield_kg": 120,
-  "waste_kg": 15,
-  "quality_grade": {"A": 70, "B": 20, "C": 10},
-  "auction_price_krw": 3200,
-  "ai_followed": false,
-  "manual_override": {"reason": "냉해 우려"}
-}</div>
+<div class="analysis-code">24시간평균온도: 0.171 (최고)
+개화속도: 0.163
+엽면적지수: 0.156
+낮평균CO₂: 0.149
+주차: 0.139
+줄기굵기: 0.091
+24시간RH: 0.061
+일일평균흡수량: 0.053
+평균누적광량: 0.025</div>
 
-  <div class="direction-callout">
-    폐기량을 제외하면 AI가 수확량 최대화만 학습한다. "왜 안 따랐는지" 데이터가 모델 개선에 중요한 입력값이 된다.
-  </div>
+<div class="analysis-note">주의: 개화속도, 엽면적지수, 줄기굵기는 Y값(생육 지표)에 해당<br>→ 같은 시점의 Y값을 X에 넣으면 상관관계가 높게 나오지만 예측 시점에는 이 값을 알 수 없어 실제 예측에 활용 불가<br>→ 분석용(변수 간 관계 파악)으로는 유효, 예측 모델용 X에서는 제외 필요</div>
 
-  <h4 style="font-size:13px; font-weight:600; color:var(--fg); margin:24px 0 8px;">A/B 테스트 (다동 온실)</h4>
-
-  <div class="direction-cards">
-    <div class="direction-card">
-      <div class="direction-ab-label">1동 (AI 제어)</div>
-      <div class="direction-ab-row"><span>수확량</span><span>1,250 kg</span></div>
-      <div class="direction-ab-row"><span>폐기량</span><span>45 kg (3.6%)</span></div>
-      <div class="direction-ab-row"><span>A급 비율</span><span>85%</span></div>
-      <div class="direction-ab-row"><span>순수익</span><span>3,850,000원</span></div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-ab-label">2동 (수동 제어)</div>
-      <div class="direction-ab-row"><span>수확량</span><span>1,180 kg</span></div>
-      <div class="direction-ab-row"><span>폐기량</span><span>160 kg (14%)</span></div>
-      <div class="direction-ab-row"><span>A급 비율</span><span>62%</span></div>
-      <div class="direction-ab-row"><span>순수익</span><span>3,120,000원</span></div>
-    </div>
-  </div>
-  <div class="direction-ab-result">AI 도입 효과: +23.4%</div>
+<div class="analysis-img-wrap">
+<img src="images/변수중요도_막대그래프.png" alt="변수 중요도 막대그래프">
+<div class="caption">Random Forest 변수 중요도 (주간생장길이 예측)</div>
 </div>
 
-<!-- ============================================================ -->
-<!-- Section 4: 개발 로드맵                                         -->
-<!-- ============================================================ -->
-<div class="direction-section">
-  <h3 class="direction-section-title">개발 로드맵</h3>
-
-  <div class="direction-timeline">
-    <div class="direction-timeline-item">
-      <div class="direction-timeline-phase">1단계 (3~6개월)</div>
-      <div class="direction-timeline-desc">
-        데이터 파이프라인 + 병해충 탐지 PoC
-        <ul>
-          <li>Priva Read 연동</li>
-          <li>파생변수 산출</li>
-          <li>YOLOv8 학습</li>
-          <li>비상 제어 PLC</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-timeline-item">
-      <div class="direction-timeline-phase">2단계 (6~12개월)</div>
-      <div class="direction-timeline-desc">
-        환경 제어 + 대시보드
-        <ul>
-          <li>Rule-based 제어</li>
-          <li>RL 섀도우 모드</li>
-          <li>재배사 대시보드</li>
-          <li>LLM 리포트</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-timeline-item">
-      <div class="direction-timeline-phase">3단계 (12~18개월)</div>
-      <div class="direction-timeline-desc">
-        예측 + MPC + 출하 연동
-        <ul>
-          <li>TOMGRO 이식</li>
-          <li>가격 예측 모델 비교 검증</li>
-          <li>MPC 도입</li>
-          <li>자동 재학습</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-timeline-item">
-      <div class="direction-timeline-phase">4단계 (18~24개월)</div>
-      <div class="direction-timeline-desc">
-        자동화 + 확장
-        <ul>
-          <li>RL 어드바이저</li>
-          <li>Priva API 협상</li>
-          <li>MLOps</li>
-          <li>다동 확장</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- Section 5: 인프라                                              -->
-<!-- ============================================================ -->
-<div class="direction-section">
-  <h3 class="direction-section-title">인프라</h3>
+<div class="analysis-section">
 
-  <div class="direction-stat-row">
-    <div class="direction-stat">
-      <div class="direction-stat-value">RTX 4060 Ti</div>
-      <div class="direction-stat-label">GPU (16GB VRAM)</div>
-    </div>
-    <div class="direction-stat">
-      <div class="direction-stat-value">i7-14700KF</div>
-      <div class="direction-stat-label">CPU</div>
-    </div>
-    <div class="direction-stat">
-      <div class="direction-stat-value">64GB</div>
-      <div class="direction-stat-label">RAM</div>
-    </div>
-  </div>
+<h2 class="analysis-h2">현황</h2>
 
-  <div class="direction-cards">
-    <div class="direction-card">
-      <div class="direction-card-title">단계별 요구사항</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>1단계: 로컬 GPU 서버 1대, NAS 4TB</li>
-          <li>2단계: 클라우드 추론 서버 (백업용)</li>
-          <li>3단계: 모델 서빙 서버 분리</li>
-          <li>4단계: 다동 확장 시 엣지 디바이스 추가</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">연간 운영 비용</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>전기요금 (GPU 서버 상시 가동): ~40만원</li>
-          <li>클라우드 API (LLM, 백업): ~50만원</li>
-          <li>외부 데이터 API (KAMIS, 기상청): 무료~10만원</li>
-          <li>NAS/스토리지 유지: ~20만원</li>
-          <li>기타 (도메인, SSL 등): ~10만원</li>
-        </ul>
-        <p style="margin-top:12px; font-weight:600; color:var(--fg);">합계: 약 150~200만원/년</p>
-      </div>
-    </div>
-  </div>
+<h3 class="analysis-h3">2-1. 데이터 절대량 부족</h3>
+
+<ul class="analysis-list">
+<li>현재 33행 = 1작기 33주 분량</li>
+<li>RF가 안정적 예측을 하려면 현재보다 훨씬 많은 데이터 필요</li>
+<li>동일 조건 반복이 없어 계절/환경 변동 패턴 학습 불가</li>
+<li>예: 여름 고온기 데이터 3~4행 → 여름 패턴 학습 불가</li>
+</ul>
+
+<h3 class="analysis-h3">2-2. 수동 측정의 한계</h3>
+
+<p class="analysis-p">현재 생육 데이터 수집 방식:</p>
+
+<div class="analysis-code">주간생장길이 → 줄자로 측정
+줄기굵기 → 캘리퍼로 측정
+개화속도 → 개화 수 육안 확인</div>
+
+<p class="analysis-p">문제:</p>
+<ul class="analysis-list">
+<li>측정자마다 값이 다름 (측정 위치, 힘 가감, 판단 기준)</li>
+<li>주 1회 측정 → 주중 생장 변화 파악 불가</li>
+<li>데이터 수집 간격을 좁히려면(일 단위 등) 인력이 비례 증가</li>
+</ul>
+<p class="analysis-arrow">→ 자동화 없이는 데이터 해상도를 높이는 것이 현실적으로 불가능</p>
+
+<h3 class="analysis-h3">2-3. X에 추가로 입력되어야 하는 값</h3>
+
+<p class="analysis-p">현재 X에 포함된 것: 환경 결과값</p>
+<div class="analysis-code">온도, 습도, CO₂, 광량 → "현재 온실 상태가 이렇다"</div>
+
+<p class="analysis-p">X에 아직 반영되지 않은 값: 제어 원인값</p>
+<div class="analysis-code">스크린 개폐율, 환기창 개도, 난방 설정값 → "왜 이 상태가 됐는지" (Priva에 존재, 미활용)
+적엽, 방제, 유인, 적과 등 수동 작업 → "사람이 뭘 했는지"</div>
+
+<p class="analysis-p">Priva에서 자동 확보 가능:</p>
+<ul class="analysis-list">
+<li>스크린 작동 시점 + 개폐율</li>
+<li>환기창 개도율</li>
+<li>난방/냉방 설정값</li>
+</ul>
+
+<p class="analysis-p">별도 기록 필요:</p>
+<ul class="analysis-list">
+<li>적엽, 방제, 유인, 적과, 수분 작업 등</li>
+</ul>
+<p class="analysis-arrow">→ 생육에 직접 영향을 주지만 센서로 잡히지 않는 항목</p>
+
 </div>
 
-<!-- ============================================================ -->
-<!-- Section 6: 판단 기준                                           -->
-<!-- ============================================================ -->
-<div class="direction-section">
-  <h3 class="direction-section-title">판단 기준</h3>
+<div class="analysis-section">
 
-  <div class="direction-cards">
-    <div class="direction-card">
-      <div class="direction-card-title">진행 중인지 판단할 지표</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>재배사 데이터 입력률 > 80%</li>
-          <li>AI 제안 채택률 > 50%</li>
-          <li>A급 비율 향상 or 폐기율 감소</li>
-          <li>순수익 기준 모델 대비 +5%</li>
-        </ul>
-      </div>
-    </div>
-    <div class="direction-card">
-      <div class="direction-card-title">방향 수정이 필요한 신호</div>
-      <div class="direction-card-body">
-        <ul>
-          <li>재배사가 대시보드를 안 봄</li>
-          <li>데이터 입력률 < 30%</li>
-          <li>AI 제안을 매번 무시</li>
-        </ul>
-        <p style="margin-top:12px; color:var(--fg);">기술 문제가 아니라 UX 문제다.</p>
-      </div>
-    </div>
-  </div>
+<h2 class="analysis-h2">데이터 전략</h2>
+
+<h3 class="analysis-h3">3-1. 자동 수집</h3>
+
+<h4 class="analysis-h4">3-1-1. Priva (환경 + 제어 이력)</h4>
+
+<p class="analysis-p">센서 데이터 (5분 간격 자동):</p>
+<div class="analysis-code">실내: 온도, 습도, CO₂, 광량
+관수: 흡수량, EC, pH</div>
+
+<p class="analysis-p">제어 이력 (자동 기록):</p>
+<div class="analysis-code">스크린 개폐율 (%), 작동 시점
+환기창 개도율 (%)
+난방/냉방 설정값, 가동 시간</div>
+
+<p class="analysis-arrow">→ Priva Read API로 자동 수집 → DB 저장<br>→ 현재 Priva에 축적되어 있으나 체계적으로 추출/저장되지 않고 있음</p>
+
+<div class="analysis-img-wrap">
+<img src="images/priva_graph_climate.png" alt="Priva 센서 수집 현황" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+<div style="display:none;padding:24px 16px;background:var(--accent-light);border:1px dashed var(--border);font-size:12px;color:var(--fg-muted);text-align:center;line-height:1.7;">Priva Graph Climate 이미지 — images/priva_graph_climate.png 파일을 추가하면 표시됨</div>
+<div class="caption">GREF 온실 Priva 센서 수집 현황 (Graph Climate)</div>
 </div>
 
+<h4 class="analysis-h4">3-1-2. 생육 데이터 (드론 기반 자동 측정)</h4>
+
+<p class="analysis-p">현재: 사람이 주 1회 수동 측정 (줄자, 캘리퍼, 육안)<br>목표: 드론 + 카메라로 자동 수집</p>
+
+<p class="analysis-p">수집 항목:</p>
+<ul class="analysis-list">
+<li>주간생장길이 → 드론 촬영 + 이미지 분석으로 자동 계측</li>
+<li>엽면적지수 → 상부 촬영 이미지에서 녹색 면적 비율 산출</li>
+<li>개화 수 → 객체 탐지(YOLOv8)로 꽃 자동 카운팅</li>
+<li>과실 상태 → 색상/크기 변화 추적</li>
+</ul>
+
+<p class="analysis-p">장점:</p>
+<ul class="analysis-list">
+<li>측정 간격 단축 가능 (주 1회 → 일 1회 이상)</li>
+<li>측정자 주관 배제 → 일관된 데이터 품질</li>
+<li>수확기 등 현장 바쁜 시기에도 데이터 누락 없음</li>
+<li>넓은 면적을 짧은 시간에 촬영 가능</li>
+</ul>
+
+<p class="analysis-p">도입 계획:</p>
+<ul class="analysis-list">
+<li>1단계: Aimos 보유 드론으로 온실 내부 생육 데이터 수집 테스트</li>
+<li>2단계: 테스트 결과 기반으로 정확도/실용성 검증</li>
+<li>3단계: 검증 결과에 따라 필요 장비 판단 후 상황에 맞게 구매</li>
+</ul>
+
+<hr class="analysis-divider">
+
+<h3 class="analysis-h3">3-2. 수동 수집 — 작업 일지 표준화</h3>
+
+<p class="analysis-p">원칙: 했다(1) / 안했다(0)만 기록</p>
+
+<ul class="analysis-check">
+<li>적엽 실시 여부 (0/1) — 잎 제거 → 증산/광합성 면적 변화</li>
+<li>방제 실시 여부 (0/1) — 농약 살포 → 이후 생육 일시 변동</li>
+<li>적과 실시 여부 (0/1) — 과실 솎기 → 남은 과실 비대 촉진</li>
+<li>유인 실시 여부 (0/1) — 줄기 정리 → 수광 효율 변화</li>
+<li>수분 작업 여부 (0/1) — 착과율에 직접 영향</li>
+</ul>
+
+<div class="analysis-note">세부 수치(약제 농도, 적엽 매수 등)는 기록하지 않음<br>→ 작업자마다 기록 방식이 달라 오히려 노이즈 발생<br>→ 0/1만 기록하면 오기입 최소화 + 입력 부담 최소화</div>
+
+<p class="analysis-p">활용:</p>
+<p class="analysis-arrow">센서 데이터 정상인데 생육 수치 이상 → 체크리스트 미완료 항목 확인<br>→ 해당 작업 실시 알람 발송</p>
+
+<hr class="analysis-divider">
+
+<h3 class="analysis-h3">3-3. 파생변수 추가</h3>
+
+<p class="analysis-p">센서 원시값보다 식물 반응과 직접적으로 관련된 파생변수:</p>
+
+<div class="analysis-code">VPD (포차): 온도 + 습도로 계산 → 증산/곰팡이 리스크
+GDD (생육도일): 정식 후 누적 온도 → 생육 단계 판단
+DLI (일적산광량): 하루 누적 광량 → 광합성 총량
+DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div>
+
+<p class="analysis-arrow">현재 33행에서도 이 변수를 추가하면 예측 성능 개선 기대<br>→ 식물은 "오늘 온도 24도"보다 "정식 후 누적 GDD 850도일"에 반응</p>
+
+</div>
+
+<div class="analysis-section">
+
+<h2 class="analysis-h2">AI 방향성</h2>
+
+<h3 class="analysis-h3">4-1. 단순한 모델 우선</h3>
+
+<p class="analysis-p">복잡한 최신 모델(멀티모달 RL + 이미지 딥러닝 등)이 반드시 좋은 결과를 내지 않음</p>
+
+<div class="analysis-note">AGC 상위권 모델도 품종/환경이 다르면 성능 보장 안 됨<br>→ 파인튜닝으로 미세 조정 가능하나 근본적 차이는 해결 안 됨</div>
+
+<p class="analysis-p">원칙:</p>
+<ul class="analysis-list">
+<li>기준 모델(이동평균, 단순 RF)을 먼저 구축</li>
+<li>복잡한 모델이 기준 모델을 이기지 못하면 불채택</li>
+<li>우리 데이터 안에서 최적의 패턴을 찾는 것이 목표</li>
+</ul>
+
+<h3 class="analysis-h3">4-2. 우리 데이터 중심</h3>
+
+<p class="analysis-p">외부 모델(AGC 대회 등)은 변수 선택, 제어 전략 등 참고 자료로 활용<br>최종 모델은 반드시 GREF 온실 데이터로 직접 학습</p>
+
+<div class="analysis-note">품종이 다르고 기후가 다르면 같은 모델도 결과가 달라짐<br>→ 네덜란드 토마토 최적 모델이 한국 토마토에 맞지 않을 수 있음</div>
+
+<p class="analysis-p">활용 가능한 것:</p>
+<ul class="analysis-list">
+<li>어떤 변수가 중요한지 힌트 → AGC 우승팀 분석 참고</li>
+<li>단, 실제로 통제 가능하고 측정 가능한 변수만 채택</li>
+</ul>
+
+<h3 class="analysis-h3">4-3. 자동화 전제</h3>
+
+<p class="analysis-p">모든 데이터는 자동으로 확보 가능한 구조여야 함</p>
+
+<p class="analysis-p">수동 측정 의존 시 문제:</p>
+<ul class="analysis-list">
+<li>측정 간격을 좁히면(주 1회 → 일 1회) 인력이 비례 증가</li>
+<li>인력이 부족하면 측정 누락 → 결측치 발생 → 모델 성능 저하</li>
+<li>현장이 바쁜 시기(수확기)에 측정 품질 하락</li>
+</ul>
+<p class="analysis-arrow">→ 데이터 품질이 현장 상황에 종속되는 구조는 지속 불가</p>
+
+<p class="analysis-p">해결:</p>
+<div class="analysis-code">환경 데이터 → Priva 자동 수집 (이미 가능)
+제어 이력 → Priva 자동 기록 (이미 가능)
+수동 작업 → 0/1 체크리스트 (최소 부담)
+생육 데이터 → 드론/카메라 자동화 추진</div>
+
+<h3 class="analysis-h3">4-4. 현재 데이터로 가능한 범위</h3>
+
+<p class="analysis-p">Priva에 축적된 환경 데이터 기반:</p>
+<ul class="analysis-list">
+<li>자동 온습도 조절 → Rule-based로 즉시 가능</li>
+<li>스크린 자동 개폐 → 현재 데이터 패턴으로 가능</li>
+</ul>
+
+<p class="analysis-p">다만 "최적의 환경 값" 도출에는 한계:</p>
+<div class="analysis-note">현재: 한 가지 제어 패턴의 결과만 축적<br>필요: 다양한 환경 조절 시도 → 결과 비교 → 최적값 탐색<br>→ 데이터 양 + 다양성 모두 필요</div>
+
+</div>
 </section>
 
 
-<section class="tab-panel" id="panel-overview" data-title="모델 총괄표">
+<section class="tab-panel" id="panel-overview" data-title="모델 비교">
   <div class="section-title">13개 모델 비교</div>
   <div class="filters">
     <button class="filter-btn active" data-filter="all">전체</button>
@@ -7581,7 +7557,7 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 </section>
 
 <!-- ─── TAB 4: I/O ANALYSIS ─── -->
-<section class="tab-panel" id="panel-io" data-title="Input/Output 분석">
+<section class="tab-panel" id="panel-io" data-title="필요 데이터 확인">
 
 <!-- 측정 가능 여부 현황 테이블 -->
 <div class="agr-wrap" style="max-width:960px;margin:0 auto 40px;">
@@ -9249,6 +9225,9 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
       if (el) el.classList.add('active');
     } else if (targetTab === 'glossary') {
       var el = document.getElementById('panel-proj-glossary');
+      if (el) el.classList.add('active');
+    } else if (targetTab === 'sampletest') {
+      var el = document.getElementById('panel-proj-sampletest');
       if (el) el.classList.add('active');
     }
   }
