@@ -1198,7 +1198,7 @@ async function saveToGithub() {
     // 2) 각 섹션 파일도 저장 (fetch로 덮어쓰이는 파일들)
     const sectionFiles = ['home','nursery','robot','education','ai-work','memo'];
     let savedCount = 1; // index.html already saved
-    const totalFiles = sectionFiles.length + 7 + 1; // sections + ai sub-files + index
+    const totalFiles = sectionFiles.length + 6 + 1; // sections + ai sub-files + index
     for (const name of sectionFiles) {
       const sectionEl = document.getElementById('section-' + name);
       if (sectionEl) {
@@ -1211,7 +1211,6 @@ async function saveToGithub() {
     // 3) AI 서브파일도 저장
     const aiPanels = [
       {id:'panel-proj-overview', file:'sections/ai/overview.html'},
-      {id:'panel-proj-analysis', file:'sections/ai/analysis.html'},
       {id:'panel-proj-phase0', file:'sections/ai/phase0.html'},
       {id:'panel-proj-phase1', file:'sections/ai/phase1.html'},
       {id:'panel-proj-phase2', file:'sections/ai/phase2.html'},
