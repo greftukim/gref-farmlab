@@ -4888,7 +4888,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 <section id="panel-proj-sampletest" class="proj-panel">
   <iframe id="farm-ai-iframe"
           src="https://greftukim.github.io/gref-farm-ai/"
-          style="display:block;width:100%;height:calc(100vh - 150px);min-height:680px;border:0;background:var(--surface)"
+          scrolling="no"
+          style="display:block;width:100%;border:0;background:var(--surface)"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
@@ -4896,15 +4897,45 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 (function() {
   var iframe = document.getElementById('farm-ai-iframe');
   if (!iframe) return;
+
+  function resize() {
+    try {
+      var doc = iframe.contentDocument;
+      if (!doc || !doc.body) return;
+      var h = Math.max(
+        doc.body.scrollHeight,
+        doc.documentElement ? doc.documentElement.scrollHeight : 0
+      );
+      if (h > 0) iframe.style.height = h + 'px';
+    } catch (e) { /* cross-origin */ }
+  }
+
   iframe.addEventListener('load', function() {
     try {
       var doc = iframe.contentDocument;
       if (!doc) return;
       var s = doc.createElement('style');
-      s.textContent = '.header-inner{display:none!important}.sub-nav-bar{top:0!important}.main-content{padding-top:8px!important}';
+      s.textContent =
+        '.header-inner{display:none!important}' +
+        '.sub-nav-bar{top:0!important}' +
+        '.main-content{padding-top:8px!important}' +
+        'html,body{height:auto!important;overflow:visible!important}';
       doc.head.appendChild(s);
+
+      resize();
+      setTimeout(resize, 200);
+      setTimeout(resize, 600);
+
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(resize);
+        ro.observe(doc.body);
+      }
+      window.addEventListener('resize', resize);
     } catch (e) { /* cross-origin */ }
   });
+
+  // 하위 탭 전환 후 높이 재계산
+  window.__farmAiIframeResize = resize;
 })();
 </script>
 
@@ -8993,6 +9024,10 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
         if (targetBtn) {
           win.switchMain(sectionName, targetBtn);
           try { doc.documentElement.scrollTop = 0; doc.body.scrollTop = 0; } catch(_) {}
+          if (typeof window.__farmAiIframeResize === 'function') {
+            window.__farmAiIframeResize();
+            setTimeout(window.__farmAiIframeResize, 200);
+          }
           return true;
         }
       } catch (err) { /* cross-origin or not ready */ }
