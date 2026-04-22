@@ -3536,7 +3536,6 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       <button class="proj-top-tab active" data-proj-tab="phase0">학습</button>
       <button class="proj-top-tab" data-proj-tab="overview">가안</button>
       <button class="proj-top-tab" data-proj-tab="sampletest">샘플 테스트</button>
-      <button class="proj-top-tab" data-proj-tab="agreement">협의 사항</button>
     </nav>
 <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display:flex">
       <button class="tab-btn active" data-tab="ai-basic">AI 기초</button>
@@ -3554,6 +3553,7 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       <button class="tab-btn" data-sampletest-tab="integration">통합 검증</button>
       <button class="tab-btn" data-sampletest-tab="appendix">부록</button>
       <button class="tab-btn" data-sampletest-tab="roadmap">로드맵</button>
+      <button class="tab-btn" data-sampletest-tab="agreement">협의 사항</button>
     </nav>
 
 
@@ -3822,10 +3822,130 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
 <!-- ── C) 개발 로드맵 탭 (1단계/2단계/3단계) ── -->
 
-<!-- ── 협의 사항 ── -->
-<section id="panel-proj-agreement" class="proj-panel">
+
+<!-- ── 용어 설명 ── -->
+<section id="panel-proj-glossary" class="proj-panel">
 
 
+<div class="gloss-wrap">
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">용어 설명</h2>
+  <p class="gloss-intro">이 프로젝트에서 사용하는 전문 용어를 일반인도 이해할 수 있도록 정리했습니다. 본문에서 <span style="border-bottom:1px dotted var(--fg-muted)">점선 밑줄</span>이 있는 단어에 마우스를 올리면 설명이 표시됩니다.</p>
+  <input type="text" class="gloss-search" id="gloss-search" placeholder="용어 검색...">
+
+  <div class="gloss-cat">
+    <div class="gloss-cat-title">환경 제어 관련</div>
+    <div class="gloss-item" data-terms="vpd 포차 vapor pressure deficit"><div class="gloss-term">VPD<span class="gloss-abbr">Vapor Pressure Deficit, 포차</span></div><div class="gloss-desc">공기가 수분을 더 머금을 수 있는 여유. 높으면 건조해서 식물이 수분을 빨리 잃고, 낮으면 습해서 곰팡이가 생기기 쉽습니다. 온실에서는 0.8~1.2 kPa가 적당합니다.</div></div>
+    <div class="gloss-item" data-terms="gdd 생육도일 growing degree days"><div class="gloss-term">GDD<span class="gloss-abbr">Growing Degree Days, 생육도일</span></div><div class="gloss-desc">식물이 자라는 데 필요한 온도를 날마다 모은 누적값. "심은 날부터 오늘까지 받은 따뜻함의 총합"으로, 식물의 생장 단계를 예측하는 데 씁니다.</div></div>
+    <div class="gloss-item" data-terms="dli 일적산광량 daily light integral"><div class="gloss-term">DLI<span class="gloss-abbr">Daily Light Integral, 일적산광량</span></div><div class="gloss-desc">하루 동안 식물이 받은 빛의 총량. 잠깐 강한 빛보다 하루 전체 광량이 중요하며, 토마토는 보통 DLI 15~25 mol/m²/day가 필요합니다.</div></div>
+    <div class="gloss-item" data-terms="dif 주야간온도차"><div class="gloss-term">DIF<span class="gloss-abbr">주야간 온도차</span></div><div class="gloss-desc">낮 온도와 밤 온도의 차이. DIF가 크면 줄기가 길어지고, 작거나 마이너스면 줄기가 짧아집니다. 식물 키 조절에 활용합니다.</div></div>
+    <div class="gloss-item" data-terms="rtr 광온도비율"><div class="gloss-term">RTR<span class="gloss-abbr">Radiation-Temperature Ratio, 광온도비율</span></div><div class="gloss-desc">빛의 양 대비 온도의 비율. 빛이 적은 날 온도만 높으면 식물이 웃자라므로, 이 비율을 맞춰 온도를 조절합니다.</div></div>
+    <div class="gloss-item" data-terms="mpc 모델예측제어 model predictive control"><div class="gloss-term">MPC<span class="gloss-abbr">Model Predictive Control, 모델예측제어</span></div><div class="gloss-desc">미래를 예측하면서 최적의 제어를 찾는 방법. 내비게이션이 목적지까지의 경로를 계속 재계산하는 것처럼, 온실 환경의 미래를 예측하며 난방·환기 등을 조절합니다.</div></div>
+    <div class="gloss-item" data-terms="par 광합성유효복사 photosynthetically active radiation"><div class="gloss-term">PAR<span class="gloss-abbr">Photosynthetically Active Radiation, 광합성유효복사</span></div><div class="gloss-desc">식물이 광합성에 실제로 쓸 수 있는 빛. 전체 햇빛 중 400~700nm 파장만 해당합니다.</div></div>
+    <div class="gloss-item" data-terms="ec 전기전도도 electrical conductivity"><div class="gloss-term">EC<span class="gloss-abbr">Electrical Conductivity, 전기전도도</span></div><div class="gloss-desc">양액(비료 섞은 물)의 농도를 나타내는 값. 높으면 비료가 진하고, 낮으면 묽습니다.</div></div>
+    <div class="gloss-item" data-terms="priva"><div class="gloss-term">Priva</div><div class="gloss-desc">네덜란드의 온실 환경 제어 시스템 회사. 온도·습도·관수 등을 자동으로 관리하는 장비와 소프트웨어를 만듭니다. 국내 대규모 온실에서 많이 사용합니다.</div></div>
+    <div class="gloss-item" data-terms="양액 nutrient solution"><div class="gloss-term">양액<span class="gloss-abbr">Nutrient Solution</span></div><div class="gloss-desc">식물에 필요한 비료 성분을 물에 녹인 용액. 수경재배에서는 흙 대신 양액으로 영양분을 공급합니다.</div></div>
+    <div class="gloss-item" data-terms="ph 수소이온농도"><div class="gloss-term">pH<span class="gloss-abbr">수소이온농도</span></div><div class="gloss-desc">용액의 산성·알칼리성 정도. 0~14 범위로, 7이 중성. 양액의 pH가 맞지 않으면 식물이 영양분을 흡수하지 못합니다. 토마토는 pH 5.5~6.5가 적당합니다.</div></div>
+    <div class="gloss-item" data-terms="co2 시비 이산화탄소 탄산가스"><div class="gloss-term">CO₂ 시비<span class="gloss-abbr">이산화탄소 공급</span></div><div class="gloss-desc">온실에 이산화탄소를 인위적으로 넣어주는 것. 광합성 원료이므로 CO₂ 농도를 높이면 식물이 더 빨리 자랍니다. 보통 800~1200ppm으로 관리합니다.</div></div>
+    <div class="gloss-item" data-terms="관수 irrigation"><div class="gloss-term">관수<span class="gloss-abbr">Irrigation, 물주기</span></div><div class="gloss-desc">식물에 물을 공급하는 것. 온실에서는 타이머나 센서에 따라 자동으로 관수합니다. 점적 관수(드립)가 일반적입니다.</div></div>
+    <div class="gloss-item" data-terms="배액 drain"><div class="gloss-term">배액<span class="gloss-abbr">Drain</span></div><div class="gloss-desc">양액을 준 뒤 식물이 흡수하지 못하고 빠져나온 물. 배액의 EC와 pH를 측정하면 식물이 영양분을 얼마나 흡수했는지 알 수 있습니다.</div></div>
+    <div class="gloss-item" data-terms="결측치 보간 imputation"><div class="gloss-term">결측치 보간<span class="gloss-abbr">Missing Value Imputation</span></div><div class="gloss-desc">센서 오류 등으로 빠진 데이터를 앞뒤 값으로 채워 넣는 작업. 데이터에 구멍이 있으면 AI가 학습할 수 없으므로 전처리 단계에서 필수입니다.</div></div>
+    <div class="gloss-item" data-terms="센서 드리프트 sensor drift"><div class="gloss-term">센서 드리프트<span class="gloss-abbr">Sensor Drift</span></div><div class="gloss-desc">센서가 시간이 지나면서 점점 정확도가 떨어지는 현상. 정기적으로 교정(캘리브레이션)하지 않으면 잘못된 데이터가 AI에 입력됩니다.</div></div>
+    <div class="gloss-item" data-terms="적응형 제어 adaptive control"><div class="gloss-term">적응형 제어<span class="gloss-abbr">Adaptive Control</span></div><div class="gloss-desc">상황에 따라 제어 주기를 바꾸는 방식. 예: 평소엔 30분마다 제어하다가, 고온 위험 시 10분마다 더 자주 제어하는 것.</div></div>
+    <div class="gloss-item" data-terms="천창 환기창 vent"><div class="gloss-term">천창<span class="gloss-abbr">Roof Vent, 환기창</span></div><div class="gloss-desc">온실 지붕에 있는 열리는 창문. 열면 뜨거운 공기가 빠져나가고 외부 공기가 유입되어 온도와 습도를 조절합니다.</div></div>
+    <div class="gloss-item" data-terms="스크린 에너지스크린 energy screen"><div class="gloss-term">스크린<span class="gloss-abbr">Energy Screen</span></div><div class="gloss-desc">온실 내부에 설치하는 커튼 같은 보온·차광 장치. 밤에 닫으면 열 손실을 줄이고, 한낮에 닫으면 과도한 햇빛을 차단합니다.</div></div>
+    <div class="gloss-item" data-terms="ppm"><div class="gloss-term">ppm<span class="gloss-abbr">Parts Per Million, 백만분율</span></div><div class="gloss-desc">농도를 나타내는 단위. 100만 개 중 몇 개인지를 뜻합니다. 온실 CO₂ 농도(예: 800ppm)나 양액 농도 등에 사용합니다.</div></div>
+  </div>
+
+  <div class="gloss-cat">
+    <div class="gloss-cat-title">AI / 머신러닝 관련</div>
+    <div class="gloss-item" data-terms="rl 강화학습 reinforcement learning"><div class="gloss-term">RL<span class="gloss-abbr">Reinforcement Learning, 강화학습</span></div><div class="gloss-desc">시행착오를 통해 스스로 학습하는 AI 방식. 게임에서 점수를 높이려고 반복 플레이하듯, AI가 온실을 제어하면서 "순수익이 높아지는 방향"으로 점점 똑똑해집니다.</div></div>
+    <div class="gloss-item" data-terms="r² r2 결정계수 r-squared"><div class="gloss-term">R²<span class="gloss-abbr">R-squared, 결정계수</span></div><div class="gloss-desc">모델이 데이터를 얼마나 잘 설명하는지를 0~1로 나타낸 값. 0.9면 "90%를 설명한다"는 뜻으로, 높을수록 예측이 정확합니다.</div></div>
+    <div class="gloss-item" data-terms="mae 평균절대오차 mean absolute error"><div class="gloss-term">MAE<span class="gloss-abbr">Mean Absolute Error, 평균절대오차</span></div><div class="gloss-desc">예측값이 실제값과 평균적으로 얼마나 차이나는지. MAE가 0.91cm이면 "보통 1cm 이내로 맞힌다"는 뜻입니다.</div></div>
+    <div class="gloss-item" data-terms="rmse 평균제곱근오차 root mean squared error"><div class="gloss-term">RMSE<span class="gloss-abbr">Root Mean Squared Error, 평균제곱근오차</span></div><div class="gloss-desc">MAE와 비슷하지만 큰 오차에 더 민감한 지표. 크게 틀린 예측이 있으면 RMSE가 확 올라갑니다.</div></div>
+    <div class="gloss-item" data-terms="랜덤 포레스트 random forest"><div class="gloss-term">Random Forest<span class="gloss-abbr">랜덤 포레스트</span></div><div class="gloss-desc">여러 개의 결정 트리(질문을 반복해서 답을 찾는 나무 구조)를 만든 뒤 다수결로 결과를 내는 AI 기법. 안정적이고 설명하기 쉬워 첫 번째 테스트에 많이 씁니다.</div></div>
+    <div class="gloss-item" data-terms="lightgbm 라이트지비엠"><div class="gloss-term">LightGBM<span class="gloss-abbr">Light Gradient Boosting Machine</span></div><div class="gloss-desc">마이크로소프트가 만든 빠르고 정확한 예측 모델. 나무를 하나씩 추가하면서 이전 나무의 실수를 교정하는 방식으로 학습합니다.</div></div>
+    <div class="gloss-item" data-terms="yolo yolov8 객체탐지"><div class="gloss-term">YOLOv8<span class="gloss-abbr">You Only Look Once v8</span></div><div class="gloss-desc">사진 한 장을 한 번만 봐도 물체의 위치와 종류를 찾아내는 AI. 온실에서는 과일이나 병해충을 실시간으로 찾는 데 씁니다.</div></div>
+    <div class="gloss-item" data-terms="sam segment anything model 세그멘테이션"><div class="gloss-term">SAM<span class="gloss-abbr">Segment Anything Model</span></div><div class="gloss-desc">Meta가 만든 이미지 분할 AI. 사진에서 잎, 과일, 줄기를 각각 따로 잘라내어 면적이나 크기를 정밀하게 측정할 수 있습니다.</div></div>
+    <div class="gloss-item" data-terms="clip contrastive language-image pre-training"><div class="gloss-term">CLIP<span class="gloss-abbr">Contrastive Language-Image Pre-Training</span></div><div class="gloss-desc">OpenAI가 만든 AI로, 이미지와 텍스트를 함께 이해합니다. "잿빛곰팡이 걸린 잎"이라고 글로 설명하면 해당 이미지를 찾아낼 수 있습니다.</div></div>
+    <div class="gloss-item" data-terms="prophet 프로핏"><div class="gloss-term">Prophet<span class="gloss-abbr">Meta 시계열 예측 라이브러리</span></div><div class="gloss-desc">Meta(페이스북)가 만든 시계열 예측 도구. 가격이나 수확량처럼 시간에 따라 변하는 데이터의 패턴(추세, 계절성)을 자동으로 찾아 미래를 예측합니다.</div></div>
+    <div class="gloss-item" data-terms="llm 대규모언어모델 large language model"><div class="gloss-term">LLM<span class="gloss-abbr">Large Language Model, 대규모 언어 모델</span></div><div class="gloss-desc">ChatGPT, Claude 같은 AI. 이 프로젝트에서는 AI가 계산한 숫자를 재배사가 이해하기 쉬운 말로 바꿔주는 번역 역할을 합니다.</div></div>
+    <div class="gloss-item" data-terms="deepc 데이터기반예측제어 data-enabled predictive control"><div class="gloss-term">DeePC<span class="gloss-abbr">Data-Enabled Predictive Control</span></div><div class="gloss-desc">시스템의 수학적 모델 없이, 과거 데이터만으로 최적의 제어를 찾는 방법. "이전에 이렇게 했더니 잘 됐으니 다음에도 비슷하게" 하는 방식입니다.</div></div>
+    <div class="gloss-item" data-terms="concept drift 개념드리프트"><div class="gloss-term">Concept Drift<span class="gloss-abbr">개념 드리프트</span></div><div class="gloss-desc">시간이 지나면서 데이터의 패턴이 바뀌는 현상. 여름에 학습한 AI가 겨울에는 잘 못 맞히는 것처럼, 환경이 변하면 AI도 다시 학습해야 합니다.</div></div>
+    <div class="gloss-item" data-terms="sim-to-real 시뮬투리얼"><div class="gloss-term">Sim-to-Real<span class="gloss-abbr">시뮬레이션 → 현실 전이</span></div><div class="gloss-desc">가상 환경(시뮬레이터)에서 먼저 AI를 훈련시킨 뒤, 실제 온실에 적용하는 방법. 실제 온실에서 시행착오를 겪는 비용과 위험을 줄입니다.</div></div>
+    <div class="gloss-item" data-terms="shadow mode 섀도우모드"><div class="gloss-term">Shadow Mode<span class="gloss-abbr">섀도우 모드</span></div><div class="gloss-desc">AI가 제어 명령을 실제로 내리지 않고, "내가 이렇게 했을 것이다"만 기록하는 모드. 실제 제어는 사람이 하면서 AI의 판단력을 검증합니다.</div></div>
+    <div class="gloss-item" data-terms="ppo proximal policy optimization"><div class="gloss-term">PPO<span class="gloss-abbr">Proximal Policy Optimization</span></div><div class="gloss-desc">강화학습에서 많이 쓰는 학습 알고리즘. AI가 너무 급격하게 행동을 바꾸지 않도록 조금씩 개선하면서 안정적으로 학습합니다.</div></div>
+    <div class="gloss-item" data-terms="cnn 합성곱신경망 convolutional neural network"><div class="gloss-term">CNN<span class="gloss-abbr">Convolutional Neural Network, 합성곱 신경망</span></div><div class="gloss-desc">이미지를 인식하는 데 특화된 AI 구조. 사진에서 가장자리, 색상, 패턴 등을 자동으로 추출하여 "이것은 병해다" 같은 판단을 내립니다.</div></div>
+    <div class="gloss-item" data-terms="전이학습 transfer learning"><div class="gloss-term">전이학습<span class="gloss-abbr">Transfer Learning</span></div><div class="gloss-desc">다른 분야에서 미리 학습된 AI를 우리 분야에 가져와서 재학습시키는 방법. 처음부터 학습하는 것보다 훨씬 적은 데이터로도 좋은 성능을 낼 수 있습니다.</div></div>
+    <div class="gloss-item" data-terms="제로샷 zero-shot"><div class="gloss-term">제로샷<span class="gloss-abbr">Zero-shot</span></div><div class="gloss-desc">한 번도 본 적 없는 종류의 데이터도 분류할 수 있는 AI 능력. 예: "흰가루병" 사진을 학습한 적 없어도 텍스트 설명만으로 해당 이미지를 찾아냄.</div></div>
+    <div class="gloss-item" data-terms="앙상블 ensemble"><div class="gloss-term">앙상블<span class="gloss-abbr">Ensemble</span></div><div class="gloss-desc">여러 AI 모델의 예측을 합쳐서 더 정확한 결과를 내는 방법. 여러 전문가의 의견을 모아 결정하는 것과 비슷합니다. 이 프로젝트에서도 수요 예측에 앙상블 방식을 검토 중입니다.</div></div>
+    <div class="gloss-item" data-terms="shap 변수기여도"><div class="gloss-term">SHAP<span class="gloss-abbr">SHapley Additive exPlanations</span></div><div class="gloss-desc">AI가 왜 그런 예측을 했는지 설명해주는 도구. "온도가 높아서 생장이 빨라질 것이다"처럼 각 변수의 기여도를 수치로 보여줍니다.</div></div>
+    <div class="gloss-item" data-terms="피처 엔지니어링 feature engineering"><div class="gloss-term">피처 엔지니어링<span class="gloss-abbr">Feature Engineering</span></div><div class="gloss-desc">AI에 넣을 입력 데이터를 가공하는 작업. 예: 온도 데이터에서 "3일 이동평균 온도"나 "전주 대비 변화량" 같은 새 변수를 만드는 것.</div></div>
+    <div class="gloss-item" data-terms="timesfm 타임즈에프엠"><div class="gloss-term">TimesFM<span class="gloss-abbr">Time-series Foundation Model</span></div><div class="gloss-desc">Google이 만든 대규모 시계열 예측 AI. 별도 학습 없이도 다양한 시계열 데이터를 예측할 수 있어, 실험적으로 테스트합니다.</div></div>
+    <div class="gloss-item" data-terms="vit vision transformer"><div class="gloss-term">ViT<span class="gloss-abbr">Vision Transformer</span></div><div class="gloss-desc">이미지를 작은 조각(패치)으로 나눠서 처리하는 최신 AI 구조. 기존 CNN보다 큰 이미지를 더 잘 이해합니다. SAM, CLIP 등에 사용됩니다.</div></div>
+    <div class="gloss-item" data-terms="과적합 overfitting"><div class="gloss-term">과적합<span class="gloss-abbr">Overfitting</span></div><div class="gloss-desc">AI가 학습 데이터만 너무 잘 외우고, 새로운 데이터에는 잘 못 맞히는 현상. 시험 문제를 달달 외웠지만 응용 문제를 못 푸는 것과 같습니다.</div></div>
+    <div class="gloss-item" data-terms="라벨링 labeling 어노테이션 annotation"><div class="gloss-term">라벨링<span class="gloss-abbr">Labeling / Annotation</span></div><div class="gloss-desc">AI를 학습시키기 위해 사진에 "이것은 잿빛곰팡이" 같은 정답을 표시하는 작업. 사람이 수작업으로 하므로 비용과 시간이 많이 듭니다.</div></div>
+    <div class="gloss-item" data-terms="mape 평균절대백분율오차"><div class="gloss-term">MAPE<span class="gloss-abbr">Mean Absolute Percentage Error, 평균절대백분율오차</span></div><div class="gloss-desc">예측 오차를 퍼센트로 나타낸 값. MAPE 5%면 "평균적으로 5%만큼 차이난다"는 뜻. 직관적이라서 비전문가에게도 설명하기 쉽습니다.</div></div>
+  </div>
+
+  <div class="gloss-cat">
+    <div class="gloss-cat-title">작물 재배 관련</div>
+    <div class="gloss-item" data-terms="lai 엽면적지수 leaf area index"><div class="gloss-term">LAI<span class="gloss-abbr">Leaf Area Index, 엽면적지수</span></div><div class="gloss-desc">온실 바닥 면적 대비 잎의 총 면적. LAI 3이면 바닥 1m²에 잎이 3m² 만큼 있다는 뜻입니다. 광합성 능력의 척도입니다.</div></div>
+    <div class="gloss-item" data-terms="tomgro 토마토생육모델"><div class="gloss-term">TOMGRO</div><div class="gloss-desc">미국 플로리다 대학에서 만든 토마토 전용 생육 예측 모델. 온도·빛·CO₂를 넣으면 토마토가 얼마나 자라고 열매가 얼마나 열릴지 예측합니다.</div></div>
+    <div class="gloss-item" data-terms="greenlight 그린라이트"><div class="gloss-term">GreenLight</div><div class="gloss-desc">네덜란드 바게닝언 대학이 만든 온실 시뮬레이터. 온실 기후(온도·습도) + 에너지 비용 + 작물 생장을 한꺼번에 계산할 수 있는 통합 모델입니다.</div></div>
+    <div class="gloss-item" data-terms="ground truth 정답데이터 gt"><div class="gloss-term">Ground Truth<span class="gloss-abbr">정답 데이터</span></div><div class="gloss-desc">실제로 일어난 결과 데이터. 수확량, 품질 등급, 경매 가격 등 "진짜 정답"을 AI에 입력해야 AI가 더 정확해집니다.</div></div>
+    <div class="gloss-item" data-terms="kamis 농산물유통정보 가락시장"><div class="gloss-term">KAMIS<span class="gloss-abbr">Korea Agricultural Marketing Information Service</span></div><div class="gloss-desc">농산물 유통 정보 서비스. 가락시장 등 도매시장의 실시간 경매 가격과 반입량 데이터를 제공합니다.</div></div>
+    <div class="gloss-item" data-terms="agc autonomous greenhouse challenge"><div class="gloss-term">AGC<span class="gloss-abbr">Autonomous Greenhouse Challenge</span></div><div class="gloss-desc">네덜란드 와게닝대학교가 주관하는 국제 자율 온실 재배 대회. AI로 원격 온실을 제어하여 최대 수익을 달성하는 것이 목표입니다.</div></div>
+    <div class="gloss-item" data-terms="정식 transplanting"><div class="gloss-term">정식<span class="gloss-abbr">Transplanting, 이식</span></div><div class="gloss-desc">육묘장에서 키운 어린 모종을 온실 본 재배 위치에 옮겨 심는 것. "정식 후 몇 주"가 생육 단계를 나타내는 기준점이 됩니다.</div></div>
+    <div class="gloss-item" data-terms="화방 truss"><div class="gloss-term">화방<span class="gloss-abbr">Truss, 꽃송이</span></div><div class="gloss-desc">토마토 줄기에서 꽃이 모여 피는 부분. 화방 하나에 여러 개의 과일이 열립니다. 화방 수가 많을수록 수확량이 늘어납니다.</div></div>
+    <div class="gloss-item" data-terms="생장점 growing point 생장 생육"><div class="gloss-term">생장점<span class="gloss-abbr">Growing Point</span></div><div class="gloss-desc">줄기 맨 꼭대기에서 새 잎과 가지가 나오는 부분. 생장점이 건강해야 식물이 계속 자랍니다. 생장 속도를 확인하는 핵심 관찰 지점입니다.</div></div>
+    <div class="gloss-item" data-terms="건물율 dry matter content"><div class="gloss-term">건물율<span class="gloss-abbr">Dry Matter Content</span></div><div class="gloss-desc">과일에서 수분을 뺀 고형분의 비율. 건물율 7% 이상이면 맛과 영양이 풍부하다는 뜻입니다. AGC 대회에서는 보너스 점수를 줍니다.</div></div>
+    <div class="gloss-item" data-terms="brix 브릭스 당도"><div class="gloss-term">Brix<span class="gloss-abbr">브릭스, 당도</span></div><div class="gloss-desc">과일의 당도를 나타내는 단위. °Bx로 표시하며, 일반 토마토는 4~6°Bx, 맛이 좋은 토마토는 8°Bx 이상입니다.</div></div>
+    <div class="gloss-item" data-terms="건물중 dry weight 바이오매스 biomass"><div class="gloss-term">건물중<span class="gloss-abbr">Dry Weight / Biomass</span></div><div class="gloss-desc">식물체를 완전히 건조시킨 무게. 식물이 실제로 광합성으로 만들어낸 유기물의 양을 나타냅니다.</div></div>
+    <div class="gloss-item" data-terms="재식밀도 식재밀도 planting density"><div class="gloss-term">재식밀도<span class="gloss-abbr">Planting Density</span></div><div class="gloss-desc">단위 면적당 심는 식물 수. AGC 대회 우승팀은 40 pots/m²로 가장 공격적인 밀도를 선택하여 최고 수확량을 달성했습니다.</div></div>
+    <div class="gloss-item" data-terms="at 농수산식품유통공사"><div class="gloss-term">aT<span class="gloss-abbr">농수산식품유통공사</span></div><div class="gloss-desc">한국의 농수산물 유통을 관리하는 공공기관. 도매시장 반입량과 가격 데이터를 제공합니다.</div></div>
+    <div class="gloss-item" data-terms="ode 상미분방정식 ordinary differential equation"><div class="gloss-term">ODE<span class="gloss-abbr">Ordinary Differential Equation, 상미분방정식</span></div><div class="gloss-desc">시간에 따라 변하는 양을 수학적으로 표현하는 방정식. TOMGRO 모델에서 식물 성장량을 시간에 따라 계산하는 데 사용합니다.</div></div>
+    <div class="gloss-item" data-terms="wur wageningen 와게닝언 와게닝대학교"><div class="gloss-term">WUR<span class="gloss-abbr">Wageningen University & Research</span></div><div class="gloss-desc">네덜란드의 세계적인 농업 연구 대학. 온실 재배, 작물 과학 분야의 최고 권위 기관으로, AGC 대회를 주관합니다.</div></div>
+  </div>
+
+  <div class="gloss-cat">
+    <div class="gloss-cat-title">인프라 / 시스템 관련</div>
+    <div class="gloss-item" data-terms="api 인터페이스 application programming interface"><div class="gloss-term">API<span class="gloss-abbr">Application Programming Interface</span></div><div class="gloss-desc">프로그램끼리 데이터를 주고받는 통로. 기상청 API를 통해 날씨 데이터를 가져오고, KAMIS API로 시세를 조회하는 식입니다.</div></div>
+    <div class="gloss-item" data-terms="plc 프로그래머블로직컨트롤러 programmable logic controller"><div class="gloss-term">PLC<span class="gloss-abbr">Programmable Logic Controller</span></div><div class="gloss-desc">산업용 자동 제어 장치. AI 서버가 꺼져도 "온도 35도 넘으면 강제 환기" 같은 안전 규칙을 독립적으로 실행합니다.</div></div>
+    <div class="gloss-item" data-terms="edge 엣지 엣지서버"><div class="gloss-term">엣지 서버<span class="gloss-abbr">Edge Server</span></div><div class="gloss-desc">온실 현장에 설치하는 소형 컴퓨터. 인터넷이 끊겨도 기본 제어를 유지하고, 카메라 영상을 현장에서 바로 분석합니다.</div></div>
+    <div class="gloss-item" data-terms="mlops 머신러닝운영"><div class="gloss-term">MLOps<span class="gloss-abbr">Machine Learning Operations</span></div><div class="gloss-desc">AI 모델을 지속적으로 업데이트하고 관리하는 체계. 새 데이터가 쌓이면 자동으로 재학습하고, 검증 후 배포하는 파이프라인입니다.</div></div>
+    <div class="gloss-item" data-terms="fail-safe 페일세이프 안전장치"><div class="gloss-term">Fail-safe<span class="gloss-abbr">페일세이프, 안전장치</span></div><div class="gloss-desc">AI나 서버에 문제가 생겨도 온실이 안전하게 유지되도록 하는 최후의 안전망. "온도 35도 넘으면 무조건 환기" 같은 규칙이 AI와 독립적으로 작동합니다.</div></div>
+    <div class="gloss-item" data-terms="circuit breaker 서킷브레이커"><div class="gloss-term">Circuit Breaker<span class="gloss-abbr">서킷 브레이커</span></div><div class="gloss-desc">과전류 차단기처럼, API 호출 비용이 너무 커지지 않도록 제한하는 장치. GPT-4o Vision 호출을 하루 10장으로 제한하는 것이 예시입니다.</div></div>
+    <div class="gloss-item" data-terms="a/b 테스트 ab test"><div class="gloss-term">A/B 테스트</div><div class="gloss-desc">같은 조건의 온실 2동을 준비해서, 한 동은 AI가 제어하고 다른 동은 사람이 제어하여 결과를 비교하는 실험 방법입니다.</div></div>
+    <div class="gloss-item" data-terms="디지털 트윈 digital twin"><div class="gloss-term">디지털 트윈<span class="gloss-abbr">Digital Twin</span></div><div class="gloss-desc">실제 온실을 컴퓨터 안에 똑같이 복제한 가상 모델. 실제로 실험하기 전에 가상 온실에서 "이렇게 하면 어떻게 될까?"를 미리 시뮬레이션합니다.</div></div>
+    <div class="gloss-item" data-terms="jetson orin 젯슨 오린"><div class="gloss-term">Jetson Orin<span class="gloss-abbr">NVIDIA 엣지 AI 컴퓨터</span></div><div class="gloss-desc">NVIDIA가 만든 소형 AI 전용 컴퓨터. 온실 현장에 설치하여 카메라 영상을 실시간으로 분석합니다. 일반 PC보다 작고 전력을 적게 씁니다.</div></div>
+    <div class="gloss-item" data-terms="스팟 인스턴스 spot instance"><div class="gloss-term">스팟 인스턴스<span class="gloss-abbr">Spot Instance</span></div><div class="gloss-desc">클라우드(AWS, GCP)에서 여유 서버를 저렴하게 빌리는 방식. 정가의 60~90% 할인되지만, 수시로 회수될 수 있어 AI 학습처럼 중단 가능한 작업에 적합합니다.</div></div>
+    <div class="gloss-item" data-terms="json"><div class="gloss-term">JSON<span class="gloss-abbr">JavaScript Object Notation</span></div><div class="gloss-desc">데이터를 저장하고 전송하는 텍스트 형식. 사람이 읽기 쉬운 구조로, 센서 데이터나 AI 결과를 주고받을 때 많이 사용합니다.</div></div>
+    <div class="gloss-item" data-terms="fallback 폴백"><div class="gloss-term">Fallback<span class="gloss-abbr">폴백, 대체 수단</span></div><div class="gloss-desc">주요 시스템이 고장 났을 때 자동으로 전환되는 백업 방식. 예: 인터넷이 끊기면 엣지 서버가 기본 규칙으로 자동 제어합니다.</div></div>
+    <div class="gloss-item" data-terms="이동평균 moving average"><div class="gloss-term">이동평균<span class="gloss-abbr">Moving Average</span></div><div class="gloss-desc">최근 며칠간의 평균을 계산하여 추세를 파악하는 방법. 예: 7일 이동평균 온도. 일시적 변동을 제거하고 전체적인 방향을 봅니다.</div></div>
+    <div class="gloss-item" data-terms="baseline 기준선 베이스라인"><div class="gloss-term">Baseline<span class="gloss-abbr">기준선</span></div><div class="gloss-desc">새 모델의 성능을 비교하기 위한 기본 기준. "이동평균으로 예측한 결과"를 baseline으로 삼고, 더 복잡한 AI가 이를 이기는지 확인합니다.</div></div>
+    <div class="gloss-item" data-terms="poc 개념증명 proof of concept"><div class="gloss-term">PoC<span class="gloss-abbr">Proof of Concept, 개념 증명</span></div><div class="gloss-desc">아이디어가 실제로 작동하는지 소규모로 먼저 테스트하는 것. "AI로 온실을 제어할 수 있을까?"를 간단한 실험으로 먼저 확인합니다.</div></div>
+    <div class="gloss-item" data-terms="파이프라인 pipeline 데이터파이프라인"><div class="gloss-term">파이프라인<span class="gloss-abbr">Pipeline</span></div><div class="gloss-desc">데이터가 수집 → 정제 → 분석 → 결과 출력까지 흐르는 자동화된 경로. 수도관처럼 데이터가 한 방향으로 흘러가며 각 단계에서 처리됩니다.</div></div>
+    <div class="gloss-item" data-terms="rule-based 규칙기반"><div class="gloss-term">Rule-based<span class="gloss-abbr">규칙 기반</span></div><div class="gloss-desc">사람이 직접 "온도가 30도 넘으면 환기" 같은 규칙을 정해놓는 제어 방식. AI가 아닌 전통적 방법이지만, 안전하고 예측 가능하여 초기 단계에서 사용합니다.</div></div>
+    <div class="gloss-item" data-terms="파생변수 derived variable"><div class="gloss-term">파생변수<span class="gloss-abbr">Derived Variable</span></div><div class="gloss-desc">기존 데이터를 조합해서 새로 만든 변수. 예: 온도와 습도에서 VPD를 계산하거나, 매일의 온도에서 GDD를 누적 계산하는 것.</div></div>
+    <div class="gloss-item" data-terms="전처리 preprocessing"><div class="gloss-term">전처리<span class="gloss-abbr">Preprocessing</span></div><div class="gloss-desc">AI에 데이터를 넣기 전에 정리·가공하는 단계. 결측치 채우기, 이상치 제거, 단위 변환, 파생변수 생성 등이 포함됩니다.</div></div>
+    <div class="gloss-item" data-terms="domain randomization 도메인랜덤화"><div class="gloss-term">Domain Randomization<span class="gloss-abbr">도메인 랜덤화</span></div><div class="gloss-desc">시뮬레이터에서 AI를 학습할 때, 조건을 일부러 다양하게 바꿔가며 훈련하는 기법. 현실 세계의 다양한 상황에 더 잘 적응하도록 합니다.</div></div>
+  </div>
+</div>
+
+
+</section>
+
+<!-- ── 샘플 테스트 (farm-ai 임베드 + 하위 탭 제어) ── -->
+<section id="panel-proj-sampletest" class="proj-panel">
+  <div id="sampletest-iframe-wrap">
+    <iframe id="farm-ai-iframe"
+            src="https://greftukim.github.io/gref-farm-ai/"
+            scrolling="no"
+            style="display:block;width:100%;border:0;background:var(--surface)"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div id="sampletest-agreement-wrap" style="display:none">
 <div class="agr-wrap">
   <p class="agr-intro">부산LAB에서 진행할 "재배사 vs AI" 비교 재배 실험의 사전 협의 사항을 정리한 문서입니다. 본 실험은 2단계(모델 구축 및 검증) 이후 실행을 전제로 하며, AI 추천 모델이 준비된 시점에 아래 항목들을 재배사와 협의하여 확정합니다.</p>
 
@@ -4183,128 +4303,7 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
   </div><!-- /섹션 7 -->
 
 </div><!-- /agr-wrap -->
-</section><!-- /panel-proj-agreement -->
-
-<!-- ── 용어 설명 ── -->
-<section id="panel-proj-glossary" class="proj-panel">
-
-
-<div class="gloss-wrap">
-  <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">용어 설명</h2>
-  <p class="gloss-intro">이 프로젝트에서 사용하는 전문 용어를 일반인도 이해할 수 있도록 정리했습니다. 본문에서 <span style="border-bottom:1px dotted var(--fg-muted)">점선 밑줄</span>이 있는 단어에 마우스를 올리면 설명이 표시됩니다.</p>
-  <input type="text" class="gloss-search" id="gloss-search" placeholder="용어 검색...">
-
-  <div class="gloss-cat">
-    <div class="gloss-cat-title">환경 제어 관련</div>
-    <div class="gloss-item" data-terms="vpd 포차 vapor pressure deficit"><div class="gloss-term">VPD<span class="gloss-abbr">Vapor Pressure Deficit, 포차</span></div><div class="gloss-desc">공기가 수분을 더 머금을 수 있는 여유. 높으면 건조해서 식물이 수분을 빨리 잃고, 낮으면 습해서 곰팡이가 생기기 쉽습니다. 온실에서는 0.8~1.2 kPa가 적당합니다.</div></div>
-    <div class="gloss-item" data-terms="gdd 생육도일 growing degree days"><div class="gloss-term">GDD<span class="gloss-abbr">Growing Degree Days, 생육도일</span></div><div class="gloss-desc">식물이 자라는 데 필요한 온도를 날마다 모은 누적값. "심은 날부터 오늘까지 받은 따뜻함의 총합"으로, 식물의 생장 단계를 예측하는 데 씁니다.</div></div>
-    <div class="gloss-item" data-terms="dli 일적산광량 daily light integral"><div class="gloss-term">DLI<span class="gloss-abbr">Daily Light Integral, 일적산광량</span></div><div class="gloss-desc">하루 동안 식물이 받은 빛의 총량. 잠깐 강한 빛보다 하루 전체 광량이 중요하며, 토마토는 보통 DLI 15~25 mol/m²/day가 필요합니다.</div></div>
-    <div class="gloss-item" data-terms="dif 주야간온도차"><div class="gloss-term">DIF<span class="gloss-abbr">주야간 온도차</span></div><div class="gloss-desc">낮 온도와 밤 온도의 차이. DIF가 크면 줄기가 길어지고, 작거나 마이너스면 줄기가 짧아집니다. 식물 키 조절에 활용합니다.</div></div>
-    <div class="gloss-item" data-terms="rtr 광온도비율"><div class="gloss-term">RTR<span class="gloss-abbr">Radiation-Temperature Ratio, 광온도비율</span></div><div class="gloss-desc">빛의 양 대비 온도의 비율. 빛이 적은 날 온도만 높으면 식물이 웃자라므로, 이 비율을 맞춰 온도를 조절합니다.</div></div>
-    <div class="gloss-item" data-terms="mpc 모델예측제어 model predictive control"><div class="gloss-term">MPC<span class="gloss-abbr">Model Predictive Control, 모델예측제어</span></div><div class="gloss-desc">미래를 예측하면서 최적의 제어를 찾는 방법. 내비게이션이 목적지까지의 경로를 계속 재계산하는 것처럼, 온실 환경의 미래를 예측하며 난방·환기 등을 조절합니다.</div></div>
-    <div class="gloss-item" data-terms="par 광합성유효복사 photosynthetically active radiation"><div class="gloss-term">PAR<span class="gloss-abbr">Photosynthetically Active Radiation, 광합성유효복사</span></div><div class="gloss-desc">식물이 광합성에 실제로 쓸 수 있는 빛. 전체 햇빛 중 400~700nm 파장만 해당합니다.</div></div>
-    <div class="gloss-item" data-terms="ec 전기전도도 electrical conductivity"><div class="gloss-term">EC<span class="gloss-abbr">Electrical Conductivity, 전기전도도</span></div><div class="gloss-desc">양액(비료 섞은 물)의 농도를 나타내는 값. 높으면 비료가 진하고, 낮으면 묽습니다.</div></div>
-    <div class="gloss-item" data-terms="priva"><div class="gloss-term">Priva</div><div class="gloss-desc">네덜란드의 온실 환경 제어 시스템 회사. 온도·습도·관수 등을 자동으로 관리하는 장비와 소프트웨어를 만듭니다. 국내 대규모 온실에서 많이 사용합니다.</div></div>
-    <div class="gloss-item" data-terms="양액 nutrient solution"><div class="gloss-term">양액<span class="gloss-abbr">Nutrient Solution</span></div><div class="gloss-desc">식물에 필요한 비료 성분을 물에 녹인 용액. 수경재배에서는 흙 대신 양액으로 영양분을 공급합니다.</div></div>
-    <div class="gloss-item" data-terms="ph 수소이온농도"><div class="gloss-term">pH<span class="gloss-abbr">수소이온농도</span></div><div class="gloss-desc">용액의 산성·알칼리성 정도. 0~14 범위로, 7이 중성. 양액의 pH가 맞지 않으면 식물이 영양분을 흡수하지 못합니다. 토마토는 pH 5.5~6.5가 적당합니다.</div></div>
-    <div class="gloss-item" data-terms="co2 시비 이산화탄소 탄산가스"><div class="gloss-term">CO₂ 시비<span class="gloss-abbr">이산화탄소 공급</span></div><div class="gloss-desc">온실에 이산화탄소를 인위적으로 넣어주는 것. 광합성 원료이므로 CO₂ 농도를 높이면 식물이 더 빨리 자랍니다. 보통 800~1200ppm으로 관리합니다.</div></div>
-    <div class="gloss-item" data-terms="관수 irrigation"><div class="gloss-term">관수<span class="gloss-abbr">Irrigation, 물주기</span></div><div class="gloss-desc">식물에 물을 공급하는 것. 온실에서는 타이머나 센서에 따라 자동으로 관수합니다. 점적 관수(드립)가 일반적입니다.</div></div>
-    <div class="gloss-item" data-terms="배액 drain"><div class="gloss-term">배액<span class="gloss-abbr">Drain</span></div><div class="gloss-desc">양액을 준 뒤 식물이 흡수하지 못하고 빠져나온 물. 배액의 EC와 pH를 측정하면 식물이 영양분을 얼마나 흡수했는지 알 수 있습니다.</div></div>
-    <div class="gloss-item" data-terms="결측치 보간 imputation"><div class="gloss-term">결측치 보간<span class="gloss-abbr">Missing Value Imputation</span></div><div class="gloss-desc">센서 오류 등으로 빠진 데이터를 앞뒤 값으로 채워 넣는 작업. 데이터에 구멍이 있으면 AI가 학습할 수 없으므로 전처리 단계에서 필수입니다.</div></div>
-    <div class="gloss-item" data-terms="센서 드리프트 sensor drift"><div class="gloss-term">센서 드리프트<span class="gloss-abbr">Sensor Drift</span></div><div class="gloss-desc">센서가 시간이 지나면서 점점 정확도가 떨어지는 현상. 정기적으로 교정(캘리브레이션)하지 않으면 잘못된 데이터가 AI에 입력됩니다.</div></div>
-    <div class="gloss-item" data-terms="적응형 제어 adaptive control"><div class="gloss-term">적응형 제어<span class="gloss-abbr">Adaptive Control</span></div><div class="gloss-desc">상황에 따라 제어 주기를 바꾸는 방식. 예: 평소엔 30분마다 제어하다가, 고온 위험 시 10분마다 더 자주 제어하는 것.</div></div>
-    <div class="gloss-item" data-terms="천창 환기창 vent"><div class="gloss-term">천창<span class="gloss-abbr">Roof Vent, 환기창</span></div><div class="gloss-desc">온실 지붕에 있는 열리는 창문. 열면 뜨거운 공기가 빠져나가고 외부 공기가 유입되어 온도와 습도를 조절합니다.</div></div>
-    <div class="gloss-item" data-terms="스크린 에너지스크린 energy screen"><div class="gloss-term">스크린<span class="gloss-abbr">Energy Screen</span></div><div class="gloss-desc">온실 내부에 설치하는 커튼 같은 보온·차광 장치. 밤에 닫으면 열 손실을 줄이고, 한낮에 닫으면 과도한 햇빛을 차단합니다.</div></div>
-    <div class="gloss-item" data-terms="ppm"><div class="gloss-term">ppm<span class="gloss-abbr">Parts Per Million, 백만분율</span></div><div class="gloss-desc">농도를 나타내는 단위. 100만 개 중 몇 개인지를 뜻합니다. 온실 CO₂ 농도(예: 800ppm)나 양액 농도 등에 사용합니다.</div></div>
   </div>
-
-  <div class="gloss-cat">
-    <div class="gloss-cat-title">AI / 머신러닝 관련</div>
-    <div class="gloss-item" data-terms="rl 강화학습 reinforcement learning"><div class="gloss-term">RL<span class="gloss-abbr">Reinforcement Learning, 강화학습</span></div><div class="gloss-desc">시행착오를 통해 스스로 학습하는 AI 방식. 게임에서 점수를 높이려고 반복 플레이하듯, AI가 온실을 제어하면서 "순수익이 높아지는 방향"으로 점점 똑똑해집니다.</div></div>
-    <div class="gloss-item" data-terms="r² r2 결정계수 r-squared"><div class="gloss-term">R²<span class="gloss-abbr">R-squared, 결정계수</span></div><div class="gloss-desc">모델이 데이터를 얼마나 잘 설명하는지를 0~1로 나타낸 값. 0.9면 "90%를 설명한다"는 뜻으로, 높을수록 예측이 정확합니다.</div></div>
-    <div class="gloss-item" data-terms="mae 평균절대오차 mean absolute error"><div class="gloss-term">MAE<span class="gloss-abbr">Mean Absolute Error, 평균절대오차</span></div><div class="gloss-desc">예측값이 실제값과 평균적으로 얼마나 차이나는지. MAE가 0.91cm이면 "보통 1cm 이내로 맞힌다"는 뜻입니다.</div></div>
-    <div class="gloss-item" data-terms="rmse 평균제곱근오차 root mean squared error"><div class="gloss-term">RMSE<span class="gloss-abbr">Root Mean Squared Error, 평균제곱근오차</span></div><div class="gloss-desc">MAE와 비슷하지만 큰 오차에 더 민감한 지표. 크게 틀린 예측이 있으면 RMSE가 확 올라갑니다.</div></div>
-    <div class="gloss-item" data-terms="랜덤 포레스트 random forest"><div class="gloss-term">Random Forest<span class="gloss-abbr">랜덤 포레스트</span></div><div class="gloss-desc">여러 개의 결정 트리(질문을 반복해서 답을 찾는 나무 구조)를 만든 뒤 다수결로 결과를 내는 AI 기법. 안정적이고 설명하기 쉬워 첫 번째 테스트에 많이 씁니다.</div></div>
-    <div class="gloss-item" data-terms="lightgbm 라이트지비엠"><div class="gloss-term">LightGBM<span class="gloss-abbr">Light Gradient Boosting Machine</span></div><div class="gloss-desc">마이크로소프트가 만든 빠르고 정확한 예측 모델. 나무를 하나씩 추가하면서 이전 나무의 실수를 교정하는 방식으로 학습합니다.</div></div>
-    <div class="gloss-item" data-terms="yolo yolov8 객체탐지"><div class="gloss-term">YOLOv8<span class="gloss-abbr">You Only Look Once v8</span></div><div class="gloss-desc">사진 한 장을 한 번만 봐도 물체의 위치와 종류를 찾아내는 AI. 온실에서는 과일이나 병해충을 실시간으로 찾는 데 씁니다.</div></div>
-    <div class="gloss-item" data-terms="sam segment anything model 세그멘테이션"><div class="gloss-term">SAM<span class="gloss-abbr">Segment Anything Model</span></div><div class="gloss-desc">Meta가 만든 이미지 분할 AI. 사진에서 잎, 과일, 줄기를 각각 따로 잘라내어 면적이나 크기를 정밀하게 측정할 수 있습니다.</div></div>
-    <div class="gloss-item" data-terms="clip contrastive language-image pre-training"><div class="gloss-term">CLIP<span class="gloss-abbr">Contrastive Language-Image Pre-Training</span></div><div class="gloss-desc">OpenAI가 만든 AI로, 이미지와 텍스트를 함께 이해합니다. "잿빛곰팡이 걸린 잎"이라고 글로 설명하면 해당 이미지를 찾아낼 수 있습니다.</div></div>
-    <div class="gloss-item" data-terms="prophet 프로핏"><div class="gloss-term">Prophet<span class="gloss-abbr">Meta 시계열 예측 라이브러리</span></div><div class="gloss-desc">Meta(페이스북)가 만든 시계열 예측 도구. 가격이나 수확량처럼 시간에 따라 변하는 데이터의 패턴(추세, 계절성)을 자동으로 찾아 미래를 예측합니다.</div></div>
-    <div class="gloss-item" data-terms="llm 대규모언어모델 large language model"><div class="gloss-term">LLM<span class="gloss-abbr">Large Language Model, 대규모 언어 모델</span></div><div class="gloss-desc">ChatGPT, Claude 같은 AI. 이 프로젝트에서는 AI가 계산한 숫자를 재배사가 이해하기 쉬운 말로 바꿔주는 번역 역할을 합니다.</div></div>
-    <div class="gloss-item" data-terms="deepc 데이터기반예측제어 data-enabled predictive control"><div class="gloss-term">DeePC<span class="gloss-abbr">Data-Enabled Predictive Control</span></div><div class="gloss-desc">시스템의 수학적 모델 없이, 과거 데이터만으로 최적의 제어를 찾는 방법. "이전에 이렇게 했더니 잘 됐으니 다음에도 비슷하게" 하는 방식입니다.</div></div>
-    <div class="gloss-item" data-terms="concept drift 개념드리프트"><div class="gloss-term">Concept Drift<span class="gloss-abbr">개념 드리프트</span></div><div class="gloss-desc">시간이 지나면서 데이터의 패턴이 바뀌는 현상. 여름에 학습한 AI가 겨울에는 잘 못 맞히는 것처럼, 환경이 변하면 AI도 다시 학습해야 합니다.</div></div>
-    <div class="gloss-item" data-terms="sim-to-real 시뮬투리얼"><div class="gloss-term">Sim-to-Real<span class="gloss-abbr">시뮬레이션 → 현실 전이</span></div><div class="gloss-desc">가상 환경(시뮬레이터)에서 먼저 AI를 훈련시킨 뒤, 실제 온실에 적용하는 방법. 실제 온실에서 시행착오를 겪는 비용과 위험을 줄입니다.</div></div>
-    <div class="gloss-item" data-terms="shadow mode 섀도우모드"><div class="gloss-term">Shadow Mode<span class="gloss-abbr">섀도우 모드</span></div><div class="gloss-desc">AI가 제어 명령을 실제로 내리지 않고, "내가 이렇게 했을 것이다"만 기록하는 모드. 실제 제어는 사람이 하면서 AI의 판단력을 검증합니다.</div></div>
-    <div class="gloss-item" data-terms="ppo proximal policy optimization"><div class="gloss-term">PPO<span class="gloss-abbr">Proximal Policy Optimization</span></div><div class="gloss-desc">강화학습에서 많이 쓰는 학습 알고리즘. AI가 너무 급격하게 행동을 바꾸지 않도록 조금씩 개선하면서 안정적으로 학습합니다.</div></div>
-    <div class="gloss-item" data-terms="cnn 합성곱신경망 convolutional neural network"><div class="gloss-term">CNN<span class="gloss-abbr">Convolutional Neural Network, 합성곱 신경망</span></div><div class="gloss-desc">이미지를 인식하는 데 특화된 AI 구조. 사진에서 가장자리, 색상, 패턴 등을 자동으로 추출하여 "이것은 병해다" 같은 판단을 내립니다.</div></div>
-    <div class="gloss-item" data-terms="전이학습 transfer learning"><div class="gloss-term">전이학습<span class="gloss-abbr">Transfer Learning</span></div><div class="gloss-desc">다른 분야에서 미리 학습된 AI를 우리 분야에 가져와서 재학습시키는 방법. 처음부터 학습하는 것보다 훨씬 적은 데이터로도 좋은 성능을 낼 수 있습니다.</div></div>
-    <div class="gloss-item" data-terms="제로샷 zero-shot"><div class="gloss-term">제로샷<span class="gloss-abbr">Zero-shot</span></div><div class="gloss-desc">한 번도 본 적 없는 종류의 데이터도 분류할 수 있는 AI 능력. 예: "흰가루병" 사진을 학습한 적 없어도 텍스트 설명만으로 해당 이미지를 찾아냄.</div></div>
-    <div class="gloss-item" data-terms="앙상블 ensemble"><div class="gloss-term">앙상블<span class="gloss-abbr">Ensemble</span></div><div class="gloss-desc">여러 AI 모델의 예측을 합쳐서 더 정확한 결과를 내는 방법. 여러 전문가의 의견을 모아 결정하는 것과 비슷합니다. 이 프로젝트에서도 수요 예측에 앙상블 방식을 검토 중입니다.</div></div>
-    <div class="gloss-item" data-terms="shap 변수기여도"><div class="gloss-term">SHAP<span class="gloss-abbr">SHapley Additive exPlanations</span></div><div class="gloss-desc">AI가 왜 그런 예측을 했는지 설명해주는 도구. "온도가 높아서 생장이 빨라질 것이다"처럼 각 변수의 기여도를 수치로 보여줍니다.</div></div>
-    <div class="gloss-item" data-terms="피처 엔지니어링 feature engineering"><div class="gloss-term">피처 엔지니어링<span class="gloss-abbr">Feature Engineering</span></div><div class="gloss-desc">AI에 넣을 입력 데이터를 가공하는 작업. 예: 온도 데이터에서 "3일 이동평균 온도"나 "전주 대비 변화량" 같은 새 변수를 만드는 것.</div></div>
-    <div class="gloss-item" data-terms="timesfm 타임즈에프엠"><div class="gloss-term">TimesFM<span class="gloss-abbr">Time-series Foundation Model</span></div><div class="gloss-desc">Google이 만든 대규모 시계열 예측 AI. 별도 학습 없이도 다양한 시계열 데이터를 예측할 수 있어, 실험적으로 테스트합니다.</div></div>
-    <div class="gloss-item" data-terms="vit vision transformer"><div class="gloss-term">ViT<span class="gloss-abbr">Vision Transformer</span></div><div class="gloss-desc">이미지를 작은 조각(패치)으로 나눠서 처리하는 최신 AI 구조. 기존 CNN보다 큰 이미지를 더 잘 이해합니다. SAM, CLIP 등에 사용됩니다.</div></div>
-    <div class="gloss-item" data-terms="과적합 overfitting"><div class="gloss-term">과적합<span class="gloss-abbr">Overfitting</span></div><div class="gloss-desc">AI가 학습 데이터만 너무 잘 외우고, 새로운 데이터에는 잘 못 맞히는 현상. 시험 문제를 달달 외웠지만 응용 문제를 못 푸는 것과 같습니다.</div></div>
-    <div class="gloss-item" data-terms="라벨링 labeling 어노테이션 annotation"><div class="gloss-term">라벨링<span class="gloss-abbr">Labeling / Annotation</span></div><div class="gloss-desc">AI를 학습시키기 위해 사진에 "이것은 잿빛곰팡이" 같은 정답을 표시하는 작업. 사람이 수작업으로 하므로 비용과 시간이 많이 듭니다.</div></div>
-    <div class="gloss-item" data-terms="mape 평균절대백분율오차"><div class="gloss-term">MAPE<span class="gloss-abbr">Mean Absolute Percentage Error, 평균절대백분율오차</span></div><div class="gloss-desc">예측 오차를 퍼센트로 나타낸 값. MAPE 5%면 "평균적으로 5%만큼 차이난다"는 뜻. 직관적이라서 비전문가에게도 설명하기 쉽습니다.</div></div>
-  </div>
-
-  <div class="gloss-cat">
-    <div class="gloss-cat-title">작물 재배 관련</div>
-    <div class="gloss-item" data-terms="lai 엽면적지수 leaf area index"><div class="gloss-term">LAI<span class="gloss-abbr">Leaf Area Index, 엽면적지수</span></div><div class="gloss-desc">온실 바닥 면적 대비 잎의 총 면적. LAI 3이면 바닥 1m²에 잎이 3m² 만큼 있다는 뜻입니다. 광합성 능력의 척도입니다.</div></div>
-    <div class="gloss-item" data-terms="tomgro 토마토생육모델"><div class="gloss-term">TOMGRO</div><div class="gloss-desc">미국 플로리다 대학에서 만든 토마토 전용 생육 예측 모델. 온도·빛·CO₂를 넣으면 토마토가 얼마나 자라고 열매가 얼마나 열릴지 예측합니다.</div></div>
-    <div class="gloss-item" data-terms="greenlight 그린라이트"><div class="gloss-term">GreenLight</div><div class="gloss-desc">네덜란드 바게닝언 대학이 만든 온실 시뮬레이터. 온실 기후(온도·습도) + 에너지 비용 + 작물 생장을 한꺼번에 계산할 수 있는 통합 모델입니다.</div></div>
-    <div class="gloss-item" data-terms="ground truth 정답데이터 gt"><div class="gloss-term">Ground Truth<span class="gloss-abbr">정답 데이터</span></div><div class="gloss-desc">실제로 일어난 결과 데이터. 수확량, 품질 등급, 경매 가격 등 "진짜 정답"을 AI에 입력해야 AI가 더 정확해집니다.</div></div>
-    <div class="gloss-item" data-terms="kamis 농산물유통정보 가락시장"><div class="gloss-term">KAMIS<span class="gloss-abbr">Korea Agricultural Marketing Information Service</span></div><div class="gloss-desc">농산물 유통 정보 서비스. 가락시장 등 도매시장의 실시간 경매 가격과 반입량 데이터를 제공합니다.</div></div>
-    <div class="gloss-item" data-terms="agc autonomous greenhouse challenge"><div class="gloss-term">AGC<span class="gloss-abbr">Autonomous Greenhouse Challenge</span></div><div class="gloss-desc">네덜란드 와게닝대학교가 주관하는 국제 자율 온실 재배 대회. AI로 원격 온실을 제어하여 최대 수익을 달성하는 것이 목표입니다.</div></div>
-    <div class="gloss-item" data-terms="정식 transplanting"><div class="gloss-term">정식<span class="gloss-abbr">Transplanting, 이식</span></div><div class="gloss-desc">육묘장에서 키운 어린 모종을 온실 본 재배 위치에 옮겨 심는 것. "정식 후 몇 주"가 생육 단계를 나타내는 기준점이 됩니다.</div></div>
-    <div class="gloss-item" data-terms="화방 truss"><div class="gloss-term">화방<span class="gloss-abbr">Truss, 꽃송이</span></div><div class="gloss-desc">토마토 줄기에서 꽃이 모여 피는 부분. 화방 하나에 여러 개의 과일이 열립니다. 화방 수가 많을수록 수확량이 늘어납니다.</div></div>
-    <div class="gloss-item" data-terms="생장점 growing point 생장 생육"><div class="gloss-term">생장점<span class="gloss-abbr">Growing Point</span></div><div class="gloss-desc">줄기 맨 꼭대기에서 새 잎과 가지가 나오는 부분. 생장점이 건강해야 식물이 계속 자랍니다. 생장 속도를 확인하는 핵심 관찰 지점입니다.</div></div>
-    <div class="gloss-item" data-terms="건물율 dry matter content"><div class="gloss-term">건물율<span class="gloss-abbr">Dry Matter Content</span></div><div class="gloss-desc">과일에서 수분을 뺀 고형분의 비율. 건물율 7% 이상이면 맛과 영양이 풍부하다는 뜻입니다. AGC 대회에서는 보너스 점수를 줍니다.</div></div>
-    <div class="gloss-item" data-terms="brix 브릭스 당도"><div class="gloss-term">Brix<span class="gloss-abbr">브릭스, 당도</span></div><div class="gloss-desc">과일의 당도를 나타내는 단위. °Bx로 표시하며, 일반 토마토는 4~6°Bx, 맛이 좋은 토마토는 8°Bx 이상입니다.</div></div>
-    <div class="gloss-item" data-terms="건물중 dry weight 바이오매스 biomass"><div class="gloss-term">건물중<span class="gloss-abbr">Dry Weight / Biomass</span></div><div class="gloss-desc">식물체를 완전히 건조시킨 무게. 식물이 실제로 광합성으로 만들어낸 유기물의 양을 나타냅니다.</div></div>
-    <div class="gloss-item" data-terms="재식밀도 식재밀도 planting density"><div class="gloss-term">재식밀도<span class="gloss-abbr">Planting Density</span></div><div class="gloss-desc">단위 면적당 심는 식물 수. AGC 대회 우승팀은 40 pots/m²로 가장 공격적인 밀도를 선택하여 최고 수확량을 달성했습니다.</div></div>
-    <div class="gloss-item" data-terms="at 농수산식품유통공사"><div class="gloss-term">aT<span class="gloss-abbr">농수산식품유통공사</span></div><div class="gloss-desc">한국의 농수산물 유통을 관리하는 공공기관. 도매시장 반입량과 가격 데이터를 제공합니다.</div></div>
-    <div class="gloss-item" data-terms="ode 상미분방정식 ordinary differential equation"><div class="gloss-term">ODE<span class="gloss-abbr">Ordinary Differential Equation, 상미분방정식</span></div><div class="gloss-desc">시간에 따라 변하는 양을 수학적으로 표현하는 방정식. TOMGRO 모델에서 식물 성장량을 시간에 따라 계산하는 데 사용합니다.</div></div>
-    <div class="gloss-item" data-terms="wur wageningen 와게닝언 와게닝대학교"><div class="gloss-term">WUR<span class="gloss-abbr">Wageningen University & Research</span></div><div class="gloss-desc">네덜란드의 세계적인 농업 연구 대학. 온실 재배, 작물 과학 분야의 최고 권위 기관으로, AGC 대회를 주관합니다.</div></div>
-  </div>
-
-  <div class="gloss-cat">
-    <div class="gloss-cat-title">인프라 / 시스템 관련</div>
-    <div class="gloss-item" data-terms="api 인터페이스 application programming interface"><div class="gloss-term">API<span class="gloss-abbr">Application Programming Interface</span></div><div class="gloss-desc">프로그램끼리 데이터를 주고받는 통로. 기상청 API를 통해 날씨 데이터를 가져오고, KAMIS API로 시세를 조회하는 식입니다.</div></div>
-    <div class="gloss-item" data-terms="plc 프로그래머블로직컨트롤러 programmable logic controller"><div class="gloss-term">PLC<span class="gloss-abbr">Programmable Logic Controller</span></div><div class="gloss-desc">산업용 자동 제어 장치. AI 서버가 꺼져도 "온도 35도 넘으면 강제 환기" 같은 안전 규칙을 독립적으로 실행합니다.</div></div>
-    <div class="gloss-item" data-terms="edge 엣지 엣지서버"><div class="gloss-term">엣지 서버<span class="gloss-abbr">Edge Server</span></div><div class="gloss-desc">온실 현장에 설치하는 소형 컴퓨터. 인터넷이 끊겨도 기본 제어를 유지하고, 카메라 영상을 현장에서 바로 분석합니다.</div></div>
-    <div class="gloss-item" data-terms="mlops 머신러닝운영"><div class="gloss-term">MLOps<span class="gloss-abbr">Machine Learning Operations</span></div><div class="gloss-desc">AI 모델을 지속적으로 업데이트하고 관리하는 체계. 새 데이터가 쌓이면 자동으로 재학습하고, 검증 후 배포하는 파이프라인입니다.</div></div>
-    <div class="gloss-item" data-terms="fail-safe 페일세이프 안전장치"><div class="gloss-term">Fail-safe<span class="gloss-abbr">페일세이프, 안전장치</span></div><div class="gloss-desc">AI나 서버에 문제가 생겨도 온실이 안전하게 유지되도록 하는 최후의 안전망. "온도 35도 넘으면 무조건 환기" 같은 규칙이 AI와 독립적으로 작동합니다.</div></div>
-    <div class="gloss-item" data-terms="circuit breaker 서킷브레이커"><div class="gloss-term">Circuit Breaker<span class="gloss-abbr">서킷 브레이커</span></div><div class="gloss-desc">과전류 차단기처럼, API 호출 비용이 너무 커지지 않도록 제한하는 장치. GPT-4o Vision 호출을 하루 10장으로 제한하는 것이 예시입니다.</div></div>
-    <div class="gloss-item" data-terms="a/b 테스트 ab test"><div class="gloss-term">A/B 테스트</div><div class="gloss-desc">같은 조건의 온실 2동을 준비해서, 한 동은 AI가 제어하고 다른 동은 사람이 제어하여 결과를 비교하는 실험 방법입니다.</div></div>
-    <div class="gloss-item" data-terms="디지털 트윈 digital twin"><div class="gloss-term">디지털 트윈<span class="gloss-abbr">Digital Twin</span></div><div class="gloss-desc">실제 온실을 컴퓨터 안에 똑같이 복제한 가상 모델. 실제로 실험하기 전에 가상 온실에서 "이렇게 하면 어떻게 될까?"를 미리 시뮬레이션합니다.</div></div>
-    <div class="gloss-item" data-terms="jetson orin 젯슨 오린"><div class="gloss-term">Jetson Orin<span class="gloss-abbr">NVIDIA 엣지 AI 컴퓨터</span></div><div class="gloss-desc">NVIDIA가 만든 소형 AI 전용 컴퓨터. 온실 현장에 설치하여 카메라 영상을 실시간으로 분석합니다. 일반 PC보다 작고 전력을 적게 씁니다.</div></div>
-    <div class="gloss-item" data-terms="스팟 인스턴스 spot instance"><div class="gloss-term">스팟 인스턴스<span class="gloss-abbr">Spot Instance</span></div><div class="gloss-desc">클라우드(AWS, GCP)에서 여유 서버를 저렴하게 빌리는 방식. 정가의 60~90% 할인되지만, 수시로 회수될 수 있어 AI 학습처럼 중단 가능한 작업에 적합합니다.</div></div>
-    <div class="gloss-item" data-terms="json"><div class="gloss-term">JSON<span class="gloss-abbr">JavaScript Object Notation</span></div><div class="gloss-desc">데이터를 저장하고 전송하는 텍스트 형식. 사람이 읽기 쉬운 구조로, 센서 데이터나 AI 결과를 주고받을 때 많이 사용합니다.</div></div>
-    <div class="gloss-item" data-terms="fallback 폴백"><div class="gloss-term">Fallback<span class="gloss-abbr">폴백, 대체 수단</span></div><div class="gloss-desc">주요 시스템이 고장 났을 때 자동으로 전환되는 백업 방식. 예: 인터넷이 끊기면 엣지 서버가 기본 규칙으로 자동 제어합니다.</div></div>
-    <div class="gloss-item" data-terms="이동평균 moving average"><div class="gloss-term">이동평균<span class="gloss-abbr">Moving Average</span></div><div class="gloss-desc">최근 며칠간의 평균을 계산하여 추세를 파악하는 방법. 예: 7일 이동평균 온도. 일시적 변동을 제거하고 전체적인 방향을 봅니다.</div></div>
-    <div class="gloss-item" data-terms="baseline 기준선 베이스라인"><div class="gloss-term">Baseline<span class="gloss-abbr">기준선</span></div><div class="gloss-desc">새 모델의 성능을 비교하기 위한 기본 기준. "이동평균으로 예측한 결과"를 baseline으로 삼고, 더 복잡한 AI가 이를 이기는지 확인합니다.</div></div>
-    <div class="gloss-item" data-terms="poc 개념증명 proof of concept"><div class="gloss-term">PoC<span class="gloss-abbr">Proof of Concept, 개념 증명</span></div><div class="gloss-desc">아이디어가 실제로 작동하는지 소규모로 먼저 테스트하는 것. "AI로 온실을 제어할 수 있을까?"를 간단한 실험으로 먼저 확인합니다.</div></div>
-    <div class="gloss-item" data-terms="파이프라인 pipeline 데이터파이프라인"><div class="gloss-term">파이프라인<span class="gloss-abbr">Pipeline</span></div><div class="gloss-desc">데이터가 수집 → 정제 → 분석 → 결과 출력까지 흐르는 자동화된 경로. 수도관처럼 데이터가 한 방향으로 흘러가며 각 단계에서 처리됩니다.</div></div>
-    <div class="gloss-item" data-terms="rule-based 규칙기반"><div class="gloss-term">Rule-based<span class="gloss-abbr">규칙 기반</span></div><div class="gloss-desc">사람이 직접 "온도가 30도 넘으면 환기" 같은 규칙을 정해놓는 제어 방식. AI가 아닌 전통적 방법이지만, 안전하고 예측 가능하여 초기 단계에서 사용합니다.</div></div>
-    <div class="gloss-item" data-terms="파생변수 derived variable"><div class="gloss-term">파생변수<span class="gloss-abbr">Derived Variable</span></div><div class="gloss-desc">기존 데이터를 조합해서 새로 만든 변수. 예: 온도와 습도에서 VPD를 계산하거나, 매일의 온도에서 GDD를 누적 계산하는 것.</div></div>
-    <div class="gloss-item" data-terms="전처리 preprocessing"><div class="gloss-term">전처리<span class="gloss-abbr">Preprocessing</span></div><div class="gloss-desc">AI에 데이터를 넣기 전에 정리·가공하는 단계. 결측치 채우기, 이상치 제거, 단위 변환, 파생변수 생성 등이 포함됩니다.</div></div>
-    <div class="gloss-item" data-terms="domain randomization 도메인랜덤화"><div class="gloss-term">Domain Randomization<span class="gloss-abbr">도메인 랜덤화</span></div><div class="gloss-desc">시뮬레이터에서 AI를 학습할 때, 조건을 일부러 다양하게 바꿔가며 훈련하는 기법. 현실 세계의 다양한 상황에 더 잘 적응하도록 합니다.</div></div>
-  </div>
-</div>
-
-
-</section>
-
-<!-- ── 샘플 테스트 (farm-ai 임베드 + 하위 탭 제어) ── -->
-<section id="panel-proj-sampletest" class="proj-panel">
-  <iframe id="farm-ai-iframe"
-          src="https://greftukim.github.io/gref-farm-ai/"
-          scrolling="no"
-          style="display:block;width:100%;border:0;background:var(--surface)"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 <script>
 (function() {
@@ -8617,9 +8616,6 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
       if (phase0Wrapper) phase0Wrapper.classList.add('active');
       // 하위 탭 중 첫 번째 활성화된 것에 맞춰 기존 패널 표시
       projSubTabSwitch(null);
-    } else if (targetTab === 'agreement') {
-      var el = document.getElementById('panel-proj-agreement');
-      if (el) el.classList.add('active');
     } else if (targetTab === 'glossary') {
       var el = document.getElementById('panel-proj-glossary');
       if (el) el.classList.add('active');
@@ -8682,6 +8678,18 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
     if (!activeBtn) return;
 
     var sectionName = activeBtn.getAttribute('data-sampletest-tab');
+
+    var iframeWrap = document.getElementById('sampletest-iframe-wrap');
+    var agrWrap = document.getElementById('sampletest-agreement-wrap');
+
+    if (sectionName === 'agreement') {
+      if (iframeWrap) iframeWrap.style.display = 'none';
+      if (agrWrap) agrWrap.style.display = 'block';
+      return;
+    }
+    if (iframeWrap) iframeWrap.style.display = '';
+    if (agrWrap) agrWrap.style.display = 'none';
+
     var iframe = document.getElementById('farm-ai-iframe');
     if (!iframe) return;
 
