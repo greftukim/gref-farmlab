@@ -3535,26 +3535,18 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       <button class="proj-top-tab" data-proj-tab="glossary">용어 설명</button>
       <button class="proj-top-tab active" data-proj-tab="phase0">학습</button>
       <button class="proj-top-tab" data-proj-tab="overview">가안</button>
-      <button class="proj-top-tab" data-proj-tab="roadmap">개발 로드맵</button>
-      <button class="proj-top-tab" data-proj-tab="agreement">협의 사항</button>
       <button class="proj-top-tab" data-proj-tab="sampletest">샘플 테스트</button>
+      <button class="proj-top-tab" data-proj-tab="agreement">협의 사항</button>
     </nav>
 <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display:flex">
       <button class="tab-btn active" data-tab="ai-basic">AI 기초</button>
       <button class="tab-btn" data-tab="agri-ai">농업 AI 구조</button>
-      <button class="tab-btn" data-tab="direction">방향성</button>
+      <button class="tab-btn" data-tab="direction">테스트</button>
       <button class="tab-btn" data-tab="overview">모델 비교</button>
       <button class="tab-btn" data-tab="detail">모델 상세</button>
       <button class="tab-btn" data-tab="agc">AGC 2024</button>
       <button class="tab-btn" data-tab="io">필요 데이터 확인</button>
       <button class="tab-btn" data-tab="applicability">적용 가능성</button>
-    </nav>
-<nav class="proj-sub-tabs" id="roadmap-sub-tabs" style="display:none">
-      <button class="tab-btn active" data-roadmap-tab="devorder">개발 순서</button>
-      <button class="tab-btn" data-roadmap-tab="stage1">1단계</button>
-      <button class="tab-btn" data-roadmap-tab="stage2">2단계</button>
-      <button class="tab-btn" data-roadmap-tab="stage3">3단계</button>
-      <button class="tab-btn" data-roadmap-tab="stage4">4단계</button>
     </nav>
 <nav class="proj-sub-tabs" id="sampletest-sub-tabs" style="display:none">
       <button class="tab-btn active" data-sampletest-tab="overview">개요</button>
@@ -3829,585 +3821,6 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
 
 <!-- ── C) 개발 로드맵 탭 (1단계/2단계/3단계) ── -->
-<section id="panel-proj-roadmap" class="proj-panel">
-
-<div id="panel-roadmap-devorder" class="proj-roadmap-sub active">
-<div class="analysis-section">
-<h2 class="analysis-h2">개발 순서</h2>
-
-<h3 class="analysis-h3">1순위 — 데이터 자동 확보 체계</h3>
-<ul class="analysis-list">
-<li>Priva Read 파이프라인 구축 (센서 + 제어 이력)</li>
-<li>작업 일지 표준화 (0/1 체크리스트)</li>
-<li>파생변수 자동 산출 (VPD, GDD, DLI, DIF)</li>
-</ul>
-<p class="analysis-arrow">→ 이 단계 없이는 이후 모든 AI 개발 불가</p>
-
-<h3 class="analysis-h3">2순위 — 환경 제어 AI</h3>
-<ul class="analysis-list">
-<li>Rule-based → MPC → RL 순서로 고도화</li>
-<li>현재 Priva 데이터로 자동 온습도·환기 제어부터 시작</li>
-<li>RL은 섀도우 모드(실제 제어 없이 기록만)로 병행 운영</li>
-</ul>
-
-<h3 class="analysis-h3">3순위 — 생육 예측 AI</h3>
-<ul class="analysis-list">
-<li>데이터가 충분히 쌓인 후 RF/LightGBM 학습 시작</li>
-<li>수확량 + 품질 등급 예측</li>
-</ul>
-<p class="analysis-arrow">→ 출하 시기 최적화와 연동</p>
-
-<h3 class="analysis-h3">4순위 — 병해충 예측 (이미지 딥러닝)</h3>
-<ul class="analysis-list">
-<li>카메라 기반 병해충 감지 (YOLOv8)</li>
-<li>잎·과일 자동 분할 (SAM)</li>
-<li>장기적으로 생육 데이터 수동 측정을 카메라·드론 자동 측정으로 전환</li>
-</ul>
-
-<h3 class="analysis-h3">5순위 — 수요/출하 예측</h3>
-<ul class="analysis-list">
-<li>경매 데이터(KAMIS) + 기상 예보 기반</li>
-<li>출하 시기·물량 최적화</li>
-</ul>
-</div>
-</div>
-
-<div id="panel-roadmap-stage1" class="proj-roadmap-sub">
-
-<div class="imm-wrap">
-  <p class="imm-intro">2단계 착수 전 1~2개월 내에 완료해야 할 항목. 각 항목의 결과가 2단계 계획에 반영됨.</p>
-  <h2 class="imm-h2">1단계 — 즉시 실행 (1~2개월)</h2>
-  <div class="imm-table-wrap">
-    <table class="imm-table">
-      <colgroup>
-        <col style="width:12%">
-        <col style="width:24%">
-        <col style="width:48%">
-        <col style="width:16%">
-      </colgroup>
-      <thead>
-        <tr><th>구분</th><th>항목</th><th>상세 내용</th><th>진행내역</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>데이터 확보</td>
-          <td>Priva 데이터 수동 다운로드 시작</td>
-          <td>매주 1회 이상 다운로드하여 데이터 축적. 자동 다운로드 가능 여부는 별도 확인</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>데이터 확보</td>
-          <td>Priva 자동 다운로드(API 서비스) 가능 여부 확인</td>
-          <td>현재 버전에서 애드온(PI 서비스 등) 설치로 자동 수집이 가능한지 확인. 비용 발생 여부도 확인. IT팀과 협의 필요</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>데이터 확보</td>
-          <td>외부 데이터(농진청 등) 샘플 다운로드</td>
-          <td>텍스트 데이터 위주로 샘플을 받아 구조 확인 후 활용 가능 여부 판단. 이미지 데이터는 후순위</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>모델 분석</td>
-          <td>기존 공개 모델 Input/Output 정리</td>
-          <td>TOMGRO 등 공개 모델들의 X값(Input)과 Y값(Output)을 정리. 각 항목별로 현재 측정 가능 여부(Priva 자동 / 수기 / 센서 필요 / 측정 불가)를 함께 표기</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>비전/측정</td>
-          <td>드론 촬영 테스트</td>
-          <td>온실 내 드론 비행 가능 여부 확인. 생장 길이 등 위에서 측정 가능한 항목 파악</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>비전/측정</td>
-          <td>2D 이미지 라벨링 테스트</td>
-          <td>휴대폰으로 작물 촬영(50~100장) 후 라벨링하여 비전 모델 가능성 확인. 소량 테스트 결과에 따라 대량 작업 여부 판단</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>비전/측정</td>
-          <td>측정 로봇/이동 장치 방안 조사</td>
-          <td>드론으로 촬영하기 어려운 하단부 측정을 위한 방법 조사. 바퀴 달린 촬영 장치, 리프트 활용, 외부 업체 제작 가능성 등</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-        <tr>
-          <td>외부 협력</td>
-          <td>AI 전문 업체 자문 검토</td>
-          <td>시크(부산 AI 업체) 등에 현재 계획을 공유하고 피드백 요청 가능 여부 검토</td>
-          <td class="edit-target" contenteditable="true" spellcheck="false">진행중</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</div>
-
-<div id="panel-roadmap-stage2" class="proj-roadmap-sub">
-
-  <div class="proj-phase-card">
-    <div class="proj-phase-header">
-      <div class="proj-phase-tag">2단계</div>
-      <div class="proj-phase-title">데이터 파이프라인 + 병해충 탐지 PoC</div>
-      <div class="proj-phase-duration">3 ~ 6개월</div>
-    </div>
-    <div class="proj-phase-body">
-      <div class="phase-cards-container" id="phase2-cards">
-
-  <div class="phase-summary">
-    <div class="phase-summary-period">3 ~ 6개월</div>
-    <div class="phase-summary-goal">데이터가 흐르는 파이프라인 + 병해 탐지 데모</div>
-  </div>
-
-  <!-- 01 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">01</span>
-      <h3 class="phase-card-title">Priva Read 파이프라인 구축</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>Priva 온실 제어기에서 센서 데이터(온도, 습도, CO2, 광량, 관수량)를 5분 간격으로 자동 수집하는 시스템을 구축합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI가 학습하려면 데이터가 필요합니다. 현재는 사람이 수동으로 주 1회 기록하고 있으며, 자동 수집 없이는 AI 개발 자체가 불가능합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Priva 시스템의 데이터 내보내기 기능을 활용하고, Python 스크립트로 DB에 자동 적재합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>5분 단위 실시간 환경 데이터가 DB에 자동 저장되는 파이프라인</p></div>
-    </div>
-  </div>
-
-  <!-- 02 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">02</span>
-      <h3 class="phase-card-title">결측치 보간 + 파생변수 산출</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>센서 고장이나 통신 장애로 빠진 데이터를 자동 복구하고, VPD(포차), GDD(생육도일), DLI(일적산광량) 등 핵심 지표를 실시간 계산합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>센서 고장이나 통신 장애로 빠진 데이터를 그대로 두면 모델이 잘못된 패턴을 학습함. GDD 등 파생변수는 환경 제어 모델의 기본 입력값.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>선형 보간과 이동평균으로 결측치를 복원하고, Python 모듈로 파생변수를 자동 계산합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>결측 없는 깨끗한 데이터 + VPD / GDD / DLI / DIF / RTR 자동 산출 모듈</p></div>
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">03</span>
-      <h3 class="phase-card-title">센서 드리프트 감지</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>센서가 서서히 오차가 커지는 현상(드리프트)을 자동으로 감지하여 경고합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>센서 오차가 쌓이면 모델이 잘못된 패턴을 학습함. 캘리브레이션 주기를 놓치지 않도록 자동 감지 필요.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>내부 센서값과 기상청 외부 데이터를 교차 검증하고, 이상 감지 시 대시보드에 알림을 표시합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>센서 신뢰도 모니터링 + "캘리브레이션 필요" 자동 알림 시스템</p></div>
-    </div>
-  </div>
-
-  <!-- 04 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">04</span>
-      <h3 class="phase-card-title">KAMIS API + 기상청 API 연동</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>도매시장 실시간 시세와 기상청 예보 데이터를 자동으로 수집합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI가 "언제 수확하고 어디로 출하할지" 판단하려면 시장 가격과 날씨 예보 데이터가 필요합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>KAMIS Open API와 기상청 동네예보 API를 연동하여 일 배치로 수집하고, DB에 저장합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>일별 도매 시세 + 시간별 기상 예보 데이터 자동 축적 시스템</p></div>
-    </div>
-  </div>
-
-  <!-- 05 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">05</span>
-      <h3 class="phase-card-title">YOLOv8 4대 병해 특화 모델 학습</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>카메라로 온실 내 식물을 촬영하여 잿빛곰팡이, 흰가루병, 총채벌레, 온실가루이 4가지 병해충을 자동 탐지하는 AI를 학습시킵니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>병해충은 초기에 발견해야 피해를 최소화할 수 있습니다. 사람 눈으로 넓은 온실을 매일 점검하는 것은 현실적으로 불가능합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>YOLOv8 모델에 PlantVillage 공개 데이터와 자체 촬영 데이터를 결합하여 5개 클래스(4종 병해 + 정상)를 학습시킵니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>병해 탐지 데모 + 실시간 알림 프로토타입</p></div>
-    </div>
-  </div>
-
-  <!-- 06 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">06</span>
-      <h3 class="phase-card-title">비상 제어 시스템 구현</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>AI와 완전히 독립적으로, 온실이 위험한 상태가 되면 자동으로 비상 조치를 취하는 안전장치를 구현합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI 장애 또는 오작동 시에도 온실 환경이 안전하게 유지되어야 함.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>PLC에 직접 입력: 온도 &gt; 35&#176;C 강제 환기, 습도 &gt; 95% 제습, CO₂ &gt; 1500ppm 주입 차단.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>AI와 독립적으로 작동하는 비상 안전 시스템</p></div>
-    </div>
-  </div>
-
-  <!-- 07 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">07</span>
-      <h3 class="phase-card-title">기준 모델 구축</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>가장 단순한 예측 모델(이동평균)을 만들어서 모든 AI 모델의 비교 기준으로 사용합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>후속 모델의 성능이 개선됐는지 판단하려면 비교 기준점이 있어야 함.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>이동평균과 Seasonal Naive 모델을 구축.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>후속 모델 성능 비교 기준선</p></div>
-    </div>
-  </div>
-
-  <!-- 08 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">08</span>
-      <h3 class="phase-card-title">엣지 서버 세팅 + 테스트 데이터 생성기</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>온실 현장에 설치할 소형 서버(Jetson Orin)를 준비하고, 실제 센서 연결 전까지 가짜 데이터로 시스템을 테스트합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>센서 연결 전에 시스템 동작 검증 필요. 인터넷 단절 시에도 현장 서버가 있어야 기본 제어 가능.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Jetson Orin에 Docker 환경을 구축하고, Python으로 5분 단위 가짜 센서 데이터를 생성합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>현장 서버 + 테스트용 가짜 데이터 흐름</p></div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- ============================================================ -->
-<!-- PHASE 2 REPLACEMENT                                          -->
-<!-- MERGE: Replace contents of #panel-proj-phase2 .proj-phase-body .proj-timeline -->
-<!-- ============================================================ -->
-
-      <div class="proj-phase-output">
-        <div class="proj-phase-output-label">산출물</div>
-        <p>데이터가 흐르는 파이프라인 + 병해 탐지 데모</p>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /panel-roadmap-stage2 -->
-
-<div id="panel-roadmap-stage3" class="proj-roadmap-sub">
-
-  <div class="proj-phase-card">
-    <div class="proj-phase-header">
-      <div class="proj-phase-tag">3단계</div>
-      <div class="proj-phase-title">환경 제어 AI + 검증 UI</div>
-      <div class="proj-phase-duration">6 ~ 12개월</div>
-    </div>
-    <div class="proj-phase-body">
-      <div class="phase-cards-container" id="phase3-cards">
-
-  <div class="phase-summary">
-    <div class="phase-summary-period">6 ~ 12개월</div>
-    <div class="phase-summary-goal">재배사가 매일 쓰는 대시보드 + 1작기 데이터 축적</div>
-  </div>
-
-  <!-- 01 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">01</span>
-      <h3 class="phase-card-title">Rule-based 환경 제어</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>"온도 28도 넘으면 환기, 습도 90% 넘으면 제습"과 같은 전문가 경험 규칙을 코드로 구현합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>처음부터 RL을 적용하면 문제가 생겼을 때 원인 파악이 어려움. 규칙 기반 제어로 먼저 데이터와 시스템 안정성을 확인.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>재배 전문가의 설정값을 if-else 로직으로 구현하고, 30분 주기로 실행합니다(고온 시 10분 주기).</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>규칙 기반 자동 제어 시스템 + 데이터 로깅</p></div>
-    </div>
-  </div>
-
-  <!-- 02 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">02</span>
-      <h3 class="phase-card-title">RL 섀도우 모드 가동</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>강화학습(RL) AI가 실제 제어 없이 "내가 이렇게 했을 텐데"만 기록하는 모드를 가동합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>RL을 사전 검증 없이 실전에 적용하면 작물 피해로 이어질 수 있음.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>RL 에이전트가 매 30분마다 제안값을 생성하고, 실제 적용값과의 차이(delta)를 DB에 저장합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>RL 학습 데이터 축적 + "RL 제안 vs 실제" 비교 리포트</p></div>
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">03</span>
-      <h3 class="phase-card-title">엔진 간 조율 로직</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>4개 AI 엔진이 서로 충돌하는 제안을 할 때 어떤 엔진의 말을 들을지 결정하는 로직을 구현합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>엔진1이 "가스비 아끼려면 야간 온도를 낮춰라"하고 엔진2가 "수확 맞추려면 야간 온도를 유지해라"하면 충돌합니다. 시스템이 멈추면 안 됩니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>우선순위를 하드코딩합니다: 생존 &gt; 품질/수확량 &gt; 환경제어 &gt; 비용절감 순서입니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>엔진 충돌 자동 해소 로직</p></div>
-    </div>
-  </div>
-
-  <!-- 04 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">04</span>
-      <h3 class="phase-card-title">적응형 제어 주기</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>평상시에는 30분 간격, 고온 경보 시에는 10분 간격으로 자동 전환되는 제어 시스템을 만듭니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>한여름 직사광선 조건에서 30분 간격으로는 고온 피해에 늦게 대응할 수 있습니다. 상황에 따라 즉각 대응이 필요합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>일사량과 온도 임계값을 감지하여 제어 주기를 자동으로 단축합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>상황 적응형 제어 시스템</p></div>
-    </div>
-  </div>
-
-  <!-- 05 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">05</span>
-      <h3 class="phase-card-title">재배사 대시보드 (검증 UI)</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>재배사가 매일 AI 제안을 확인하고, 승인 또는 수정하고, 실제 결과를 입력하는 웹 대시보드를 구축합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI를 무조건 신뢰할 수 없으므로 사람이 검증하는 단계가 필수입니다. "AI가 제안했지만 사람이 수정한 이유"가 가장 값비싼 학습 데이터입니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>React 기반으로 AI 제안 vs 현재값 비교 테이블, A/B 테스트 차트, Ground Truth 입력 폼을 구현합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>재배사가 매일 사용하는 대시보드</p></div>
-    </div>
-  </div>
-
-  <!-- 06 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">06</span>
-      <h3 class="phase-card-title">LLM 리포트 생성</h3>
-      <span class="phase-card-tag tag-optional">선택</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>4개 엔진의 분석 결과를 농부가 이해할 수 있는 한국어 보고서로 자동 변환합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>"VPD 0.87에서 1.02로 조정"이라는 지표를 "곰팡이 위험이 증가했습니다. 환기를 10% 올리세요"로 바꿔야 현장에서 실제로 사용됩니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Claude API에 확정된 JSON만 전달하여 번역만 수행합니다. 이상 이벤트가 없는 날은 호출하지 않아 비용을 최적화합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>일일 AI 브리핑 리포트</p></div>
-    </div>
-  </div>
-
-  <!-- 07 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">07</span>
-      <h3 class="phase-card-title">엣지 Fallback</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>인터넷이 끊겨도 기본적인 환경 제어를 유지하는 독립 시스템을 구축합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>농장에서 인터넷은 자주 끊깁니다. 클라우드에만 의존하면 네트워크 장애 시 제어가 멈출 수 있습니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>현장 Jetson에 경량 Rule-based와 기본 MPC를 상주시키고, 네트워크 복구 시 데이터를 일괄 동기화합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>오프라인에서도 작동하는 엣지 제어 시스템</p></div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- ============================================================ -->
-<!-- PHASE 3 REPLACEMENT                                          -->
-<!-- MERGE: Replace contents of #panel-proj-phase3 .proj-phase-body .proj-timeline -->
-<!-- ============================================================ -->
-
-      <div class="proj-phase-output">
-        <div class="proj-phase-output-label">산출물</div>
-        <p>재배사가 매일 쓰는 대시보드 + 1작기 데이터</p>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /panel-roadmap-stage3 -->
-
-<div id="panel-roadmap-stage4" class="proj-roadmap-sub">
-
-  <div class="proj-phase-card">
-    <div class="proj-phase-header">
-      <div class="proj-phase-tag">4단계</div>
-      <div class="proj-phase-title">예측 + MPC + 출하 연동</div>
-      <div class="proj-phase-duration">12 ~ 18개월</div>
-    </div>
-    <div class="proj-phase-body">
-      <div class="phase-cards-container" id="phase4-cards">
-
-  <div class="phase-summary">
-    <div class="phase-summary-period">12 ~ 18개월</div>
-    <div class="phase-summary-goal">예측 모델 + MPC 제어 + 2작기 실적 데이터</div>
-  </div>
-
-  <!-- 01 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">01</span>
-      <h3 class="phase-card-title">TOMGRO 생육 수식 이식</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>토마토 전용 생육 시뮬레이션 수식을 Python에 이식하여, AI가 비현실적 제안을 할 때 필터링합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>AI(RL)가 "온도 40도로 올려라" 같은 비현실적 제안을 할 수 있습니다. 식물 생리학 기반 수식으로 "이건 말이 안 된다"고 걸러내야 합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>TOMGRO 논문의 수식을 Python 함수로 구현하여 AI 제안값의 유효성을 검사합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>생육 기반 필터링 모듈</p></div>
-    </div>
-  </div>
-
-  <!-- 02 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">02</span>
-      <h3 class="phase-card-title">예측 모델 파인튜닝</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>1작기 데이터를 기반으로 생육 예측 모델을 우리 온실에 맞게 조정합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>범용 모델은 우리 온실의 특성(품종, 지역 기후, 시설 규모)을 모릅니다. 실제 데이터로 맞춤 조정해야 정확도가 올라갑니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>기준 모델(이동평균)을 먼저 이기는지 확인한 후 채택합니다. 못 이기면 기준 모델을 유지합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>우리 온실 맞춤 수확량 예측 모델</p></div>
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">03</span>
-      <h3 class="phase-card-title">가격 예측 + 출하 스케줄 연동</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>도매 시세 예측에 경매장 휴무일, 직거래처 납품 일정을 결합하여 "언제 수확해서 어디로 보내라"까지 안내합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>농사는 기르는 게 반, 파는 게 반입니다. 수확 타이밍이 하루만 어긋나도 가격이 크게 달라집니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>비교 검증으로 선택한 예측 모델에 유통사 납품 스케줄 DB를 연동합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>출하 전략 포함 가격 예측 시스템</p></div>
-    </div>
-  </div>
-
-  <!-- 04 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">04</span>
-      <h3 class="phase-card-title">MPC 도입</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>모델 예측 제어(MPC)를 도입하여 안전 범위 내에서 보수적으로 환경을 제어합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>Rule-based는 단순 if-else라 최적화가 되지 않습니다. MPC는 "2시간 후 예측"을 기반으로 미리 대응하여 더 정밀한 제어가 가능합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>Python MPC 라이브러리를 활용하고, 온도, 습도, CO2 안전 제약 조건을 설정합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>예측 기반 환경 제어 시스템</p></div>
-    </div>
-  </div>
-
-  <!-- 05 -->
-  <div class="phase-card">
-    <div class="phase-card-header" onclick="this.parentElement.classList.toggle('phase-card-open')">
-      <span class="phase-card-status">&#11036;</span>
-      <span class="phase-card-num">05</span>
-      <h3 class="phase-card-title">자동 재학습 트리거</h3>
-      <span class="phase-card-tag tag-required">필수</span>
-      <span class="phase-card-toggle">+</span>
-    </div>
-    <div class="phase-card-body">
-      <div class="phase-card-what"><h4>무엇을 하는가</h4><p>AI 예측이 일정 수준 이상 틀리면 자동으로 모델을 재학습시키는 시스템을 구축합니다.</p></div>
-      <div class="phase-card-why"><h4>왜 하는가</h4><p>봄에 학습한 모델이 가을에는 정확도가 떨어집니다(Concept Drift). 계절과 환경 변화에 맞춰 모델도 업데이트되어야 합니다.</p></div>
-      <div class="phase-card-how"><h4>어떻게 하는가</h4><p>수확량 예측 오차가 15%를 초과하는 상태가 3일 연속되면, 클라우드 A100에서 자동 재학습 후 검증을 거쳐 모델을 교체합니다.</p></div>
-      <div class="phase-card-output"><h4>산출물</h4><p>MLOps 자동 재학습 파이프라인</p></div>
-    </div>
-  </div>
-
-</div>
-
-      <div class="proj-phase-output">
-        <div class="proj-phase-output-label">산출물</div>
-        <p>예측 모델 + MPC 제어 + 2작기 실적 데이터</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 향후 계획 -->
-  <div class="proj-future">
-    <div class="proj-future-label">향후 계획 (18 ~ 24개월)</div>
-
-    <div class="proj-phase-card">
-      <div class="proj-phase-header">
-        <div class="proj-phase-tag">Phase 4 (향후)</div>
-        <div class="proj-phase-title">자동화 + 확장</div>
-        <div class="proj-phase-duration">18 ~ 24개월</div>
-      </div>
-      <div class="proj-phase-body">
-        <div class="proj-timeline">
-
-          <div class="proj-timeline-item">
-            <div class="proj-timeline-text"><strong>RL 어드바이저 모드</strong> — 추천만, 사람이 승인</div>
-          </div>
-          <div class="proj-timeline-item">
-            <div class="proj-timeline-text"><strong>Priva API 연동 협상</strong> — 실적 데이터 기반 딜러 협상</div>
-          </div>
-          <div class="proj-timeline-item">
-            <div class="proj-timeline-text"><strong>MLOps 파이프라인</strong> — 자동 재학습 + 모델 교체</div>
-          </div>
-          <div class="proj-timeline-item">
-            <div class="proj-timeline-text"><strong>다동 확장</strong> — 반자동 온실 제어 시스템</div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /panel-roadmap-stage4 -->
-
-</section><!-- /panel-proj-roadmap -->
 
 <!-- ── 협의 사항 ── -->
 <section id="panel-proj-agreement" class="proj-panel">
@@ -5750,7 +5163,7 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
       <div class="agri-ai-sub-detail">
         <strong>참고</strong>
-        상세 내용은 "방향성" 탭을 참조하십시오.
+        상세 내용은 "테스트" 탭을 참조하십시오.
       </div>
     </div>
   </details>
@@ -5760,7 +5173,7 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 </section>
 
 
-<section class="tab-panel" id="panel-direction" data-title="방향성">
+<section class="tab-panel" id="panel-direction" data-title="테스트">
 <!-- 방향성 → 현황 분석 내용으로 교체 -->
 <div class="analysis-section">
 
@@ -8279,15 +7692,15 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
     <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:18px;flex-wrap:wrap">
       <div style="width:110px;font-size:12px;font-weight:700;color:var(--fg);padding-top:14px;flex-shrink:0">① 수확량 예측</div>
       <div style="flex:1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0">
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)">환경·생육 데이터</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)">환경·생육 데이터</span></div>
         <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#E6F1FB;color:#0C447C;">TOMGRO<br><span style="font-size:10.5px;font-weight:500;opacity:.8">광합성 물리 모델</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#E6F1FB;color:#0C447C;">TOMGRO<br><span style="font-size:10.5px;font-weight:500;opacity:.8">광합성 물리 모델</span></div>
         <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FAEEDA;color:#633806;">S&amp;V<br><span style="font-size:10.5px;font-weight:500;opacity:.8">양액 물리 모델</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FAEEDA;color:#633806;">S&amp;V<br><span style="font-size:10.5px;font-weight:500;opacity:.8">양액 물리 모델</span></div>
         <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FCEBEB;color:#791F1F;">XGBoost<br><span style="font-size:10.5px;font-weight:500;opacity:.8">잔차 ML 보정</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FCEBEB;color:#791F1F;">XGBoost<br><span style="font-size:10.5px;font-weight:500;opacity:.8">잔차 ML 보정</span></div>
         <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">주간 수확량 예측<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)">체인 오차율 21.7%</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">주간 수확량 예측<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)">체인 오차율 21.7%</span></div>
       </div>
     </div>
 
@@ -8295,11 +7708,11 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
     <div style="display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px dashed var(--border)">
       <div style="width:110px;font-size:12px;font-weight:700;color:var(--fg);padding-top:14px;flex-shrink:0">② 환경 제어</div>
       <div style="flex:1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0">
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)">실측 환경 + 목표</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)">실측 환경 + 목표</span></div>
         <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#EEEDFE;color:#3C3489;">DeePC<br><span style="font-size:10.5px;font-weight:500;opacity:.8">데이터 제어</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#EEEDFE;color:#3C3489;">DeePC<br><span style="font-size:10.5px;font-weight:500;opacity:.8">데이터 제어</span></div>
         <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">환경 처방<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)">환기·커튼·난방·CO₂</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">환경 처방<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)">환기·커튼·난방·CO₂</span></div>
       </div>
     </div>
   </div>
@@ -9183,12 +8596,6 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
       subTabs.style.display = (targetTab === 'phase0') ? 'flex' : 'none';
     }
 
-    // 개발 로드맵 하위 탭 표시/숨기기
-    var roadmapSubTabs = document.getElementById('roadmap-sub-tabs');
-    if (roadmapSubTabs) {
-      roadmapSubTabs.style.display = (targetTab === 'roadmap') ? 'flex' : 'none';
-    }
-
     // 샘플 테스트 하위 탭 표시/숨기기
     var sampletestSubTabs = document.getElementById('sampletest-sub-tabs');
     if (sampletestSubTabs) {
@@ -9210,10 +8617,6 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
       if (phase0Wrapper) phase0Wrapper.classList.add('active');
       // 하위 탭 중 첫 번째 활성화된 것에 맞춰 기존 패널 표시
       projSubTabSwitch(null);
-    } else if (targetTab === 'roadmap') {
-      var el = document.getElementById('panel-proj-roadmap');
-      if (el) el.classList.add('active');
-      roadmapSubTabSwitch(null);
     } else if (targetTab === 'agreement') {
       var el = document.getElementById('panel-proj-agreement');
       if (el) el.classList.add('active');
@@ -9257,32 +8660,6 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
 
     // 대상 패널 활성화
     var targetPanel = document.getElementById('panel-' + tabId);
-    if (targetPanel) targetPanel.classList.add('active');
-  }
-
-  /* ──────────────────────────────────────────────
-     개발 로드맵 하위 탭 전환 (roadmapSubTabSwitch)
-     ────────────────────────────────────────────── */
-  function roadmapSubTabSwitch(clickedBtn) {
-    var subTabsNav = document.getElementById('roadmap-sub-tabs');
-    if (!subTabsNav) return;
-
-    var btns = subTabsNav.querySelectorAll('.tab-btn');
-
-    if (clickedBtn) {
-      btns.forEach(function(b) { b.classList.remove('active'); });
-      clickedBtn.classList.add('active');
-    }
-
-    var activeBtn = subTabsNav.querySelector('.tab-btn.active');
-    if (!activeBtn) return;
-
-    var stageId = activeBtn.getAttribute('data-roadmap-tab');
-
-    var subPanels = document.querySelectorAll('.proj-roadmap-sub');
-    subPanels.forEach(function(p) { p.classList.remove('active'); });
-
-    var targetPanel = document.getElementById('panel-roadmap-' + stageId);
     if (targetPanel) targetPanel.classList.add('active');
   }
 
@@ -9372,21 +8749,11 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
       }
     }
 
-    // 개발 로드맵 하위 탭
-    var roadmapNav = document.getElementById('roadmap-sub-tabs');
-    if (roadmapNav && roadmapNav.contains(e.target)) {
-      var roadmapBtn = e.target.closest('.tab-btn');
-      if (roadmapBtn) {
-        e.preventDefault();
-        roadmapSubTabSwitch(roadmapBtn);
-      }
-    }
   });
 
   // 전역에 노출 (통합 스크립트에서 접근 가능하도록)
   window.projTopTabSwitch = projTopTabSwitch;
   window.projSubTabSwitch = projSubTabSwitch;
-  window.roadmapSubTabSwitch = roadmapSubTabSwitch;
   window.sampletestSubTabSwitch = sampletestSubTabSwitch;
 
 })();
