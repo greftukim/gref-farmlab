@@ -7260,101 +7260,494 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 <section class="tab-panel" id="panel-io" data-title="필요 데이터 확인">
 
 <!-- 측정 가능 여부 현황 테이블 -->
-<div class="agr-wrap" style="max-width:960px;margin:0 auto 40px;">
-  <h2 style="font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--fg)">측정 가능 여부 현황</h2>
+<div class="agr-wrap" style="max-width:1120px;margin:0 auto 40px;">
+  <h2 style="font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--fg)">측정 가능 여부 현황</h2>
+  <p style="font-size:12px;color:var(--fg-muted);margin-bottom:14px;line-height:1.7">※ 각 모델에서 사용하는 INPUT 변수 중 실제로 측정 또는 입력해야 하는 변수만 정리. 모델 내부 보정 파라미터·산출값 제외.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;font-size:12px;">
+    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#eef6ff;border:1px solid #c3d8f1;border-radius:3px;color:#1a4b8c;font-weight:600">자동 (Priva 등 센서)</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fff7e6;border:1px solid #f2d79a;border-radius:3px;color:#7a5000;font-weight:600">수동 (사람 측정/입력)</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fbe9e9;border:1px solid #e8b7b7;border-radius:3px;color:#8a2b2b;font-weight:600">장비 추가 필요</span>
+  </div>
   <div style="overflow-x:auto;">
     <table style="width:100%;border-collapse:collapse;font-size:13px;">
       <thead>
         <tr style="border-bottom:2px solid var(--fg);">
-          <th style="text-align:left;padding:10px 14px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;">항목</th>
-          <th style="text-align:left;padding:10px 14px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;">측정 상태</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:42px">#</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;">항목</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:90px">단위</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:120px">측정 방식</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:120px">주기</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;">비고</th>
         </tr>
       </thead>
       <tbody>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">환경 — 자동 측정 (Priva)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">실내 온도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">1</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">실내 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas grh temp</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">실내 습도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">2</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">실내 습도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas RH</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">CO₂ 농도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">3</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">CO₂ 농도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">ppm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas CO2 conc</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">외기 온도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">4</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">실내 일사량 (Cal Radiation)</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">W/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: radiation</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">외기 습도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">5</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">환기창 풍하 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas lee</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">외부 일사량</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">6</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">환기창 풍상 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas wind</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">실내 일사량(PAR)</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">센서 추가 필요</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">7</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">난방관 1차 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas wt 1</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">환기창 개도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">8</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">그로우파이프 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas wt 2</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">난방관 온도</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">9</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">에너지스크린 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas curtain 1</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">급액량 / 횟수</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">10</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">차광스크린 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas curtain 2</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">급액 EC / pH</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">11</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">스크린 3 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas curtain 3</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">배액량 / EC / pH</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">12</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 기온</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: outside temp</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">양액 성분 조성 (다량/미량원소)</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중 (외부 기관 의뢰)</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">13</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 일사량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">W/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: radiation (외부)</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">줄기 길이 / 직경</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">14</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 풍속</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">m/s</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: wind speed</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">잎 길이 / 면적(LAI)</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">확인 필요</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">15</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 풍향</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: wind direction</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">화방 수 / 착과 수</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">16</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 습도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: outside RH</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">수확량 (kg/m²)</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">17</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">CO₂ 공급 밸브</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">과실 품질 (Brix 등)</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">수기 측정 중</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">18</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">미스트/포그</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">이미지 (작물/병해충)</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">측정 불가(장비 필요)</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">19</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배지 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">그로 센서 확인</td>
         </tr>
-        <tr>
-          <td style="padding:10px 14px;font-weight:600;color:var(--fg);">풍속</td>
-          <td style="padding:10px 14px;color:var(--fg-secondary);">Priva 자동 수집</td>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">20</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배지 수분 함량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">그로 센서 확인</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">21</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">슬라브 EC</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mS/cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">그로 센서 확인</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">22</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">보광등 ON/OFF</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fbe9e9;color:#8a2b2b;border:1px solid #e8b7b7;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">장비 필요</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">23</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">보광등 광량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">μmol</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fbe9e9;color:#8a2b2b;border:1px solid #e8b7b7;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">장비 필요</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">생육 — 수동 측정 (재배사)</td></tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">24</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">급액 EC</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mS/cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">25</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배액 EC</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mS/cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">26</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">급액 pH</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">—</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">27</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배액 pH</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">—</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">28</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">일일 관수량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mL/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">일</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">29</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">일일 배액량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mL/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">일</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">30</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">줄기 굵기</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">31</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">주간 생장길이</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm/주</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">32</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">엽장</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">33</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">엽폭</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">34</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">줄기당 엽수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">매</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">35</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">화방당 착과 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">36</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">주간 수확량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">kg/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">37</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">개화 화방 높이</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">38</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">개화 화방 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">39</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">착과 화방 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">40</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">수확 화방 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">41</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">총 과일 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">42</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">평균 과중</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">g</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">수확 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">43</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">착과 부하량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">농작업 — 수동 입력 (재배사)</td></tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">44</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적엽 매수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">매/주</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">45</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적과 개수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개/화방</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">필요 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">46</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적심 여부</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">필요 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">47</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적화 개수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개/화방</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">필요 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+        </tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">재배 정보 — 수동 입력 (관리자)</td></tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">48</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">재식 밀도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">주/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">정식 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">49</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">정식일</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">날짜</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">정식 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">50</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">품종 코드</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">—</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">정식 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">양액 — 수동 측정 (외부 업체 분석)</td></tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">51</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">급액 이온 조성</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mol/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">레시피 변경 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">52</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">원수 이온 조성</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mol/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">3개월 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">53</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">탱크 용량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">L</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">고정</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">54</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배액 이온 분석</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mol/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">당도 — 수동 측정 (선택)</td></tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">55</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">당도 (Brix)</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">수확 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
+        </tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">비용 — 수동 입력 (관리자, 향후)</td></tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">56</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">전기 단가</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">원/kWh</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">월 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">한전 요금표</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">57</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">가스 단가</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">원/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">월 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);">가스 요금표</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:12px;color:var(--fg-muted);margin-top:12px;">※ 측정 상태는 현재 파악된 정보 기준이며, 확인 필요 항목은 담당자 확인 후 갱신</p>
+  <p style="font-size:12px;color:var(--fg-muted);margin-top:12px;">※ 측정 상태는 현재 파악된 정보 기준이며, Priva 매핑·장비 도입 계획에 따라 갱신</p>
 </div>
 
 <!-- Updated I/O Simulator -->
