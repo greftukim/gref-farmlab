@@ -118,6 +118,53 @@
   color: var(--fg-muted);
 }
 .aiw-list li:last-child { border-bottom: none; }
+.aiw-figure {
+  margin: 12px 0 18px;
+}
+.aiw-figure img {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.aiw-figure-caption {
+  font-size: 12px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  margin-top: 8px;
+}
+.aiw-figure-caption strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+.aiw-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 12px 0 16px;
+  max-width: 480px;
+}
+.aiw-kpi-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+.aiw-kpi-label {
+  font-size: 10.5px;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.aiw-kpi-value {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
 </style>
 
 <div class="container">
@@ -175,9 +222,50 @@
     </div>
   </div>
 
-  <!-- 섹션 4: 데이터 활용 방향 -->
+  <!-- 섹션 4: 농작업이 생육에 끼치는 영향 -->
   <div class="aiw-section">
-    <div class="aiw-section-title" spellcheck="false">04 — 데이터 활용 방향</div>
+    <div class="aiw-section-title" spellcheck="false">04 — 농작업이 생육에 끼치는 영향</div>
+    <div class="aiw-subtitle" spellcheck="false">작업 기록의 부재와 간접 증거</div>
+    <div class="aiw-body" spellcheck="false">본 작기는 농작업 실측 기록이 존재하지 않으나, 주간 생육 측정 데이터의 변동으로 적엽·적과 작업의 흔적을 간접적으로 추적 가능. FarmWork 시스템 도입 이후에는 동일 분석을 실측 기록 기반으로 수행 가능하며, 이는 재배 AI 모델의 오차율을 직접 낮추는 근거가 됨.</div>
+
+    <!-- 4-1. 엽수 변동 적엽 추적 -->
+    <div class="aiw-diff-group">
+      <div class="aiw-diff-title" spellcheck="false">4-1. 엽수 변동으로 본 적엽 추적 (실측 데이터)</div>
+      <div class="aiw-diff-body" spellcheck="false">주간 엽수 및 LAI 측정값의 감소 구간을 적엽 작업 시점으로 역추정. 본 작기 동안 엽수 <strong>0.5매 이상 감소한 주가 13회</strong> 관측되었으며, LAI도 동시 감소 — 적엽이 광합성 계산(TOMGRO)에 직접 영향을 주고 있음을 확인.</div>
+      <figure class="aiw-figure">
+        <img src="https://greftukim.github.io/gref-farm-ai/site_images/farmwork_defoliation_trace.png" alt="엽수·LAI 주간 변동으로 본 적엽 추적">
+        <figcaption class="aiw-figure-caption"><strong>본 작기 실측 엽수·LAI 주간 변동.</strong> 엽수 ≥ 0.5매 감소 주 13회(빨간 음영) = 적엽 작업 추정 시점. LAI 동시 감소 확인 → 적엽이 TOMGRO 광합성 계산에 직접 영향.</figcaption>
+      </figure>
+    </div>
+
+    <!-- 4-2. 적과 영향 시뮬레이션 -->
+    <div class="aiw-diff-group">
+      <div class="aiw-diff-title" spellcheck="false">4-2. 적과 영향 시뮬레이션 (가상 시나리오)</div>
+      <div class="aiw-diff-body" spellcheck="false">적과(솎기) 강도에 따른 수확량 변화를 가상 시뮬레이션으로 확인. 적과 20% 시 과실 수는 감소하지만 평균 과중 +30% 증가로 <strong>20주 누적 수확량 +4.0% 개선 가능성</strong>. 단 실제 효과는 품종·시기·환경에 따라 달라지므로 Phase 2에서 실측 기반 검증 필요.</div>
+      <figure class="aiw-figure">
+        <img src="https://greftukim.github.io/gref-farm-ai/site_images/farmwork_yield_simulation.png" alt="적과 강도별 수확량 시뮬레이션">
+        <figcaption class="aiw-figure-caption"><strong>가상 적과 시나리오.</strong> 적과 20% 시 과실 수는 감소하지만 평균 과중 +30% 증가로 20주 누적 수확량 +4.0% 개선 가능성. 실제 효과는 품종·시기·환경에 따라 다름 → Phase 2 실측 필요.</figcaption>
+      </figure>
+    </div>
+
+    <!-- 핵심 지표 -->
+    <div class="aiw-kpi-row">
+      <div class="aiw-kpi-box">
+        <div class="aiw-kpi-label" spellcheck="false">적엽 추정 주</div>
+        <div class="aiw-kpi-value" spellcheck="false">13회</div>
+      </div>
+      <div class="aiw-kpi-box">
+        <div class="aiw-kpi-label" spellcheck="false">오차율 감소 기대</div>
+        <div class="aiw-kpi-value" spellcheck="false">10~15<span style="font-size:12px;font-weight:500">%p</span></div>
+      </div>
+    </div>
+
+    <div class="aiw-note" spellcheck="false">본 섹션의 분석은 작기 종료 후 역추적으로 수행된 것. FarmWork 시스템 정착 이후에는 동일 분석을 실시간·자동화로 수행 가능하며, 이것이 FarmWork가 재배 AI의 학습 인프라로 기능하는 핵심 이유.</div>
+  </div>
+
+  <!-- 섹션 5: 데이터 활용 방향 -->
+  <div class="aiw-section">
+    <div class="aiw-section-title" spellcheck="false">05 — 데이터 활용 방향</div>
     <div class="aiw-subtitle" spellcheck="false">두 가지 AI 모델의 학습 데이터 공급</div>
     <div class="aiw-body" spellcheck="false">축적된 데이터는 두 가지 방향의 AI 모델 학습에 활용 예정.</div>
     <table class="aiw-table">
@@ -190,18 +278,18 @@
     <div class="aiw-note" spellcheck="false">두 모델 모두 동일한 데이터 플랫폼 위에서 학습됨. 별도 데이터 수집 인프라 구축 비용 없음.</div>
   </div>
 
-  <!-- 섹션 5: 확장 가능성 -->
+  <!-- 섹션 6: 확장 가능성 -->
   <div class="aiw-section">
-    <div class="aiw-section-title" spellcheck="false">05 — 확장 가능성</div>
+    <div class="aiw-section-title" spellcheck="false">06 — 확장 가능성</div>
     <div class="aiw-subtitle" spellcheck="false">외부 농가 보급을 통한 데이터 자산 다변화</div>
     <div class="aiw-body" spellcheck="false">단일 농장 데이터만으로는 AI 모델의 일반화에 한계. 작물 종류, 기후 조건, 운영 방식이 상이한 다수 농장의 데이터 확보가 모델 정확도 향상의 핵심 조건.</div>
     <div class="aiw-body" spellcheck="false">GREF FarmWork를 외부 농가에 보급하는 경우, 도입 농가는 즉시 운영 가능한 농장 관리 도구 확보, GREF는 다양한 환경의 학습 데이터 확보. 양방향 가치 교환 구조 성립 가능.</div>
     <div class="aiw-body" spellcheck="false">이 구조가 정착될 경우, GREF는 자체 온실 운영을 넘어 농업 데이터 인프라 보유 기업으로의 포지셔닝 전환 가능.</div>
   </div>
 
-  <!-- 섹션 6: 현재 단계 -->
+  <!-- 섹션 7: 현재 단계 -->
   <div class="aiw-section">
-    <div class="aiw-section-title" spellcheck="false">06 — 현재 단계</div>
+    <div class="aiw-section-title" spellcheck="false">07 — 현재 단계</div>
     <div class="aiw-subtitle" spellcheck="false">운영 안정화 진행 중</div>
     <table class="aiw-table">
       <thead><tr><th spellcheck="false" class="">구분</th><th spellcheck="false" class="">내용</th></tr></thead>
@@ -214,9 +302,9 @@
     </table>
   </div>
 
-  <!-- 섹션 7: 요약 -->
+  <!-- 섹션 8: 요약 -->
   <div class="aiw-section">
-    <div class="aiw-section-title" spellcheck="false">07 — 요약</div>
+    <div class="aiw-section-title" spellcheck="false">08 — 요약</div>
     <div class="aiw-subtitle" spellcheck="false">핵심 메시지</div>
     <ul class="aiw-list">
       <li spellcheck="false" class="">인력·작업 관리 기능을 통해 농작업 데이터를 체계적으로 수집·정형화하는 플랫폼</li>
