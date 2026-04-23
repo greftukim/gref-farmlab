@@ -4015,6 +4015,133 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
     </div>
   </div><!-- /회의 결정 요약 -->
 
+  <!-- 물품 구매 (회의 2026.04.20) -->
+  <div class="agr-section">
+    <h2 class="agr-h2">물품 구매 — 모델 정확도 확보를 위한 필수 장비 (회의 2026.04.20)</h2>
+    <p style="font-size:12px;color:var(--fg-muted);margin:0 0 12px;line-height:1.7">현재 예측 모델의 오차 상당 부분은 <strong>입력 데이터 자체의 불확실성</strong>에서 발생. 그중 가장 크게 영향을 주는 두 변수(엽면적·내부 광량)를 직접 측정하지 못하고 추정값으로 돌리고 있어, 실측 장비 도입 시 모델 오차율 개선 폭이 가장 큼. 아래 2종 장비를 <strong>Phase 2 진입 전 우선 구매</strong> 대상으로 제안.</p>
+
+    <!-- 요약 표 -->
+    <div class="agr-table-wrap">
+      <table class="agr-table">
+        <colgroup><col style="width:24%"><col style="width:28%"><col style="width:22%"><col style="width:26%"></colgroup>
+        <thead><tr><th>품목</th><th>용도</th><th>사용 빈도</th><th>기대 효과</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>엽면적 측정기</strong><br><span style="font-size:11px;color:var(--fg-muted)">Leaf Area Meter</span></td>
+            <td>품종별 SHAPE 계수 실측 도출 — LAI 공식의 불확실 변수 제거</td>
+            <td>구매 후 1회 집중 측정 + 품종 교체 시 재측정</td>
+            <td>LAI 정확도 확보 → 통그로 모델 오차 감소</td>
+          </tr>
+          <tr>
+            <td><strong>휴대용 PAR 센서</strong><br><span style="font-size:11px;color:var(--fg-muted)">Photosynthetically Active Radiation</span></td>
+            <td>내부 광량 실측 — 프리바 계산값(외부 대비 25~50% 추정) 검증</td>
+            <td>위치별·시기별 순환 측정 (14시간×수일)</td>
+            <td>외부·내부 광량 오차 계수 산출 → 광합성 계산 정확도 확보</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 1. 엽면적 측정기 상세 -->
+    <h3 class="agr-h3" style="margin-top:18px">1. 엽면적 측정기 (Leaf Area Meter)</h3>
+    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.75;margin-bottom:10px"><strong>현재 LAI 계산식</strong>: 엽장 × 엽폭 × 엽수 × 재식일도 × <span class="energy-highlight" style="font-weight:700;color:var(--fg)">SHAPE 계수</span></p>
+
+    <div class="agr-table-wrap">
+      <table class="agr-table">
+        <colgroup><col style="width:22%"><col style="width:78%"></colgroup>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>문제</td>
+            <td>SHAPE 계수를 실측 없이 <strong>0.5로 가정</strong>하고 있음. 실제 값은 품종·생육단계에 따라 0.4~0.7 사이에서 변동. 잎 가장자리 곡선·구분 입 때문에 "엽장 × 엽폭"만으론 실제 면적과 차이가 큼.</td>
+          </tr>
+          <tr>
+            <td>기계 동작</td>
+            <td>잎을 기계에 넣으면 실제 엽면적을 자동 계산 → 엽장 × 엽폭과 비교하여 <strong>품종별 SHAPE 계수 실측값</strong>을 도출.</td>
+          </tr>
+          <tr>
+            <td>사용 방식</td>
+            <td>구매 후 1회 집중 측정: 품종별 잎 10~20장 샘플링 → 평균 SHAPE 계수 산출 → 모델에 고정 반영. 이후엔 기존처럼 엽장·엽폭·엽수 수기 측정만 해도 LAI 정확도 확보.</td>
+          </tr>
+          <tr>
+            <td>효과 근거</td>
+            <td>현재 통그로 모델이 계산하는 LAI가 실측 추정값과 불일치(논문 권장값 4 이상 vs 실측 추정 1.5~2). 이 격차가 통그로 오차 42%의 주요 원인 중 하나.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. PAR 센서 상세 -->
+    <h3 class="agr-h3" style="margin-top:18px">2. 휴대용 PAR 센서</h3>
+    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.75;margin-bottom:10px"><strong>현재 광량 입력</strong>: 외부 광량만 사용. 프리바의 Computed Radiation(내부 추정값)은 유리 투과율 70% 기본 가정으로 계산되어, 실제 외부 대비 <strong>25~50%</strong>로 값이 달라져 신뢰하기 어려움.</p>
+
+    <div class="agr-table-wrap">
+      <table class="agr-table">
+        <colgroup><col style="width:22%"><col style="width:78%"></colgroup>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>문제</td>
+            <td>유리·필름·차광막 재질, 커튼 개도, 먼지·건물 가림에 따라 내부 광량이 크게 달라지나 현재 <strong>실측 데이터 없음</strong>. 프리바 계산식은 시공 업체(미프코) 기준이라 본 농장과 정확히 일치하는지 확인 불가.</td>
+          </tr>
+          <tr>
+            <td>기계 동작</td>
+            <td>캐노피 상단에 설치해 광합성 유효 복사(PAR)를 실측. 외부 일사량 센서값과 동시 비교하여 <strong>내부·외부 광량 오차 계수</strong> 도출.</td>
+          </tr>
+          <tr>
+            <td>사용 방식</td>
+            <td>휴대용으로 구매 → 한 위치에 14시간(일출~일몰) 또는 24시간 측정 → 다른 위치로 이동해 재측정. 온실 내 평균 오차 계수를 산출하여 모델 입력에 지속 반영.</td>
+          </tr>
+          <tr>
+            <td>효과 근거</td>
+            <td>통그로 입력값 중 광량은 가장 큰 가중치를 가진 변수. 실측 기반 계수 적용 시 <strong>통그로 단독 오차율 73% → 30~40% 수준으로 감소 예상</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 통합 로드맵 -->
+    <h3 class="agr-h3" style="margin-top:18px">장비 도입 시 모델 오차 개선 로드맵</h3>
+    <div class="agr-table-wrap">
+      <table class="agr-table">
+        <colgroup><col style="width:25%"><col style="width:18%"><col style="width:18%"><col style="width:39%"></colgroup>
+        <thead><tr><th>단계</th><th>통그로 단독</th><th>통합 체인</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>현재</td>
+            <td>73%</td>
+            <td><strong>21.7%</strong></td>
+            <td>SHAPE 계수·광량 모두 추정값 기반</td>
+          </tr>
+          <tr>
+            <td>+ 엽면적 측정기 도입</td>
+            <td>—</td>
+            <td>—</td>
+            <td>LAI 공식의 SHAPE 실측값 반영</td>
+          </tr>
+          <tr>
+            <td>+ PAR 센서 도입</td>
+            <td>30~40%</td>
+            <td>—</td>
+            <td>내부 광량 실측 계수 반영으로 광합성 계산 개선</td>
+          </tr>
+          <tr>
+            <td>목표 (Phase 2)</td>
+            <td>—</td>
+            <td><strong>13~17%</strong></td>
+            <td>오차 원인 구조적 해결 반영</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--fg);padding:12px 14px;font-size:13px;color:var(--fg);line-height:1.7;margin-top:12px">
+      <strong>판단 기준.</strong> 프리바 계산값·엽장·엽폭 등 기존 데이터로 대체 가능하다 하더라도, <strong>계산된 값이 실측과 맞는지 검증할 수단이 없으면 모델 전체가 그 위에서 돌아갈 뿐</strong>. 한 번이라도 실측을 해야 계수 보정이 가능하므로 최소 1회 측정을 위해서라도 구매 필요. 가격·규격은 별도 견적 단계에서 확정.
+    </div>
+
+  </div><!-- /물품 구매 -->
+
+
   <!-- 전제 조건 -->
   <div class="agr-section">
     <h2 class="agr-h2">전제 조건</h2>
