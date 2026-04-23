@@ -3949,6 +3949,73 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 <div class="agr-wrap">
   <p class="agr-intro">부산LAB에서 진행할 "재배사 vs AI" 비교 재배 실험의 사전 협의 사항을 정리한 문서입니다. 본 실험은 2단계(모델 구축 및 검증) 이후 실행을 전제로 하며, AI 추천 모델이 준비된 시점에 아래 항목들을 재배사와 협의하여 확정합니다.</p>
 
+<!-- 회의 결정 요약 (2026.04.22) -->
+  <div class="agr-section">
+    <h2 class="agr-h2">AI vs 재배사 비교 운영 — 로드맵 3단계 전제 (회의 2026.04.22)</h2>
+    <p style="font-size:12px;color:var(--fg-muted);margin:0 0 12px;line-height:1.7">본 작기(샘플 테스트)로 21.7% 오차율을 확인한 뒤, 다음 단계로 진행할 <strong>"AI 온실 vs 재배사 온실" 비교 운영</strong>을 위한 회의 결정 사항. 부산LAB 미니오이 파일럿(아래 섹션)과 별개의 하동 토마토 3단계 전제 조건.</p>
+
+    <div class="agr-table-wrap">
+      <table class="agr-table">
+        <colgroup><col class="col-2a"><col class="col-2b"></colgroup>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>실험 구도</td>
+            <td><strong>1번 온실 = AI</strong>(1번 호실 AI 제어로 고정) / <strong>2번 온실 = 재배사</strong> 수동 운영. "1번 원실은 AI라고 해서 아예 막아버리겠습니다" (회의 원문)</td>
+          </tr>
+          <tr>
+            <td>AI 개입 방지 원칙</td>
+            <td>AI와 재배사는 <strong>각자 독립</strong>적으로 당일 환경 설정값을 먼저 제안. 서로의 제안값을 보고 결정하지 않음. 다음 날 작물 상태·결과를 비교하여 양쪽의 판단 차이를 학습 데이터로 축적. 사람 판단이 AI에 개입되는 구조는 배제.</td>
+          </tr>
+          <tr>
+            <td>이력 기록 — AI</td>
+            <td>AI 판단값은 자동 저장.</td>
+          </tr>
+          <tr>
+            <td>이력 기록 — 재배사</td>
+            <td>재배사가 Priva에서 직접 세팅한 값을 별도 이력으로 기록. <strong>매일 변경되는 값을 매일</strong> 기록(AI vs 재배사 세팅 대비표). 설정 변경 사유("왜 이렇게 바꿨는지")도 함께 남김. 구두 설명은 녹음으로 보관 가능.</td>
+          </tr>
+          <tr>
+            <td>협의·검증 시점</td>
+            <td>매일 아침/오후 중 1회, <strong>약 1시간 논의 시간</strong> 확보(선도 확인 시간 활용). 이 시점에 양측 제안값·결과·사유를 함께 검토. LLM을 활용해 "왜 이 제어가 합리적인가"를 사전 판단 보조로 씀(협의 자동화).</td>
+          </tr>
+          <tr>
+            <td>극단값 학습 vs 책임</td>
+            <td>AI가 극단 구간(예: 40°C, EC 급변 등)의 거동을 학습하려면 실제로 그 값을 적용해 봐야 함. 이 경우 실패(작물 손실) 가능성을 인정하되, <strong>책임은 "실험하자고 한 측"</strong>이 짐. 항목별 상·하한 <strong>조정치(safety band)</strong>를 사전 설정하여 회복 불가능한 극단값은 자동 무시.</td>
+          </tr>
+          <tr>
+            <td>특이 이벤트 기록 의무</td>
+            <td>적엽·적과·적심·혈관 노후·수분(꽃 떨기) 등 농작업 이벤트 시점을 <strong>반드시 FarmWork 앱에 기록</strong>. 본 작기 21.7% 오차 중 4월 적심 등 특이 이벤트가 큰 기여 — 기록 누락 시 AI가 결과 반영 불가.</td>
+          </tr>
+          <tr>
+            <td>에너지·비용 반영 시점</td>
+            <td>DPC 기반 에너지 최적화(난방 가스·전력 단가 고려)는 <strong>본 3단계 아닌 4단계 이후</strong>에 반영. 우선은 수확량·품질 지표로 AI vs 재배사 비교에만 집중.</td>
+          </tr>
+          <tr>
+            <td>외부 협업(Phase 2~3)</td>
+            <td>내부 검증 후 학교·국가기관과 외부 협업 탐색. 오픈 클럽(오픈 클로즈드) 참여, 타 농가에서도 유사 AI vs 재배사 구도를 적용할 수 있는 형태로 구조화.</td>
+          </tr>
+          <tr>
+            <td>병해충·외부 개입 처리</td>
+            <td>1번에서 병해충 발생 시 2번도 함께 방제하는 것이 현실 — 외부 개입은 양쪽 동일 기준으로 처리(실험 순수성보다 운영 현실 우선). 기록은 별도로 남겨 사후 데이터 클리닝.</td>
+          </tr>
+          <tr>
+            <td>평가 지표</td>
+            <td>수확량·상품과율 + 환경 데이터 + 난방 가스·전력 사용량(에너지 비교는 이후 단계). 별일청(별도 일일 청결 점검) 발생 시 동일 방지 적용.</td>
+          </tr>
+          <tr>
+            <td>다음 단계 전환 조건</td>
+            <td>AI 정확도가 재배사 대비 일정 수준 도달 시 → 재배사는 <strong>"AI 보조 역할"</strong>로 전환. 전환 시점은 3개월~6개월로 상황에 따라 유동.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="agr-note" style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--fg);padding:12px 14px;font-size:12px;color:var(--fg);line-height:1.7;margin-top:12px">
+      <strong>진행 원칙.</strong> 아래 섹션들(부산LAB 미니오이 파일럿 전제·실험 설계·AI 제어 운영 방식·작업 통일 기준·데이터 수집·리스크 관리)은 초기 작성본으로 유지. 본 상단 섹션이 회의 2026.04.22에서 확정된 <strong>하동 3단계 전제</strong>로, 우선 적용 대상.
+    </div>
+  </div><!-- /회의 결정 요약 -->
+
   <!-- 전제 조건 -->
   <div class="agr-section">
     <h2 class="agr-h2">전제 조건</h2>
