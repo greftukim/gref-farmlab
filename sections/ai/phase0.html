@@ -590,7 +590,7 @@
 <!-- ======================================================== -->
 <!-- TAB 2: 농업 AI 구조                                      -->
 <!-- ======================================================== -->
-<section class="tab-panel active" id="panel-agri-ai" data-title="농업 AI 구조">
+<section class="tab-panel" id="panel-agri-ai" data-title="농업 AI 구조">
 
 
 <!-- ============================================ -->
@@ -821,19 +821,19 @@
 <!-- 방향성 → 현황 분석 내용으로 교체 -->
 <div class="analysis-section">
 
-<h2 class="analysis-h2">데이터 검증</h2>
+<h2 class="analysis-h2" spellcheck="false">데이터 검증</h2>
 
-<h3 class="analysis-h3">1-1. 학습 데이터 구성</h3>
+<h3 class="analysis-h3" spellcheck="false">1-1. 학습 데이터 구성</h3>
 
-<div class="analysis-note"><strong>검증 목적:</strong><br>외부 AI 모델을 도입하기 전에, 우리 온실 데이터에 실제로 패턴이 존재하는지 확인하기 위해 자체 데이터로 머신러닝 PoC(개념 검증) 실시</div>
+<div class="analysis-note" spellcheck="false"><strong spellcheck="false" class="">검증 목적:</strong><br>외부 AI 모델을 도입하기 전에, 우리 온실 데이터에 실제로 패턴이 존재하는지 확인하기 위해 자체 데이터로 머신러닝 <span class="gt" spellcheck="false">PoC<span class="gt-tip" spellcheck="false">Proof of Concept (개념 증명) — 아이디어가 실제로 작동하는지 소규모 테스트.</span></span>(개념 검증) 실시</div>
 
-<div class="analysis-code">검증 대상:
+<div class="analysis-code" spellcheck="false">검증 대상:
   온실: 1번 온실
   품종: 토마지노 (토마토)
-  모델: Random Forest
+  모델: <span class="gt" spellcheck="false">Random Forest<span class="gt-tip" spellcheck="false">랜덤 포레스트 — 여러 결정 트리를 모아 다수결로 예측하는 안정적 AI 기법.</span></span>
   데이터: 32주간 주간 단위 생육 조사 + 환경 데이터</div>
 
-<div class="analysis-code">X (입력 — 환경 센서):
+<div class="analysis-code" spellcheck="false">X (입력 — 환경 센서):
   주차, 평균누적광량, 낮평균온도, 야간평균온도, 24시간평균온도,
   낮RH, 야간RH, 24시간RH, 낮평균CO₂, 일일평균흡수량
 
@@ -845,86 +845,86 @@ Y (출력 — 생육 지표):
 <div class="analysis-data-table-wrap">
 <table>
 <thead><tr>
-<th>주차</th><th>평균누적광량</th><th>낮평균온도</th><th>야간평균온도</th><th>24시간평균온도</th><th>낮RH</th><th>야간RH</th><th>24시간RH</th><th>낮평균CO2</th><th>일일평균흡수량</th><th class="y-var">주간생장길이</th><th class="y-var">엽면적지수</th><th class="y-var">줄기굵기</th><th class="y-var">개화속도</th><th class="y-var">수확량</th>
+<th spellcheck="false" class="">주차</th><th spellcheck="false" class="">평균누적광량</th><th spellcheck="false" class="">낮평균온도</th><th spellcheck="false" class="">야간평균온도</th><th spellcheck="false" class="">24시간평균온도</th><th spellcheck="false" class="">낮RH</th><th spellcheck="false" class="">야간RH</th><th spellcheck="false" class="">24시간RH</th><th spellcheck="false" class="">낮평균CO2</th><th spellcheck="false" class="">일일평균흡수량</th><th class="y-var" spellcheck="false">주간생장길이</th><th class="y-var" spellcheck="false">엽면적지수</th><th class="y-var" spellcheck="false">줄기굵기</th><th class="y-var" spellcheck="false">개화속도</th><th class="y-var" spellcheck="false">수확량</th>
 </tr></thead>
 <tbody>
-<tr><td>1</td><td>2783.285</td><td>29.085</td><td>24.657</td><td>27.571</td><td>82.885</td><td>86.557</td><td>84.257</td><td>417.671</td><td>672.857</td><td>29.000</td><td>2.000</td><td>11.200</td><td>2.400</td><td>0.0</td></tr>
-<tr><td>2</td><td>2569.571</td><td>29.328</td><td>23.971</td><td>27.014</td><td>84.714</td><td>87.100</td><td>85.514</td><td>413.471</td><td>641.428</td><td>28.666</td><td>3.799</td><td>11.933</td><td>0.966</td><td>0.0</td></tr>
-<tr><td>3</td><td>1383.142</td><td>28.242</td><td>24.742</td><td>26.828</td><td>85.742</td><td>89.671</td><td>87.542</td><td>433.614</td><td>745.000</td><td>27.166</td><td>2.008</td><td>12.666</td><td>2.033</td><td>0.0</td></tr>
-<tr><td>4</td><td>2060.285</td><td>29.028</td><td>24.042</td><td>26.514</td><td>81.771</td><td>88.485</td><td>84.985</td><td>435.957</td><td>617.142</td><td>30.333</td><td>2.974</td><td>10.143</td><td>1.066</td><td>13.0</td></tr>
-<tr><td>5</td><td>2406.142</td><td>30.457</td><td>25.385</td><td>28.057</td><td>79.014</td><td>89.100</td><td>83.785</td><td>432.675</td><td>833.333</td><td>28.166</td><td>4.198</td><td>10.466</td><td>1.266</td><td>247.7</td></tr>
-<tr><td>6</td><td>2065.428</td><td>29.714</td><td>24.600</td><td>27.385</td><td>79.942</td><td>88.899</td><td>84.028</td><td>435.385</td><td>660.285</td><td>26.333</td><td>2.304</td><td>11.110</td><td>1.333</td><td>220.1</td></tr>
-<tr><td>7</td><td>1883.285</td><td>29.214</td><td>24.014</td><td>26.642</td><td>81.885</td><td>87.957</td><td>84.500</td><td>425.542</td><td>648.000</td><td>22.833</td><td>2.616</td><td>10.443</td><td>1.933</td><td>300.4</td></tr>
-<tr><td>8</td><td>1279.000</td><td>27.071</td><td>22.657</td><td>25.042</td><td>81.942</td><td>88.342</td><td>85.085</td><td>437.557</td><td>758.761</td><td>27.000</td><td>3.128</td><td>10.053</td><td>0.966</td><td>32.5</td></tr>
-<tr><td>9</td><td>1430.571</td><td>27.100</td><td>22.242</td><td>24.800</td><td>81.771</td><td>91.128</td><td>86.171</td><td>444.942</td><td>676.571</td><td>27.333</td><td>3.060</td><td>9.936</td><td>1.233</td><td>188.3</td></tr>
-<tr><td>10</td><td>1345.428</td><td>26.514</td><td>22.600</td><td>24.485</td><td>82.428</td><td>89.342</td><td>86.071</td><td>439.257</td><td>817.428</td><td>28.333</td><td>4.753</td><td>10.400</td><td>0.966</td><td>247.0</td></tr>
-<tr><td>11</td><td>1215.000</td><td>25.914</td><td>21.985</td><td>23.942</td><td>80.542</td><td>91.885</td><td>86.071</td><td>450.000</td><td>1082.333</td><td>29.666</td><td>4.835</td><td>11.120</td><td>0.733</td><td>201.2</td></tr>
-<tr><td>12</td><td>1068.571</td><td>25.885</td><td>21.457</td><td>23.714</td><td>81.971</td><td>93.100</td><td>87.385</td><td>441.514</td><td>1075.000</td><td>29.333</td><td>4.388</td><td>11.013</td><td>1.699</td><td>175.0</td></tr>
-<tr><td>13</td><td>741.428</td><td>24.871</td><td>20.828</td><td>22.957</td><td>86.100</td><td>93.399</td><td>89.871</td><td>450.357</td><td>745.666</td><td>22.000</td><td>4.172</td><td>10.000</td><td>1.200</td><td>270.9</td></tr>
-<tr><td>14</td><td>1194.142</td><td>22.657</td><td>17.557</td><td>20.014</td><td>77.542</td><td>89.785</td><td>84.242</td><td>457.285</td><td>994.333</td><td>24.666</td><td>4.139</td><td>9.890</td><td>1.600</td><td>248.5</td></tr>
-<tr><td>15</td><td>1486.000</td><td>23.120</td><td>17.300</td><td>20.020</td><td>77.340</td><td>85.700</td><td>81.880</td><td>467.320</td><td>912.666</td><td>18.833</td><td>4.975</td><td>13.933</td><td>0.699</td><td>294.6</td></tr>
-<tr><td>16</td><td>1104.000</td><td>23.816</td><td>18.666</td><td>21.050</td><td>83.883</td><td>89.966</td><td>87.050</td><td>490.850</td><td>650.380</td><td>20.333</td><td>4.942</td><td>11.523</td><td>0.800</td><td>348.4</td></tr>
-<tr><td>17</td><td>1217.428</td><td>23.857</td><td>18.742</td><td>21.028</td><td>82.428</td><td>87.571</td><td>85.271</td><td>495.157</td><td>766.000</td><td>24.166</td><td>3.027</td><td>11.220</td><td>1.600</td><td>214.3</td></tr>
-<tr><td>18</td><td>1290.142</td><td>23.642</td><td>18.771</td><td>20.914</td><td>82.571</td><td>83.114</td><td>83.700</td><td>474.028</td><td>736.666</td><td>23.833</td><td>3.631</td><td>11.356</td><td>1.066</td><td>315.3</td></tr>
-<tr><td>19</td><td>1051.285</td><td>23.700</td><td>18.085</td><td>20.442</td><td>83.385</td><td>88.185</td><td>86.285</td><td>526.871</td><td>609.142</td><td>24.166</td><td>4.499</td><td>11.733</td><td>0.900</td><td>580.7</td></tr>
-<tr><td>20</td><td>1160.428</td><td>23.085</td><td>17.728</td><td>19.971</td><td>81.114</td><td>78.628</td><td>79.914</td><td>492.442</td><td>638.000</td><td>24.000</td><td>2.907</td><td>10.333</td><td>0.966</td><td>184.2</td></tr>
-<tr><td>21</td><td>965.714</td><td>22.828</td><td>17.685</td><td>19.871</td><td>80.214</td><td>77.114</td><td>78.771</td><td>508.699</td><td>608.285</td><td>27.166</td><td>2.575</td><td>10.333</td><td>1.333</td><td>384.8</td></tr>
-<tr><td>22</td><td>867.285</td><td>22.871</td><td>18.000</td><td>19.961</td><td>79.257</td><td>77.214</td><td>78.371</td><td>486.428</td><td>525.714</td><td>21.000</td><td>2.545</td><td>9.813</td><td>1.166</td><td>312.6</td></tr>
-<tr><td>23</td><td>1000.142</td><td>21.957</td><td>17.642</td><td>19.357</td><td>73.042</td><td>70.142</td><td>70.885</td><td>488.228</td><td>578.571</td><td>24.500</td><td>2.765</td><td>9.690</td><td>1.233</td><td>374.2</td></tr>
-<tr><td>24</td><td>1078.000</td><td>20.685</td><td>16.828</td><td>18.371</td><td>75.628</td><td>72.500</td><td>73.785</td><td>491.200</td><td>654.857</td><td>26.166</td><td>3.193</td><td>9.110</td><td>1.166</td><td>290.6</td></tr>
-<tr><td>25</td><td>1215.571</td><td>22.728</td><td>17.257</td><td>19.585</td><td>76.228</td><td>70.342</td><td>72.914</td><td>485.057</td><td>594.285</td><td>14.000</td><td>1.744</td><td>7.926</td><td>0.300</td><td>334.3</td></tr>
-<tr><td>26</td><td>1190.000</td><td>22.914</td><td>17.471</td><td>19.685</td><td>75.857</td><td>75.271</td><td>75.157</td><td>497.671</td><td>751.428</td><td>25.000</td><td>2.684</td><td>10.900</td><td>1.900</td><td>358.1</td></tr>
-<tr><td>27</td><td>1253.000</td><td>21.357</td><td>17.228</td><td>19.000</td><td>73.257</td><td>63.585</td><td>68.257</td><td>492.385</td><td>947.428</td><td>26.000</td><td>2.728</td><td>12.106</td><td>0.466</td><td>319.0</td></tr>
-<tr><td>28</td><td>1239.857</td><td>21.485</td><td>17.828</td><td>19.128</td><td>72.871</td><td>63.300</td><td>67.057</td><td>484.314</td><td>708.571</td><td>19.666</td><td>2.011</td><td>11.863</td><td>1.133</td><td>315.0</td></tr>
-<tr><td>29</td><td>1421.857</td><td>21.871</td><td>16.957</td><td>19.214</td><td>72.314</td><td>65.671</td><td>68.814</td><td>487.700</td><td>820.000</td><td>20.333</td><td>1.840</td><td>12.310</td><td>0.733</td><td>238.1</td></tr>
-<tr><td>30</td><td>1314.857</td><td>22.500</td><td>17.242</td><td>19.557</td><td>75.085</td><td>73.614</td><td>73.600</td><td>485.242</td><td>896.904</td><td>22.666</td><td>2.433</td><td>12.330</td><td>1.466</td><td>248.4</td></tr>
-<tr><td>31</td><td>1544.142</td><td>22.800</td><td>15.785</td><td>19.114</td><td>74.385</td><td>76.228</td><td>75.500</td><td>467.865</td><td>950.285</td><td>26.000</td><td>2.894</td><td>10.520</td><td>1.166</td><td>156.7</td></tr>
-<tr><td>32</td><td>855.142</td><td>20.842</td><td>16.928</td><td>18.642</td><td>77.057</td><td>68.557</td><td>72.771</td><td>460.785</td><td>515.333</td><td>20.333</td><td>2.317</td><td>10.623</td><td>0.866</td><td>310.5</td></tr>
-<tr><td>33</td><td>1418.571</td><td>21.900</td><td>15.714</td><td>18.714</td><td>73.614</td><td>75.942</td><td>74.214</td><td>460.300</td><td>644.285</td><td>21.000</td><td>2.143</td><td>10.016</td><td>0.933</td><td>285.8</td></tr>
+<tr><td spellcheck="false" class="">1</td><td spellcheck="false" class="">2783.285</td><td spellcheck="false" class="">29.085</td><td spellcheck="false" class="">24.657</td><td spellcheck="false" class="">27.571</td><td spellcheck="false" class="">82.885</td><td spellcheck="false" class="">86.557</td><td spellcheck="false" class="">84.257</td><td spellcheck="false" class="">417.671</td><td spellcheck="false" class="">672.857</td><td spellcheck="false" class="">29.000</td><td spellcheck="false" class="">2.000</td><td spellcheck="false" class="">11.200</td><td spellcheck="false" class="">2.400</td><td spellcheck="false" class="">0.0</td></tr>
+<tr><td spellcheck="false" class="">2</td><td spellcheck="false" class="">2569.571</td><td spellcheck="false" class="">29.328</td><td spellcheck="false" class="">23.971</td><td spellcheck="false" class="">27.014</td><td spellcheck="false" class="">84.714</td><td spellcheck="false" class="">87.100</td><td spellcheck="false" class="">85.514</td><td spellcheck="false" class="">413.471</td><td spellcheck="false" class="">641.428</td><td spellcheck="false" class="">28.666</td><td spellcheck="false" class="">3.799</td><td spellcheck="false" class="">11.933</td><td spellcheck="false" class="">0.966</td><td spellcheck="false" class="">0.0</td></tr>
+<tr><td spellcheck="false" class="">3</td><td spellcheck="false" class="">1383.142</td><td spellcheck="false" class="">28.242</td><td spellcheck="false" class="">24.742</td><td spellcheck="false" class="">26.828</td><td spellcheck="false" class="">85.742</td><td spellcheck="false" class="">89.671</td><td spellcheck="false" class="">87.542</td><td spellcheck="false" class="">433.614</td><td spellcheck="false" class="">745.000</td><td spellcheck="false" class="">27.166</td><td spellcheck="false" class="">2.008</td><td spellcheck="false" class="">12.666</td><td spellcheck="false" class="">2.033</td><td spellcheck="false" class="">0.0</td></tr>
+<tr><td spellcheck="false" class="">4</td><td spellcheck="false" class="">2060.285</td><td spellcheck="false" class="">29.028</td><td spellcheck="false" class="">24.042</td><td spellcheck="false" class="">26.514</td><td spellcheck="false" class="">81.771</td><td spellcheck="false" class="">88.485</td><td spellcheck="false" class="">84.985</td><td spellcheck="false" class="">435.957</td><td spellcheck="false" class="">617.142</td><td spellcheck="false" class="">30.333</td><td spellcheck="false" class="">2.974</td><td spellcheck="false" class="">10.143</td><td spellcheck="false" class="">1.066</td><td spellcheck="false" class="">13.0</td></tr>
+<tr><td spellcheck="false" class="">5</td><td spellcheck="false" class="">2406.142</td><td spellcheck="false" class="">30.457</td><td spellcheck="false" class="">25.385</td><td spellcheck="false" class="">28.057</td><td spellcheck="false" class="">79.014</td><td spellcheck="false" class="">89.100</td><td spellcheck="false" class="">83.785</td><td spellcheck="false" class="">432.675</td><td spellcheck="false" class="">833.333</td><td spellcheck="false" class="">28.166</td><td spellcheck="false" class="">4.198</td><td spellcheck="false" class="">10.466</td><td spellcheck="false" class="">1.266</td><td spellcheck="false" class="">247.7</td></tr>
+<tr><td spellcheck="false" class="">6</td><td spellcheck="false" class="">2065.428</td><td spellcheck="false" class="">29.714</td><td spellcheck="false" class="">24.600</td><td spellcheck="false" class="">27.385</td><td spellcheck="false" class="">79.942</td><td spellcheck="false" class="">88.899</td><td spellcheck="false" class="">84.028</td><td spellcheck="false" class="">435.385</td><td spellcheck="false" class="">660.285</td><td spellcheck="false" class="">26.333</td><td spellcheck="false" class="">2.304</td><td spellcheck="false" class="">11.110</td><td spellcheck="false" class="">1.333</td><td spellcheck="false" class="">220.1</td></tr>
+<tr><td spellcheck="false" class="">7</td><td spellcheck="false" class="">1883.285</td><td spellcheck="false" class="">29.214</td><td spellcheck="false" class="">24.014</td><td spellcheck="false" class="">26.642</td><td spellcheck="false" class="">81.885</td><td spellcheck="false" class="">87.957</td><td spellcheck="false" class="">84.500</td><td spellcheck="false" class="">425.542</td><td spellcheck="false" class="">648.000</td><td spellcheck="false" class="">22.833</td><td spellcheck="false" class="">2.616</td><td spellcheck="false" class="">10.443</td><td spellcheck="false" class="">1.933</td><td spellcheck="false" class="">300.4</td></tr>
+<tr><td spellcheck="false" class="">8</td><td spellcheck="false" class="">1279.000</td><td spellcheck="false" class="">27.071</td><td spellcheck="false" class="">22.657</td><td spellcheck="false" class="">25.042</td><td spellcheck="false" class="">81.942</td><td spellcheck="false" class="">88.342</td><td spellcheck="false" class="">85.085</td><td spellcheck="false" class="">437.557</td><td spellcheck="false" class="">758.761</td><td spellcheck="false" class="">27.000</td><td spellcheck="false" class="">3.128</td><td spellcheck="false" class="">10.053</td><td spellcheck="false" class="">0.966</td><td spellcheck="false" class="">32.5</td></tr>
+<tr><td spellcheck="false" class="">9</td><td spellcheck="false" class="">1430.571</td><td spellcheck="false" class="">27.100</td><td spellcheck="false" class="">22.242</td><td spellcheck="false" class="">24.800</td><td spellcheck="false" class="">81.771</td><td spellcheck="false" class="">91.128</td><td spellcheck="false" class="">86.171</td><td spellcheck="false" class="">444.942</td><td spellcheck="false" class="">676.571</td><td spellcheck="false" class="">27.333</td><td spellcheck="false" class="">3.060</td><td spellcheck="false" class="">9.936</td><td spellcheck="false" class="">1.233</td><td spellcheck="false" class="">188.3</td></tr>
+<tr><td spellcheck="false" class="">10</td><td spellcheck="false" class="">1345.428</td><td spellcheck="false" class="">26.514</td><td spellcheck="false" class="">22.600</td><td spellcheck="false" class="">24.485</td><td spellcheck="false" class="">82.428</td><td spellcheck="false" class="">89.342</td><td spellcheck="false" class="">86.071</td><td spellcheck="false" class="">439.257</td><td spellcheck="false" class="">817.428</td><td spellcheck="false" class="">28.333</td><td spellcheck="false" class="">4.753</td><td spellcheck="false" class="">10.400</td><td spellcheck="false" class="">0.966</td><td spellcheck="false" class="">247.0</td></tr>
+<tr><td spellcheck="false" class="">11</td><td spellcheck="false" class="">1215.000</td><td spellcheck="false" class="">25.914</td><td spellcheck="false" class="">21.985</td><td spellcheck="false" class="">23.942</td><td spellcheck="false" class="">80.542</td><td spellcheck="false" class="">91.885</td><td spellcheck="false" class="">86.071</td><td spellcheck="false" class="">450.000</td><td spellcheck="false" class="">1082.333</td><td spellcheck="false" class="">29.666</td><td spellcheck="false" class="">4.835</td><td spellcheck="false" class="">11.120</td><td spellcheck="false" class="">0.733</td><td spellcheck="false" class="">201.2</td></tr>
+<tr><td spellcheck="false" class="">12</td><td spellcheck="false" class="">1068.571</td><td spellcheck="false" class="">25.885</td><td spellcheck="false" class="">21.457</td><td spellcheck="false" class="">23.714</td><td spellcheck="false" class="">81.971</td><td spellcheck="false" class="">93.100</td><td spellcheck="false" class="">87.385</td><td spellcheck="false" class="">441.514</td><td spellcheck="false" class="">1075.000</td><td spellcheck="false" class="">29.333</td><td spellcheck="false" class="">4.388</td><td spellcheck="false" class="">11.013</td><td spellcheck="false" class="">1.699</td><td spellcheck="false" class="">175.0</td></tr>
+<tr><td spellcheck="false" class="">13</td><td spellcheck="false" class="">741.428</td><td spellcheck="false" class="">24.871</td><td spellcheck="false" class="">20.828</td><td spellcheck="false" class="">22.957</td><td spellcheck="false" class="">86.100</td><td spellcheck="false" class="">93.399</td><td spellcheck="false" class="">89.871</td><td spellcheck="false" class="">450.357</td><td spellcheck="false" class="">745.666</td><td spellcheck="false" class="">22.000</td><td spellcheck="false" class="">4.172</td><td spellcheck="false" class="">10.000</td><td spellcheck="false" class="">1.200</td><td spellcheck="false" class="">270.9</td></tr>
+<tr><td spellcheck="false" class="">14</td><td spellcheck="false" class="">1194.142</td><td spellcheck="false" class="">22.657</td><td spellcheck="false" class="">17.557</td><td spellcheck="false" class="">20.014</td><td spellcheck="false" class="">77.542</td><td spellcheck="false" class="">89.785</td><td spellcheck="false" class="">84.242</td><td spellcheck="false" class="">457.285</td><td spellcheck="false" class="">994.333</td><td spellcheck="false" class="">24.666</td><td spellcheck="false" class="">4.139</td><td spellcheck="false" class="">9.890</td><td spellcheck="false" class="">1.600</td><td spellcheck="false" class="">248.5</td></tr>
+<tr><td spellcheck="false" class="">15</td><td spellcheck="false" class="">1486.000</td><td spellcheck="false" class="">23.120</td><td spellcheck="false" class="">17.300</td><td spellcheck="false" class="">20.020</td><td spellcheck="false" class="">77.340</td><td spellcheck="false" class="">85.700</td><td spellcheck="false" class="">81.880</td><td spellcheck="false" class="">467.320</td><td spellcheck="false" class="">912.666</td><td spellcheck="false" class="">18.833</td><td spellcheck="false" class="">4.975</td><td spellcheck="false" class="">13.933</td><td spellcheck="false" class="">0.699</td><td spellcheck="false" class="">294.6</td></tr>
+<tr><td spellcheck="false" class="">16</td><td spellcheck="false" class="">1104.000</td><td spellcheck="false" class="">23.816</td><td spellcheck="false" class="">18.666</td><td spellcheck="false" class="">21.050</td><td spellcheck="false" class="">83.883</td><td spellcheck="false" class="">89.966</td><td spellcheck="false" class="">87.050</td><td spellcheck="false" class="">490.850</td><td spellcheck="false" class="">650.380</td><td spellcheck="false" class="">20.333</td><td spellcheck="false" class="">4.942</td><td spellcheck="false" class="">11.523</td><td spellcheck="false" class="">0.800</td><td spellcheck="false" class="">348.4</td></tr>
+<tr><td spellcheck="false" class="">17</td><td spellcheck="false" class="">1217.428</td><td spellcheck="false" class="">23.857</td><td spellcheck="false" class="">18.742</td><td spellcheck="false" class="">21.028</td><td spellcheck="false" class="">82.428</td><td spellcheck="false" class="">87.571</td><td spellcheck="false" class="">85.271</td><td spellcheck="false" class="">495.157</td><td spellcheck="false" class="">766.000</td><td spellcheck="false" class="">24.166</td><td spellcheck="false" class="">3.027</td><td spellcheck="false" class="">11.220</td><td spellcheck="false" class="">1.600</td><td spellcheck="false" class="">214.3</td></tr>
+<tr><td spellcheck="false" class="">18</td><td spellcheck="false" class="">1290.142</td><td spellcheck="false" class="">23.642</td><td spellcheck="false" class="">18.771</td><td spellcheck="false" class="">20.914</td><td spellcheck="false" class="">82.571</td><td spellcheck="false" class="">83.114</td><td spellcheck="false" class="">83.700</td><td spellcheck="false" class="">474.028</td><td spellcheck="false" class="">736.666</td><td spellcheck="false" class="">23.833</td><td spellcheck="false" class="">3.631</td><td spellcheck="false" class="">11.356</td><td spellcheck="false" class="">1.066</td><td spellcheck="false" class="">315.3</td></tr>
+<tr><td spellcheck="false" class="">19</td><td spellcheck="false" class="">1051.285</td><td spellcheck="false" class="">23.700</td><td spellcheck="false" class="">18.085</td><td spellcheck="false" class="">20.442</td><td spellcheck="false" class="">83.385</td><td spellcheck="false" class="">88.185</td><td spellcheck="false" class="">86.285</td><td spellcheck="false" class="">526.871</td><td spellcheck="false" class="">609.142</td><td spellcheck="false" class="">24.166</td><td spellcheck="false" class="">4.499</td><td spellcheck="false" class="">11.733</td><td spellcheck="false" class="">0.900</td><td spellcheck="false" class="">580.7</td></tr>
+<tr><td spellcheck="false" class="">20</td><td spellcheck="false" class="">1160.428</td><td spellcheck="false" class="">23.085</td><td spellcheck="false" class="">17.728</td><td spellcheck="false" class="">19.971</td><td spellcheck="false" class="">81.114</td><td spellcheck="false" class="">78.628</td><td spellcheck="false" class="">79.914</td><td spellcheck="false" class="">492.442</td><td spellcheck="false" class="">638.000</td><td spellcheck="false" class="">24.000</td><td spellcheck="false" class="">2.907</td><td spellcheck="false" class="">10.333</td><td spellcheck="false" class="">0.966</td><td spellcheck="false" class="">184.2</td></tr>
+<tr><td spellcheck="false" class="">21</td><td spellcheck="false" class="">965.714</td><td spellcheck="false" class="">22.828</td><td spellcheck="false" class="">17.685</td><td spellcheck="false" class="">19.871</td><td spellcheck="false" class="">80.214</td><td spellcheck="false" class="">77.114</td><td spellcheck="false" class="">78.771</td><td spellcheck="false" class="">508.699</td><td spellcheck="false" class="">608.285</td><td spellcheck="false" class="">27.166</td><td spellcheck="false" class="">2.575</td><td spellcheck="false" class="">10.333</td><td spellcheck="false" class="">1.333</td><td spellcheck="false" class="">384.8</td></tr>
+<tr><td spellcheck="false" class="">22</td><td spellcheck="false" class="">867.285</td><td spellcheck="false" class="">22.871</td><td spellcheck="false" class="">18.000</td><td spellcheck="false" class="">19.961</td><td spellcheck="false" class="">79.257</td><td spellcheck="false" class="">77.214</td><td spellcheck="false" class="">78.371</td><td spellcheck="false" class="">486.428</td><td spellcheck="false" class="">525.714</td><td spellcheck="false" class="">21.000</td><td spellcheck="false" class="">2.545</td><td spellcheck="false" class="">9.813</td><td spellcheck="false" class="">1.166</td><td spellcheck="false" class="">312.6</td></tr>
+<tr><td spellcheck="false" class="">23</td><td spellcheck="false" class="">1000.142</td><td spellcheck="false" class="">21.957</td><td spellcheck="false" class="">17.642</td><td spellcheck="false" class="">19.357</td><td spellcheck="false" class="">73.042</td><td spellcheck="false" class="">70.142</td><td spellcheck="false" class="">70.885</td><td spellcheck="false" class="">488.228</td><td spellcheck="false" class="">578.571</td><td spellcheck="false" class="">24.500</td><td spellcheck="false" class="">2.765</td><td spellcheck="false" class="">9.690</td><td spellcheck="false" class="">1.233</td><td spellcheck="false" class="">374.2</td></tr>
+<tr><td spellcheck="false" class="">24</td><td spellcheck="false" class="">1078.000</td><td spellcheck="false" class="">20.685</td><td spellcheck="false" class="">16.828</td><td spellcheck="false" class="">18.371</td><td spellcheck="false" class="">75.628</td><td spellcheck="false" class="">72.500</td><td spellcheck="false" class="">73.785</td><td spellcheck="false" class="">491.200</td><td spellcheck="false" class="">654.857</td><td spellcheck="false" class="">26.166</td><td spellcheck="false" class="">3.193</td><td spellcheck="false" class="">9.110</td><td spellcheck="false" class="">1.166</td><td spellcheck="false" class="">290.6</td></tr>
+<tr><td spellcheck="false" class="">25</td><td spellcheck="false" class="">1215.571</td><td spellcheck="false" class="">22.728</td><td spellcheck="false" class="">17.257</td><td spellcheck="false" class="">19.585</td><td spellcheck="false" class="">76.228</td><td spellcheck="false" class="">70.342</td><td spellcheck="false" class="">72.914</td><td spellcheck="false" class="">485.057</td><td spellcheck="false" class="">594.285</td><td spellcheck="false" class="">14.000</td><td spellcheck="false" class="">1.744</td><td spellcheck="false" class="">7.926</td><td spellcheck="false" class="">0.300</td><td spellcheck="false" class="">334.3</td></tr>
+<tr><td spellcheck="false" class="">26</td><td spellcheck="false" class="">1190.000</td><td spellcheck="false" class="">22.914</td><td spellcheck="false" class="">17.471</td><td spellcheck="false" class="">19.685</td><td spellcheck="false" class="">75.857</td><td spellcheck="false" class="">75.271</td><td spellcheck="false" class="">75.157</td><td spellcheck="false" class="">497.671</td><td spellcheck="false" class="">751.428</td><td spellcheck="false" class="">25.000</td><td spellcheck="false" class="">2.684</td><td spellcheck="false" class="">10.900</td><td spellcheck="false" class="">1.900</td><td spellcheck="false" class="">358.1</td></tr>
+<tr><td spellcheck="false" class="">27</td><td spellcheck="false" class="">1253.000</td><td spellcheck="false" class="">21.357</td><td spellcheck="false" class="">17.228</td><td spellcheck="false" class="">19.000</td><td spellcheck="false" class="">73.257</td><td spellcheck="false" class="">63.585</td><td spellcheck="false" class="">68.257</td><td spellcheck="false" class="">492.385</td><td spellcheck="false" class="">947.428</td><td spellcheck="false" class="">26.000</td><td spellcheck="false" class="">2.728</td><td spellcheck="false" class="">12.106</td><td spellcheck="false" class="">0.466</td><td spellcheck="false" class="">319.0</td></tr>
+<tr><td spellcheck="false" class="">28</td><td spellcheck="false" class="">1239.857</td><td spellcheck="false" class="">21.485</td><td spellcheck="false" class="">17.828</td><td spellcheck="false" class="">19.128</td><td spellcheck="false" class="">72.871</td><td spellcheck="false" class="">63.300</td><td spellcheck="false" class="">67.057</td><td spellcheck="false" class="">484.314</td><td spellcheck="false" class="">708.571</td><td spellcheck="false" class="">19.666</td><td spellcheck="false" class="">2.011</td><td spellcheck="false" class="">11.863</td><td spellcheck="false" class="">1.133</td><td spellcheck="false" class="">315.0</td></tr>
+<tr><td spellcheck="false" class="">29</td><td spellcheck="false" class="">1421.857</td><td spellcheck="false" class="">21.871</td><td spellcheck="false" class="">16.957</td><td spellcheck="false" class="">19.214</td><td spellcheck="false" class="">72.314</td><td spellcheck="false" class="">65.671</td><td spellcheck="false" class="">68.814</td><td spellcheck="false" class="">487.700</td><td spellcheck="false" class="">820.000</td><td spellcheck="false" class="">20.333</td><td spellcheck="false" class="">1.840</td><td spellcheck="false" class="">12.310</td><td spellcheck="false" class="">0.733</td><td spellcheck="false" class="">238.1</td></tr>
+<tr><td spellcheck="false" class="">30</td><td spellcheck="false" class="">1314.857</td><td spellcheck="false" class="">22.500</td><td spellcheck="false" class="">17.242</td><td spellcheck="false" class="">19.557</td><td spellcheck="false" class="">75.085</td><td spellcheck="false" class="">73.614</td><td spellcheck="false" class="">73.600</td><td spellcheck="false" class="">485.242</td><td spellcheck="false" class="">896.904</td><td spellcheck="false" class="">22.666</td><td spellcheck="false" class="">2.433</td><td spellcheck="false" class="">12.330</td><td spellcheck="false" class="">1.466</td><td spellcheck="false" class="">248.4</td></tr>
+<tr><td spellcheck="false" class="">31</td><td spellcheck="false" class="">1544.142</td><td spellcheck="false" class="">22.800</td><td spellcheck="false" class="">15.785</td><td spellcheck="false" class="">19.114</td><td spellcheck="false" class="">74.385</td><td spellcheck="false" class="">76.228</td><td spellcheck="false" class="">75.500</td><td spellcheck="false" class="">467.865</td><td spellcheck="false" class="">950.285</td><td spellcheck="false" class="">26.000</td><td spellcheck="false" class="">2.894</td><td spellcheck="false" class="">10.520</td><td spellcheck="false" class="">1.166</td><td spellcheck="false" class="">156.7</td></tr>
+<tr><td spellcheck="false" class="">32</td><td spellcheck="false" class="">855.142</td><td spellcheck="false" class="">20.842</td><td spellcheck="false" class="">16.928</td><td spellcheck="false" class="">18.642</td><td spellcheck="false" class="">77.057</td><td spellcheck="false" class="">68.557</td><td spellcheck="false" class="">72.771</td><td spellcheck="false" class="">460.785</td><td spellcheck="false" class="">515.333</td><td spellcheck="false" class="">20.333</td><td spellcheck="false" class="">2.317</td><td spellcheck="false" class="">10.623</td><td spellcheck="false" class="">0.866</td><td spellcheck="false" class="">310.5</td></tr>
+<tr><td spellcheck="false" class="">33</td><td spellcheck="false" class="">1418.571</td><td spellcheck="false" class="">21.900</td><td spellcheck="false" class="">15.714</td><td spellcheck="false" class="">18.714</td><td spellcheck="false" class="">73.614</td><td spellcheck="false" class="">75.942</td><td spellcheck="false" class="">74.214</td><td spellcheck="false" class="">460.300</td><td spellcheck="false" class="">644.285</td><td spellcheck="false" class="">21.000</td><td spellcheck="false" class="">2.143</td><td spellcheck="false" class="">10.016</td><td spellcheck="false" class="">0.933</td><td spellcheck="false" class="">285.8</td></tr>
 </tbody>
 </table>
 </div>
 
-<h3 class="analysis-h3">1-2. 학습 결과 해석</h3>
+<h3 class="analysis-h3" spellcheck="false">1-2. 학습 결과 해석</h3>
 
-<div class="analysis-code">학습 결과 개요:
-  모델: Random Forest
+<div class="analysis-code" spellcheck="false">학습 결과 개요:
+  모델: <span class="gt" spellcheck="false">Random Forest<span class="gt-tip" spellcheck="false">랜덤 포레스트 — 여러 결정 트리를 모아 다수결로 예측하는 안정적 AI 기법.</span></span>
   R² (결정계수): 0.89
-  MAE (평균절대오차): 1.2cm</div>
+  <span class="gt" spellcheck="false">MAE<span class="gt-tip" spellcheck="false">Mean Absolute Error (평균절대오차) — 예측과 실제의 평균 차이.</span></span> (평균절대오차): 1.2cm</div>
 
-<h4 class="analysis-h4">R² (결정계수) — 모델이 데이터를 얼마나 잘 설명하는지 나타내는 지표</h4>
+<h4 class="analysis-h4" spellcheck="false">R² (결정계수) — 모델이 데이터를 얼마나 잘 설명하는지 나타내는 지표</h4>
 <ul class="analysis-list">
-<li>0 = 전혀 설명 못함, 1 = 완벽하게 설명</li>
-<li>0.89 = 데이터 변동의 89%를 모델이 설명</li>
-<li>일반적으로 0.7 이상이면 유의미, 0.85 이상이면 높은 수준</li>
+<li spellcheck="false" class="">0 = 전혀 설명 못함, 1 = 완벽하게 설명</li>
+<li spellcheck="false" class="">0.89 = 데이터 변동의 89%를 모델이 설명</li>
+<li spellcheck="false" class="">일반적으로 0.7 이상이면 유의미, 0.85 이상이면 높은 수준</li>
 </ul>
 
-<h4 class="analysis-h4">MAE (평균절대오차) — 예측값과 실제값의 평균 차이</h4>
+<h4 class="analysis-h4" spellcheck="false"><span class="gt" spellcheck="false">MAE<span class="gt-tip" spellcheck="false">Mean Absolute Error (평균절대오차) — 예측과 실제의 평균 차이.</span></span> (평균절대오차) — 예측값과 실제값의 평균 차이</h4>
 <ul class="analysis-list">
-<li>1.2cm = 평균적으로 1.2cm 차이로 예측</li>
-<li>주간생장길이가 보통 14~30mm 범위인 점을 감안하면 오차 비율 약 4~8%</li>
+<li spellcheck="false" class="">1.2cm = 평균적으로 1.2cm 차이로 예측</li>
+<li spellcheck="false" class="">주간생장길이가 보통 14~30mm 범위인 점을 감안하면 오차 비율 약 4~8%</li>
 </ul>
 
 <hr class="analysis-divider">
 
-<div class="analysis-code">33행에서 R² 0.89는 높은 수치이나 과적합 가능성 존재
+<div class="analysis-code" spellcheck="false">33행에서 R² 0.89는 높은 수치이나 과적합 가능성 존재
   변수 6개 ÷ 데이터 33행 = 비율 5.5:1
   권장 비율: 변수당 최소 10~20행 → 현재 절반 수준</div>
 
-<p class="analysis-p">다만 실제 테스트에서 유효한 결과 확인<br>변수 간 상관관계 자체는 의미 있다고 판단</p>
+<p class="analysis-p" spellcheck="false">다만 실제 테스트에서 유효한 결과 확인<br>변수 간 상관관계 자체는 의미 있다고 판단</p>
 
-<p class="analysis-arrow">→ 데이터 양 증가 시 과적합 해소 + 안정적 모델 가능<br>→ 현재보다 훨씬 많은 데이터 확보 필요 (다수 작기 축적)</p>
+<p class="analysis-arrow" spellcheck="false">→ 데이터 양 증가 시 과적합 해소 + 안정적 모델 가능<br>→ 현재보다 훨씬 많은 데이터 확보 필요 (다수 작기 축적)</p>
 
 <div class="analysis-img-wrap">
 <img src="images/변수상관관계_히트맵.png" alt="변수 간 상관계수 히트맵">
-<div class="caption">변수 간 상관계수 히트맵 (33주 데이터 기반)</div>
+<div class="caption" spellcheck="false">변수 간 상관계수 히트맵 (33주 데이터 기반)</div>
 </div>
 
-<h3 class="analysis-h3">1-3. 변수 중요도 분석 결과</h3>
+<h3 class="analysis-h3" spellcheck="false">1-3. 변수 중요도 분석 결과</h3>
 
-<p class="analysis-p">주간생장길이 예측 시 변수별 영향도 (변수 중요도):</p>
+<p class="analysis-p" spellcheck="false">주간생장길이 예측 시 변수별 영향도 (변수 중요도):</p>
 
-<div class="analysis-code">24시간평균온도: 0.171 (최고)
+<div class="analysis-code" spellcheck="false">24시간평균온도: 0.171 (최고)
 개화속도: 0.163
 엽면적지수: 0.156
 낮평균CO₂: 0.149
@@ -934,211 +934,211 @@ Y (출력 — 생육 지표):
 일일평균흡수량: 0.053
 평균누적광량: 0.025</div>
 
-<div class="analysis-note">주의: 개화속도, 엽면적지수, 줄기굵기는 Y값(생육 지표)에 해당<br>→ 같은 시점의 Y값을 X에 넣으면 상관관계가 높게 나오지만 예측 시점에는 이 값을 알 수 없어 실제 예측에 활용 불가<br>→ 분석용(변수 간 관계 파악)으로는 유효, 예측 모델용 X에서는 제외 필요</div>
+<div class="analysis-note" spellcheck="false">주의: 개화속도, 엽면적지수, 줄기굵기는 Y값(생육 지표)에 해당<br>→ 같은 시점의 Y값을 X에 넣으면 상관관계가 높게 나오지만 예측 시점에는 이 값을 알 수 없어 실제 예측에 활용 불가<br>→ 분석용(변수 간 관계 파악)으로는 유효, 예측 모델용 X에서는 제외 필요</div>
 
 <div class="analysis-img-wrap">
 <img src="images/변수중요도_막대그래프.png" alt="변수 중요도 막대그래프">
-<div class="caption">Random Forest 변수 중요도 (주간생장길이 예측)</div>
+<div class="caption" spellcheck="false"><span class="gt" spellcheck="false">Random Forest<span class="gt-tip" spellcheck="false">랜덤 포레스트 — 여러 결정 트리를 모아 다수결로 예측하는 안정적 AI 기법.</span></span> 변수 중요도 (주간생장길이 예측)</div>
 </div>
 
 </div>
 
 <div class="analysis-section">
 
-<h2 class="analysis-h2">현황</h2>
+<h2 class="analysis-h2" spellcheck="false">현황</h2>
 
-<h3 class="analysis-h3">2-1. 데이터 절대량 부족</h3>
+<h3 class="analysis-h3" spellcheck="false">2-1. 데이터 절대량 부족</h3>
 
 <ul class="analysis-list">
-<li>현재 33행 = 1작기 33주 분량</li>
-<li>RF가 안정적 예측을 하려면 현재보다 훨씬 많은 데이터 필요</li>
-<li>동일 조건 반복이 없어 계절/환경 변동 패턴 학습 불가</li>
-<li>예: 여름 고온기 데이터 3~4행 → 여름 패턴 학습 불가</li>
+<li spellcheck="false" class="">현재 33행 = 1작기 33주 분량</li>
+<li spellcheck="false" class="">RF가 안정적 예측을 하려면 현재보다 훨씬 많은 데이터 필요</li>
+<li spellcheck="false" class="">동일 조건 반복이 없어 계절/환경 변동 패턴 학습 불가</li>
+<li spellcheck="false" class="">예: 여름 고온기 데이터 3~4행 → 여름 패턴 학습 불가</li>
 </ul>
 
-<h3 class="analysis-h3">2-2. 수동 측정의 한계</h3>
+<h3 class="analysis-h3" spellcheck="false">2-2. 수동 측정의 한계</h3>
 
-<p class="analysis-p">현재 생육 데이터 수집 방식:</p>
+<p class="analysis-p" spellcheck="false">현재 생육 데이터 수집 방식:</p>
 
-<div class="analysis-code">주간생장길이 → 줄자로 측정
+<div class="analysis-code" spellcheck="false">주간생장길이 → 줄자로 측정
 줄기굵기 → 캘리퍼로 측정
 개화속도 → 개화 수 육안 확인</div>
 
-<p class="analysis-p">문제:</p>
+<p class="analysis-p" spellcheck="false">문제:</p>
 <ul class="analysis-list">
-<li>측정자마다 값이 다름 (측정 위치, 힘 가감, 판단 기준)</li>
-<li>주 1회 측정 → 주중 생장 변화 파악 불가</li>
-<li>데이터 수집 간격을 좁히려면(일 단위 등) 인력이 비례 증가</li>
+<li spellcheck="false" class="">측정자마다 값이 다름 (측정 위치, 힘 가감, 판단 기준)</li>
+<li spellcheck="false" class="">주 1회 측정 → 주중 생장 변화 파악 불가</li>
+<li spellcheck="false" class="">데이터 수집 간격을 좁히려면(일 단위 등) 인력이 비례 증가</li>
 </ul>
-<p class="analysis-arrow">→ 자동화 없이는 데이터 해상도를 높이는 것이 현실적으로 불가능</p>
+<p class="analysis-arrow" spellcheck="false">→ 자동화 없이는 데이터 해상도를 높이는 것이 현실적으로 불가능</p>
 
-<h3 class="analysis-h3">2-3. X에 추가로 입력되어야 하는 값</h3>
+<h3 class="analysis-h3" spellcheck="false">2-3. X에 추가로 입력되어야 하는 값</h3>
 
-<p class="analysis-p">현재 X에 포함된 것: 환경 결과값</p>
-<div class="analysis-code">온도, 습도, CO₂, 광량 → "현재 온실 상태가 이렇다"</div>
+<p class="analysis-p" spellcheck="false">현재 X에 포함된 것: 환경 결과값</p>
+<div class="analysis-code" spellcheck="false">온도, 습도, CO₂, 광량 → "현재 온실 상태가 이렇다"</div>
 
-<p class="analysis-p">X에 아직 반영되지 않은 값: 제어 원인값</p>
-<div class="analysis-code">스크린 개폐율, 환기창 개도, 난방 설정값 → "왜 이 상태가 됐는지" (Priva에 존재, 미활용)
+<p class="analysis-p" spellcheck="false">X에 아직 반영되지 않은 값: 제어 원인값</p>
+<div class="analysis-code" spellcheck="false">스크린 개폐율, 환기창 개도, 난방 설정값 → "왜 이 상태가 됐는지" (<span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에 존재, 미활용)
 적엽, 방제, 유인, 적과 등 수동 작업 → "사람이 뭘 했는지"</div>
 
-<p class="analysis-p">Priva에서 자동 확보 가능:</p>
+<p class="analysis-p" spellcheck="false"><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에서 자동 확보 가능:</p>
 <ul class="analysis-list">
-<li>스크린 작동 시점 + 개폐율</li>
-<li>환기창 개도율</li>
-<li>난방/냉방 설정값</li>
+<li spellcheck="false" class="">스크린 작동 시점 + 개폐율</li>
+<li spellcheck="false" class="">환기창 개도율</li>
+<li spellcheck="false" class="">난방/냉방 설정값</li>
 </ul>
 
-<p class="analysis-p">별도 기록 필요:</p>
+<p class="analysis-p" spellcheck="false">별도 기록 필요:</p>
 <ul class="analysis-list">
-<li>적엽, 방제, 유인, 적과, 수분 작업 등</li>
+<li spellcheck="false" class="">적엽, 방제, 유인, 적과, 수분 작업 등</li>
 </ul>
-<p class="analysis-arrow">→ 생육에 직접 영향을 주지만 센서로 잡히지 않는 항목</p>
+<p class="analysis-arrow" spellcheck="false">→ 생육에 직접 영향을 주지만 센서로 잡히지 않는 항목</p>
 
 </div>
 
 <div class="analysis-section">
 
-<h2 class="analysis-h2">데이터 전략</h2>
+<h2 class="analysis-h2" spellcheck="false">데이터 전략</h2>
 
-<h3 class="analysis-h3">3-1. 자동 수집</h3>
+<h3 class="analysis-h3" spellcheck="false">3-1. 자동 수집</h3>
 
-<h4 class="analysis-h4">3-1-1. Priva (환경 + 제어 이력)</h4>
+<h4 class="analysis-h4" spellcheck="false">3-1-1. <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> (환경 + 제어 이력)</h4>
 
-<p class="analysis-p">센서 데이터 (5분 간격 자동):</p>
-<div class="analysis-code">실내: 온도, 습도, CO₂, 광량
-관수: 흡수량, EC, pH</div>
+<p class="analysis-p" spellcheck="false">센서 데이터 (5분 간격 자동):</p>
+<div class="analysis-code" spellcheck="false">실내: 온도, 습도, CO₂, 광량
+관수: 흡수량, <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span>, pH</div>
 
-<p class="analysis-p">제어 이력 (자동 기록):</p>
-<div class="analysis-code">스크린 개폐율 (%), 작동 시점
+<p class="analysis-p" spellcheck="false">제어 이력 (자동 기록):</p>
+<div class="analysis-code" spellcheck="false">스크린 개폐율 (%), 작동 시점
 환기창 개도율 (%)
 난방/냉방 설정값, 가동 시간</div>
 
-<p class="analysis-arrow">→ Priva Read API로 자동 수집 → DB 저장<br>→ 현재 Priva에 축적되어 있으나 체계적으로 추출/저장되지 않고 있음</p>
+<p class="analysis-arrow" spellcheck="false">→ <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> Read <span class="gt" spellcheck="false">API<span class="gt-tip" spellcheck="false">Application Programming Interface — 프로그램끼리 데이터를 주고받는 통로.</span></span>로 자동 수집 → DB 저장<br>→ 현재 <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에 축적되어 있으나 체계적으로 추출/저장되지 않고 있음</p>
 
 <div class="analysis-img-wrap">
-<img src="images/priva_graph_climate.png" alt="Priva 센서 수집 현황" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-<div style="display:none;padding:24px 16px;background:var(--accent-light);border:1px dashed var(--border);font-size:12px;color:var(--fg-muted);text-align:center;line-height:1.7;">Priva Graph Climate 이미지 — images/priva_graph_climate.png 파일을 추가하면 표시됨</div>
-<div class="caption">GREF 온실 Priva 센서 수집 현황 (Graph Climate)</div>
+<img src="images/priva_graph_climate.png" alt="Priva 센서 수집 현황" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" style="display: none;">
+<div style="display: block; padding: 24px 16px; background: var(--accent-light); border: 1px dashed var(--border); font-size: 12px; color: var(--fg-muted); text-align: center; line-height: 1.7;" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> Graph Climate 이미지 — images/priva_graph_climate.png 파일을 추가하면 표시됨</div>
+<div class="caption" spellcheck="false">GREF 온실 <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 센서 수집 현황 (Graph Climate)</div>
 </div>
 
-<h4 class="analysis-h4">3-1-2. 생육 데이터 (드론 기반 자동 측정)</h4>
+<h4 class="analysis-h4" spellcheck="false">3-1-2. 생육 데이터 (드론 기반 자동 측정)</h4>
 
-<p class="analysis-p">현재: 사람이 주 1회 수동 측정 (줄자, 캘리퍼, 육안)<br>목표: 드론 + 카메라로 자동 수집</p>
+<p class="analysis-p" spellcheck="false">현재: 사람이 주 1회 수동 측정 (줄자, 캘리퍼, 육안)<br>목표: 드론 + 카메라로 자동 수집</p>
 
-<p class="analysis-p">수집 항목:</p>
+<p class="analysis-p" spellcheck="false">수집 항목:</p>
 <ul class="analysis-list">
-<li>주간생장길이 → 드론 촬영 + 이미지 분석으로 자동 계측</li>
-<li>엽면적지수 → 상부 촬영 이미지에서 녹색 면적 비율 산출</li>
-<li>개화 수 → 객체 탐지(YOLOv8)로 꽃 자동 카운팅</li>
-<li>과실 상태 → 색상/크기 변화 추적</li>
+<li spellcheck="false" class="">주간생장길이 → 드론 촬영 + 이미지 분석으로 자동 계측</li>
+<li spellcheck="false" class="">엽면적지수 → 상부 촬영 이미지에서 녹색 면적 비율 산출</li>
+<li spellcheck="false" class="">개화 수 → 객체 탐지(<span class="gt" spellcheck="false">YOLOv8<span class="gt-tip" spellcheck="false">You Only Look Once v8 — 사진에서 물체를 실시간으로 찾아내는 AI.</span></span>)로 꽃 자동 카운팅</li>
+<li spellcheck="false" class="">과실 상태 → 색상/크기 변화 추적</li>
 </ul>
 
-<p class="analysis-p">장점:</p>
+<p class="analysis-p" spellcheck="false">장점:</p>
 <ul class="analysis-list">
-<li>측정 간격 단축 가능 (주 1회 → 일 1회 이상)</li>
-<li>측정자 주관 배제 → 일관된 데이터 품질</li>
-<li>수확기 등 현장 바쁜 시기에도 데이터 누락 없음</li>
-<li>넓은 면적을 짧은 시간에 촬영 가능</li>
+<li spellcheck="false" class="">측정 간격 단축 가능 (주 1회 → 일 1회 이상)</li>
+<li spellcheck="false" class="">측정자 주관 배제 → 일관된 데이터 품질</li>
+<li spellcheck="false" class="">수확기 등 현장 바쁜 시기에도 데이터 누락 없음</li>
+<li spellcheck="false" class="">넓은 면적을 짧은 시간에 촬영 가능</li>
 </ul>
 
-<p class="analysis-p">도입 계획:</p>
+<p class="analysis-p" spellcheck="false">도입 계획:</p>
 <ul class="analysis-list">
-<li>1단계: Aimos 보유 드론으로 온실 내부 생육 데이터 수집 테스트</li>
-<li>2단계: 테스트 결과 기반으로 정확도/실용성 검증</li>
-<li>3단계: 검증 결과에 따라 필요 장비 판단 후 상황에 맞게 구매</li>
+<li spellcheck="false" class="">1단계: Aimos 보유 드론으로 온실 내부 생육 데이터 수집 테스트</li>
+<li spellcheck="false" class="">2단계: 테스트 결과 기반으로 정확도/실용성 검증</li>
+<li spellcheck="false" class="">3단계: 검증 결과에 따라 필요 장비 판단 후 상황에 맞게 구매</li>
 </ul>
 
 <hr class="analysis-divider">
 
-<h3 class="analysis-h3">3-2. 수동 수집 — 작업 일지 표준화</h3>
+<h3 class="analysis-h3" spellcheck="false">3-2. 수동 수집 — 작업 일지 표준화</h3>
 
-<p class="analysis-p">원칙: 했다(1) / 안했다(0)만 기록</p>
+<p class="analysis-p" spellcheck="false">원칙: 했다(1) / 안했다(0)만 기록</p>
 
 <ul class="analysis-check">
-<li>적엽 실시 여부 (0/1) — 잎 제거 → 증산/광합성 면적 변화</li>
-<li>방제 실시 여부 (0/1) — 농약 살포 → 이후 생육 일시 변동</li>
-<li>적과 실시 여부 (0/1) — 과실 솎기 → 남은 과실 비대 촉진</li>
-<li>유인 실시 여부 (0/1) — 줄기 정리 → 수광 효율 변화</li>
-<li>수분 작업 여부 (0/1) — 착과율에 직접 영향</li>
+<li spellcheck="false" class="">적엽 실시 여부 (0/1) — 잎 제거 → 증산/광합성 면적 변화</li>
+<li spellcheck="false" class="">방제 실시 여부 (0/1) — 농약 살포 → 이후 생육 일시 변동</li>
+<li spellcheck="false" class="">적과 실시 여부 (0/1) — 과실 솎기 → 남은 과실 비대 촉진</li>
+<li spellcheck="false" class="">유인 실시 여부 (0/1) — 줄기 정리 → 수광 효율 변화</li>
+<li spellcheck="false" class="">수분 작업 여부 (0/1) — 착과율에 직접 영향</li>
 </ul>
 
-<div class="analysis-note">세부 수치(약제 농도, 적엽 매수 등)는 기록하지 않음<br>→ 작업자마다 기록 방식이 달라 오히려 노이즈 발생<br>→ 0/1만 기록하면 오기입 최소화 + 입력 부담 최소화</div>
+<div class="analysis-note" spellcheck="false">세부 수치(약제 농도, 적엽 매수 등)는 기록하지 않음<br>→ 작업자마다 기록 방식이 달라 오히려 노이즈 발생<br>→ 0/1만 기록하면 오기입 최소화 + 입력 부담 최소화</div>
 
-<p class="analysis-p">활용:</p>
-<p class="analysis-arrow">센서 데이터 정상인데 생육 수치 이상 → 체크리스트 미완료 항목 확인<br>→ 해당 작업 실시 알람 발송</p>
+<p class="analysis-p" spellcheck="false">활용:</p>
+<p class="analysis-arrow" spellcheck="false">센서 데이터 정상인데 생육 수치 이상 → 체크리스트 미완료 항목 확인<br>→ 해당 작업 실시 알람 발송</p>
 
 <hr class="analysis-divider">
 
-<h3 class="analysis-h3">3-3. 파생변수 추가</h3>
+<h3 class="analysis-h3" spellcheck="false">3-3. 파생변수 추가</h3>
 
-<p class="analysis-p">센서 원시값보다 식물 반응과 직접적으로 관련된 파생변수:</p>
+<p class="analysis-p" spellcheck="false">센서 원시값보다 식물 반응과 직접적으로 관련된 파생변수:</p>
 
-<div class="analysis-code">VPD (포차): 온도 + 습도로 계산 → 증산/곰팡이 리스크
-GDD (생육도일): 정식 후 누적 온도 → 생육 단계 판단
-DLI (일적산광량): 하루 누적 광량 → 광합성 총량
-DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div>
+<div class="analysis-code" spellcheck="false"><span class="gt" spellcheck="false">VPD<span class="gt-tip" spellcheck="false">Vapor Pressure Deficit (포차) — 공기가 수분을 더 머금을 수 있는 여유. 온실에서는 0.8~1.2 kPa가 적당합니다.</span></span> (포차): 온도 + 습도로 계산 → 증산/곰팡이 리스크
+<span class="gt" spellcheck="false">GDD<span class="gt-tip" spellcheck="false">Growing Degree Days (생육도일) — 심은 날부터 누적된 온도의 합. 생장 단계 예측에 사용.</span></span> (생육도일): 정식 후 누적 온도 → 생육 단계 판단
+<span class="gt" spellcheck="false">DLI<span class="gt-tip" spellcheck="false">Daily Light Integral (일적산광량) — 하루 동안 식물이 받은 빛의 총량.</span></span> (일적산광량): 하루 누적 광량 → 광합성 총량
+<span class="gt" spellcheck="false">DIF<span class="gt-tip" spellcheck="false">주야간 온도차 — 낮/밤 온도 차이. 줄기 길이 조절에 활용.</span></span> (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div>
 
-<p class="analysis-arrow">현재 33행에서도 이 변수를 추가하면 예측 성능 개선 기대<br>→ 식물은 "오늘 온도 24도"보다 "정식 후 누적 GDD 850도일"에 반응</p>
+<p class="analysis-arrow" spellcheck="false">현재 33행에서도 이 변수를 추가하면 예측 성능 개선 기대<br>→ 식물은 "오늘 온도 24도"보다 "정식 후 누적 <span class="gt" spellcheck="false">GDD<span class="gt-tip" spellcheck="false">Growing Degree Days (생육도일) — 심은 날부터 누적된 온도의 합. 생장 단계 예측에 사용.</span></span> 850도일"에 반응</p>
 
 </div>
 
 <div class="analysis-section">
 
-<h2 class="analysis-h2">AI 방향성</h2>
+<h2 class="analysis-h2" spellcheck="false">AI 방향성</h2>
 
-<h3 class="analysis-h3">4-1. 단순한 모델 우선</h3>
+<h3 class="analysis-h3" spellcheck="false">4-1. 단순한 모델 우선</h3>
 
-<p class="analysis-p">복잡한 최신 모델(멀티모달 RL + 이미지 딥러닝 등)이 반드시 좋은 결과를 내지 않음</p>
+<p class="analysis-p" spellcheck="false">복잡한 최신 모델(멀티모달 <span class="gt" spellcheck="false">RL<span class="gt-tip" spellcheck="false">Reinforcement Learning (강화학습) — 시행착오로 스스로 학습하는 AI 방식.</span></span> + 이미지 딥러닝 등)이 반드시 좋은 결과를 내지 않음</p>
 
-<div class="analysis-note">AGC 상위권 모델도 품종/환경이 다르면 성능 보장 안 됨<br>→ 파인튜닝으로 미세 조정 가능하나 근본적 차이는 해결 안 됨</div>
+<div class="analysis-note" spellcheck="false"><span class="gt" spellcheck="false">AGC<span class="gt-tip" spellcheck="false">Autonomous Greenhouse Challenge — 네덜란드 와게닝대학교 주관 자율 온실 재배 대회.</span></span> 상위권 모델도 품종/환경이 다르면 성능 보장 안 됨<br>→ 파인튜닝으로 미세 조정 가능하나 근본적 차이는 해결 안 됨</div>
 
-<p class="analysis-p">원칙:</p>
+<p class="analysis-p" spellcheck="false">원칙:</p>
 <ul class="analysis-list">
-<li>기준 모델(이동평균, 단순 RF)을 먼저 구축</li>
-<li>복잡한 모델이 기준 모델을 이기지 못하면 불채택</li>
-<li>우리 데이터 안에서 최적의 패턴을 찾는 것이 목표</li>
+<li spellcheck="false" class="">기준 모델(이동평균, 단순 RF)을 먼저 구축</li>
+<li spellcheck="false" class="">복잡한 모델이 기준 모델을 이기지 못하면 불채택</li>
+<li spellcheck="false" class="">우리 데이터 안에서 최적의 패턴을 찾는 것이 목표</li>
 </ul>
 
-<h3 class="analysis-h3">4-2. 우리 데이터 중심</h3>
+<h3 class="analysis-h3" spellcheck="false">4-2. 우리 데이터 중심</h3>
 
-<p class="analysis-p">외부 모델(AGC 대회 등)은 변수 선택, 제어 전략 등 참고 자료로 활용<br>최종 모델은 반드시 GREF 온실 데이터로 직접 학습</p>
+<p class="analysis-p" spellcheck="false">외부 모델(<span class="gt" spellcheck="false">AGC<span class="gt-tip" spellcheck="false">Autonomous Greenhouse Challenge — 네덜란드 와게닝대학교 주관 자율 온실 재배 대회.</span></span> 대회 등)은 변수 선택, 제어 전략 등 참고 자료로 활용<br>최종 모델은 반드시 GREF 온실 데이터로 직접 학습</p>
 
-<div class="analysis-note">품종이 다르고 기후가 다르면 같은 모델도 결과가 달라짐<br>→ 네덜란드 토마토 최적 모델이 한국 토마토에 맞지 않을 수 있음</div>
+<div class="analysis-note" spellcheck="false">품종이 다르고 기후가 다르면 같은 모델도 결과가 달라짐<br>→ 네덜란드 토마토 최적 모델이 한국 토마토에 맞지 않을 수 있음</div>
 
-<p class="analysis-p">활용 가능한 것:</p>
+<p class="analysis-p" spellcheck="false">활용 가능한 것:</p>
 <ul class="analysis-list">
-<li>어떤 변수가 중요한지 힌트 → AGC 우승팀 분석 참고</li>
-<li>단, 실제로 통제 가능하고 측정 가능한 변수만 채택</li>
+<li spellcheck="false" class="">어떤 변수가 중요한지 힌트 → <span class="gt" spellcheck="false">AGC<span class="gt-tip" spellcheck="false">Autonomous Greenhouse Challenge — 네덜란드 와게닝대학교 주관 자율 온실 재배 대회.</span></span> 우승팀 분석 참고</li>
+<li spellcheck="false" class="">단, 실제로 통제 가능하고 측정 가능한 변수만 채택</li>
 </ul>
 
-<h3 class="analysis-h3">4-3. 자동화 전제</h3>
+<h3 class="analysis-h3" spellcheck="false">4-3. 자동화 전제</h3>
 
-<p class="analysis-p">모든 데이터는 자동으로 확보 가능한 구조여야 함</p>
+<p class="analysis-p" spellcheck="false">모든 데이터는 자동으로 확보 가능한 구조여야 함</p>
 
-<p class="analysis-p">수동 측정 의존 시 문제:</p>
+<p class="analysis-p" spellcheck="false">수동 측정 의존 시 문제:</p>
 <ul class="analysis-list">
-<li>측정 간격을 좁히면(주 1회 → 일 1회) 인력이 비례 증가</li>
-<li>인력이 부족하면 측정 누락 → 결측치 발생 → 모델 성능 저하</li>
-<li>현장이 바쁜 시기(수확기)에 측정 품질 하락</li>
+<li spellcheck="false" class="">측정 간격을 좁히면(주 1회 → 일 1회) 인력이 비례 증가</li>
+<li spellcheck="false" class="">인력이 부족하면 측정 누락 → 결측치 발생 → 모델 성능 저하</li>
+<li spellcheck="false" class="">현장이 바쁜 시기(수확기)에 측정 품질 하락</li>
 </ul>
-<p class="analysis-arrow">→ 데이터 품질이 현장 상황에 종속되는 구조는 지속 불가</p>
+<p class="analysis-arrow" spellcheck="false">→ 데이터 품질이 현장 상황에 종속되는 구조는 지속 불가</p>
 
-<p class="analysis-p">해결:</p>
-<div class="analysis-code">환경 데이터 → Priva 자동 수집 (이미 가능)
-제어 이력 → Priva 자동 기록 (이미 가능)
+<p class="analysis-p" spellcheck="false">해결:</p>
+<div class="analysis-code" spellcheck="false">환경 데이터 → <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 자동 수집 (이미 가능)
+제어 이력 → <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 자동 기록 (이미 가능)
 수동 작업 → 0/1 체크리스트 (최소 부담)
 생육 데이터 → 드론/카메라 자동화 추진</div>
 
-<h3 class="analysis-h3">4-4. 현재 데이터로 가능한 범위</h3>
+<h3 class="analysis-h3" spellcheck="false">4-4. 현재 데이터로 가능한 범위</h3>
 
-<p class="analysis-p">Priva에 축적된 환경 데이터 기반:</p>
+<p class="analysis-p" spellcheck="false"><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>에 축적된 환경 데이터 기반:</p>
 <ul class="analysis-list">
-<li>자동 온습도 조절 → Rule-based로 즉시 가능</li>
-<li>스크린 자동 개폐 → 현재 데이터 패턴으로 가능</li>
+<li spellcheck="false" class="">자동 온습도 조절 → <span class="gt" spellcheck="false">Rule-based<span class="gt-tip" spellcheck="false">규칙 기반 — 사람이 직접 규칙을 정해놓는 전통적 제어 방식.</span></span>로 즉시 가능</li>
+<li spellcheck="false" class="">스크린 자동 개폐 → 현재 데이터 패턴으로 가능</li>
 </ul>
 
-<p class="analysis-p">다만 "최적의 환경 값" 도출에는 한계:</p>
-<div class="analysis-note">현재: 한 가지 제어 패턴의 결과만 축적<br>필요: 다양한 환경 조절 시도 → 결과 비교 → 최적값 탐색<br>→ 데이터 양 + 다양성 모두 필요</div>
+<p class="analysis-p" spellcheck="false">다만 "최적의 환경 값" 도출에는 한계:</p>
+<div class="analysis-note" spellcheck="false">현재: 한 가지 제어 패턴의 결과만 축적<br>필요: 다양한 환경 조절 시도 → 결과 비교 → 최적값 탐색<br>→ 데이터 양 + 다양성 모두 필요</div>
 
 </div>
 </section>
@@ -2318,493 +2318,493 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 
 <!-- 측정 가능 여부 현황 테이블 -->
 <div class="agr-wrap" style="max-width:1120px;margin:0 auto 40px;">
-  <h2 style="font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--fg)">측정 가능 여부 현황</h2>
-  <p style="font-size:12px;color:var(--fg-muted);margin-bottom:14px;line-height:1.7">※ 각 모델에서 사용하는 INPUT 변수 중 실제로 측정 또는 입력해야 하는 변수만 정리. 모델 내부 보정 파라미터·산출값 제외.</p>
+  <h2 style="font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--fg)" spellcheck="false" class="">측정 가능 여부 현황</h2>
+  <p style="font-size:12px;color:var(--fg-muted);margin-bottom:14px;line-height:1.7" spellcheck="false" class="">※ 각 모델에서 사용하는 INPUT 변수 중 실제로 측정 또는 입력해야 하는 변수만 정리. 모델 내부 보정 파라미터·산출값 제외.</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;font-size:12px;">
-    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#eef6ff;border:1px solid #c3d8f1;border-radius:3px;color:#1a4b8c;font-weight:600">자동 (Priva 등 센서)</span>
-    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fff7e6;border:1px solid #f2d79a;border-radius:3px;color:#7a5000;font-weight:600">수동 (사람 측정/입력)</span>
-    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fbe9e9;border:1px solid #e8b7b7;border-radius:3px;color:#8a2b2b;font-weight:600">장비 추가 필요</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#eef6ff;border:1px solid #c3d8f1;border-radius:3px;color:#1a4b8c;font-weight:600">자동 (<span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 등 센서)</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fff7e6;border:1px solid #f2d79a;border-radius:3px;color:#7a5000;font-weight:600" spellcheck="false" class="">수동 (사람 측정/입력)</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fbe9e9;border:1px solid #e8b7b7;border-radius:3px;color:#8a2b2b;font-weight:600" spellcheck="false" class="">장비 추가 필요</span>
   </div>
   <div style="overflow-x:auto;">
     <table style="width:100%;border-collapse:collapse;font-size:13px;">
       <thead>
         <tr style="border-bottom:2px solid var(--fg);">
-          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:42px">#</th>
-          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;">항목</th>
-          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:90px">단위</th>
-          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:120px">측정 방식</th>
-          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:120px">주기</th>
-          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;">비고</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:42px" spellcheck="false" class="">#</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;" spellcheck="false" class="">항목</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:90px" spellcheck="false" class="">단위</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:120px" spellcheck="false" class="">측정 방식</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;width:120px" spellcheck="false" class="">주기</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);white-space:nowrap;" spellcheck="false" class="">비고</th>
         </tr>
       </thead>
       <tbody>
-        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">환경 — 자동 측정 (Priva)</td></tr>
+        <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">환경 — 자동 측정 (<span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">1</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">실내 온도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas grh temp</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">1</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">실내 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas grh temp</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">2</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">실내 습도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas RH</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">2</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">실내 습도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas RH</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">3</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">CO₂ 농도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">ppm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas CO2 conc</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">3</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">CO₂ 농도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">ppm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas CO2 conc</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">4</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">실내 일사량 (Cal Radiation)</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">W/m²</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: radiation</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">4</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">실내 일사량 (Cal Radiation)</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">W/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: radiation</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">5</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">환기창 풍하 개도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas lee</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">5</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">환기창 풍하 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas lee</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">6</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">환기창 풍상 개도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas wind</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">6</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">환기창 풍상 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas wind</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">7</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">난방관 1차 온도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas wt 1</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">7</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">난방관 1차 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas wt 1</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">8</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">그로우파이프 온도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas wt 2</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">8</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">그로우파이프 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas wt 2</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">9</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">에너지스크린 개도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas curtain 1</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">9</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">에너지스크린 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas curtain 1</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">10</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">차광스크린 개도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas curtain 2</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">10</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">차광스크린 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas curtain 2</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">11</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">스크린 3 개도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: meas curtain 3</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">11</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">스크린 3 개도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: meas curtain 3</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">12</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 기온</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: outside temp</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">12</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">외부 기온</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: outside temp</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">13</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 일사량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">W/m²</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: radiation (외부)</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">13</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">외부 일사량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">W/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: radiation (외부)</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">14</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 풍속</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">m/s</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: wind speed</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">14</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">외부 풍속</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">m/s</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: wind speed</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">15</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 풍향</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: wind direction</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">15</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">외부 풍향</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: wind direction</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">16</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">외부 습도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">Priva: outside RH</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">16</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">외부 습도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class=""><span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span>: outside RH</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">17</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">CO₂ 공급 밸브</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">17</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">CO₂ 공급 밸브</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">18</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">미스트/포그</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">18</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">미스트/포그</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">19</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배지 온도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°C</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">그로 센서 확인</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">19</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">배지 온도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°C</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">그로 센서 확인</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">20</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배지 수분 함량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">%</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">그로 센서 확인</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">20</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">배지 수분 함량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">%</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">그로 센서 확인</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">21</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">슬라브 EC</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mS/cm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">자동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">그로 센서 확인</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">21</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">슬라브 <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mS/cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#eef6ff;color:#1a4b8c;border:1px solid #c3d8f1;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">자동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">그로 센서 확인</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">22</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">보광등 ON/OFF</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fbe9e9;color:#8a2b2b;border:1px solid #e8b7b7;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">장비 필요</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">22</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">보광등 ON/OFF</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fbe9e9;color:#8a2b2b;border:1px solid #e8b7b7;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">장비 필요</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">23</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">보광등 광량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">μmol</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fbe9e9;color:#8a2b2b;border:1px solid #e8b7b7;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">장비 필요</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">5분</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">23</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">보광등 광량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">μmol</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fbe9e9;color:#8a2b2b;border:1px solid #e8b7b7;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">장비 필요</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">5분</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">생육 — 수동 측정 (재배사)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">24</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">급액 EC</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mS/cm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">24</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">급액 <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mS/cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">관수 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">25</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배액 EC</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mS/cm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">25</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">배액 <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mS/cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">관수 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">26</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">급액 pH</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">—</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">26</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">급액 pH</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">—</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">관수 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">27</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배액 pH</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">—</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">관수 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">27</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">배액 pH</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">—</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">관수 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">28</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">일일 관수량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mL/m²</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">일</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">28</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">일일 관수량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mL/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">일</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">29</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">일일 배액량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mL/m²</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">일</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">29</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">일일 배액량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mL/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">일</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">30</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">줄기 굵기</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">30</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">줄기 굵기</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">31</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">주간 생장길이</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm/주</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">31</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">주간 생장길이</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">cm/주</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">32</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">엽장</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">32</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">엽장</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">33</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">엽폭</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">33</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">엽폭</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">34</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">줄기당 엽수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">매</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">34</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">줄기당 엽수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">매</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">35</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">화방당 착과 수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">35</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">화방당 착과 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">36</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">주간 수확량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">kg/m²</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">36</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">주간 수확량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">kg/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">37</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">개화 화방 높이</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">cm</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">37</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">개화 화방 높이</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">cm</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">38</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">개화 화방 수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">38</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">개화 화방 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">39</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">착과 화방 수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">39</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">착과 화방 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">40</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">수확 화방 수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">40</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">수확 화방 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">41</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">총 과일 수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">41</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">총 과일 수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">42</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">평균 과중</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">g</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">수확 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">42</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">평균 과중</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">g</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">수확 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">43</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">착과 부하량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">43</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">착과 부하량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">농작업 — 수동 입력 (재배사)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">44</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적엽 매수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">매/주</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">44</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">적엽 매수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">매/주</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">농작업 기록</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">45</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적과 개수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개/화방</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">필요 시</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">45</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">적과 개수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개/화방</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">필요 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">농작업 기록</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">46</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적심 여부</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">0/1</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">필요 시</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">46</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">적심 여부</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">0/1</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">필요 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">농작업 기록</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">47</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">적화 개수</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">개/화방</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">필요 시</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">농작업 기록</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">47</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">적화 개수</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">개/화방</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">필요 시</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">농작업 기록</td>
         </tr>
         <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">재배 정보 — 수동 입력 (관리자)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">48</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">재식 밀도</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">주/m²</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">정식 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">48</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">재식 밀도</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">주/m²</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">정식 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">49</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">정식일</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">날짜</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">정식 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">49</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">정식일</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">날짜</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">정식 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">50</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">품종 코드</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">—</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">정식 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">50</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">품종 코드</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">—</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">정식 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">양액 — 수동 측정 (외부 업체 분석)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">51</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">급액 이온 조성</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mol/m³</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">레시피 변경 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">51</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">급액 이온 조성</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mol/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">레시피 변경 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">52</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">원수 이온 조성</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mol/m³</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">3개월 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">52</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">원수 이온 조성</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mol/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">3개월 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">53</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">탱크 용량</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">L</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">고정</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">53</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">탱크 용량</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">L</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">고정</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">54</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">배액 이온 분석</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">mol/m³</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">주 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">54</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">배액 이온 분석</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">mol/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">주 1회</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">당도 — 수동 측정 (선택)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">55</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">당도 (Brix)</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">°</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">수확 시</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">55</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">당도 (<span class="gt" spellcheck="false">Brix<span class="gt-tip" spellcheck="false">브릭스(°Bx) — 과일의 당도를 나타내는 단위.</span></span>)</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">°</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">수확 시</td>
           <td style="padding:8px 10px;color:var(--fg-secondary);"></td>
         </tr>
         <tr style="background:var(--surface2);"><td colspan="6" style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--fg);letter-spacing:0.04em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">비용 — 수동 입력 (관리자, 향후)</td></tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">56</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">전기 단가</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">원/kWh</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">월 1회</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">한전 요금표</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">56</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">전기 단가</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">원/kWh</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">월 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">한전 요금표</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border-light);">
-          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums">57</td>
-          <td style="padding:8px 10px;font-weight:600;color:var(--fg);">가스 단가</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums">원/m³</td>
-          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap">수동</span></td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">월 1회</td>
-          <td style="padding:8px 10px;color:var(--fg-secondary);">가스 요금표</td>
+          <td style="padding:8px 10px;color:var(--fg-muted);font-variant-numeric:tabular-nums" spellcheck="false" class="">57</td>
+          <td style="padding:8px 10px;font-weight:600;color:var(--fg);" spellcheck="false" class="">가스 단가</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);font-variant-numeric:tabular-nums" spellcheck="false" class="">원/m³</td>
+          <td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 10px;background:#fff7e6;color:#7a5000;border:1px solid #f2d79a;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap" spellcheck="false" class="">수동</span></td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">월 1회</td>
+          <td style="padding:8px 10px;color:var(--fg-secondary);" spellcheck="false" class="">가스 요금표</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:12px;color:var(--fg-muted);margin-top:12px;">※ 측정 상태는 현재 파악된 정보 기준이며, Priva 매핑·장비 도입 계획에 따라 갱신</p>
+  <p style="font-size:12px;color:var(--fg-muted);margin-top:12px;" spellcheck="false" class="">※ 측정 상태는 현재 파악된 정보 기준이며, <span class="gt" spellcheck="false">Priva<span class="gt-tip" spellcheck="false">네덜란드 온실 환경 제어 시스템 회사. 국내 대규모 온실에서 많이 사용.</span></span> 매핑·장비 도입 계획에 따라 갱신</p>
 </div>
 
 <!-- Updated I/O Simulator -->
@@ -3316,43 +3316,43 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
 
 </section>
 
-<section class="tab-panel" id="panel-applicability" data-title="적용 가능성">
+<section class="tab-panel active" id="panel-applicability" data-title="적용 가능성">
 <div class="apply-wrap" style="max-width:1120px;margin:0 auto;">
 
-  <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">4개 모델 — 적용 가능성</h2>
-  <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:20px">
-    물리 모델(<strong>TOMGRO, Sonneveld &amp; Voogt</strong>) · 머신러닝(<strong>XGBoost</strong>) · 데이터 기반 제어(<strong>DeePC</strong>)를 통합한 수확량 예측·환경 처방 AI. 각 모델의 수식·파라미터·검증 결과 상세는 샘플 테스트 탭 참조.
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px" spellcheck="false" class="">4개 모델 — 적용 가능성</h2>
+  <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:20px" spellcheck="false" class="">
+    물리 모델(<strong spellcheck="false" class=""><span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span>, Sonneveld &amp; Voogt</strong>) · 머신러닝(<strong spellcheck="false" class="">XGBoost</strong>) · 데이터 기반 제어(<strong><span class="gt" spellcheck="false">DeePC<span class="gt-tip" spellcheck="false">Data-Enabled Predictive Control — 과거 데이터만으로 최적 제어를 찾는 방법.</span></span></strong>)를 통합한 수확량 예측·환경 처방 AI. 각 모델의 수식·파라미터·검증 결과 상세는 샘플 테스트 탭 참조.
   </p>
 
   <!-- ════════ 1. 통합 파이프라인 다이어그램 ════════ -->
   <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:18px 20px;margin-bottom:28px;">
-    <div style="font-size:11px;font-weight:700;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px">통합 파이프라인</div>
+    <div style="font-size:11px;font-weight:700;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px" spellcheck="false" class="">통합 파이프라인</div>
 
     <!-- 예측 체인 -->
     <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:18px;flex-wrap:wrap">
-      <div style="width:110px;font-size:12px;font-weight:700;color:var(--fg);padding-top:14px;flex-shrink:0">① 수확량 예측</div>
+      <div style="width:110px;font-size:12px;font-weight:700;color:var(--fg);padding-top:14px;flex-shrink:0" spellcheck="false" class="">① 수확량 예측</div>
       <div style="flex:1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0">
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)">환경·생육 데이터</span></div>
-        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#E6F1FB;color:#0C447C;">TOMGRO<br><span style="font-size:10.5px;font-weight:500;opacity:.8">광합성 물리 모델</span></div>
-        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FAEEDA;color:#633806;">S&amp;V<br><span style="font-size:10.5px;font-weight:500;opacity:.8">양액 물리 모델</span></div>
-        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FCEBEB;color:#791F1F;">XGBoost<br><span style="font-size:10.5px;font-weight:500;opacity:.8">잔차 ML 보정</span></div>
-        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">주간 수확량 예측<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)">체인 오차율 21.7%</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)" spellcheck="false" class="">환경·생육 데이터</span></div>
+        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0" spellcheck="false" class="">→</div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#E6F1FB;color:#0C447C;"><span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span><br><span style="font-size:10.5px;font-weight:500;opacity:.8" spellcheck="false" class="">광합성 물리 모델</span></div>
+        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0" spellcheck="false" class="">→</div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FAEEDA;color:#633806;">S&amp;V<br><span style="font-size:10.5px;font-weight:500;opacity:.8" spellcheck="false" class="">양액 물리 모델</span></div>
+        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0" spellcheck="false" class="">→</div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#FCEBEB;color:#791F1F;">XGBoost<br><span style="font-size:10.5px;font-weight:500;opacity:.8" spellcheck="false" class="">잔차 ML 보정</span></div>
+        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0" spellcheck="false" class="">→</div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">주간 수확량 예측<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)" spellcheck="false" class="">체인 오차율 21.7%</span></div>
       </div>
     </div>
 
     <!-- 제어 흐름 -->
     <div style="display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px dashed var(--border)">
-      <div style="width:110px;font-size:12px;font-weight:700;color:var(--fg);padding-top:14px;flex-shrink:0">② 환경 제어</div>
+      <div style="width:110px;font-size:12px;font-weight:700;color:var(--fg);padding-top:14px;flex-shrink:0" spellcheck="false" class="">② 환경 제어</div>
       <div style="flex:1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0">
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)">실측 환경 + 목표</span></div>
-        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#EEEDFE;color:#3C3489;">DeePC<br><span style="font-size:10.5px;font-weight:500;opacity:.8">데이터 제어</span></div>
-        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0">→</div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">환경 처방<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)">환기·커튼·난방·CO₂</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:1px dashed var(--border-mid,#bbb);border-radius:4px;background:var(--surface2);font-size:12px;color:var(--fg-secondary);text-align:center;line-height:1.4;">입력<br><span style="font-weight:600;color:var(--fg)" spellcheck="false" class="">실측 환경 + 목표</span></div>
+        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0" spellcheck="false" class="">→</div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border-radius:4px;font-size:12px;font-weight:700;text-align:center;line-height:1.35;background:#EEEDFE;color:#3C3489;"><span class="gt" spellcheck="false">DeePC<span class="gt-tip" spellcheck="false">Data-Enabled Predictive Control — 과거 데이터만으로 최적 제어를 찾는 방법.</span></span><br><span style="font-size:10.5px;font-weight:500;opacity:.8" spellcheck="false" class="">데이터 제어</span></div>
+        <div style="color:var(--fg-muted);font-size:18px;font-weight:700;flex-shrink:0" spellcheck="false" class="">→</div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:132px;min-height:68px;padding:10px 12px;border:2px solid var(--fg);border-radius:4px;background:var(--surface);font-size:12px;font-weight:700;color:var(--fg);text-align:center;line-height:1.4;">환경 처방<br><span style="font-size:10.5px;font-weight:500;color:var(--fg-secondary)" spellcheck="false" class="">환기·커튼·난방·CO₂</span></div>
       </div>
     </div>
   </div>
@@ -3362,56 +3362,56 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
   <!-- 영역 ① 기본 예측 -->
   <div style="margin-bottom:28px">
     <div style="display:flex;align-items:baseline;gap:12px;padding:8px 0;border-bottom:2px solid var(--fg);margin-bottom:10px;flex-wrap:wrap">
-      <h3 style="font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--fg);margin:0">① 기본 예측 — 물리 모델</h3>
-      <span style="font-size:12px;color:var(--fg-muted)">도메인 지식 기반, 데이터가 적어도 작동</span>
+      <h3 style="font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--fg);margin:0" spellcheck="false" class="">① 기본 예측 — 물리 모델</h3>
+      <span style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class="">도메인 지식 기반, 데이터가 적어도 작동</span>
     </div>
-    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
-      광합성·건물 분배(TOMGRO)와 양액 EC·상대 수량 관계(S&amp;V) 등 식물 생리·양액 이론을 수식으로 직접 구현. 본 농장에 맞게 파라미터만 조정하면 바로 예측 가능하지만, 저온기·비정상 상황에서는 잔차가 커질 수 있음.
+    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
+      광합성·건물 분배(<span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span>)와 양액 <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span>·상대 수량 관계(S&amp;V) 등 식물 생리·양액 이론을 수식으로 직접 구현. 본 농장에 맞게 파라미터만 조정하면 바로 예측 가능하지만, 저온기·비정상 상황에서는 잔차가 커질 수 있음.
     </p>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
       <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
-        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#E6F1FB;color:#0C447C;font-weight:700;font-size:12px;text-align:center;line-height:28px;">01</span>
+        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#E6F1FB;color:#0C447C;font-weight:700;font-size:12px;text-align:center;line-height:28px;" spellcheck="false" class="">01</span>
         <div style="flex:1;min-width:0">
-          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">TOMGRO</div>
-          <div style="font-size:12px;color:var(--fg-muted)">광합성·건물 생산 기반 이론 수량 예측</div>
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em"><span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span></div>
+          <div style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class="">광합성·건물 생산 기반 이론 수량 예측</div>
         </div>
-        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#E6F1FB;color:#0C447C;white-space:nowrap">물리 모델</span>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#E6F1FB;color:#0C447C;white-space:nowrap" spellcheck="false" class="">물리 모델</span>
       </div>
-      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
+      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
         Jones et al. (1991) 방울토마토 동적 생장 모델. 광합성·호흡·에너지 배분(건물 분배)을 수식으로 기술하여 주간 수확량을 예측.
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">단독 오차율</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">25.6<span style="font-size:11px;font-weight:500">%</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">단독 오차율</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">25.6<span style="font-size:11px;font-weight:500" spellcheck="false" class="">%</span></div>
         </div>
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">저온기 한겨울 예측</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">0.402<span style="font-size:11px;font-weight:500"> kg/m²</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">저온기 한겨울 예측</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">0.402<span style="font-size:11px;font-weight:500" spellcheck="false" class=""> kg/m²</span></div>
         </div>
       </div>
     </div>
       <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
-        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#FAEEDA;color:#633806;font-weight:700;font-size:12px;text-align:center;line-height:28px;">02</span>
+        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#FAEEDA;color:#633806;font-weight:700;font-size:12px;text-align:center;line-height:28px;" spellcheck="false" class="">02</span>
         <div style="flex:1;min-width:0">
-          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">Sonneveld &amp; Voogt</div>
-          <div style="font-size:12px;color:var(--fg-muted)">EC 스트레스 기반 수량 감소 모델</div>
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em" spellcheck="false" class="">Sonneveld &amp; Voogt</div>
+          <div style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class=""><span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span> 스트레스 기반 수량 감소 모델</div>
         </div>
-        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#FAEEDA;color:#633806;white-space:nowrap">물리 모델</span>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#FAEEDA;color:#633806;white-space:nowrap" spellcheck="false" class="">물리 모델</span>
       </div>
-      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
-        슬라브 EC와 상대 수량의 관계식. 본 농장의 EC 고당도 전략으로 인한 수량 손실을 정량화. TOMGRO 결과에 곱 계수로 적용.
+      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
+        슬라브 <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span>와 상대 수량의 관계식. 본 농장의 <span class="gt" spellcheck="false">EC<span class="gt-tip" spellcheck="false">Electrical Conductivity (전기전도도) — 양액의 농도를 나타내는 값.</span></span> 고당도 전략으로 인한 수량 손실을 정량화. <span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span> 결과에 곱 계수로 적용.
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">+ TOMGRO 오차율</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">34.1<span style="font-size:11px;font-weight:500">%</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">+ <span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span> 오차율</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">34.1<span style="font-size:11px;font-weight:500" spellcheck="false" class="">%</span></div>
         </div>
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">저온기 한겨울 상대수량</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">0.731</div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">저온기 한겨울 상대수량</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">0.731</div>
         </div>
       </div>
     </div>
@@ -3421,33 +3421,33 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
   <!-- 영역 ② 오차 보정 -->
   <div style="margin-bottom:28px">
     <div style="display:flex;align-items:baseline;gap:12px;padding:8px 0;border-bottom:2px solid var(--fg);margin-bottom:10px;flex-wrap:wrap">
-      <h3 style="font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--fg);margin:0">② 오차 보정 — 머신러닝</h3>
-      <span style="font-size:12px;color:var(--fg-muted)">물리 모델이 못 잡는 복합 패턴 학습으로 메움</span>
+      <h3 style="font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--fg);margin:0" spellcheck="false" class="">② 오차 보정 — 머신러닝</h3>
+      <span style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class="">물리 모델이 못 잡는 복합 패턴 학습으로 메움</span>
     </div>
-    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
-      36개 환경·생육 특성을 학습하여 TOMGRO·S&amp;V 체인의 잔차를 보정. 본 작기 누적 데이터가 29주 수준이라 과적합 위험이 있으나, 작기가 누적될수록 정확도 향상 구조.
+    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
+      36개 환경·생육 특성을 학습하여 <span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span>·S&amp;V 체인의 잔차를 보정. 본 작기 누적 데이터가 29주 수준이라 과적합 위험이 있으나, 작기가 누적될수록 정확도 향상 구조.
     </p>
     <div style="display:grid;grid-template-columns:1fr;gap:12px;max-width:560px">
       <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
-        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#FCEBEB;color:#791F1F;font-weight:700;font-size:12px;text-align:center;line-height:28px;">03</span>
+        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#FCEBEB;color:#791F1F;font-weight:700;font-size:12px;text-align:center;line-height:28px;" spellcheck="false" class="">03</span>
         <div style="flex:1;min-width:0">
-          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">XGBoost</div>
-          <div style="font-size:12px;color:var(--fg-muted)">잔차 학습 기반 오차 보정</div>
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em" spellcheck="false" class="">XGBoost</div>
+          <div style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class="">잔차 학습 기반 오차 보정</div>
         </div>
-        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#FCEBEB;color:#791F1F;white-space:nowrap">머신러닝</span>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#FCEBEB;color:#791F1F;white-space:nowrap" spellcheck="false" class="">머신러닝</span>
       </div>
-      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
-        36개 특성을 학습하여 TOMGRO·S&amp;V가 놓친 잔차를 보정. 데이터 부족에 따른 학습 한계 있음 (학습 오차율 5.4% vs CV 오차율 23.6%).
+      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
+        36개 특성을 학습하여 <span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span>·S&amp;V가 놓친 잔차를 보정. 데이터 부족에 따른 학습 한계 있음 (학습 오차율 5.4% vs CV 오차율 23.6%).
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">+ 체인 오차율</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">21.7<span style="font-size:11px;font-weight:500">%</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">+ 체인 오차율</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">21.7<span style="font-size:11px;font-weight:500" spellcheck="false" class="">%</span></div>
         </div>
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">학습 주차</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">29<span style="font-size:11px;font-weight:500">주</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">학습 주차</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">29<span style="font-size:11px;font-weight:500" spellcheck="false" class="">주</span></div>
         </div>
       </div>
     </div>
@@ -3457,33 +3457,33 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
   <!-- 영역 ③ 환경 처방 -->
   <div style="margin-bottom:24px">
     <div style="display:flex;align-items:baseline;gap:12px;padding:8px 0;border-bottom:2px solid var(--fg);margin-bottom:10px;flex-wrap:wrap">
-      <h3 style="font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--fg);margin:0">③ 환경 처방 — 데이터 제어</h3>
-      <span style="font-size:12px;color:var(--fg-muted)">센서 데이터로 설정값을 직접 도출, 제어계통과 연계</span>
+      <h3 style="font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--fg);margin:0" spellcheck="false" class="">③ 환경 처방 — 데이터 제어</h3>
+      <span style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class="">센서 데이터로 설정값을 직접 도출, 제어계통과 연계</span>
     </div>
-    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
+    <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
       별도의 모델 식을 세우지 않고 실제 운영 데이터(Hankel matrix)로부터 최적 제어 시퀀스를 계산. 본 농장 튜닝(v8)에는 3중 스크린·환기 급변 제약·에너지 한도 등이 반영됨.
     </p>
     <div style="display:grid;grid-template-columns:1fr;gap:12px;max-width:560px">
       <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
-        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#EEEDFE;color:#3C3489;font-weight:700;font-size:12px;text-align:center;line-height:28px;">04</span>
+        <span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#EEEDFE;color:#3C3489;font-weight:700;font-size:12px;text-align:center;line-height:28px;" spellcheck="false" class="">04</span>
         <div style="flex:1;min-width:0">
-          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">DeePC</div>
-          <div style="font-size:12px;color:var(--fg-muted)">데이터 기반 예측 제어</div>
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em"><span class="gt" spellcheck="false">DeePC<span class="gt-tip" spellcheck="false">Data-Enabled Predictive Control — 과거 데이터만으로 최적 제어를 찾는 방법.</span></span></div>
+          <div style="font-size:12px;color:var(--fg-muted)" spellcheck="false" class="">데이터 기반 예측 제어</div>
         </div>
-        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#EEEDFE;color:#3C3489;white-space:nowrap">제어 처방</span>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#EEEDFE;color:#3C3489;white-space:nowrap" spellcheck="false" class="">제어 처방</span>
       </div>
-      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px">
+      <div style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:12px" spellcheck="false" class="">
         Willems Lemma와 Hankel matrix를 이용한 모델 없는 제어. v8 본 농장 튜닝으로 3중 스크린·환기 급변 제약 등 반영.
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">밴드 준수율</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">100<span style="font-size:11px;font-weight:500">%</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">밴드 준수율</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">100<span style="font-size:11px;font-weight:500" spellcheck="false" class="">%</span></div>
         </div>
         <div style="background:var(--surface2);padding:8px 10px;border-radius:3px;">
-          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em">광합성 개선</div>
-          <div style="font-size:16px;font-weight:700;color:var(--fg)">+4.7<span style="font-size:11px;font-weight:500">%</span></div>
+          <div style="font-size:10.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:0.05em" spellcheck="false" class="">광합성 개선</div>
+          <div style="font-size:16px;font-weight:700;color:var(--fg)" spellcheck="false" class="">+4.7<span style="font-size:11px;font-weight:500" spellcheck="false" class="">%</span></div>
         </div>
       </div>
     </div>
@@ -3491,8 +3491,8 @@ DIF (주야간온도차): 낮-밤 온도 차이 → 줄기 신장에 영향</div
   </div>
 
   <!-- ════════ 3. 설계 철학 ════════ -->
-  <div style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--fg);padding:12px 14px;font-size:13px;color:var(--fg);line-height:1.7">
-    <strong>설계 철학.</strong> 물리 모델(TOMGRO, S&amp;V)이 기본 예측, ML(XGBoost)이 잔차 보정, 제어(DeePC)가 환경 처방을 담당. 각 모델의 한계는 문서별로 투명 공개.
+  <div style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--fg);padding:12px 14px;font-size:13px;color:var(--fg);line-height:1.7" spellcheck="false" class="">
+    <strong spellcheck="false" class="">설계 철학.</strong> 물리 모델(<span class="gt" spellcheck="false">TOMGRO<span class="gt-tip" spellcheck="false">미국 플로리다대의 토마토 전용 생육 예측 모델.</span></span>, S&amp;V)이 기본 예측, ML(XGBoost)이 잔차 보정, 제어(<span class="gt" spellcheck="false">DeePC<span class="gt-tip" spellcheck="false">Data-Enabled Predictive Control — 과거 데이터만으로 최적 제어를 찾는 방법.</span></span>)가 환경 처방을 담당. 각 모델의 한계는 문서별로 투명 공개.
   </div>
 
 </div>
