@@ -153,7 +153,9 @@ body.locked { overflow: hidden; }
 .sub-nav-wrap {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  display: none;
 }
+body.has-subnav .sub-nav-wrap { display: block; }
 .sub-nav-inner {
   max-width: 1280px;
   margin: 0 auto;
@@ -580,7 +582,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 
 
 </head>
-<body class="has-subnav">
+<body>
 
 <!-- ═══════════════ PASSWORD GATE ═══════════════ -->
 <div id="password-gate" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: rgb(255, 255, 255); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; font-family: var(--font-sans,sans-serif);">
@@ -598,8 +600,8 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <div class="header-sub" spellcheck="false">미래 온실(대규모 GRID) 효율적 운영을 위한 기술 개발 · 검증 · 확산</div>
     </div>
     <nav class="tabs" id="main-tabs">
-      <button class="tab-btn nav-tab" onclick="switchCategory('home',this)"><span class="nav-label" spellcheck="false">홈</span></button>
-      <button class="tab-btn nav-tab active" onclick="switchCategory('automation',this)"><span class="nav-label" spellcheck="false">1)무인화</span></button>
+      <button class="tab-btn nav-tab active" onclick="switchCategory('home',this)"><span class="nav-label" spellcheck="false">홈</span></button>
+      <button class="tab-btn nav-tab" onclick="switchCategory('automation',this)"><span class="nav-label" spellcheck="false">1)무인화</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('energy-cat',this)"><span class="nav-label" spellcheck="false">2)에너지</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('productivity',this)"><span class="nav-label" spellcheck="false">3)생산성</span></button>
       <button class="tab-btn nav-tab" onclick="switchCategory('memo',this)"><span class="nav-label" spellcheck="false">[진행현황]</span></button>
@@ -657,11 +659,11 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
 
 <!-- ═══════════════ SECTIONS ═══════════════ -->
 <div class="main-content">
-  <div id="section-home" class="section"></div>
+  <div id="section-home" class="section active"></div>
   <div id="section-nursery" class="section"></div>
   <div id="section-seed" class="section"></div>
   <div id="section-apc" class="section"></div>
-  <div id="section-ai" class="section active"></div>
+  <div id="section-ai" class="section"></div>
   <div id="section-ai-work" class="section"></div>
   <div id="section-robot" class="section"></div>
   <div id="section-energy" class="section"></div>
