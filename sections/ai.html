@@ -4615,6 +4615,18 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
         'html,body{height:auto!important;overflow:visible!important}';
       doc.head.appendChild(s);
 
+      // '남은 오차의 구조 (오차율 21.7% 구성)' 카드 숨김 — 아래 '오차 원인 분해 상세'와 중복
+      try {
+        var labels = doc.querySelectorAll('#section-integration .sl');
+        labels.forEach(function(lbl) {
+          if (lbl.textContent && lbl.textContent.indexOf('남은 오차의 구조') !== -1) {
+            lbl.style.display = 'none';
+            var next = lbl.nextElementSibling;
+            if (next && next.classList.contains('card')) next.style.display = 'none';
+          }
+        });
+      } catch (_) {}
+
       resize();
       setTimeout(resize, 200);
       setTimeout(resize, 600);
