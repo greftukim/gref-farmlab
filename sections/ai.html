@@ -4618,8 +4618,9 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       // farm-ai 중복·불필요 섹션 숨김
       //  · '남은 오차의 구조 (오차율 21.7% 구성)' — 아래 '오차 원인 분해 상세'와 중복
       //  · '월별 예측 오차 히트맵' — 사용자 요청으로 숨김
+      //  · '모델 조합별 단계적 예측' — 저온기 기준 다이어그램과 기간 기준 불일치로 숨김 (전 작기 수치는 KPI 카드에 이미 노출됨)
       try {
-        var HIDE_LABELS = ['남은 오차의 구조', '월별 예측 오차 히트맵'];
+        var HIDE_LABELS = ['남은 오차의 구조', '월별 예측 오차 히트맵', '모델 조합별 단계적 예측'];
         var labels = doc.querySelectorAll('#section-integration .sl');
         labels.forEach(function(lbl) {
           if (!lbl.textContent) return;
