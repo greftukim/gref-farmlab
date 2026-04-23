@@ -1760,6 +1760,16 @@
  width: 25%; }
 #ai-research-container .agr-table .col-note {
  width: 30%; }
+#ai-research-container .agr-table {
+ table-layout: auto; }
+#ai-research-container .agr-table .col-shrink {
+ width: 1%; }
+#ai-research-container .agr-table tbody td.col-shrink,
+#ai-research-container .agr-table thead th.col-shrink {
+ white-space: nowrap; }
+#ai-research-container .agr-table-compact thead th:last-child,
+#ai-research-container .agr-table-compact tbody td:last-child {
+ white-space: nowrap; width: 1%; }
 #ai-research-container .agr-tag-undecided {
 
   display: inline-block;
@@ -4300,8 +4310,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
     <p style="font-size:12px;color:var(--fg-muted);margin:0 0 8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Priva 환경 데이터 (5분 간격 자동 로깅)</p>
     <div class="agr-table-wrap">
-      <table class="agr-table">
-        <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+      <table class="agr-table agr-table-compact">
+        <colgroup><col><col></colgroup>
         <thead><tr><th>항목</th><th>단위</th></tr></thead>
         <tbody>
           <tr><td>실내 온도</td><td>℃</td></tr>
@@ -4320,8 +4330,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
     <p style="font-size:12px;color:var(--fg-muted);margin:16px 0 8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">관수 데이터 (Priva 또는 별도 계측)</p>
     <div class="agr-table-wrap">
       <table class="agr-table">
-        <colgroup><col style="width:45%"><col style="width:20%"><col style="width:35%"></colgroup>
-        <thead><tr><th>항목</th><th>단위</th><th>수집 주기</th></tr></thead>
+        <colgroup><col><col><col></colgroup>
+        <thead><tr><th>항목</th><th class="col-shrink">단위</th><th>수집 주기</th></tr></thead>
         <tbody>
           <tr><td>급액량</td><td>mL/회</td><td>매 급액시</td></tr>
           <tr><td>급액 EC</td><td>dS/m</td><td>매 급액시</td></tr>
@@ -4337,8 +4347,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
     <p style="font-size:12px;color:var(--fg-muted);margin:16px 0 8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">양액 성분 조성 (급액·배액·배지 내, 외부 의뢰 분석)</p>
     <div class="agr-table-wrap">
       <table class="agr-table">
-        <colgroup><col style="width:32%"><col style="width:12%"><col style="width:26%"><col style="width:30%"></colgroup>
-        <thead><tr><th>항목</th><th>단위</th><th>수집 주기</th><th>비고</th></tr></thead>
+        <colgroup><col><col class="col-shrink"><col><col></colgroup>
+        <thead><tr><th>항목</th><th class="col-shrink">단위</th><th>수집 주기</th><th>비고</th></tr></thead>
         <tbody>
           <tr>
             <td>다량원소: NO₃⁻, NH₄⁺, H₂PO₄⁻, K⁺, Ca²⁺, Mg²⁺, SO₄²⁻</td>
@@ -4370,8 +4380,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
     <p style="font-size:12px;color:var(--fg-muted);margin:16px 0 8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">생육 조사 (수기, 주 1회)</p>
     <div class="agr-table-wrap">
-      <table class="agr-table">
-        <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+      <table class="agr-table agr-table-compact">
+        <colgroup><col><col></colgroup>
         <thead><tr><th>항목</th><th>단위</th></tr></thead>
         <tbody>
           <tr><td>초장</td><td>cm</td></tr>
@@ -4390,8 +4400,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
     <p style="font-size:12px;color:var(--fg-muted);margin:0 0 8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">환경 제어</p>
     <div class="agr-table-wrap">
-      <table class="agr-table">
-        <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+      <table class="agr-table agr-table-compact">
+        <colgroup><col><col></colgroup>
         <thead><tr><th>제안 항목</th><th>단위</th></tr></thead>
         <tbody>
           <tr><td>주간 목표 온도</td><td>℃</td></tr>
@@ -4405,8 +4415,8 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
     <p style="font-size:12px;color:var(--fg-muted);margin:16px 0 8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">관수 제어</p>
     <div class="agr-table-wrap">
-      <table class="agr-table">
-        <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+      <table class="agr-table agr-table-compact">
+        <colgroup><col><col></colgroup>
         <thead><tr><th>제안 항목</th><th>단위</th></tr></thead>
         <tbody>
           <tr><td>1회 급액량</td><td>mL/주</td></tr>
