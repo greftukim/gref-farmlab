@@ -1,0 +1,439 @@
+<style>
+/* ── Nursery Section — Monochrome Design System ── */
+
+/* Section titles */
+.xl-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin: 20px 0 8px;
+  font-family: var(--font-sans);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+.xl-section-title:first-child { margin-top: 0; }
+
+.xl-sub-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-secondary);
+  margin: 14px 0 6px;
+  letter-spacing: 0.02em;
+}
+
+/* Vision banner */
+.xl-vision-banner {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  padding: 16px 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+/* Tables */
+.xl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+.xl-table thead th {
+  background: var(--surface2);
+  color: var(--fg-muted);
+  font-weight: 500;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 7px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.xl-table thead th.num {
+  text-align: right;
+}
+.xl-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--fg);
+  vertical-align: top;
+}
+.xl-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: -0.01em;
+}
+.xl-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.xl-table tbody tr:hover td {
+  background: var(--accent-light);
+}
+
+/* Wide table */
+.xl-table.xl-wide {
+  min-width: 900px;
+}
+
+/* Editable input cells — blue text */
+.xl-input {
+  color: #2563eb !important;
+  cursor: text;
+}
+
+/* Total row */
+.xl-total td {
+  background: var(--surface2) !important;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border) !important;
+  font-weight: 600;
+}
+
+/* Subtotal row */
+.xl-subtotal td {
+  background: var(--accent-light) !important;
+  font-weight: 500;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Highlight row */
+.xl-highlight td {
+  background: var(--surface2) !important;
+  font-style: italic;
+}
+.xl-highlight-green td {
+  background: var(--surface2) !important;
+  font-weight: 600;
+}
+
+/* Group cell (merged rows) */
+.xl-group-cell {
+  background: var(--surface2);
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+/* Good / Bad markers */
+.xl-bad {
+  color: var(--fg-secondary);
+}
+.xl-good {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* P&L indentation */
+.pl-sub {
+  padding-left: 24px !important;
+  color: var(--fg-secondary);
+}
+.pl-sub2 {
+  padding-left: 40px !important;
+  color: var(--fg-muted);
+  font-size: 11px;
+}
+
+/* Crop cards grid */
+.xl-crop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+@media (max-width: 640px) {
+  .xl-crop-grid { grid-template-columns: 1fr; }
+}
+.xl-crop-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.xl-crop-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.xl-crop-reasons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.xl-crop-reasons li {
+  font-size: 12px;
+  color: var(--fg-secondary);
+  line-height: 1.6;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.xl-crop-reasons li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--fg-muted);
+}
+
+/* Two-column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media (max-width: 640px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* HVAC diagram cards */
+.hvac-diagram-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.hvac-diagram-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.hvac-diagram-header.hvac-heat {
+  background: var(--surface2);
+}
+.hvac-diagram-header.hvac-cool {
+  background: var(--surface2);
+}
+.hvac-diagram-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.hvac-diagram-subtitle {
+  font-size: 11px;
+  color: var(--fg-muted);
+  margin-top: 2px;
+}
+
+/* Flow chart wrap */
+.fc-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.fc-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 12px;
+}
+</style>
+
+
+<div class="container">
+
+    <div class="sl edit-target" spellcheck="false" contenteditable="true">GREF 식물공장형 육묘 — 도입 계획</div>
+
+    <!-- [1] 도입 배경 — 3가지 핵심 논리 -->
+    <div class="card">
+      <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">도입 배경 — 일반온실 육묘와 분리해 별도 추진하는 3가지 이유</div></div>
+      <div class="card-body">
+        <div class="three-col">
+          <div class="note-block note-info edit-target" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">1. 일반온실 육묘의 한계 보완</strong><br>병해충 리스크·균일도·육묘 일수 등이 기존 벤로형 온실 육묘의 구조적 약점. 폐쇄형 식물공장으로 위생·기후 변수 원천 차단</div>
+          <div class="note-block note-tip edit-target" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">2. AI 도입 진입장벽이 낮음</strong><br>모종은 성목 대비 측정 변수·공간이 적고 생육 사이클이 짧아(40~42일) 학습 데이터 축적 속도가 빠름. 외란이 통제돼 모델 재현성·검증성 우수</div>
+          <div class="note-block edit-target" style="border-color:var(--fg);background:var(--surface2);color:var(--fg)" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">3. 한국 농업 환경 적합</strong><br>네덜란드 대비 한국 시설 농업은 규모·기후·인력 여건이 열악. 통제 용이한 식물공장형이 고품질 균일 묘의 안정적 수급 경로로 유효</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">검토 경위</div></div>
+      <div class="card-body">
+        <div class="desc edit-target" spellcheck="false" contenteditable="true">기존 GREF 계획은 진주 온실(벤로형)에서 플러그~대묘를 일관 생산하는 구조였으나, <strong spellcheck="false" class="edit-target" contenteditable="true">병해충 리스크·균일도·육묘 일수</strong> 등의 한계 보완을 위해 식물공장형 하이브리드 모델 검토 착수</div>
+        <div class="divider"></div>
+        <div class="desc edit-target" spellcheck="false" contenteditable="true">2026년 3월 25일, 국내 유일의 전기간 LED 식물공장형 육묘장을 운영 중인 <strong spellcheck="false" class="edit-target" contenteditable="true">한국표준육묘</strong>&nbsp;방문 및 기술 검증 진행. 4년 운영 이력, 병해충 클레임 제로, 접목 활착률 98%, 토마토 접목 40~42일(관행 50~60일) 등 핵심 지표 현장 확인</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">도입 모델 개요</div></div>
+      <div class="card-body">
+        <div class="three-col">
+          <div class="note-block note-info edit-target" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">식물공장 역할</strong><br>파종 → 발아 → 플러그 육묘 → 접목 → 활착 → 순화<br>(1~2차 육묘)</div>
+          <div class="note-block note-tip edit-target" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">온실 역할</strong><br>이식 이후 대묘 생산 전용<br>(3차 육묘)</div>
+          <div class="note-block edit-target" style="border-color:var(--fg);background:var(--surface2);color:var(--fg)" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">핵심 전략</strong><br>기존 온실을 대묘에만 집중시켜 공간 효율을 높이는 하이브리드 구조</div>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="two-col">
+        <div class="card">
+          <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">상업 규모: 30평 모듈 비교 (한국표준육묘 vs GREF)</div></div>
+          <div class="card-body">
+            <table class="data-table">
+              <thead><tr><th spellcheck="false" class="edit-target" contenteditable="true">항목</th><th spellcheck="false" class="edit-target" contenteditable="true">한국표준육묘</th><th spellcheck="false" class="edit-target" contenteditable="true">GREF</th></tr></thead>
+              <tbody>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">트레이 규격</td><td spellcheck="false" class="edit-target" contenteditable="true">상토 50구 (54×28cm)</td><td spellcheck="false" class="edit-target" contenteditable="true">암면 240구 트레이 (60×42cm)</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">실제 사용 구수</td><td spellcheck="false" class="edit-target" contenteditable="true">50구</td><td spellcheck="false" class="edit-target" contenteditable="true">120구 (간격 벌리기 적용)</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">수용 판수</td><td spellcheck="false" class="edit-target" contenteditable="true">1,024판</td><td spellcheck="false" class="edit-target" contenteditable="true">약 614판</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">1회 생산량 (실생)</td><td spellcheck="false" class="edit-target" contenteditable="true">51,200주</td><td spellcheck="false" class="edit-target" contenteditable="true">73,680주</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">1회 생산량 (접목)</td><td spellcheck="false" class="edit-target" contenteditable="true">25,600주</td><td spellcheck="false" class="edit-target" contenteditable="true">36,840주</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">연간 회전수</td><td spellcheck="false" class="edit-target" contenteditable="true">10회</td><td spellcheck="false" class="edit-target" contenteditable="true">10회</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">연간 생산량 (실생)</td><td spellcheck="false" class="edit-target" contenteditable="true">512,000주</td><td spellcheck="false" class="edit-target" contenteditable="true">736,800주</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">연간 생산량 (접목)</td><td spellcheck="false" class="edit-target" contenteditable="true">256,000주</td><td spellcheck="false" class="edit-target" contenteditable="true">368,400주</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">평당 구축비</td><td spellcheck="false" class="edit-target" contenteditable="true">800~900만원/평</td><td spellcheck="false" class="edit-target" contenteditable="true">800~900만원/평</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">30평 총 구축비</td><td spellcheck="false" class="edit-target" contenteditable="true">2.4억~2.7억원</td><td spellcheck="false" class="edit-target" contenteditable="true">2.4억~2.7억원</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">전기료</td><td spellcheck="false" class="edit-target" contenteditable="true">120~130만원/월</td><td spellcheck="false" class="edit-target" contenteditable="true">120~130만원/월</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">연간 매출 (실생 410원 기준)</td><td spellcheck="false" class="edit-target" contenteditable="true">약 2.1억원</td><td spellcheck="false" class="edit-target" contenteditable="true">약 3.0억원</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">참고: 재배면적 산정(한국표준육묘 기준)</div></div>
+          <div class="card-body">
+            <table class="data-table">
+              <thead><tr><th spellcheck="false" class="edit-target" contenteditable="true">항목</th><th spellcheck="false" class="edit-target" contenteditable="true">수치</th></tr></thead>
+              <tbody>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">랙 수</td><td spellcheck="false" class="edit-target" contenteditable="true">32개</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">단 수</td><td spellcheck="false" class="edit-target" contenteditable="true">4단</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">단당 트레이 수</td><td spellcheck="false" class="edit-target" contenteditable="true">8판</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">총 트레이 수</td><td spellcheck="false" class="edit-target" contenteditable="true">32 × 4 × 8 = 1,024판</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">트레이 규격 (상토 50구)</td><td spellcheck="false" class="edit-target" contenteditable="true">54 × 28cm = 0.1512㎡</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">총 재배면적</td><td spellcheck="false" class="edit-target" contenteditable="true">1,024판 × 0.1512㎡ = 154.8㎡</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+
+
+    <!-- [프로토타입 검증] 부산 LAB — 와사비실 → 육묘장 전환 설계 -->
+    <div class="card">
+      <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">프로토타입 검증: 부산 LAB (와사비실 → 육묘장 전환 설계 중)</div></div>
+      <div class="card-body">
+        <div class="desc edit-target" spellcheck="false" contenteditable="true">상업 규모 도입 전, 부산대학교와의 공동 프로젝트로 조성됐던 <strong>식물공장형 와사비 재배실</strong>(현재 프로젝트 종료로 유휴)을 자가 육묘장으로 <strong>전환하기 위한 설계 작업 진행 중</strong>. 재배실 자체의 폐쇄형 환경·LED·관수 인프라를 그대로 활용하고, 양액·관수 시퀀스를 육묘 목적에 맞게 재설계.</div>
+
+        <figure style="margin:14px 0 10px;">
+          <img src="ai/wasabi_to_nursery_fertigation.png" alt="와사비실 → 육묘장 전환 관수·양액 설계 도면"
+               style="display:block;width:100%;max-width:1200px;height:auto;border:1px solid var(--border);border-radius:4px;background:#fff"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div style="display:none;background:var(--surface2);border:1px dashed var(--border);padding:14px;font-size:12px;color:var(--fg-muted);line-height:1.7;border-radius:4px">
+            <strong>이미지 업로드 대기</strong> — <code>ai/wasabi_to_nursery_fertigation.png</code> 경로에 파일 업로드 시 자동 표시.
+          </div>
+          <figcaption class="edit-target" spellcheck="false" contenteditable="true" style="font-size:12px;color:var(--fg-muted);margin-top:8px;line-height:1.7;">
+            <strong>자가 육묘장 전환 관수·양액 설계 도면 (구상 단계).</strong>
+            비료 Tank A/B/C (각 30L) → 믹싱 Tank (EC·pH 센서 제어) → 트레이 공급 → 퇴수 회수(10L) 순환 구조.
+            원수·믹싱 Tank에 이중 수위 센서, 비료 농도는 EC·pH 값 피드백으로 전자밸브가 자동 조절. 모든 액추에이터 수동/자동 모드 전환 가능, 로그 기록 저장.
+          </figcaption>
+        </figure>
+
+        <div class="divider"></div>
+        <table class="data-table">
+          <thead><tr><th spellcheck="false" class="edit-target" contenteditable="true">항목</th><th spellcheck="false" class="edit-target" contenteditable="true">내용</th></tr></thead>
+          <tbody>
+            <tr><td spellcheck="false" class="edit-target" contenteditable="true">목적</td><td spellcheck="false" class="edit-target" contenteditable="true">식물공장 환경에서의 자가육묘 프로세스 검증 (환경 제어, 관수 레시피, 접목 활착 등)</td></tr>
+            <tr><td spellcheck="false" class="edit-target" contenteditable="true">대상 작목</td><td spellcheck="false" class="edit-target" contenteditable="true">토마토 위주로 시작, 이후 파프리카·오이 확장</td></tr>
+            <tr><td spellcheck="false" class="edit-target" contenteditable="true">의미</td><td spellcheck="false" class="edit-target" contenteditable="true">30평 상업 모듈 투자 전 리스크 최소화 및 내부 운영 역량 선행 확보</td></tr>
+            <tr><td spellcheck="false" class="edit-target" contenteditable="true">현재 단계</td><td spellcheck="false" class="edit-target" contenteditable="true">관수·양액 공급 시스템 도면화, 센서·밸브 시퀀스 초안 작성 완료</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+        <div class="card">
+          <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">단계별 흐름</div></div>
+          <div class="card-body">
+            <div class="process-row">
+              <div class="proc-step">
+                <div class="proc-num edit-target" spellcheck="false" contenteditable="true">1</div>
+                <div class="proc-name edit-target" spellcheck="false" contenteditable="true">부산 와사비실 활용</div>
+                <div class="proc-sub edit-target" spellcheck="false" contenteditable="true">소규모 자가육묘 프로토타입 검증<br>환경 제어·레시피·접목 프로세스 내재화</div>
+              </div>
+              <div class="proc-step">
+                <div class="proc-num edit-target" spellcheck="false" contenteditable="true">2</div>
+                <div class="proc-name edit-target" spellcheck="false" contenteditable="true">암면 레시피 확립 확인</div>
+                <div class="proc-sub edit-target" spellcheck="false" contenteditable="true">한국표준육묘 암면 레시피 확립 확인 (월별 추적)<br>공급 가능 시점 확정</div>
+              </div>
+              <div class="proc-step">
+                <div class="proc-num edit-target" spellcheck="false" contenteditable="true">3</div>
+                <div class="proc-name edit-target" spellcheck="false" contenteditable="true">진주 30평 모듈 도입</div>
+                <div class="proc-sub edit-target" spellcheck="false" contenteditable="true">온실과 하이브리드 연계 운영 시작</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    <!-- [무인 식물공장 비전] 로봇 자동화 -->
+    <div class="card">
+      <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">장기 비전 — 무인 식물공장 (사람 미진입 · 로봇 운영)</div></div>
+      <div class="card-body">
+        <div class="desc edit-target" spellcheck="false" contenteditable="true">식물공장형 육묘는 <strong>외부 오염 차단이 품질의 핵심</strong>이므로, 장기적으로 육묘 공간에 <strong>사람이 진입하지 않는 구조</strong>가 정답에 가깝다고 판단. 트레이·랙 이동, 환경 점검, 수확 후 세척까지 로봇이 담당하고 사람은 모니터링·예외 처리만 외부에서 수행.</div>
+        <div class="divider"></div>
+        <div class="three-col">
+          <div class="note-block note-info edit-target" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">왜 무인화가 필수인가</strong><br>사람 출입 = 병해충·미생물·먼지 유입 경로. 아무리 청결 프로토콜을 강화해도 사람이 드나드는 한 위생 수준 상한이 있음</div>
+          <div class="note-block note-tip edit-target" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">참고 사례 — 인텔리팜</strong><br>모베드(MOBED) 기반 로봇이 육묘 렉을 물리적으로 옮겨 다니며 공간·순환을 관리. 사람이 들어가지 않는 구조로 개발 진행 중인 국내 사례</div>
+          <div class="note-block edit-target" style="border-color:var(--fg);background:var(--surface2);color:var(--fg)" spellcheck="false" contenteditable="true"><strong spellcheck="false" class="edit-target" contenteditable="true">GREF 적용 방향</strong><br>와사비실 프로토타입 → 30평 상업 모듈 단계에서는 반자동, 차기 확장 단계부터 모베드형 로봇 도입 검토. 사람은 유리벽 밖 관제실에서 모니터링</div>
+        </div>
+
+        <figure style="margin:16px 0 8px;">
+          <video controls preload="metadata"
+                 style="display:block;width:100%;max-width:1000px;height:auto;border:1px solid var(--border);border-radius:4px;background:#000">
+            <source src="ai/GOMCAM 20260423_2318430819_edit_0.mp4" type="video/mp4">
+            브라우저가 동영상 태그를 지원하지 않습니다.
+          </video>
+          <figcaption class="edit-target" spellcheck="false" contenteditable="true" style="font-size:12px;color:var(--fg-muted);margin-top:8px;line-height:1.7;">
+            <strong>참고 영상 — 모베드 기반 렉 이동 로봇 운용 예시.</strong>
+            폐쇄형 육묘 공간에서 사람이 들어가지 않고 로봇이 렉을 이동·재배치하는 모습.
+            GREF도 향후 확장 단계에서 동일 방향을 검토 중.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+        <div class="card">
+          <div class="card-header"><div class="card-title edit-target" spellcheck="false" contenteditable="true">참고: 한국표준육묘</div></div>
+          <div class="card-body">
+            <table class="data-table">
+              <thead><tr><th spellcheck="false" class="edit-target" contenteditable="true">항목</th><th spellcheck="false" class="edit-target" contenteditable="true">내용</th></tr></thead>
+              <tbody>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">모회사</td><td spellcheck="false" class="edit-target" contenteditable="true">㈜티움 (KOSDAQ 상장, AI 디스플레이·반도체 비전설비·스마트팩토리 전문)</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">위치</td><td spellcheck="false" class="edit-target" contenteditable="true">경기도 동탄 본사</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">운영 이력</td><td spellcheck="false" class="edit-target" contenteditable="true">4년 R&amp;D 후 2024년부터 본격 판매</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">핵심 특장점</td><td spellcheck="false" class="edit-target" contenteditable="true">국내 유일 전기간 LED 식물공장형 육묘 운영, 병해충 차단, 고온기·저온기 관계없이 균일한 묘 생산</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">기술 역량</td><td spellcheck="false" class="edit-target" contenteditable="true">자체 LED 제작, 자체 환경제어 SW(웹 기반), 자체 접목기 개발 중</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">시스템 공급 조건</td><td spellcheck="false" class="edit-target" contenteditable="true">800~900만원/평 (건물·전기 인입 제외), 구독제 없음, SW 영구 제공, 1년 코칭 포함</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">육묘 일수</td><td spellcheck="false" class="edit-target" contenteditable="true">토마토 접목 40~42일 / 오이 실생 15~17일 (관행 대비 20~30% 단축)</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">현황 및 계획</td><td spellcheck="false" class="edit-target" contenteditable="true">연 1,000만주 이상 규모로 동탄 확장 이전 예정, 접목기·선별기 2027년 판매 예정</td></tr>
+                <tr><td spellcheck="false" class="edit-target" contenteditable="true">주요 리스크</td><td spellcheck="false" class="edit-target" contenteditable="true">암면 프러그 레시피 미확립 (테스트 중), 겨울철 순화 한계 존재</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+</div><!-- /container -->
