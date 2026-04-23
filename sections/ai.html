@@ -3545,7 +3545,6 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       <button class="proj-top-tab" data-proj-tab="glossary">용어 설명</button>
       <button class="proj-top-tab active" data-proj-tab="phase0">학습</button>
       <button class="proj-top-tab" data-proj-tab="overview">가안</button>
-      <button class="proj-top-tab" data-proj-tab="roadmap">로드맵</button>
       <button class="proj-top-tab" data-proj-tab="sampletest">샘플 테스트</button>
     </nav>
 <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display:flex">
@@ -3945,8 +3944,18 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
 </section>
 
-<!-- ── 로드맵 (회의 2026.04.22 기반 4단계) ── -->
-<section id="panel-proj-roadmap" class="proj-panel">
+
+<!-- ── 샘플 테스트 (farm-ai 임베드 + 하위 탭 제어) ── -->
+<section id="panel-proj-sampletest" class="proj-panel">
+  <div id="sampletest-iframe-wrap">
+    <iframe id="farm-ai-iframe"
+            src="https://greftukim.github.io/gref-farm-ai/"
+            scrolling="no"
+            style="display:block;width:100%;border:0;background:var(--surface)"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div id="sampletest-roadmap-wrap" style="display:none">
 <div class="agr-wrap" style="max-width:1200px;margin:0 auto;padding-bottom:48px;padding-left:16px;padding-right:16px">
 
   <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">로드맵 — 4단계 진행 계획</h2>
@@ -4088,21 +4097,10 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
   </div>
 
 </div>
-</section>
-
-<!-- ── 샘플 테스트 (farm-ai 임베드 + 하위 탭 제어) ── -->
-<section id="panel-proj-sampletest" class="proj-panel">
-  <div id="sampletest-iframe-wrap">
-    <iframe id="farm-ai-iframe"
-            src="https://greftukim.github.io/gref-farm-ai/"
-            scrolling="no"
-            style="display:block;width:100%;border:0;background:var(--surface)"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <div id="sampletest-agreement-wrap" style="display:none">
 <div class="agr-wrap">
-  <p class="agr-intro">부산LAB에서 진행할 "재배사 vs AI" 비교 재배 실험(미니오이 파일럿)의 사전 협의 사항입니다. 하동 토마토 3단계의 운영 전제는 별도 <strong>로드맵 탭</strong>에 정리되어 있습니다. 본 실험은 2단계(모델 구축 및 검증) 이후 실행을 전제로 하며, AI 추천 모델이 준비된 시점에 아래 항목들을 재배사와 협의하여 확정합니다.</p>
+  <p class="agr-intro">부산LAB에서 진행할 "재배사 vs AI" 비교 재배 실험(미니오이 파일럿)의 사전 협의 사항입니다. 하동 토마토 3단계의 운영 전제는 별도 <strong>로드맵 하위 탭</strong>에 정리되어 있습니다. 본 실험은 2단계(모델 구축 및 검증) 이후 실행을 전제로 하며, AI 추천 모델이 준비된 시점에 아래 항목들을 재배사와 협의하여 확정합니다.</p>
 
 
   <!-- 물품 구매 (회의 2026.04.20) -->
@@ -8902,9 +8900,6 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
     } else if (targetTab === 'glossary') {
       var el = document.getElementById('panel-proj-glossary');
       if (el) el.classList.add('active');
-    } else if (targetTab === 'roadmap') {
-      var el = document.getElementById('panel-proj-roadmap');
-      if (el) el.classList.add('active');
     } else if (targetTab === 'sampletest') {
       var el = document.getElementById('panel-proj-sampletest');
       if (el) el.classList.add('active');
@@ -8966,14 +8961,23 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
     var sectionName = activeBtn.getAttribute('data-sampletest-tab');
 
     var iframeWrap = document.getElementById('sampletest-iframe-wrap');
+    var roadmapWrap = document.getElementById('sampletest-roadmap-wrap');
     var agrWrap = document.getElementById('sampletest-agreement-wrap');
 
     if (sectionName === 'agreement') {
       if (iframeWrap) iframeWrap.style.display = 'none';
+      if (roadmapWrap) roadmapWrap.style.display = 'none';
       if (agrWrap) agrWrap.style.display = 'block';
       return;
     }
+    if (sectionName === 'roadmap') {
+      if (iframeWrap) iframeWrap.style.display = 'none';
+      if (agrWrap) agrWrap.style.display = 'none';
+      if (roadmapWrap) roadmapWrap.style.display = 'block';
+      return;
+    }
     if (iframeWrap) iframeWrap.style.display = '';
+    if (roadmapWrap) roadmapWrap.style.display = 'none';
     if (agrWrap) agrWrap.style.display = 'none';
 
     var iframe = document.getElementById('farm-ai-iframe');
