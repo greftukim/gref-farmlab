@@ -1,0 +1,218 @@
+<style>
+/* APC section — 모노톤 시스템 변수 사용 */
+.apc-section-title {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 28px 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--fg);
+}
+.apc-section-title:first-child { margin-top: 0; }
+.apc-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 20px 0 10px 0;
+}
+.apc-banner {
+  font-size: 14px;
+  color: var(--fg-secondary);
+  background: var(--surface2);
+  border-left: 3px solid var(--fg);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.apc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.apc-card-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+.apc-card-body {
+  padding: 14px;
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.7;
+}
+.apc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.apc-table thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--accent);
+}
+.apc-table tbody td {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.apc-table tbody tr:nth-child(even) td {
+  background: var(--surface2);
+}
+.apc-highlight {
+  font-weight: 700;
+  color: var(--fg);
+}
+.apc-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.apc-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+@media (max-width: 860px) {
+  .apc-cols-3, .apc-cols-2 { grid-template-columns: 1fr; }
+}
+.apc-callout {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--fg);
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.7;
+  margin: 14px 0 18px;
+}
+.apc-list {
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.8;
+  padding-left: 18px;
+  margin: 6px 0 14px;
+}
+.apc-list li { margin-bottom: 4px; }
+.apc-meta {
+  font-size: 11.5px;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+</style>
+
+<div class="container">
+
+  <div class="tabs" id="apc-tabs">
+    <button class="tab-btn active" onclick="switchTab('apc-summary',this,'apc')">핵심 요약</button>
+    <button class="tab-btn" onclick="switchTab('apc-background',this,'apc')">01 배경</button>
+    <button class="tab-btn" onclick="switchTab('apc-policy',this,'apc')">02 정책·시장</button>
+    <button class="tab-btn" onclick="switchTab('apc-support',this,'apc')">03 지원정책</button>
+    <button class="tab-btn" onclick="switchTab('apc-execution',this,'apc')">04 트랙별 실행</button>
+    <button class="tab-btn" onclick="switchTab('apc-interview',this,'apc')">05 인터뷰 논의사항</button>
+    <button class="tab-btn" onclick="switchTab('apc-refs',this,'apc')">참고 출처</button>
+  </div>
+
+  <!-- ══ 탭1: 핵심 요약 ══ -->
+  <div id="tab-apc-summary" class="tab-panel active">
+
+    <div class="apc-section-title">APC(산지유통센터) 및 농산물 물류사업 추진계획</div>
+    <div class="apc-meta">FARMLAB · GREF · 작성일 2026.04.22 (v1.8 — 미스터아빠 제안 2개로 축소, 탐색 사항 5단계 신규 추가)</div>
+
+    <div class="apc-banner">
+      정책 환경은 <strong>민간 3PL 단일 운영(미스터아빠)</strong>에서 <strong>공영도매 중심 통합물류</strong>로 재편 중. 당사는 <strong>'27년 2차 권역 공모</strong>를 타깃으로 3개 트랙을 병렬 실행.
+    </div>
+
+    <div class="apc-cols-3">
+
+      <div class="apc-card">
+        <div class="apc-card-header">정책 환경 — 트랙이 두 갈래로 분기</div>
+        <div class="apc-card-body">
+          · <strong>'25년 거점물류 지원사업</strong> — 민간 3PL(Third-Party Logistics) 단일 운영사로 <strong>㈜미스터아빠 유일 선정</strong><br>
+          · <strong>'26년 통합물류센터 시범사업</strong> — '26.3.31 선정: 공영도매시장 3개(대구·광주 호남청과·강릉), '26.9~'28 운영<br>
+          · <strong>예산</strong> — '24년 520억 → '25년 600억 → <strong>'26년 1,186억</strong><br>
+          · <strong>정책 방향</strong> — '25.9.15 농식품부 공식화: 도매시장 기능을 경매 중심 → <span class="apc-highlight">물류거점으로 전환</span>. 민간 단일 3PL 트랙 축소, 공영도매 중심 재편
+        </div>
+      </div>
+
+      <div class="apc-card">
+        <div class="apc-card-header">당사 진입 경로 — '27년 2차 권역 공모 타깃</div>
+        <div class="apc-card-body">
+          · '26년 응모는 공영도매 중심 구조로 <strong>당사 단독 응모 불가</strong><br>
+          · '27년 이후 2차 권역 확대 공모 시 <strong>부산·경남권 유력 후보</strong>(1차에서 배제)<br>
+          · 현실적 경로 — 부산청과 등 공영도매법인 주사업자 + 당사 물류·산지 파트너 <strong>공동 응모</strong><br>
+          · 법인 구조 — 별도법인 신설 불필요. 기존 <strong>GREF(산지) + 대한네트웍스(철강물류·신선물류 확장 니즈)</strong>를 응모 주체로 활용
+        </div>
+      </div>
+
+      <div class="apc-card">
+        <div class="apc-card-header">단계별 실행 — 3개 트랙 (실행속도 순)</div>
+        <div class="apc-card-body">
+          · <strong>트랙 1 (최단기)</strong> — 미스터아빠 민간 협력. 기존 투자관계 기반 즉시 실행 가능. GREF 작물 시범 공급 + PB 공동 개발 + 영남권 보조 센터<br><br>
+          · <strong>트랙 2 (중기)</strong> — 국토부 민관협력 지역상생협약. 하동군 중심 인구소멸지역 그룹화 통한 APC 구축. 경남도·하동·산청·남해 MOU 후 '27년 공동 응모<br><br>
+          · <strong>트랙 3 (장기)</strong> — 공영도매 BTO 통한 통합물류센터 선정 컨소시엄. 부산청과 주사업자 + 대한네트웍스 물류 + GREF 산지. '27년 2차 권역 공모 공동 응모
+        </div>
+      </div>
+
+    </div>
+
+    <div class="apc-callout">
+      <strong>핵심 구도.</strong> 단기(트랙 1)로 미스터아빠 민간 협력을 즉시 가동하면서, 중기(트랙 2) 국토부 민관협력으로 구축비 확보, 장기(트랙 3) 부산청과 공영도매 공동 응모로 영구 거점을 마련하는 <strong>3중 병렬</strong> 전략.
+    </div>
+
+  </div>
+
+  <!-- ══ 탭2: 01 배경 (작성 예정) ══ -->
+  <div id="tab-apc-background" class="tab-panel">
+    <div class="apc-section-title">01 배경</div>
+    <div class="apc-banner">작성 중 — 다음 단계에서 채워집니다.</div>
+  </div>
+
+  <!-- ══ 탭3: 02 정책·시장 ══ -->
+  <div id="tab-apc-policy" class="tab-panel">
+    <div class="apc-section-title">02 정책·시장 환경</div>
+    <div class="apc-banner">작성 중 — 다음 단계에서 채워집니다.</div>
+  </div>
+
+  <!-- ══ 탭4: 03 지원정책 ══ -->
+  <div id="tab-apc-support" class="tab-panel">
+    <div class="apc-section-title">03 지원정책 종합</div>
+    <div class="apc-banner">작성 중 — 다음 단계에서 채워집니다.</div>
+  </div>
+
+  <!-- ══ 탭5: 04 트랙별 실행 ══ -->
+  <div id="tab-apc-execution" class="tab-panel">
+    <div class="apc-section-title">04 선정된 트랙별 실행 계획</div>
+    <div class="apc-banner">작성 중 — 다음 단계에서 채워집니다.</div>
+  </div>
+
+  <!-- ══ 탭6: 05 인터뷰 논의사항 ══ -->
+  <div id="tab-apc-interview" class="tab-panel">
+    <div class="apc-section-title">05 미스터아빠·부산청과 인터뷰 논의사항</div>
+    <div class="apc-banner">작성 중 — 다음 단계에서 채워집니다.</div>
+  </div>
+
+  <!-- ══ 탭7: 참고 출처 ══ -->
+  <div id="tab-apc-refs" class="tab-panel">
+    <div class="apc-section-title">참고 출처</div>
+    <div class="apc-banner">작성 중 — 다음 단계에서 채워집니다.</div>
+  </div>
+
+</div>

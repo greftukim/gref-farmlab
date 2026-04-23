@@ -621,6 +621,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('solar',this)"><span spellcheck="false">태양광</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="productivity" style="display: none;" onclick="switchSubSection('seed',this)"><span spellcheck="false">종자</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="productivity" style="display: none;" onclick="switchSubSection('nursery',this)"><span spellcheck="false">육묘</span></button>
+      <button class="tab-btn sub-nav-tab" data-cat="productivity" style="display: none;" onclick="switchSubSection('apc',this)"><span spellcheck="false">APC</span></button>
     </nav>
   </div>
 </div>
@@ -659,6 +660,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
   <div id="section-home" class="section"></div>
   <div id="section-nursery" class="section"></div>
   <div id="section-seed" class="section"></div>
+  <div id="section-apc" class="section"></div>
   <div id="section-ai" class="section active"></div>
   <div id="section-ai-work" class="section"></div>
   <div id="section-robot" class="section"></div>
@@ -676,7 +678,7 @@ var CAT_SECTIONS = {
   home: ['home'],
   automation: ['ai', 'ai-work', 'education', 'robot'],
   'energy-cat': ['energy', 'solar'],
-  productivity: ['seed', 'nursery'],
+  productivity: ['seed', 'nursery', 'apc'],
   memo: ['memo']
 };
 
@@ -1184,7 +1186,7 @@ async function saveToGithub() {
 
   try {
     // 1) index.html 저장 — 섹션 콘텐츠 제외하고 저장 (크기 축소)
-    const sectionNames = ['home','nursery','seed','robot','energy','solar','education','ai','ai-work','memo'];
+    const sectionNames = ['home','nursery','seed','apc','robot','energy','solar','education','ai','ai-work','memo'];
     const sectionBackup = {};
     sectionNames.forEach(name => {
       const el = document.getElementById('section-' + name);
@@ -1417,7 +1419,7 @@ function execInjectedScripts(container) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const sectionNames = ['home','nursery','seed','robot','energy','solar','education','ai','ai-work','memo'];
+  const sectionNames = ['home','nursery','seed','apc','robot','energy','solar','education','ai','ai-work','memo'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
     const html = await res.text();
