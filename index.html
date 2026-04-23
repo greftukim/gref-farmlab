@@ -1021,10 +1021,15 @@ let editMode = false;
 function isForbidden(el) {
   if (!el) return true;
   const tag = el.tagName;
+  // 편집 허용 예외 (가장 먼저)
+  if (el.classList.contains('nav-label')) return false;
+  if (el.matches && el.matches('#sub-nav .sub-nav-tab span')) return false;
+  // 섹션 내부의 하위 탭 버튼(.tab-btn) 자체 또는 그 안의 span 편집 허용
+  if (tag === 'BUTTON' && el.matches && el.matches('.section .tabs .tab-btn')) return false;
+  if (el.matches && el.matches('.section .tabs .tab-btn span')) return false;
   // 스크립트/스타일/폼요소/이미지 제외
   if (['SCRIPT','STYLE','BUTTON','INPUT','SELECT','TEXTAREA','IMG','BR','HR','IFRAME','CANVAS','VIDEO','AUDIO'].includes(tag)) return true;
   // 네비게이션/버튼/SVG 내부 제외 (단, nav-label은 편집 허용)
-  if (el.classList.contains('nav-label')) return false;
   if (el.closest('nav, button, svg, .top-nav, .tabs')) return true;
   // 계산식 셀 제외 (cv_ id = computed value)
   if (el.id && el.id.startsWith('cv_')) return true;
@@ -1084,6 +1089,19 @@ function collectEditableElements() {
   // 상단 네비게이션 라벨 (개요, 육묘, AI, 로봇, 교육)
   document.querySelectorAll('#main-tabs .nav-label').forEach(el => {
     result.push(el);
+  });
+  // 하위 네비게이션 라벨 (종자, 육묘(일반온실) 등)
+  document.querySelectorAll('#sub-nav .sub-nav-tab span').forEach(el => {
+    result.push(el);
+  });
+  // 섹션 내부 하위 탭 버튼 — span이 있으면 span, 없으면 button 직접
+  document.querySelectorAll('.section .tabs .tab-btn').forEach(btn => {
+    const span = btn.querySelector('span');
+    if (span && isTextLeaf(span)) {
+      result.push(span);
+    } else if (isTextLeaf(btn)) {
+      result.push(btn);
+    }
   });
   return result;
 }
@@ -1422,7 +1440,14 @@ function execInjectedScripts(container) {
   });
 }
 
+// 새로고침 시 스크롤 위치 자동 복원 비활성화 → 항상 최상단에서 시작
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
+  // 섹션 로딩 전 스크롤 최상단으로
+  window.scrollTo(0, 0);
   const sectionNames = ['home','nursery','nursery-pf','seed','apc','robot','energy','solar','education','ai','ai-work','memo'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
@@ -1433,6 +1458,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }));
   updateDisplay();
   initVarCells();
+  // 섹션 로딩 후에도 한 번 더 최상단으로 (브라우저가 자동 복원 시도 대비)
+  window.scrollTo(0, 0);
   document.getElementById('editModeLabel').textContent = '편집모드 OFF';
   // 저장 알림 강제 숨김 (페이지 로드 시)
   var sn = document.getElementById('saveNotification');
