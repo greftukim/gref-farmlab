@@ -3545,6 +3545,7 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
       <button class="proj-top-tab" data-proj-tab="glossary">용어 설명</button>
       <button class="proj-top-tab active" data-proj-tab="phase0">학습</button>
       <button class="proj-top-tab" data-proj-tab="overview">가안</button>
+      <button class="proj-top-tab" data-proj-tab="roadmap">로드맵</button>
       <button class="proj-top-tab" data-proj-tab="sampletest">샘플 테스트</button>
     </nav>
 <nav class="proj-sub-tabs" id="phase0-sub-tabs" style="display:flex">
@@ -3944,24 +3945,93 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
 </section>
 
-<!-- ── 샘플 테스트 (farm-ai 임베드 + 하위 탭 제어) ── -->
-<section id="panel-proj-sampletest" class="proj-panel">
-  <div id="sampletest-iframe-wrap">
-    <iframe id="farm-ai-iframe"
-            src="https://greftukim.github.io/gref-farm-ai/"
-            scrolling="no"
-            style="display:block;width:100%;border:0;background:var(--surface)"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <div id="sampletest-agreement-wrap" style="display:none">
-<div class="agr-wrap">
-  <p class="agr-intro">부산LAB에서 진행할 "재배사 vs AI" 비교 재배 실험의 사전 협의 사항을 정리한 문서입니다. 본 실험은 2단계(모델 구축 및 검증) 이후 실행을 전제로 하며, AI 추천 모델이 준비된 시점에 아래 항목들을 재배사와 협의하여 확정합니다.</p>
+<!-- ── 로드맵 (회의 2026.04.22 기반 4단계) ── -->
+<section id="panel-proj-roadmap" class="proj-panel">
+<div class="agr-wrap" style="max-width:1200px;margin:0 auto;padding-bottom:48px;padding-left:16px;padding-right:16px">
 
-<!-- 회의 결정 요약 (2026.04.22) -->
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">로드맵 — 4단계 진행 계획</h2>
+  <p style="font-size:13px;color:var(--fg-secondary);line-height:1.7;margin-bottom:20px">본 작기(샘플 테스트)로 21.7% 오차율을 확인한 뒤, 회의 2026.04.22에서 결정된 <strong>"AI 온실 vs 재배사 온실" 비교 운영</strong> 및 향후 확장 계획. 각 단계별 핵심 작업과 전제 조건 정리.</p>
+
+  <!-- 단계 카드 4개 -->
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px;">
+
+    <!-- 1단계 (완료) -->
+    <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="display:inline-block;width:32px;height:32px;border-radius:50%;background:#E6F1FB;color:#0C447C;font-weight:700;font-size:13px;text-align:center;line-height:32px;">1</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">1단계 — 샘플 테스트 (완료)</div>
+          <div style="font-size:12px;color:var(--fg-muted)">본 작기 데이터로 통합 모델 1차 검증</div>
+        </div>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:var(--surface2);color:var(--fg);white-space:nowrap">완료</span>
+      </div>
+      <ul style="font-size:13px;color:var(--fg-secondary);line-height:1.75;padding-left:18px;margin:0">
+        <li>4개 모델(TOMGRO · S&amp;V · XGBoost · DeePC) 통합 운영 검증</li>
+        <li>전체 작기 통합 오차율 <strong>21.7%</strong> · 저온기 8주 <strong>7.6%</strong></li>
+        <li>오차 원인 5종 파악(데이터 신뢰성·농작업 미반영·특이 이벤트 등)</li>
+      </ul>
+    </div>
+
+    <!-- 2단계 -->
+    <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="display:inline-block;width:32px;height:32px;border-radius:50%;background:#FAEEDA;color:#633806;font-weight:700;font-size:13px;text-align:center;line-height:32px;">2</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">2단계 — 측정·기록 인프라 구축</div>
+          <div style="font-size:12px;color:var(--fg-muted)">3개월 — 측정 가능한 모든 것 자동화</div>
+        </div>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#FAEEDA;color:#633806;white-space:nowrap">진행 예정</span>
+      </div>
+      <ul style="font-size:13px;color:var(--fg-secondary);line-height:1.75;padding-left:18px;margin:0">
+        <li>센서 자동화: <strong>휴대용 PAR 센서</strong> · <strong>엽면적 측정기</strong> 도입(협의사항 → 물품 구매 참조)</li>
+        <li>FarmWork 앱: 적엽·적과·적심 등 농작업 시점 자동 기록 체계 정착</li>
+        <li>생육 측정 로봇 / 드론 검토 — 주 1회 수기 조사의 시점 한계 보완</li>
+        <li><strong>외부 협업 탐색 시작 — 농업대학·국가기관(농진청 등) 미팅</strong>(회의 결정)</li>
+        <li>다른 작물·외부 농가로 확장 가능한 데이터 인프라 토대 구축</li>
+      </ul>
+    </div>
+
+    <!-- 3단계 -->
+    <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="display:inline-block;width:32px;height:32px;border-radius:50%;background:#FCEBEB;color:#791F1F;font-weight:700;font-size:13px;text-align:center;line-height:32px;">3</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">3단계 — AI vs 재배사 비교 운영</div>
+          <div style="font-size:12px;color:var(--fg-muted)">3~6개월 — 1번 온실 AI / 2번 온실 재배사</div>
+        </div>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#FCEBEB;color:#791F1F;white-space:nowrap">핵심 단계</span>
+      </div>
+      <ul style="font-size:13px;color:var(--fg-secondary);line-height:1.75;padding-left:18px;margin:0">
+        <li><strong>1번 온실 = AI 제어로 고정</strong> · <strong>2번 온실 = 재배사 수동 운영</strong></li>
+        <li>AI ↔ 재배사 독립 제안 → 다음 날 결과 비교로 학습 데이터 축적</li>
+        <li>매일 약 1시간 협의 시간 확보(선도 확인 시간 활용)</li>
+        <li>세부 운영 전제는 아래 표 참조</li>
+      </ul>
+    </div>
+
+    <!-- 4단계 -->
+    <div style="border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:16px 18px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="display:inline-block;width:32px;height:32px;border-radius:50%;background:#EEEDFE;color:#3C3489;font-weight:700;font-size:13px;text-align:center;line-height:32px;">4</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em">4단계 — 다른 작물 · 외부 확장</div>
+          <div style="font-size:12px;color:var(--fg-muted)">내년~ — 토마토 검증 완료 후 확장</div>
+        </div>
+        <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:#EEEDFE;color:#3C3489;white-space:nowrap">중장기</span>
+      </div>
+      <ul style="font-size:13px;color:var(--fg-secondary);line-height:1.75;padding-left:18px;margin:0">
+        <li>오이·파프리카 등 다른 작물로 모델 적용 확장</li>
+        <li>외부 농가 보급 (FarmWork 앱 + AI 모델 패키지)</li>
+        <li><strong>에너지·비용 최적화 본격 반영</strong>(DPC 기반 — 가스·전력 단가 고려한 환경 처방)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 3단계 세부 운영 전제 (회의 2026.04.22) -->
   <div class="agr-section">
-    <h2 class="agr-h2">AI vs 재배사 비교 운영 — 로드맵 3단계 전제 (회의 2026.04.22)</h2>
-    <p style="font-size:12px;color:var(--fg-muted);margin:0 0 12px;line-height:1.7">본 작기(샘플 테스트)로 21.7% 오차율을 확인한 뒤, 다음 단계로 진행할 <strong>"AI 온실 vs 재배사 온실" 비교 운영</strong>을 위한 회의 결정 사항. 부산LAB 미니오이 파일럿(아래 섹션)과 별개의 하동 토마토 3단계 전제 조건.</p>
+    <h2 class="agr-h2" style="margin-bottom:24px">3단계 세부 운영 전제 (회의 2026.04.22)</h2>
+    <p style="font-size:12px;color:var(--fg-muted);margin:0 0 12px;line-height:1.7">"AI 온실 vs 재배사 온실" 비교 운영을 위한 회의 결정 사항. 3단계 진입 시 우선 적용 대상 전제.</p>
 
     <div class="agr-table-wrap">
       <table class="agr-table">
@@ -4001,10 +4071,6 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
             <td>DPC 기반 에너지 최적화(난방 가스·전력 단가 고려)는 <strong>본 3단계 아닌 4단계 이후</strong>에 반영. 우선은 수확량·품질 지표로 AI vs 재배사 비교에만 집중.</td>
           </tr>
           <tr>
-            <td>외부 협업(Phase 2~3)</td>
-            <td>내부 검증 후 학교·국가기관과 외부 협업 탐색. 오픈 클럽(오픈 클로즈드) 참여, 타 농가에서도 유사 AI vs 재배사 구도를 적용할 수 있는 형태로 구조화.</td>
-          </tr>
-          <tr>
             <td>병해충·외부 개입 처리</td>
             <td>1번에서 병해충 발생 시 2번도 함께 방제하는 것이 현실 — 외부 개입은 양쪽 동일 기준으로 처리(실험 순수성보다 운영 현실 우선). 기록은 별도로 남겨 사후 데이터 클리닝.</td>
           </tr>
@@ -4013,22 +4079,36 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
             <td>수확량·상품과율 + 환경 데이터 + 난방 가스·전력 사용량(에너지 비교는 이후 단계). 별일청(별도 일일 청결 점검) 발생 시 동일 방지 적용.</td>
           </tr>
           <tr>
-            <td>다음 단계 전환 조건</td>
+            <td>다음 단계(4단계) 전환 조건</td>
             <td>AI 정확도가 재배사 대비 일정 수준 도달 시 → 재배사는 <strong>"AI 보조 역할"</strong>로 전환. 전환 시점은 3개월~6개월로 상황에 따라 유동.</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
 
-    <div class="agr-note" style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--fg);padding:12px 14px;font-size:12px;color:var(--fg);line-height:1.7;margin-top:12px">
-      <strong>진행 원칙.</strong> 아래 섹션들(부산LAB 미니오이 파일럿 전제·실험 설계·AI 제어 운영 방식·작업 통일 기준·데이터 수집·리스크 관리)은 초기 작성본으로 유지. 본 상단 섹션이 회의 2026.04.22에서 확정된 <strong>하동 3단계 전제</strong>로, 우선 적용 대상.
-    </div>
-  </div><!-- /회의 결정 요약 -->
+</div>
+</section>
+
+<!-- ── 샘플 테스트 (farm-ai 임베드 + 하위 탭 제어) ── -->
+<section id="panel-proj-sampletest" class="proj-panel">
+  <div id="sampletest-iframe-wrap">
+    <iframe id="farm-ai-iframe"
+            src="https://greftukim.github.io/gref-farm-ai/"
+            scrolling="no"
+            style="display:block;width:100%;border:0;background:var(--surface)"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div id="sampletest-agreement-wrap" style="display:none">
+<div class="agr-wrap">
+  <p class="agr-intro">부산LAB에서 진행할 "재배사 vs AI" 비교 재배 실험(미니오이 파일럿)의 사전 협의 사항입니다. 하동 토마토 3단계의 운영 전제는 별도 <strong>로드맵 탭</strong>에 정리되어 있습니다. 본 실험은 2단계(모델 구축 및 검증) 이후 실행을 전제로 하며, AI 추천 모델이 준비된 시점에 아래 항목들을 재배사와 협의하여 확정합니다.</p>
+
 
   <!-- 물품 구매 (회의 2026.04.20) -->
   <div class="agr-section">
     <h2 class="agr-h2">물품 구매 — 모델 정확도 확보를 위한 필수 장비 (회의 2026.04.20)</h2>
-    <p style="font-size:12px;color:var(--fg-muted);margin:0 0 12px;line-height:1.7">현재 예측 모델의 오차 상당 부분은 <strong>입력 데이터 자체의 불확실성</strong>에서 발생. 그중 가장 크게 영향을 주는 두 변수(엽면적·내부 광량)를 직접 측정하지 못하고 추정값으로 돌리고 있어, 실측 장비 도입 시 모델 오차율 개선 폭이 가장 큼. 아래 2종 장비를 <strong>Phase 2 진입 전 우선 구매</strong> 대상으로 제안.</p>
+    <p style="font-size:12px;color:var(--fg-muted);margin:0 0 12px;line-height:1.7">현재 예측 모델의 오차 상당 부분은 <strong>입력 데이터 자체의 불확실성</strong>에서 발생. 그중 가장 크게 영향을 주는 두 변수(엽면적·내부 광량)를 직접 측정하지 못하고 추정값으로 돌리고 있어, 실측 장비 도입 시 모델 오차율 개선 폭이 가장 큼. 아래 2종 장비를 <strong>2단계 진입 전 우선 구매</strong> 대상으로 제안.</p>
 
     <!-- 요약 표 -->
     <div class="agr-table-wrap">
@@ -4136,7 +4216,7 @@ font-weight:700;font-size:.9rem;margin-bottom:.4rem}
             <td>내부 광량 실측 계수 반영으로 광합성 계산 개선</td>
           </tr>
           <tr>
-            <td>목표 (Phase 2)</td>
+            <td>목표 (2단계)</td>
             <td>—</td>
             <td><strong>13~17%</strong></td>
             <td>오차 원인 구조적 해결 반영</td>
@@ -8821,6 +8901,9 @@ document.querySelectorAll('#overview-table tbody tr').forEach(row => {
       projSubTabSwitch(null);
     } else if (targetTab === 'glossary') {
       var el = document.getElementById('panel-proj-glossary');
+      if (el) el.classList.add('active');
+    } else if (targetTab === 'roadmap') {
+      var el = document.getElementById('panel-proj-roadmap');
       if (el) el.classList.add('active');
     } else if (targetTab === 'sampletest') {
       var el = document.getElementById('panel-proj-sampletest');
