@@ -330,101 +330,157 @@
 
     <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">2026년 개발 일정 (*자체 개발 일정과 별개로 외주 로봇사와의 공동 개발 과제 Trial ; 메타파머스, AMR 랩스 등)</div>
 
-    <!-- Gantt-style table -->
+    <!-- ① 로봇 시스템 -->
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">① 로봇 시스템 개발</div>
     <div class="robot-card">
       <div style="overflow-x:auto">
         <table class="robot-table robot-gantt">
           <thead>
             <tr>
-              <th style="min-width:140px" spellcheck="false" class="edit-target" contenteditable="true">연구/개발명</th>
-              <th style="min-width:200px" spellcheck="false" class="edit-target" contenteditable="true">세부 내용</th>
-              <th style="min-width:60px" spellcheck="false" class="edit-target" contenteditable="true">일정</th>
-              <th class="month-h1 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">1</th>
-              <th class="month-h1 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">2</th>
-              <th class="month-h1 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">3</th>
-              <th class="month-h1 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">4</th>
-              <th class="month-h1 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">5</th>
-              <th class="month-h1 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">6</th>
-              <th class="month-h2 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">7</th>
-              <th class="month-h2 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">8</th>
-              <th class="month-h2 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">9</th>
-              <th class="month-h2 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">10</th>
-              <th class="month-h2 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">11</th>
-              <th class="month-h2 edit-target" style="min-width:32px;text-align:center" spellcheck="false" contenteditable="true">12</th>
+              <th style="min-width:150px" class="edit-target" spellcheck="false" contenteditable="true">연구/개발명</th>
+              <th style="min-width:200px" class="edit-target" spellcheck="false" contenteditable="true">세부 내용</th>
+              <th style="min-width:60px" class="edit-target" spellcheck="false" contenteditable="true">일정</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">1</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">2</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">3</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">4</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">5</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">6</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">7</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">8</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">9</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">10</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">11</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">12</th>
             </tr>
           </thead>
           <tbody>
-
-            <!-- 비전 인식 모델 개발 -->
             <tr>
-              <td><strong spellcheck="false" class="edit-target" contenteditable="true">비전 인식 모델 개발</strong></td>
-              <td style="font-size:12px;color:var(--fg-secondary)" spellcheck="false" class="edit-target" contenteditable="true">
-                3D 시뮬레이션 작물 및 줄기 인식 검증<br>
-                작물 및 줄기 인식을 위한 최적화된 비전모델 개발
-              </td>
-              <td style="font-size:11px;color:var(--fg-muted)" spellcheck="false" class="edit-target" contenteditable="true">1월~2월</td>
-              <td class="bar-black"></td>
-              <td class="bar-black"></td>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">비전 인식 모델 개발</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">3D 시뮬레이션 작물/줄기 인식 검증<br>YOLOv11-seg/pose 모델 개발</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">1~2월 ✓</td>
+              <td class="bar-muted"></td><td class="bar-muted"></td>
               <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
-
-            <!-- 그리퍼 설계 및 검증 -->
             <tr>
-              <td><strong spellcheck="false" class="edit-target" contenteditable="true">그리퍼 설계 및 검증</strong></td>
-              <td style="font-size:12px;color:var(--fg-secondary)" spellcheck="false" class="edit-target" contenteditable="true">
-                현장 여건에 맞는 그리퍼 설계 검토<br>
-                최적화된 절단 및 집는 방식 검토
-              </td>
-              <td style="font-size:11px;color:var(--fg-muted)" spellcheck="false" class="edit-target" contenteditable="true">2월~3월</td>
-              <td></td>
-              <td class="bar-dark"></td>
-              <td class="bar-dark"></td>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">그리퍼 설계 및 검증</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">현장 여건 맞는 그리퍼 설계<br>기구물/액추에이터 방식 연구</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">2~3월 ✓</td>
+              <td></td><td class="bar-muted"></td><td class="bar-muted"></td>
               <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
-
-            <!-- 프로토타입 설계 및 제작 -->
             <tr>
-              <td><strong spellcheck="false" class="edit-target" contenteditable="true">프로토타입 설계 및 제작</strong></td>
-              <td style="font-size:12px;color:var(--fg-secondary)" spellcheck="false" class="edit-target" contenteditable="true">
-                로봇팔 프로토타입 설계<br>
-                프로토타입 로봇팔 상체 제작&nbsp;</td>
-              <td style="font-size:11px;color:var(--fg-muted)" spellcheck="false" class="edit-target" contenteditable="true">4월~6월</td>
-              <td></td><td></td><td></td>
-              <td class="bar-dark"></td>
-              <td class="bar-dark"></td>
-              <td class="bar-dark"></td>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">로봇암 정확도 테스트</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">D405 카메라 + ROS2 시스템 구성<br>2D/3D 인식 정확도 확인</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">3~4월 →</td>
+              <td></td><td></td><td class="bar-muted"></td><td class="bar-dark"></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">가위형 그리퍼 설계/개발</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">가위형 그리퍼 설계 변경 및 제작<br>외부부품 결합 개선</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">5~6월</td>
+              <td></td><td></td><td></td><td></td>
+              <td class="bar-dark"></td><td class="bar-dark"></td>
               <td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
-
-            <!-- 로봇팔 테스트 -->
             <tr>
-              <td><strong spellcheck="false" class="edit-target" contenteditable="true">로봇팔 테스트</strong></td>
-              <td style="font-size:12px;color:var(--fg-secondary)" spellcheck="false" class="edit-target" contenteditable="true">
-                움직임 및 비전 인식 테스트<br>
-                내구도 테스트 및 냉각시스템 연구
-              </td>
-              <td style="font-size:11px;color:var(--fg-muted)" spellcheck="false" class="edit-target" contenteditable="true">3분기</td>
-              <td></td><td></td><td></td><td></td><td></td><td></td>
-              <td class="bar-muted"></td>
-              <td class="bar-muted"></td>
-              <td class="bar-muted"></td>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">플랫폼 연구 및 ROS2 테스트</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">차량형 vs 레일형 비교 검토<br>ROS2 시스템 환경 테스트</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">6~9월</td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td>
               <td></td><td></td><td></td>
             </tr>
-
-            <!-- 본체 및 운송시스템 개발 -->
             <tr>
-              <td><strong spellcheck="false" class="edit-target" contenteditable="true">본체 및 운송시스템 개발</strong></td>
-              <td style="font-size:12px;color:var(--fg-secondary)" spellcheck="false" class="edit-target" contenteditable="true">
-                로봇팔 본체 개발 (상하/좌우 리프트 개발)<br>
-                로봇팔 운송시스템 개발 (차량형 or 레일형)
-              </td>
-              <td style="font-size:11px;color:var(--fg-muted)" spellcheck="false" class="edit-target" contenteditable="true">4분기~ 계속</td>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">Lift &amp; Slide 플랫폼 개발</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">상하/좌우 리프트 형식 플랫폼<br>로봇팔 운송시스템 개발</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">8~10월</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="bar-black"></td><td class="bar-black"></td><td class="bar-black"></td>
+              <td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">스마트팜 현장 통합 검증</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">플랫폼 + 로봇암 현장 기능·성능 검증<br>로봇 수확 시스템 실증</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">10월~</td>
               <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-              <td class="bar-black"></td>
-              <td class="bar-black"></td>
-              <td class="bar-black"></td>
+              <td class="bar-black"></td><td class="bar-black"></td><td class="bar-black"></td>
             </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
+    <!-- ② 작물 관리 시스템 -->
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">② 작물 관리 시스템 개발</div>
+    <div class="robot-card">
+      <div style="overflow-x:auto">
+        <table class="robot-table robot-gantt">
+          <thead>
+            <tr>
+              <th style="min-width:150px" class="edit-target" spellcheck="false" contenteditable="true">연구/개발명</th>
+              <th style="min-width:200px" class="edit-target" spellcheck="false" contenteditable="true">세부 내용</th>
+              <th style="min-width:60px" class="edit-target" spellcheck="false" contenteditable="true">일정</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">1</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">2</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">3</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">4</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">5</th>
+              <th class="month-h1" style="min-width:32px;text-align:center">6</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">7</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">8</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">9</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">10</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">11</th>
+              <th class="month-h2" style="min-width:32px;text-align:center">12</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">생육 환경 ML 분석</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">토마토 환경 데이터 33포인트<br>Random Forest 모델 (R² 0.88)</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">3월 ✓</td>
+              <td></td><td></td><td class="bar-muted"></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">착과기/개화기 인식 모델</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">YOLOv11-pose 딸기 생육 인식<br>착과기 300장 · 개화기 500장 학습</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">3~4월 ✓</td>
+              <td></td><td></td><td class="bar-muted"></td><td class="bar-muted"></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">Agentic AI 환경 제어 PoC</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">Open-Claw + MCP Tool 활용<br>ML 모델 기반 최적 환경값 자동 탐색</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">4월 →</td>
+              <td></td><td></td><td></td><td class="bar-dark"></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">추가 관측지표 모델 개발</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">다리 · 엽면적 · 화방 등 추가 인식<br>3D Pointcloud 기반 측정 방법 연구</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">5~9월</td>
+              <td></td><td></td><td></td><td></td>
+              <td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">현장 SLAM / Digital-Twin</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">스마트팜 환경 맵 구축<br>ROS2 SLAM + Digital-Twin 연동</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">5~9월</td>
+              <td></td><td></td><td></td><td></td>
+              <td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td><td class="bar-dark"></td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong class="edit-target" spellcheck="false" contenteditable="true">통합 정밀 관리 시스템</strong></td>
+              <td style="font-size:12px;color:var(--fg-secondary)" class="edit-target" spellcheck="false" contenteditable="true">로봇 연동 통합 환경 관리 고도화<br>실증 데이터 기반 정밀 제어 검증</td>
+              <td style="font-size:11px;color:var(--fg-muted)" class="edit-target" spellcheck="false" contenteditable="true">10월~</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="bar-black"></td><td class="bar-black"></td><td class="bar-black"></td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -435,8 +491,8 @@
     <div class="robot-card">
       <div class="robot-card-body">
         <div class="robot-cost edit-target" spellcheck="false" contenteditable="true">
-          <strong spellcheck="false" class="edit-target" contenteditable="true">1. 상반기(약 450만원)</strong> : 연구용로봇팔 169만원 + 3D프린트기 100만원 + 추가모터 및 보드 100만원 + 카메라 50만원 + 기타부속 30만원<br>
-          <strong spellcheck="false" class="edit-target" contenteditable="true">2. 하반기(미정)</strong> : 본체 및 운송시스템 개발에 필요한 추가 모터, 바퀴, 배터리(필요시) 등
+          <strong spellcheck="false" class="edit-target" contenteditable="true">1. 상반기(약 450만원)</strong> : 연구용 로봇팔 169만원 + 3D프린트기 100만원 + 추가모터 및 보드 100만원 + 카메라 50만원 + 기타부속 30만원<br>
+          <strong spellcheck="false" class="edit-target" contenteditable="true">2. 하반기(미정)</strong> : 플랫폼(차량형 or 레일형) 개발 — 모터, 바퀴, 배터리, 가위형 그리퍼 부품 등
         </div>
       </div>
     </div>
@@ -446,40 +502,70 @@
   <!-- ══ 4. 진행 현황 ══ -->
   <div id="tab-r-progress" class="tab-panel">
 
-    <!-- ── 로봇팔 개발 ── -->
-    <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">로봇팔 개발</div>
+    <!-- ── ① 로봇 시스템 개발 ── -->
+    <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">① 로봇 시스템 개발</div>
 
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">개발 내역</div>
-    <table class="robot-table">
-      <thead><tr><th spellcheck="false" class="edit-target" contenteditable="true">항목</th><th spellcheck="false" class="edit-target" contenteditable="true">내용</th></tr></thead>
-      <tbody>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">3D 카메라</td><td spellcheck="false" class="edit-target" contenteditable="true">초소형 3D 카메라 구매(약 50만원) 후 ROS 시스템 연동</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">디지털 트윈</td><td spellcheck="false" class="edit-target" contenteditable="true">3D 카메라 기반 디지털 트윈 구현</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">그리퍼</td><td spellcheck="false" class="edit-target" contenteditable="true">외부 3D 프린트 의뢰 제작 (비용 5만원)</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">비전 모델</td><td spellcheck="false" class="edit-target" contenteditable="true">딸기 대상 YOLO 모델 학습 및 추론 완료</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">통합 테스트</td><td spellcheck="false" class="edit-target" contenteditable="true">YOLO 모델 적용 → 3D 카메라 좌표 인식 → 수확 테스트 진행</td></tr>
-      </tbody>
-    </table>
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">작업 인식 모델</div>
+    <div class="robot-banner edit-target" spellcheck="false" contenteditable="true">YOLOv11-seg(세그멘테이션) 및 YOLOv11-pose(포즈 추정) 모델 활용 — 3D 시뮬레이션 환경 자동 라벨링으로 데이터셋 구축</div>
+    <div class="robot-card">
+      <table class="robot-table">
+        <thead><tr><th style="width:130px" class="edit-target" spellcheck="false" contenteditable="true">항목</th><th class="edit-target" spellcheck="false" contenteditable="true">내용</th></tr></thead>
+        <tbody>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">사용 모델</td><td class="edit-target" spellcheck="false" contenteditable="true">YOLOv11-seg (세그멘테이션), YOLOv11-pose (포즈 추정)</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">데이터 구축</td><td class="edit-target" spellcheck="false" contenteditable="true">3D 시뮬레이션 환경 자동 라벨링 → 다양한 환경 데이터셋 구성</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">적용 작물</td><td class="edit-target" spellcheck="false" contenteditable="true">딸기 (과실/줄기 인식), 오이 (줄기 분기점 인식)</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">인식 정확도</td><td class="edit-target" spellcheck="false" contenteditable="true">딸기 95% 이상 · 오이 분기점 인식 완료</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">테스트 결과</div>
-    <div class="robot-banner edit-target" spellcheck="false" contenteditable="true">YOLO 모델 인지 후 그리퍼가 정확한 지점으로 이동하는 것 확인. 인식·위치 제어 정확도 양호.</div>
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">그리퍼 개발</div>
+    <div class="robot-card">
+      <table class="robot-table">
+        <thead><tr><th style="width:140px" class="edit-target" spellcheck="false" contenteditable="true">단계</th><th class="edit-target" spellcheck="false" contenteditable="true">내용</th><th style="width:80px" class="edit-target" spellcheck="false" contenteditable="true">상태</th></tr></thead>
+        <tbody>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true"><strong>1단계</strong> 시뮬레이션</td><td class="edit-target" spellcheck="false" contenteditable="true">3D 시뮬레이션 환경에서 커스텀 그리퍼 설계·정밀도 사전 검증</td><td class="edit-target" spellcheck="false" contenteditable="true">완료</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true"><strong>2단계</strong> 2D 카메라</td><td class="edit-target" spellcheck="false" contenteditable="true">2D 카메라 기반 그리퍼 동작 테스트 (실시간 위치 피드백)</td><td class="edit-target" spellcheck="false" contenteditable="true">완료</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true"><strong>3단계</strong> 3D 카메라</td><td class="edit-target" spellcheck="false" contenteditable="true">형태·방향 데이터 기반 정밀 제어 확인 (프로토타입 활용)</td><td class="edit-target" spellcheck="false" contenteditable="true">진행중</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="robot-banner edit-target" spellcheck="false" contenteditable="true">기구물(캡슐형, 마이크로스위치, 피에조 등) 및 액추에이터(자석·진공 방식) 연구 진행 중. 현재 커터칼 방식 → <strong>가위형 그리퍼로 설계 변경 예정</strong></div>
 
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">현재 한계 및 향후 계획</div>
-    <div class="robot-banner edit-target" spellcheck="false" contenteditable="true">현재 커터칼 방식 그리퍼로 개발되어 있으나, 날이 무뎌 절단이 제대로 되지 않고 힘으로 부수는 방식으로 수확. <strong spellcheck="false" class="edit-target" contenteditable="true">가위형 그리퍼로 설계 변경 필요.</strong></div>
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">로봇암 시뮬레이션</div>
+    <div style="font-size:13px; color:var(--fg-secondary); line-height:1.75; margin-bottom:12px;" class="edit-target" spellcheck="false" contenteditable="true">커스텀 그리퍼를 Gazebo 3D 물리 시뮬레이션 환경에 배치하여 로봇암 동작 사전 검증. Physical AI System 설계 전 비용·리스크 최소화를 위한 핵심 단계.</div>
+    <div style="max-width:600px; margin-bottom:20px;">
+      <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
+        <source src="assets/robot/custom_robot_arm.mp4" type="video/mp4">
+      </video>
+      <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">커스텀 로봇팔 — Gazebo 시뮬레이션 동작 테스트</div>
+    </div>
 
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">영상</div>
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">로봇암 정확도 테스트</div>
+    <div class="robot-card">
+      <table class="robot-table">
+        <thead><tr><th style="width:130px" class="edit-target" spellcheck="false" contenteditable="true">항목</th><th class="edit-target" spellcheck="false" contenteditable="true">내용</th></tr></thead>
+        <tbody>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">3D 카메라</td><td class="edit-target" spellcheck="false" contenteditable="true">Intel Realsense D405 초소형 카메라 (약 50만원)</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">2D 인식</td><td class="edit-target" spellcheck="false" contenteditable="true">YOLO Overlay 적용 → 실시간 시각화 확인</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">3D 인식</td><td class="edit-target" spellcheck="false" contenteditable="true">Pointcloud 활용 포인트 트래킹 화면 구현</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">결과</td><td class="edit-target" spellcheck="false" contenteditable="true">과실 인식 후 그리퍼 정확한 지점 이동 확인. 인식·위치 제어 정확도 양호.</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">현재 단계</td><td class="edit-target" spellcheck="false" contenteditable="true">로봇암 움직임 확인 완료. <strong>외부부품 결합 보완 및 반복 개선 진행 중</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
       <div>
-        <video controls="" preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-          <source src="assets/robot/robot_harvest_test.mp4" type="video/mp4">
+        <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
+          <source src="assets/robot/camera_3d_test.mp4" type="video/mp4">
         </video>
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">로봇팔 수확 테스트 (절단은 되지 않으나 힘으로 수확되는 모습)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">3D 카메라 테스트 — Pointcloud 기반 실시간 위치 인식</div>
       </div>
       <div>
-        <video controls="" preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-          <source src="assets/robot/robot_digital_twin.mp4" type="video/mp4">
+        <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
+          <source src="assets/robot/strawberry_harvest_v2.mp4" type="video/mp4">
         </video>
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">모니터링 화면 녹화 (오른쪽이 디지털 트윈 기반 실시간 3D 화면)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">딸기 수확 테스트 — YOLO 인식 후 그리퍼 위치 이동 확인</div>
       </div>
     </div>
 
@@ -487,50 +573,106 @@
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:28px;">
       <div>
         <img src="assets/robot/strawberry_yolo_01.jpg" alt="딸기 YOLO 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">딸기 YOLO 인식 결과 (strawberry 0.96)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">딸기 YOLO 인식 결과 (strawberry 0.96)</div>
       </div>
       <div>
         <img src="assets/robot/strawberry_yolo_02.jpg" alt="딸기 YOLO 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">딸기 YOLO 인식 결과 (strawberry 0.97)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">딸기 YOLO 인식 결과 (strawberry 0.97)</div>
       </div>
       <div>
         <img src="assets/robot/robot_hardware.jpg" alt="로봇팔 하드웨어" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">로봇팔 하드웨어 구성 (3D 카메라 + 그리퍼 + 모터 모듈)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">로봇팔 하드웨어 구성 (3D 카메라 + 그리퍼 + 모터 모듈)</div>
       </div>
     </div>
 
-    <!-- ── 생육 모델 개발 ── -->
-    <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">생육 모델 개발</div>
-
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">개발 내역</div>
-    <table class="robot-table">
-      <thead><tr><th spellcheck="false" class="edit-target" contenteditable="true">항목</th><th spellcheck="false" class="edit-target" contenteditable="true">내용</th></tr></thead>
-      <tbody>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">대상 작물</td><td spellcheck="false" class="edit-target" contenteditable="true">오이</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">개발 모델</td><td spellcheck="false" class="edit-target" contenteditable="true">줄기 분기점 인식 모델</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">학습 데이터</td><td spellcheck="false" class="edit-target" contenteditable="true">자동 라벨링 프로그램 자체 개발로 생성</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">데이터 규모</td><td spellcheck="false" class="edit-target" contenteditable="true">약 300장</td></tr>
-        <tr><td spellcheck="false" class="edit-target" contenteditable="true">인식 정확도</td><td spellcheck="false" class="edit-target" contenteditable="true">95% 이상</td></tr>
-      </tbody>
-    </table>
-
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">향후 계획</div>
-    <div style="font-size:13px; color:var(--fg-secondary); line-height:1.75; margin-bottom:16px;">
-      <div style="padding:4px 0;" spellcheck="false" class="edit-target" contenteditable="true">— 분기점 외 생육 정보 추출을 위한 다양한 추론 포인트 검토 및 모델 개발</div>
-      <div style="padding:4px 0;" spellcheck="false" class="edit-target" contenteditable="true">— 3D 카메라 기반 현장 분기점 인식 진행</div>
-      <div style="padding:4px 0;" spellcheck="false" class="edit-target" contenteditable="true">— 정부 제공 농산물 데이터 활용한 생육 모델 확장</div>
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">플랫폼 하드웨어 검토</div>
+    <div class="robot-card">
+      <div class="robot-card-header edit-target" spellcheck="false" contenteditable="true">플랫폼 (이동체)</div>
+      <div class="robot-card-body" style="padding:0">
+        <table class="robot-table" style="margin:0">
+          <thead><tr><th class="edit-target" spellcheck="false" contenteditable="true">제품</th><th class="edit-target" spellcheck="false" contenteditable="true">제조사</th><th class="edit-target" spellcheck="false" contenteditable="true">탑재 중량</th><th class="edit-target" spellcheck="false" contenteditable="true">가격(만원)</th></tr></thead>
+          <tbody>
+            <tr><td class="edit-target" spellcheck="false" contenteditable="true">Scout 플랫폼</td><td class="edit-target" spellcheck="false" contenteditable="true">Agilex Robotics (중국)</td><td class="edit-target" spellcheck="false" contenteditable="true">10~50 kg</td><td class="edit-target" spellcheck="false" contenteditable="true">1,000~2,000</td></tr>
+            <tr><td class="edit-target" spellcheck="false" contenteditable="true">RMP 플랫폼</td><td class="edit-target" spellcheck="false" contenteditable="true">Segway Robotics (중국)</td><td class="edit-target" spellcheck="false" contenteditable="true">5~50 kg</td><td class="edit-target" spellcheck="false" contenteditable="true">800~2,000</td></tr>
+            <tr><td class="edit-target" spellcheck="false" contenteditable="true">MobED</td><td class="edit-target" spellcheck="false" contenteditable="true">Hyundai Motor (한국)</td><td class="edit-target" spellcheck="false" contenteditable="true">57 kg</td><td class="edit-target" spellcheck="false" contenteditable="true">미정 (연구용 출시)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="robot-card">
+      <div class="robot-card-header edit-target" spellcheck="false" contenteditable="true">로봇암 (그리퍼 장착)</div>
+      <div class="robot-card-body" style="padding:0">
+        <table class="robot-table" style="margin:0">
+          <thead><tr><th class="edit-target" spellcheck="false" contenteditable="true">제품</th><th class="edit-target" spellcheck="false" contenteditable="true">제조사</th><th class="edit-target" spellcheck="false" contenteditable="true">탑재 중량</th><th class="edit-target" spellcheck="false" contenteditable="true">가격(만원)</th></tr></thead>
+          <tbody>
+            <tr><td class="edit-target" spellcheck="false" contenteditable="true">매니퓰레이터 플랫폼</td><td class="edit-target" spellcheck="false" contenteditable="true">Robotis (한국)</td><td class="edit-target" spellcheck="false" contenteditable="true">0.5~3 kg</td><td class="edit-target" spellcheck="false" contenteditable="true">170~1,600</td></tr>
+            <tr><td class="edit-target" spellcheck="false" contenteditable="true">Piper 플랫폼</td><td class="edit-target" spellcheck="false" contenteditable="true">Agilex Robotics (중국)</td><td class="edit-target" spellcheck="false" contenteditable="true">1.5 kg</td><td class="edit-target" spellcheck="false" contenteditable="true">300~500</td></tr>
+            <tr><td class="edit-target" spellcheck="false" contenteditable="true">Mycobot 플랫폼</td><td class="edit-target" spellcheck="false" contenteditable="true">Elephant Robotics (중국)</td><td class="edit-target" spellcheck="false" contenteditable="true">1 kg</td><td class="edit-target" spellcheck="false" contenteditable="true">500~600</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">이미지</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+    <!-- ── ② 작물 관리 시스템 개발 ── -->
+    <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">② 작물 관리 시스템 개발</div>
+
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">생육 데이터 ML 분석</div>
+    <div class="robot-banner edit-target" spellcheck="false" contenteditable="true">토마토 환경 데이터(33포인트)로 줄기 생장 예측 — Random Forest 모델 | R² 0.88 · MAE 0.9 cm 달성</div>
+    <div class="robot-card">
+      <table class="robot-table">
+        <thead><tr><th style="width:130px" class="edit-target" spellcheck="false" contenteditable="true">항목</th><th class="edit-target" spellcheck="false" contenteditable="true">내용</th></tr></thead>
+        <tbody>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">분석 대상</td><td class="edit-target" spellcheck="false" contenteditable="true">토마토 환경 데이터 (온도, 습도, CO₂ 등 33개 포인트)</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">활용 모델</td><td class="edit-target" spellcheck="false" contenteditable="true">트리계열 앙상블 (Random Forest)</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">예측 정확도</td><td class="edit-target" spellcheck="false" contenteditable="true">R² 0.88 (설명력 88%) · MAE 0.9 cm (평균 오차)</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">분석 결과</td><td class="edit-target" spellcheck="false" contenteditable="true">변수 중요도 순위 도출 · 상관관계 히트맵 분석 완료</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">한계 및 계획</td><td class="edit-target" spellcheck="false" contenteditable="true">일반화를 위한 추가 데이터 확보 필요 → 다음 단계 진행 중</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">Agentic AI 환경 제어 PoC</div>
+    <div style="font-size:13px; color:var(--fg-secondary); line-height:1.75; margin-bottom:12px;" class="edit-target" spellcheck="false" contenteditable="true">생육 데이터 DB와 ML 학습 모델을 연동하여, 작물 생장 목표 조건에 맞는 최적 환경값을 자동 탐색하는 시스템 테스트 진행 중. <strong>Open-Claw Agentic AI System</strong> + MCP Tool 활용.</div>
+    <div class="robot-card">
+      <table class="robot-table">
+        <thead><tr><th style="width:130px" class="edit-target" spellcheck="false" contenteditable="true">항목</th><th class="edit-target" spellcheck="false" contenteditable="true">내용</th></tr></thead>
+        <tbody>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">플랫폼</td><td class="edit-target" spellcheck="false" contenteditable="true">Open-Claw Agentic AI System + MCP Tool</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">동작 방식</td><td class="edit-target" spellcheck="false" contenteditable="true">학습 모델 기반 목표 생장량 입력 → 최적 환경 설정값 자동 추출</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true">현재 단계</td><td class="edit-target" spellcheck="false" contenteditable="true">PoC 테스트 진행 중 (2026년 4월)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="robot-subtitle edit-target" spellcheck="false" contenteditable="true">생육 인식 모델 (YOLOv11-pose)</div>
+    <div class="robot-banner edit-target" spellcheck="false" contenteditable="true">스마트팜 작물 생육 단계별 위치 좌표를 자동 추출 — 개화기·착과기 인식 모델 개발 완료</div>
+    <div class="robot-card">
+      <table class="robot-table">
+        <thead><tr><th style="width:180px" class="edit-target" spellcheck="false" contenteditable="true">인식 대상</th><th class="edit-target" spellcheck="false" contenteditable="true">학습 데이터</th><th style="width:80px" class="edit-target" spellcheck="false" contenteditable="true">상태</th></tr></thead>
+        <tbody>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true"><strong>착과기 인식</strong> (딸기류)</td><td class="edit-target" spellcheck="false" contenteditable="true">약 300장 이미지 자동 라벨링 + 학습</td><td class="edit-target" spellcheck="false" contenteditable="true">완료</td></tr>
+          <tr><td class="edit-target" spellcheck="false" contenteditable="true"><strong>개화기 인식</strong> (딸기류)</td><td class="edit-target" spellcheck="false" contenteditable="true">약 500장 이미지 자동 라벨링 + 학습</td><td class="edit-target" spellcheck="false" contenteditable="true">완료</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:28px;">
       <div>
         <img src="assets/robot/cucumber_branch_01.jpg" alt="오이 줄기 분기점 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">오이 줄기 분기점 인식 결과 (crop 0.75, 0.62)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">오이 줄기 분기점 인식 결과 (crop 0.75, 0.62)</div>
       </div>
       <div>
         <img src="assets/robot/cucumber_branch_02.jpg" alt="오이 줄기 분기점 인식" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
-        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" spellcheck="false" class="edit-target" contenteditable="true">오이 줄기 분기점 인식 결과 (crop 0.87, 0.77)</div>
+        <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">오이 줄기 분기점 인식 결과 (crop 0.87, 0.77)</div>
       </div>
+    </div>
+
+    <!-- ── ③ 드론 시스템 ── -->
+    <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">③ 드론 시스템</div>
+    <div style="max-width:600px; margin-bottom:20px;">
+      <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:var(--radius);">
+        <source src="assets/robot/drone_system.mp4" type="video/mp4">
+      </video>
+      <div style="font-size:11px; color:var(--fg-muted); margin-top:4px;" class="edit-target" spellcheck="false" contenteditable="true">드론 시스템 — 스마트팜 활용 테스트</div>
     </div>
 
   </div><!-- /r-progress -->
