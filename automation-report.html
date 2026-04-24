@@ -458,13 +458,24 @@ function filterModels(cat, btn) {
   }
 }
 
+function execInjectedScripts(container) {
+  container.querySelectorAll('script').forEach(oldScript => {
+    const s = document.createElement('script');
+    if (oldScript.src) { s.src = oldScript.src; } else { s.textContent = oldScript.textContent; }
+    document.head.appendChild(s);
+    document.head.removeChild(s);
+  });
+}
+
 (async function loadSections() {
   const sections = ['ai', 'ai-work', 'robot'];
   for (const name of sections) {
     try {
       const res = await fetch('sections/' + name + '.html?v=' + Date.now());
       const html = await res.text();
-      document.getElementById('section-' + name).innerHTML = html;
+      const el = document.getElementById('section-' + name);
+      el.innerHTML = html;
+      execInjectedScripts(el);
     } catch(e) {
       console.error('섹션 로드 실패:', name, e);
     }
