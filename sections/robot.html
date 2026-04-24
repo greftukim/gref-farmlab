@@ -84,9 +84,9 @@
 .robot-gantt { min-width: 900px; }
 .robot-gantt thead th.month-h1 { background: var(--accent); color: #fff; }
 .robot-gantt thead th.month-h2 { background: var(--fg-secondary); color: #fff; }
-.robot-gantt tbody td.bar-black { background: var(--fg); }
-.robot-gantt tbody td.bar-dark { background: var(--fg-secondary); }
-.robot-gantt tbody td.bar-muted { background: var(--fg-muted); }
+.robot-gantt tbody tr td.bar-black { background: var(--fg) !important; }
+.robot-gantt tbody tr td.bar-dark { background: var(--fg-secondary) !important; }
+.robot-gantt tbody tr td.bar-muted { background: var(--fg-muted) !important; }
 /* Flow steps */
 .robot-flow {
   display: flex;
@@ -486,16 +486,6 @@
       </div>
     </div>
 
-    <!-- 2026년 예상 개발 비용 -->
-    <div class="robot-section-title edit-target" spellcheck="false" contenteditable="true">2026년 예상 개발 비용</div>
-    <div class="robot-card">
-      <div class="robot-card-body">
-        <div class="robot-cost edit-target" spellcheck="false" contenteditable="true">
-          <strong spellcheck="false" class="edit-target" contenteditable="true">1. 상반기(약 450만원)</strong> : 연구용 로봇팔 169만원 + 3D프린트기 100만원 + 추가모터 및 보드 100만원 + 카메라 50만원 + 기타부속 30만원<br>
-          <strong spellcheck="false" class="edit-target" contenteditable="true">2. 하반기(미정)</strong> : 플랫폼(차량형 or 레일형) 개발 — 모터, 바퀴, 배터리, 가위형 그리퍼 부품 등
-        </div>
-      </div>
-    </div>
 
   </div><!-- /r-roadmap -->
 
