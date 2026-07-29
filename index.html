@@ -610,6 +610,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
       <button class="tab-btn sub-nav-tab active" data-cat="automation" onclick="switchSubSection('ai',this)" style=""><span spellcheck="false">AI(재배)</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('ai-work',this)" style=""><span spellcheck="false">AI(작업 관리)</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('education',this)" style=""><span spellcheck="false">육성</span></button>
+      <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('facility',this)" style=""><span spellcheck="false">설비</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="automation" onclick="switchSubSection('robot',this)" style=""><span spellcheck="false">로봇</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('energy',this)"><span spellcheck="false">부산물</span></button>
       <button class="tab-btn sub-nav-tab" data-cat="energy-cat" style="display: none;" onclick="switchSubSection('solar',this)"><span spellcheck="false">태양광</span></button>
@@ -637,6 +638,7 @@ td[id^="cv_"]:hover { outline: none !important; background: inherit !important; 
   <div id="section-energy" class="section"></div>
   <div id="section-solar" class="section"></div>
   <div id="section-education" class="section"></div>
+  <div id="section-facility" class="section"></div>
   <div id="section-memo" class="section"></div>
 
 </div><!-- /main-content -->
@@ -1130,7 +1132,7 @@ if ('scrollRestoration' in history) {
 document.addEventListener('DOMContentLoaded', async () => {
   // 섹션 로딩 전 스크롤 최상단으로
   window.scrollTo(0, 0);
-  const sectionNames = ['home','nursery','nursery-pf','seed','apc','robot','energy','solar','education','ai','ai-work','memo'];
+  const sectionNames = ['home','nursery','nursery-pf','seed','apc','robot','energy','solar','education','facility','ai','ai-work','memo'];
   await Promise.all(sectionNames.map(async name => {
     const res = await fetch('sections/' + name + '.html?v=' + Date.now());
     const html = await res.text();
