@@ -1,422 +1,312 @@
 <style>
-/* ── Home Section Styles ── */
-.home-section { margin-bottom: 48px; }
+/* ── Home (당진 클러스터 방향성) Styles ── */
+.home-section { margin-bottom: 40px; }
 .home-section:last-child { margin-bottom: 0; }
-
 .home-section-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--fg-muted);
-  margin-bottom: 16px;
-  font-family: var(--font-sans);
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--fg-muted); margin-bottom: 14px;
+  font-family: var(--font-sans); border-bottom: 1px solid var(--border-light); padding-bottom: 6px;
 }
-
-.home-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 40px 0;
-}
-
-/* Vision block */
-.home-vision {
-  padding: 32px 0;
-  margin-bottom: 8px;
-}
-.home-vision-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--fg);
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-.home-vision-desc {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--fg-secondary);
-}
-
-/* 3-column card grid */
-.home-card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-@media (max-width: 720px) {
-  .home-card-grid { grid-template-columns: 1fr; }
-}
-
-.home-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.home-card-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-}
-.home-card-icon {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  background: var(--fg);
-  color: var(--bg);
-  border-radius: var(--radius);
-  flex-shrink: 0;
-}
-.home-card-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--fg);
-}
-.home-card-body {
-  padding: 14px 16px;
-}
-.home-card-desc {
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--fg-secondary);
-}
-
-/* Need card number */
-.home-card-num {
-  font-size: 11px;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  color: var(--fg-muted);
-  letter-spacing: 0.04em;
-}
-
-/* Tech detail cards */
-.home-tech {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-.home-tech:last-child { margin-bottom: 0; }
-
-.home-tech-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-}
-.home-tech-icon {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  background: var(--fg);
-  color: var(--bg);
-  border-radius: var(--radius);
-  flex-shrink: 0;
-}
-.home-tech-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--fg);
-}
-.home-tech-sub {
-  font-size: 11px;
-  color: var(--fg-muted);
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
-  margin-top: 2px;
-}
-.home-tech-body {
-  padding: 18px 20px;
-}
-
-/* Sub-labels inside tech cards */
-.home-sl {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--fg);
-  margin-top: 18px;
-  margin-bottom: 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--border-light);
-}
+.home-divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+.home-vision { padding: 28px 0 8px; margin-bottom: 8px; }
+.home-vision-title { font-size: 20px; font-weight: 700; color: var(--fg); margin-bottom: 12px; letter-spacing: -0.01em; }
+.home-vision-desc { font-size: 14px; line-height: 1.75; color: var(--fg-secondary); }
+.home-sl { font-size: 13px; font-weight: 600; color: var(--fg); margin-top: 20px; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border-light); }
 .home-sl:first-child { margin-top: 0; }
-
-/* Tags */
-.home-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 2px 8px;
-  margin: 2px 4px 2px 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface2);
-  color: var(--fg-secondary);
-  font-family: var(--font-sans);
-}
-
-/* Detail lists */
-.home-detail-list {
-  margin: 8px 0 0 0;
-  padding-left: 18px;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--fg-secondary);
-}
-.home-detail-list li { margin-bottom: 4px; }
+.home-desc { font-size: 13px; line-height: 1.7; color: var(--fg-secondary); margin-top: 6px; }
+.home-detail-list { margin: 8px 0 0 0; padding-left: 18px; font-size: 13px; line-height: 1.7; color: var(--fg-secondary); }
+.home-detail-list li { margin-bottom: 5px; }
 .home-detail-list li:last-child { margin-bottom: 0; }
-
-/* Desc paragraphs */
-.home-desc {
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--fg-secondary);
-  margin-top: 6px;
-}
-
-/* Sub-grid (2 col boxes) */
-.home-sub-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 12px;
-}
-@media (max-width: 600px) {
-  .home-sub-grid { grid-template-columns: 1fr; }
-}
-.home-sub-box {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-}
-.home-sub-box-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 6px;
-}
-.home-sub-box-desc {
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--fg-secondary);
-}
+.home-callout { background: var(--surface2); border: 1px solid var(--fg); border-radius: var(--radius); padding: 14px 18px; margin: 12px 0; font-size: 14px; font-weight: 600; color: var(--fg); line-height: 1.65; }
+.home-note { font-size: 12px; color: var(--fg-muted); line-height: 1.7; margin-top: 8px; }
+/* tables */
+.hm-wrap { overflow-x: auto; margin: 10px 0; }
+.hm-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.55; }
+.hm-table th, .hm-table td { border: 1px solid var(--border); padding: 6px 9px; text-align: left; vertical-align: top; }
+.hm-table th { background: var(--surface2); font-weight: 600; color: var(--fg); font-size: 11px; white-space: nowrap; }
+.hm-table td { color: var(--fg-secondary); }
+.hm-table.wide { min-width: 860px; }
 </style>
 
 <div class="container">
 
-  <!-- ═══ 지향점 ═══ -->
+  <!-- ═══ 타이틀 ═══ -->
   <div class="home-vision">
-    <div class="home-vision-title edit-target" spellcheck="false" contenteditable="true">우리의 지향점</div>
+    <div class="home-vision-title edit-target" spellcheck="false" contenteditable="true">당진 클러스터 준비 — 방향성 및 부서 R&amp;R</div>
     <div class="home-vision-desc edit-target" spellcheck="false" contenteditable="true">
-      미래 온실(대규모 GRID)의 효율적 운영을 위해 필요한 핵심 기술을 개발하고 현장에서 검증한다<br>
-      <strong style="color:var(--fg)" spellcheck="false" class="edit-target" contenteditable="true">무인화 · 에너지 · 생산성</strong> 3대 축의 기술 융합을 통해, 대한민국 시설원예를 글로벌 수준으로 끌어올리는 것이 Farm LAB의 목표이다
-    </div>
-  </div>
-
-  <!-- ═══ 운영 방향 ═══ -->
-  <div class="home-section">
-    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">Farm LAB 운영 방향</div>
-    <div class="home-card-grid">
-      <div class="home-card">
-        <div class="home-card-head">
-          <div class="home-card-icon edit-target" spellcheck="false" contenteditable="true">1</div>
-          <div class="home-card-title edit-target" spellcheck="false" contenteditable="true">기술 개발</div>
-        </div>
-        <div class="home-card-body">
-          <div class="home-card-desc edit-target" spellcheck="false" contenteditable="true">팜랩 시설 활용한 전문기관과의 R&amp;D 추진</div>
-        </div>
-      </div>
-      <div class="home-card">
-        <div class="home-card-head">
-          <div class="home-card-icon edit-target" spellcheck="false" contenteditable="true">2</div>
-          <div class="home-card-title edit-target" spellcheck="false" contenteditable="true">현장 구현</div>
-        </div>
-        <div class="home-card-body">
-          <div class="home-card-desc edit-target" spellcheck="false" contenteditable="true">개발된 기술의 현장 파급 지원 통한 상용화 실현</div>
-        </div>
-      </div>
-      <div class="home-card">
-        <div class="home-card-head">
-          <div class="home-card-icon edit-target" spellcheck="false" contenteditable="true">3</div>
-          <div class="home-card-title edit-target" spellcheck="false" contenteditable="true">밸류체인</div>
-        </div>
-        <div class="home-card-body">
-          <div class="home-card-desc edit-target" spellcheck="false" contenteditable="true">농업에서 확보한 생산물과 품질관리 역량을 타 밸류체인으로 연결</div>
-        </div>
-      </div>
+      당진 클러스터를 향한 사업 방향성과 조직(사업개발팀 · FarmLAB · GREF) 역할 분담, 그리고 FarmLAB의 역할·KPI를 정리한 문서.
+      핵심은 <strong style="color:var(--fg)" spellcheck="false" class="edit-target" contenteditable="true">기술 중심 네트워크</strong>로 당사와 파트너 농가의 물량을 하나의 공급망으로 묶는 것.
     </div>
   </div>
 
   <hr class="home-divider">
 
-  <!-- ═══ 미래 온실 핵심 기술 3요소 ═══ -->
+  <!-- ═══ 01 농업의 현실 ═══ -->
   <div class="home-section">
-    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">미래 온실 — 핵심 기술 3대 축</div>
-    <div class="home-card-grid">
-      <div class="home-card">
-        <div class="home-card-head">
-          <div class="home-card-num edit-target" spellcheck="false" contenteditable="true">01</div>
-          <div class="home-card-title edit-target" spellcheck="false" contenteditable="true">무인화</div>
-        </div>
-        <div class="home-card-body">
-          <div class="home-card-desc edit-target" spellcheck="false" contenteditable="true">
-            AI 기반 실시간 온실 운영 및 표준화·정밀화 제어. 로봇 활용을 전제로, 로봇이 효과적으로 작동할 수 있는 재배 환경 조성
-          </div>
-        </div>
-      </div>
-      <div class="home-card">
-        <div class="home-card-head">
-          <div class="home-card-num edit-target" spellcheck="false" contenteditable="true">02</div>
-          <div class="home-card-title edit-target" spellcheck="false" contenteditable="true">에너지 자립</div>
-        </div>
-        <div class="home-card-body">
-          <div class="home-card-desc edit-target" spellcheck="false" contenteditable="true">공기열·지열 등 기존 에너지 원 이외 열월 탐색(폐열, 숭열). 특히 영농형 태양광, 부산물 에너지 및 EMS(Energy Mgmt. System) AI 연계를 통한 에너지 자립 실현
-          </div>
-        </div>
-      </div>
-      <div class="home-card">
-        <div class="home-card-head">
-          <div class="home-card-num edit-target" spellcheck="false" contenteditable="true">03</div>
-          <div class="home-card-title edit-target" spellcheck="false" contenteditable="true">생산성 극대화</div>
-        </div>
-        <div class="home-card-body">
-          <div class="home-card-desc edit-target" spellcheck="false" contenteditable="true">
-            생산공간 LOSS 최소화(대묘 육묘, 공동 APC&amp; 브랜딩) , 밀식재배를 위한 온도·습도·광 등 환경 제어 기술 확보
-          </div>
-        </div>
-      </div>
+    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">01 · 농업의 현실</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true"><strong>1. 특정 작목의 수익성이 알려지면 농가가 유입되고, 유입되면 가격이 하락하는 구조의 반복.</strong></div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true">올해 사례 — 강원 양구·철원 등에서 멜론·파프리카에서 토마토로 작목 전환 농가 증가, 횡성 등 하우스 증설로 여름작형 재배면적 전년 대비 1.7% 증가. 완숙토마토 도매가는 5kg 상품 9,000~1만 원대로 전년 4월 평균 12,916원을 크게 하회 (한국농수축산신문, 2026.5.4).</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">농가가 당도보다 수확량에 유리한 대과종으로 쏠린 결과 "올해 토마토는 맛없다"는 인식이 확산되어 소비 부진. 물량을 흡수하던 스테비아 토마토도 저가경쟁·품질 저하로 "사양산업" 평가.</li>
+    </ul>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true"><strong>2.</strong> 따라서 차별성 없이 동일 작목·동일 방식으로 진입 시, 진입 자체가 가격을 인하시키는 요인.</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true"><strong>3. 추가 리스크</strong> — 클러스터로 생산 확대 시 해당 물량이 기존 시장에 유입되면 스스로 가격 하락을 촉발하는 자기잠식 발생 가능. 가격 하락 피해를 입는 기존 농가의 반발 소지가 있으며, 대기업 지분 구조인 당사에는 정치적 리스크로 작용할 위험.</div>
+  </div>
+
+  <hr class="home-divider">
+
+  <!-- ═══ 02 차별화가 필요한 배경 ═══ -->
+  <div class="home-section">
+    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">02 · 차별화가 필요한 배경</div>
+
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">글로벌 상업 온실 — 두 축(대규모 수직계열 + 브랜드)을 동시 보유</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true">선도 기업은 예외 없이 두 축을 동시 보유. 브랜드 차별화 단독이 아니라, 대규모 수직계열화로 원가·공급 안정성을 확보한 위에 브랜드를 부가한 구조.</div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true"><strong>NatureSweet (미국·멕시코)</strong> — 북미 최대 수직계열 시설농업 기업. 약 607ha(1,500에이커) 온실에서 토마토·오이·파프리카 재배, 스낵토마토 부문 1위 브랜드. 재배·수확·포장·유통 전 과정 직접 관리로 "일관된 맛·품질·공급"을 판매 논리화. 상품(commodity) 대비 약 20% 높은 매출을 브랜드·혁신·유통 파트너십에서 창출한다고 발표(2025~2026).</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true"><strong>Mastronardi Produce / SUNSET (캐나다·미국)</strong> — 70년 가족기업, 북미 최대 수직계열 생산·유통 기업으로 5,000에이커 이상 재배능력. 1995년 첫 브랜드 토마토 캄파리(Campari) 이래 "일관된 맛"을 핵심 경쟁력화. 농장 단위 이력추적·자체 안전시험 실험실 보유.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true"><strong>Windset Farms (캐나다·미국)</strong> — 미국 내 단일 최대 채소 온실(캘리포니아 산타마리아) 운영. 프리미엄 브랜드(AURA, Aria)를 전개하되 토대는 대규모 생산·파트너 네트워크(2025).</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true"><strong>우듬지팜</strong> — 대규모 단일품목 재배의 원가관리를 실현한 대표 사례. 토망고 가공 방식으로 다수 농가를 규합.</li>
+    </ul>
+
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">그래도팜 사례 — 무엇을 가져올 것인가</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true">경영진은 우듬지팜식 물량 중심이 아니라 그래도팜식으로 스토리·차별성을 갖춘 회사를 지향. 01장의 시장 구조에 비추어 타당한 방향. 다만 그래도팜에서 무엇을 가져올지의 규정이 선행 과제.</div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true">그래도팜 차별성의 뿌리는 대를 이은 유기농에 대한 고집. 부친 원건희 씨가 1983년부터 40년간 유기농법 지속(제27회 대산농촌문화상 수상), 2015년 브랜드 디자이너였던 아들 원승현 씨가 귀농해 철학을 승계하고 브랜드로 전환.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">2대·40년의 유기농 축적 위에 디자인·브랜딩이 얹힌 구조. 차별성의 본체는 품종(에어룸 50종)이나 브랜딩 기법이 아니라 <strong>시간에 걸친 진정성의 축적</strong>.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">서사의 두 겹 — ① 2대에 걸친 유기농 고집(토양·종자 관리, 자체 퇴비·미생물, 에어룸 자가 채종) ② 비규격품 가공을 통한 계약농가 수매 안정화 및 청년농 인큐베이팅으로 파트너 농장을 편입한 상생 구조. 소비자가 구매한 것은 품종이 아니라 축적된 서사.</li>
+    </ul>
+
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">그래도팜과 같아서는 안 되는 이유</div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true">차별성 원리는 수용하되, 모델 자체의 이식은 불가. 규모와 축적의 성격이 상이.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">규모 상이 — 그래도팜은 강원 영월 유기농 가족농장 규모. 다품종·소량 모델을 대규모 상업 온실에 이식 시 네덜란드식 원가경쟁력도 그래도팜식 프리미엄도 확보 불가.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">당사는 그래도팜의 뿌리(2대·40년 유기농 축적) 부재 → 서사 모방 시 진정성에서 열위 확정.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">교훈은 "다품종을 하라"가 아니라 <strong>"시간이 필요한 차별화 역량에 투자하라"</strong>. 그래도팜이 유기농에 40년을 투입한 것처럼, 당사는 에너지를 포함한 원가절감 기술과 파트너 네트워크라는 미래의 축적을 현시점부터 개시.</li>
+    </ul>
+  </div>
+
+  <hr class="home-divider">
+
+  <!-- ═══ 03 당사 차별성 ═══ -->
+  <div class="home-section">
+    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">03 · 당사 차별성</div>
+
+    <div class="home-callout edit-target" spellcheck="false" contenteditable="true">지향점 — "판로를 시작으로, 기술로 협업 농가의 원가·설비 부담을 낮춰 당사와 파트너 농가의 물량을 하나의 공급망으로 묶는 네트워크 회사"</div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true">그래도팜의 품종 다양성·소규모 방식이 아니라, <strong>기술 중심 네트워크(대규모 방식)</strong>로 차별화.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">농가의 당사 선택 사유는 초기에는 판로, 중장기로는 원가절감 기술과 설비 대여. 최저보장가로 맺은 관계는 상회 조건 출현 시 단절되나, 판로·기술·설비로 맺은 관계는 당사 없이 동일 조건 확보가 불가하므로 유지된다.</li>
+    </ul>
+
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">차별화 후보 판정</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true">두 기준을 모두 충족하는 기술 항목만 차별화로 인정. 하나만 충족 시 자격요건 또는 한시적 우위로 분류.</div>
+    <div class="home-note edit-target" spellcheck="false" contenteditable="true">기준 1 (프리미엄) — 증가하는 원가를 초과하는 가격 프리미엄이 붙는가 · 기준 2 (방어) — 경쟁자의 진입에 대해 장기간 방어되는가</div>
+    <div class="hm-wrap">
+      <table class="hm-table wide">
+        <thead><tr><th>단계</th><th>후보</th><th>프리미엄</th><th>방어</th><th>분류</th><th>확보방안</th><th>담당 부서(案)</th></tr></thead>
+        <tbody>
+          <tr><td>종자</td><td>품종 독점 사용권</td><td>충족</td><td>충족</td><td><strong>차별화</strong></td><td>독점 사용권 확보로 접근</td><td>부산</td></tr>
+          <tr><td>종자</td><td>저장성·용도 특화 종자</td><td>충족</td><td>X</td><td>한시적 우위</td><td>판매 계약 규격과 연동</td><td></td></tr>
+          <tr><td>생산</td><td>친환경 재배(유기농)</td><td>충족</td><td>X</td><td>자격요건</td><td>불가 — 장기간 축적 부재</td><td></td></tr>
+          <tr><td>생산</td><td>압도적 원가 경쟁력</td><td>X</td><td>충족</td><td>원가</td><td>인건비·에너지비용 최소화</td><td></td></tr>
+          <tr><td>생산</td><td>안정적 물량 공급</td><td>X(진입기초)</td><td>X</td><td>자격요건</td><td>기본</td><td></td></tr>
+          <tr><td>생산</td><td>계절 공백기 공급</td><td>충족</td><td>X</td><td>한시적 우위</td><td>추가 에너지원 확보 전제</td><td></td></tr>
+          <tr><td>생산</td><td>일관된 품질</td><td>충족</td><td>부분 충족</td><td>효과 불확실</td><td>인공지능 재배모델 개발</td><td>부산</td></tr>
+          <tr><td>육묘</td><td>모종 공급</td><td>충족</td><td>부분 충족</td><td>파트너 결속</td><td>수직농장 육묘 / 대묘</td><td>부산</td></tr>
+          <tr><td>수확후</td><td>공동 산지유통센터 운영</td><td>X</td><td>부분 충족</td><td>원가 / 파트너 결속</td><td>자부담 전제 — 보조 대상 제외</td><td></td></tr>
+          <tr><td>물류</td><td>통합 운송·배차</td><td>X</td><td>부분 충족</td><td>원가 / 파트너 결속</td><td>파트너사 물류 제공(Milk-run)</td><td></td></tr>
+          <tr><td>판매</td><td>유통채널 확보</td><td>X</td><td>충족</td><td>파트너 결속(물량)</td><td>고정 판매처 확보 ; 판매처와 협업</td><td>서울/하동</td></tr>
+          <tr><td>판매</td><td>자사 채널·브랜드</td><td>충족</td><td>충족</td><td><strong>차별화</strong></td><td>시간 및 광고비 투자 필요</td><td>서울</td></tr>
+          <tr><td>판매</td><td>가공 전환</td><td>충족</td><td>부분 충족</td><td>제품군 확대</td><td>가공상품개발 및 마케팅</td><td>서울</td></tr>
+          <tr><td>판매</td><td>품질보증·환불제</td><td>X</td><td>X</td><td>일반화된 관행</td><td>해당 없음</td><td></td></tr>
+          <tr><td>관계</td><td>지역 파트너 네트워크</td><td>충족</td><td>충족</td><td><strong>차별화</strong></td><td>판로·물류·기술 공유로 결속 — 인건비·에너지 절감 기술</td><td>서울(판로), 부산(기술;무인화·생산성), YK(기술;에너지)</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <hr class="home-divider">
 
-  <!-- ═══ 기술별 세부 추진 방향 ═══ -->
+  <!-- ═══ 04 실행 조직 체계 ═══ -->
   <div class="home-section">
-    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">기술별 세부 추진 방향</div>
+    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">04 · 실행 조직 체계</div>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>조직</th><th>위치</th><th>담당 기능</th><th>핵심 성과지표</th></tr></thead>
+        <tbody>
+          <tr><td><strong>사업개발팀</strong></td><td>서울</td><td>판로 개척·네트워크 확보·대관</td><td>공급 계약, 파트너 확보·정부 관계 구축</td></tr>
+          <tr><td><strong>FarmLAB</strong></td><td>부산</td><td>기술 검증·이전 (무인화·생산성 중심)</td><td>품종 검증 및 재배법 확보, 원가절감 솔루션 개발</td></tr>
+          <tr><td><strong>GREF</strong></td><td>상업 온실 소재지</td><td>상업 생산·대규모 물량공급, 원가관리</td><td>단수, kg당 원가, 수익성</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true">조직 성격이 상이하므로 평가 지표도 분리 — 사업개발팀은 관계·계약, FarmLAB은 발견·검증, GREF는 원가·수율.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">동일 조직 편제 시 생산 원가 지표가 연구 실험을 압박하거나, 영업 목표가 생산 균일성을 훼손.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">흐름 단절 시 각 조직이 상이한 방향으로 진행(FarmLAB의 미판매 작목 기술 개발, GREF의 판로 없는 물량 생산)을 방지하기 위해 3자 정보 연계를 정례화.</li>
+    </ul>
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">조직 간 관계 — 정보는 서울에서 시작해 현장으로 흐른다</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true">세 조직은 독립적이되 단절 불가. 판로가 선결 입력값이므로, 사업개발팀이 확보한 판로 정보가 FarmLAB의 연구 방향과 GREF의 생산 작목을 결정.</div>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>정보 흐름</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>사업개발팀 (판로 확보)</td><td>"무엇을, 어떤 규격으로, 얼마나 살 곳이 있다"</td></tr>
+          <tr><td>FarmLAB (원가절감 기술·품종 검증)</td><td>검증된 기술·품종 공급</td></tr>
+          <tr><td>GREF (상업 생산) + 파트너 농가</td><td>물량 확보</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    <!-- 1. 무인화 -->
-    <div class="home-tech">
-      <div class="home-tech-head">
-        <div class="home-tech-icon edit-target" spellcheck="false" contenteditable="true">A</div>
-        <div>
-          <div class="home-tech-name edit-target" spellcheck="false" contenteditable="true">무인화</div>
-          <div class="home-tech-sub edit-target" spellcheck="false" contenteditable="true">AI Autonomous Control · Robotics · Plant-driven Greenhouse</div>
-        </div>
-      </div>
-      <div class="home-tech-body">
+  <hr class="home-divider">
 
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">자율제어 — 식물 주도형 자율 인터랙티브 그린하우스</div>
-        <div>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">식물랭귀지 분석</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">GREF AI 생장모델</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">자율제어온실</span>
-        </div>
-        <ul class="home-detail-list">
-          <li spellcheck="false" class="edit-target" contenteditable="true">식물랭귀지 분석 기술 기반 생육 상태 실시간 진단</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">GREF AI 생장모델 생성 및 검증 — 생장·생산성과 인건비·에너지비 등 비용·농산물 판매가격 연계를 통한 수익 최대화 지향</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">농산물 도매단가 예측 시스템 운영 중 — 기상청 API 연동 품목별 30일 선행 단가 예측 (<a href="https://greftukim.github.io/gref_ai/dashboard.html" target="_blank" style="color:var(--fg);text-decoration:underline;font-weight:500" spellcheck="false" class="edit-target" contenteditable="true">대시보드 바로가기</a>)</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">AI와 환경제어 시스템 연계를 통한 자율제어온실 구현</li>
-        </ul>
-
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">생육상태 측정 로봇</div>
-        <div>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">3D 피노타이핑</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">VOCs 측정</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">스트레스 진단 등</span>
-        </div>
-        <div class="home-desc" spellcheck="false"><br></div>
-
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">수확 로봇</div>
-        <div class="home-desc edit-target" spellcheck="false" contenteditable="true">초기에는 시장 내 판매 로봇 활용 → 현장 운용 중 개선점 파악 → 단계적 자체 개발</div>
-
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">로봇 친화적 환경 조성</div>
-        <ul class="home-detail-list">
-          <li spellcheck="false" class="edit-target" contenteditable="true">야간 작업 대응 재배 체계 수립</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">측지(Side Shoot) 깔끔한 제거 관리</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">로봇 이동이 용이한 공간 설계</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">로봇 수확이 쉬운 작물 품종 개발</li>
-        </ul>
-      </div>
+  <!-- ═══ 05 FarmLAB 역할 ═══ -->
+  <div class="home-section">
+    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">05 · FarmLAB 역할</div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true"><strong>목표</strong> — 미래 온실(대규모 GRID)의 효율적 운영에 필요한 핵심 기술(무인화·생산성)을 확보하고 현장에서 검증.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">초기 FarmLAB의 역할은 단독 발명이 아니라 전문기관과의 공동 연구개발, 기성 기술의 도입·검증·이전, 파트너사에 설비 운용·대여. 자사 온실 운영을 통한 데이터 축적.</li>
+    </ul>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>기여물</th><th>왜 대체 불가능한가</th></tr></thead>
+        <tbody>
+          <tr><td>① 실증 필드</td><td>필요조건이나 이것만으로는 부족(혁신밸리·지자체 실증단지 등 대체재 다수).</td></tr>
+          <tr><td>② 현금 부담 능력</td><td>기술 공급사가 갖지 못한 것. 공동 연구 성립의 실질 조건.</td></tr>
+          <tr><td>③ 계측 SOP·라벨 정합 데이터셋</td><td>타사 농장에서는 물리적 구축 어려움.</td></tr>
+          <tr><td>④ 자체 시제품 제작 이해도</td><td>사양을 정의하고 공급사의 주장을 우리 조건에서 재현·반증하는 능력.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-callout edit-target" spellcheck="false" contenteditable="true">Proving Ground for Life · Proven in the Field. Owned in the Standard. — 현장에서 증명하고, 기준으로 소유한다.</div>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>축</th><th>주요 내용</th></tr></thead>
+        <tbody>
+          <tr><td><strong>무인화</strong></td><td>인공지능 기반 실시간 온실 운영 및 표준작업절차화, 일관된 품질 확보, 로봇을 통한 인건비 절감, 설비관리 체계화</td></tr>
+          <tr><td><strong>생산성</strong></td><td>우수 종자 발굴, 육묘, 밀식재배 환경 제어</td></tr>
+          <tr><td><strong>농가 설비지원</strong></td><td>관련 설비·기술·컨설팅 제공 → 기술로 묶는 결속</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- 2. 에너지 -->
-    <div class="home-tech">
-      <div class="home-tech-head">
-        <div class="home-tech-icon edit-target" spellcheck="false" contenteditable="true">B</div>
-        <div>
-          <div class="home-tech-name edit-target" spellcheck="false" contenteditable="true">에너지</div>
-          <div class="home-tech-sub edit-target" spellcheck="false" contenteditable="true">Multi-source Energy &amp; AI-linked EMS</div>
-        </div>
-      </div>
-      <div class="home-tech-body">
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">에너지원 다변화</div>
-        <div>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">폐열</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">수열</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">공기열</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">지열</span>
-        </div>
-
-        <div class="home-sub-grid">
-          <div class="home-sub-box">
-            <div class="home-sub-box-title edit-target" spellcheck="false" contenteditable="true">태양광/부산물 에너지</div>
-            <div class="home-sub-box-desc edit-target" spellcheck="false" contenteditable="true">영농형 태양광 모듈 개발 참여 — 작물 생육과 발전 효율 양립 가능한 모듈 설계 / 바이오매스 연료화 통한 순환농업 솔루션 구축</div>
-          </div>
-          <div class="home-sub-box">
-            <div class="home-sub-box-title edit-target" spellcheck="false" contenteditable="true">에너지 관리</div>
-            <div class="home-sub-box-desc edit-target" spellcheck="false" contenteditable="true">EMS(Energy Management System)를 통한 AI 연계 에너지 통합 관리 체계 구축</div>
-          </div>
-        </div>
-      </div>
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">무인화</div>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>단계</th><th>내용</th><th>확보 대상</th></tr></thead>
+        <tbody>
+          <tr><td>1단계</td><td>부품 구매·조립을 통한 레일 모빌리티 자체 제작</td><td>필요사양 정의 능력 및 검증 역량</td></tr>
+          <tr><td>2단계</td><td>엔드이펙터에 생육조사 비전 탑재, 생육 데이터 파이프라인 구축</td><td>데이터 수집 자산</td></tr>
+          <tr><td>3단계</td><td>로봇 전문기업 컨소시엄에 참여기업으로 진입</td><td>성과 공동 소유</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-note edit-target" spellcheck="false" contenteditable="true">[참고] 주요 기업 현황</div>
+    <div class="hm-wrap">
+      <table class="hm-table wide">
+        <thead><tr><th>기업</th><th>현재 단계</th><th>핵심 사실</th></tr></thead>
+        <tbody>
+          <tr><td>아이오크롭스</td><td>상용화·자체 농장 운영</td><td>헤르마이(HERMAI) 방제·운반 로봇 상용화, 국내 다수 농가 운영. 방제 로봇은 숙련자 2~4명 작업을 비숙련자 1명으로 대체. 2025년 자사 오이 전국 경매가 1위. 2023년 매출 29억 원(전년比 286% 성장). 수확 로봇 2026년 출시 목표 제시했으나 2026.7 현재 출시 미확인.</td></tr>
+          <tr><td>크로프트</td><td>AI 검증 완료·글로벌 제휴</td><td>2023년 네덜란드 바헤닝언대 주최 농업 AI 경진대회 한국 최초 1위. 2025.6 프리바 호티컬처와 전략적 파트너십. 딸기농장 5곳 기술검증, 전북 김제 실증단지. 목표는 AI가 관찰·판단·환경제어를 수행하는 운영체제.</td></tr>
+          <tr><td>메타파머스</td><td>현장 운영 단계 진입</td><td>서울대 연구실 출신 로보틱스 전문가 설립. 2025.8 프리 시리즈A 30억 유치. 옴니파머(Omni Farmer)가 2026.5 기준 화성 동탄·경북 상주·충남 서산 등 다수 농장 운영. 2026.7 AFPRO 2026에서 딸기·오이 수확 로봇·양팔 농작업 로봇 공개, 농협중앙회장상.</td></tr>
+          <tr><td>랑데뷰</td><td>공개 정보 제한적</td><td>파밀리(farmily) 자율주행 로봇 — 최대 500kg 수송, 무인 방제, 모듈형 확장. 상주 스마트팜 혁신밸리 입주, 농식품부 다부처패키지 국책과제 참여. 최근 2년 공개 투자·상용화 실적 미확인.</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- 3. 생산성 -->
-    <div class="home-tech">
-      <div class="home-tech-head">
-        <div class="home-tech-icon edit-target" spellcheck="false" contenteditable="true">C</div>
-        <div>
-          <div class="home-tech-name edit-target" spellcheck="false" contenteditable="true">생산성</div>
-          <div class="home-tech-sub edit-target" spellcheck="false" contenteditable="true">Productivity Enhancement Solutions</div>
-        </div>
-      </div>
-      <div class="home-tech-body">
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">솔루션</div>
-        <div>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">대묘 육묘</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">공동 APC</span>
-          <span class="home-tag edit-target" spellcheck="false" contenteditable="true">브랜딩</span>
-        </div>
-
-        <div class="home-sl edit-target" spellcheck="false" contenteditable="true">기술 개발</div>
-        <ul class="home-detail-list">
-          <li spellcheck="false" class="edit-target" contenteditable="true">재배공간 확보; 대묘 육묘로 재배기간 연장, 공동 APC 및 브랜딩 통한 비재배공간 공동화</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">밀식재배(High-density Planting) 시 온습도 정밀 제어 ; 보광(Supplemental Lighting) 기술 적용을 통한 광 환경 최적화</li>
-          <li spellcheck="false" class="edit-target" contenteditable="true">농산물 브랜딩 통한 가격 경쟁력 및 생산물 가치 제고</li>
-        </ul>
-
-        <div class="home-sl" spellcheck="false"><br></div>
-        <div class="home-desc" spellcheck="false"><br></div>
-      </div>
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">인공지능</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true">두 개 라인으로 운영. 병목은 두 라인 모두 모델이 아니라 정답 데이터(ground truth)의 품질.</div>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>제1라인 — 생육조사 영상 인식 모델</th></tr></thead>
+        <tbody>
+          <tr><td>1단계 · FarmLAB 데이터 파이프라인 구축 및 공개 소스 기반 자체 모델 개발</td></tr>
+          <tr><td>2단계 · 온실별 잔차 축소 역량 확보 / 사람 재배사와의 성과 비교</td></tr>
+          <tr><td>3단계 · AI 기업·로봇과 동일 방식의 공동 연구(2027년) — 성과 공동 소유 및 최적 파트너 선정</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>제2라인 — 품질 일관성 모델</th></tr></thead>
+        <tbody>
+          <tr><td>1단계 · 품질 실측 체계 확립. 당도·경도·중량을 측정하되 평균이 아니라 분포를 기록</td></tr>
+          <tr><td>2단계 · 재배 환경 데이터와 수확물 품질 분포를 연계하는 모델 구축</td></tr>
+          <tr><td>3단계 · 품질 편차를 축소하는 제어 변수 도출 및 SOP로 고정</td></tr>
+        </tbody>
+      </table>
     </div>
 
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">생산성</div>
+    <ul class="home-detail-list">
+      <li spellcheck="false" class="edit-target" contenteditable="true">신규 품종 테스트 및 우수 품종 독점 사용권 확보.</li>
+      <li spellcheck="false" class="edit-target" contenteditable="true">밀식재배 시 온습도 정밀 제어, 보광 기술 적용을 통한 광 환경 최적화.</li>
+    </ul>
+    <div class="hm-wrap">
+      <table class="hm-table">
+        <thead><tr><th>육묘 단계</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>1단계</td><td>실내 수직농장 기반 육묘, 대묘 생산 및 SOP 데이터 확보</td></tr>
+          <tr><td>2단계</td><td>로봇 기업과 인건비 절감 사양 공동 연구</td></tr>
+          <tr><td>3단계</td><td>동일 파트너와 폐열·태양광 활용 에너지 절감 공동 연구</td></tr>
+          <tr><td>자체 보유</td><td>표준생육방법 SOP, 인공지능 육묘 모델</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-note edit-target" spellcheck="false" contenteditable="true">26년 작기 CMP(Compartment, 재배 구획) 구성</div>
+    <div class="hm-wrap">
+      <table class="hm-table wide">
+        <thead><tr><th>구획</th><th>작물</th><th>품종</th><th>종자사</th><th>용도</th><th>주수</th></tr></thead>
+        <tbody>
+          <tr><td>CMP1</td><td>토마토(완숙)</td><td>레드칸</td><td>Bayer(미푸코)</td><td>AI·로봇 연구테스트 · 하동 Hub 동일 품종</td><td>2,300</td></tr>
+          <tr><td>CMP2</td><td>파프리카(미니)</td><td>앙꼬망</td><td>경남농기원</td><td>신품종 테스트 (독점권 확보 협의 可)</td><td>1,692</td></tr>
+          <tr><td>CMP2</td><td>파프리카(미니)</td><td>미정(시교 FI)</td><td>Enza</td><td>신품종 테스트용</td><td>1,128</td></tr>
+          <tr><td>CMP3</td><td>토마토(방울)</td><td>메들리(그린·오렌지·옐로·브라운)·벨라마리아(적색)</td><td>Rijk Zwaan</td><td>신품종 테스트용</td><td>1,800</td></tr>
+          <tr><td>CMP4</td><td>멜론→딸기</td><td>보달리스→설향</td><td>Enza→이선동농장</td><td>신품종 테스트용</td><td>400→10,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">기타 과제</div>
+    <div class="home-desc edit-target" spellcheck="false" contenteditable="true">식물 성분 바이오 연구에 작물생산자로 참여, 농산물 가공화 방안, 천창 유리 청소로봇 개발, 부산물 자원화, 신규 에너지원 검증 지원.</div>
+  </div>
+
+  <hr class="home-divider">
+
+  <!-- ═══ 06 FarmLAB KPI ═══ -->
+  <div class="home-section">
+    <div class="home-section-label edit-target" spellcheck="false" contenteditable="true">06 · FarmLAB KPI</div>
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">지표 개요</div>
+    <div class="hm-wrap">
+      <table class="hm-table wide">
+        <thead><tr><th>유형</th><th>KPI · 전략과제</th><th>비중</th><th>담당(주)</th><th>담당(부)</th><th>Target</th><th>측정 기준</th></tr></thead>
+        <tbody>
+          <tr><td>KPI</td><td>신규 품종 테스트·검증</td><td>20%</td><td>김현도</td><td>홍승표</td><td>신품종 국내 적응성 검증 및 독점공급권 확보</td><td>검증 완료 품종 수 / 독점권 확보 건수</td></tr>
+          <tr><td>KPI</td><td>육묘 솔루션</td><td>20%</td><td>김태우, 김용찬</td><td>박현도</td><td>식물공장 육묘 기술확보</td><td>PoC 인프라 구축</td></tr>
+          <tr><td>KPI</td><td>로봇 모빌리티 개발</td><td>20%</td><td>박현도, 김태우</td><td>김용찬</td><td>로봇 모빌리티 개발</td><td>진행단계 마일스톤</td></tr>
+          <tr><td>KPI</td><td>재배 AI모델 수립</td><td>30%</td><td>박현도, 김태우</td><td>김현도</td><td>예측 정확도(환경예측 / 1일)</td><td>예측 정확도(환경예측 / 1달)</td></tr>
+          <tr><td>KPI</td><td>설비 관리체계</td><td>10%</td><td>김용찬</td><td>김태우</td><td>설비관리 시스템 — 조건기반보전(CBM)·예지기반보전 목표: 설비 상태 데이터 DB 통합 / 판단기준(임계값·이슈 시나리오)에 따른 이상 자동감지</td><td>진행단계 마일스톤</td></tr>
+          <tr><td>—</td><td>탄소저감 효과 확인</td><td>—</td><td>—</td><td>—</td><td>하동 Hub 탄소저감 효과 측정·산정</td><td>baseline 대비 탄소 감축량</td></tr>
+          <tr><td>—</td><td>폐기 부산물 자원화</td><td>—</td><td>—</td><td>—</td><td>잔재·폐배지 등 자원화로 폐기 처리비 절감</td><td>부산물 처리비 절감액 / 자원화율</td></tr>
+          <tr><td>—</td><td>신규 에너지원 농업 활용 검증</td><td>—</td><td>—</td><td>—</td><td>냉방 에너지원 발굴</td><td>국책과제 참여</td></tr>
+          <tr><td>—</td><td>농산물 부가가치 제고</td><td>—</td><td>—</td><td>—</td><td>식물성분 활용 부가가치 검증</td><td>국책과제 참여</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-sl edit-target" spellcheck="false" contenteditable="true">평가등급 기준</div>
+    <div class="hm-wrap">
+      <table class="hm-table wide">
+        <thead><tr><th>KPI · 전략과제</th><th>S</th><th>A</th><th>B</th><th>C</th></tr></thead>
+        <tbody>
+          <tr><td>신규 품종 테스트·검증</td><td>검증 품종 중 독점 공급권 확보</td><td>신품종 3종 이상 국내 적응성 검증 완료(수량성·품질 데이터)</td><td>CMP2~4 신품종 재배 데이터 축적, 종자사 제휴 채널 구축</td><td>품종 선정·시험재배 착수</td></tr>
+          <tr><td>육묘 솔루션</td><td>PoC 설비 시공 완료</td><td>제어프로그램 자체 개발</td><td>설계 및 운영계획 수립</td><td>협업 기관 발굴</td></tr>
+          <tr><td>로봇 모빌리티 개발</td><td>생육인식비전 모델 개발 / 디지털트윈 인식(90%+)</td><td>로봇 실물 구현·통합 시스템 동작(모빌리티＋리니어＋엔드이펙터 / SW / 모듈간 통신)</td><td>필요 기술 5종 확보(레일·리니어모터·위치인식·디지털트윈·생육인식비전)</td><td>부품 사양 확정 / 매입처 발굴 / 협업기관 탐색</td></tr>
+          <tr><td>재배 AI모델 수립</td><td>90% 이내(온실별 차이 원인 변수 추정)</td><td>통합 GREF DB 구축 / 작업관리앱 개발(GREF Work)</td><td>데이터 인프라 구축(환경·생육·작업)</td><td>기존 재배 작물 재배방법 매뉴얼 정리</td></tr>
+          <tr><td>설비 관리체계</td><td>허브별 설비관리 교육 / 설비관리대장 작성</td><td>설비 유지보수 매뉴얼 제작 / RAG 활용 DB연계</td><td>허브별 이력 정리(이슈 파악) / AI연동 규정 폼</td><td>허브별 유지보수 이슈 대응</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-note edit-target" spellcheck="false" contenteditable="true">※ 03장 판정표의 부산(FarmLAB) 지정 항목 — 품종 독점 사용권 → 신규 품종 테스트·검증, 모종 공급 → 육묘 솔루션, 일관된 품질 → 재배 AI모델 수립.</div>
+    <div class="home-note edit-target" spellcheck="false" contenteditable="true">※ 05장 인공지능 제2라인(품질 일관성 모델)은 2027년 이후 과제로, 금년 평가 대상에서 제외.</div>
   </div>
 
 </div>
